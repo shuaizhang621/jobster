@@ -1,0 +1,7 @@
+.main {
+    display: flex;
+    justify-content: center;
+    background: #333 url(https://static.licdn.com/sc/h/64xk850n3a8uzse6fi11l3vmz);
+    background-size: 100%;
+    background-repeat: repeat-y;
+}
