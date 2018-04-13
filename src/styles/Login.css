@@ -24,6 +24,10 @@
     border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
+.user-type {
+    width: 100%;
+}
+
 #page-tail {
     height: 40px;
     background-color: #434649;

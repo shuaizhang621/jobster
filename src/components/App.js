@@ -10,8 +10,9 @@ class App extends Component {
         isLoggedIn: !!localStorage.getItem(TOKEN_KEY),
     }
 
-    handleLogin = (token) => {
-        localStorage.setItem(TOKEN_KEY, token);
+    handleLogin = (response) => {
+        //localStorage.setItem(TOKEN_KEY, token);
+        console.log(response);
         this.setState({ isLoggedIn: true });
     }
 

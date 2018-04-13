@@ -1,11 +1,13 @@
 import React from 'react';
 import $ from 'jquery';
-import { Form, Icon, Input, Button, message } from 'antd';
+import { Form, Icon, Input, Button, Radio, message } from 'antd';
 import { API_ROOT } from '../constants';
 import { Link } from 'react-router-dom'
 
 
 const FormItem = Form.Item;
+const RadioButton = Radio.Button;
+const RadioGroup = Radio.Group;
 
 class NormalLoginForm extends React.Component {
     handleSubmit = (e) => {
@@ -13,21 +15,22 @@ class NormalLoginForm extends React.Component {
         this.props.form.validateFields((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                //this.props.handleLogin("fake token");
-                // $.ajax({
-                //     url: `${API_ROOT}/login`,
-                //     method: 'POST',
-                //     data: JSON.stringify({
-                //         username: values.username,
-                //         password: values.password,
-                //     }),
-                // }).then((response) => {
-                //     this.props.handleLogin(response);  //response is a token;
-                // }, (error) => {
-                //     message.error(error.responseText);
-                // }).catch((error) => {
-                //     console.log(error);
-                // });
+                $.ajax({
+                    url: `${API_ROOT}/login.php`,
+                    method: 'POST',
+                    data: {
+                        username: values.username,
+                        keywords: values.password,
+                        usertype: values.usertype,
+                    },
+                }).then((response) => {
+                    this.props.handleLogin(response);  //response is a token;
+                }, (error) => {
+                    console.log(error);
+                    message.error(error.responseText);
+                }).catch((error) => {
+                    console.log(error);
+                });
             }
         });
     }
@@ -37,6 +40,14 @@ class NormalLoginForm extends React.Component {
             <div>
                 <div className="login-title">Discover your future</div>
                 <Form onSubmit={this.handleSubmit} className="login-form">
+                    <FormItem>
+                        {getFieldDecorator('usertype')(
+                            <RadioGroup className="user-type">
+                                <RadioButton value="student">Student</RadioButton>
+                                <RadioButton value="company">Company</RadioButton>
+                            </RadioGroup>
+                        )}
+                    </FormItem>
                     <FormItem>
                         {getFieldDecorator('username', {
                             rules: [{ required: true, message: 'Please input your username!' }],
@@ -68,7 +79,6 @@ class NormalLoginForm extends React.Component {
                         Or <Link to="/register">register now!</Link>
                     </FormItem>
                 </Form>
-                <div id="page-tail">tail</div>
             </div>
         );
     }

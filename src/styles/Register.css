@@ -1,5 +1,5 @@
 .register-form {
-    margin-bottom: 80px;
+    margin-bottom: 200px;
     width: 450px;
     padding: 20px;
     border-radius: 2px;
@@ -19,4 +19,30 @@
     border-radius: 2px 2px 0px 0px;
     background: #F6F8FA;
     border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.pre-register {
+    margin-top: 80px;
+    margin-bottom: 35%;
+}
+
+.pre-register-title {
+    font-size: 24px;
+    line-height: 32px;
+    font-weight: 200;
+    font-color: black;
+    margin-top: 40px;
+    width: 600px;
+    padding: 20px;
+    border-radius: 2px 2px 0px 0px;
+    background: #F6F8FA;
+    border-bottom: 1px solid rgba(0,0,0,0.15);
+}
+
+.pre-register-body {
+    margin-bottom: 80px;
+    padding: 30px;
+    border-radius: 2px;
+    background: #EDF0FB;
+    border-radius: 0px 0px 2px 2px;
 }
