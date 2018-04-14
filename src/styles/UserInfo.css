@@ -1,0 +1,9 @@
+.user-info {
+    width: 20%;
+    height: 500px;
+    background-color: white;
+    padding: 30px;
+    margin-left: 20px;
+    margin-top: 20px;
+    border-radius: 2px;
+}

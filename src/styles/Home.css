@@ -1,0 +1,40 @@
+.home {
+    /*background-color: white;*/
+    width: 100%;
+    text-align: left;
+}
+
+.home-main {
+    display: flex;
+    margin: auto;
+}
+
+.home-tab {
+    background-color: white;
+    border-radius: 2px;
+    margin-top: 20px;
+    margin-left: 20px;
+    margin-bottom: 40px;
+}
+
+.home-left {
+    display:block;
+    width: 25%;
+}
+
+.search {
+    margin: 20px;
+    width: 96%;
+}
+
+.tab {
+    margin-top: 20px;
+    margin-left: 20px;
+    width: 1000px;
+    display: block;
+}
+
+.tabpane {
+    background-color: white;
+    border-radius: 2px;
+}

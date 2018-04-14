@@ -60,7 +60,7 @@ export class Main extends React.Component {
         return (
             <div className="main">
                 <Switch>
-                    <Route exact path="/" render={this.getRoot}/>
+                    <Route exact path="/" render={this.getHome}/>
                     <Route path="/login" render={this.getLogin}/>
                     <Route path="/register" render={this.getRegister}/>
                     <Route path="/home" render={this.getHome}/>

@@ -3,10 +3,14 @@
 @import "Main.css";
 @import "Login.css";
 @import "Header.css";
+@import "ItemContainer.css";
+@import "UserInfo.css";
+@import "Home.css";
+@import "UserInfo.css";
+@import "FriendsList.css";
 
 .App {
   text-align: center;
-
 }
 
 .App-logo {
