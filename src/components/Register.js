@@ -12,6 +12,8 @@ class RegistrationForm extends React.Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
+        validateStatus: '',
+        validateMessage: '',
     };
     handleSubmit = (e) => {
         e.preventDefault();
@@ -56,6 +58,55 @@ class RegistrationForm extends React.Component {
             form.validateFields(['confirm'], { force: true });
         }
         callback();
+    }
+
+    checkEmail = (rule, value, callback) => {
+        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+
+        if (value === '') {
+            console.log('checkempty', value);
+            this.setState({
+                validateStatus:'error',
+                validateMessage: 'Please input your email.'
+            });
+            callback('Please input your email.')
+        } else if (!re.test(value)) {
+            console.log("valid email");
+            this.setState({
+                validateStatus:'warning',
+                validateMessage: 'Please input a valid email.'
+            });
+            callback('Please input a valid email.')
+        } else {
+            this.setState({
+                validateStatus:'validating',
+            });
+            console.log(value);
+            console.log('usertype:', this.props.usertype);
+            $.ajax({
+                url: `${API_ROOT}/emailvalidation.php`,
+                method: 'POST',
+                data: {
+                    usertype: this.props.usertype,
+                    semail: value,
+                },
+            }).then((response) => {
+                console.log(response);
+                this.setState({
+                    validateStatus:'success',
+                    validateMessage: '',
+                });
+                callback('Valid email.');
+            }, (response) => {
+                this.setState({
+                    validateStatus:'warning',
+                    validateMessage: 'This email has been used.'
+                });
+                callback('This email has been used.');
+            }).catch((error) => {
+                console.log(error);
+            });
+        }
     }
 
     render() {
@@ -114,9 +165,16 @@ class RegistrationForm extends React.Component {
                 <Form onSubmit={this.handleSubmit} className="register-form">
                     <FormItem
                         {...formItemLayout}
+                        hasFeedback
+                        validateStatus={this.state.validateStatus}
                     >
                         {getFieldDecorator('semail', {
-                            rules: [{ required: true, message: 'Please input your email.', whitespace: true }],
+                            rules: [{
+                                required: true,
+                                message: this.state.validateMessage,
+                                whitespace: true,
+                                validator: this.checkEmail,
+                            }],
                         })(
                             <Input placeholder="Email"/>
                         )}
