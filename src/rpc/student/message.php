@@ -3,7 +3,7 @@
  * Created by PhpStorm.
  * User: hp
  * Date: 2018/4/15
- * Time: 15:26
+ * Time: 15:27
  */
 //the parameters that used for connecting to database.
 $servername = "localhost";
