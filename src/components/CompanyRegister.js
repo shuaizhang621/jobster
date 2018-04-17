@@ -17,26 +17,35 @@ class RegistrationForm extends React.Component {
     };
     handleSubmit = (e) => {
         e.preventDefault();
+        let _this = this;
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                message.success("success registered");
-                this.props.history.push("/login");
-                // $.ajax({
-                //     url: `${API_ROOT}/signup`,
-                //     method: 'POST',
-                //     data: JSON.stringify({
-                //         username: values.username,
-                //         password: values.password
-                //     })
-                // }).then((response) => {
-                //     message.success(response);
-                //     this.props.history.push("/login");
-                // }, (response) => {
-                //     message.error(response.responseText);
-                // }).catch((error) => {
-                //     console.log(error);
-                // });
+                $.ajax({
+                    url: `${API_ROOT}/register.php`,
+                    method: 'POST',
+                    data: {
+                        usertype: this.props.usertype,
+                        cname: values.cname,
+                        ckey: values.ckey,
+                        cemail: values.cemail,
+                        cphone: values.cphone,
+                        clocation: values.clocation,
+                        cindustry: values.cindustry,
+                        cdescription: values.cdescription,
+                    }
+                }).then((response) => {
+                    message.success(response);
+                    console.log(response);
+                    _this.props.history.push("/login");
+                }, (response) => {
+                    console.log(response);
+                    message.error(response.responseText);
+                }).catch((error) => {
+                    console.log(error);
+                });
+            } else {
+                console.log(err);
             }
         });
     }
@@ -46,7 +55,7 @@ class RegistrationForm extends React.Component {
     }
     compareToFirstPassword = (rule, value, callback) => {
         const form = this.props.form;
-        if (value && value !== form.getFieldValue('skey')) {
+        if (value && value !== form.getFieldValue('ckey')) {
             callback('Two passwords that you enter is inconsistent!');
         } else {
             callback();
@@ -86,7 +95,7 @@ class RegistrationForm extends React.Component {
                     validateStatus:'success',
                     validateMessage: '',
                 });
-                callback('Valid name.');
+                callback();
             }, (response) => {
                 this.setState({
                     validateStatus:'warning',
@@ -100,23 +109,6 @@ class RegistrationForm extends React.Component {
 
     render() {
         const { getFieldDecorator } = this.props.form;
-
-        const upProps = {
-            name: 'file',
-            multiple: true,
-            action: '//jsonplaceholder.typicode.com/posts/',
-            onChange(info) {
-                const status = info.file.status;
-                if (status !== 'uploading') {
-                    console.log(info.file, info.fileList);
-                }
-                if (status === 'done') {
-                    message.success(`${info.file.name} file uploaded successfully.`);
-                } else if (status === 'error') {
-                    message.error(`${info.file.name} file upload failed.`);
-                }
-            },
-        };
 
         const prefixSelector = getFieldDecorator('prefix', {
             initialValue: '1',
@@ -165,6 +157,17 @@ class RegistrationForm extends React.Component {
                             }],
                         })(
                             <Input placeholder="Confirm Password" type="password" onBlur={this.handleConfirmBlur} />
+                        )}
+                    </FormItem>
+                    <FormItem>
+                        {getFieldDecorator('cemail', {
+                            rules: [{
+                                type: 'email', message: 'The input is not valid E-mail.',
+                            }, {
+                                required: true, message: 'Please input your E-mail.',
+                            }],
+                        })(
+                            <Input placeholder="E-mail"/>
                         )}
                     </FormItem>
                     <FormItem>
