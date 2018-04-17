@@ -6,7 +6,7 @@
  * Time: 15:27
  */
 
-//I want this.
+//I want this. haha
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
