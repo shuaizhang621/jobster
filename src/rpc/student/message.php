@@ -5,6 +5,8 @@
  * Date: 2018/4/15
  * Time: 15:27
  */
+
+//I want this.
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
