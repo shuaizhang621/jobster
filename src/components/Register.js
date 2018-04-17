@@ -17,29 +17,41 @@ class RegistrationForm extends React.Component {
     };
     handleSubmit = (e) => {
         e.preventDefault();
+        let _this = this;
         this.props.form.validateFieldsAndScroll((err, values) => {
             if (!err) {
                 console.log('Received values of form: ', values);
-                message.success("success registered");
-                this.props.history.push("/login");
-                // $.ajax({
-                //     url: `${API_ROOT}/signup`,
-                //     method: 'POST',
-                //     data: JSON.stringify({
-                //         username: values.username,
-                //         password: values.password
-                //     })
-                // }).then((response) => {
-                //     message.success(response);
-                //     this.props.history.push("/login");
-                // }, (response) => {
-                //     message.error(response.responseText);
-                // }).catch((error) => {
-                //     console.log(error);
-                // });
+                $.ajax({
+                    url: `${API_ROOT}/register.php`,
+                    method: 'POST',
+                    data: {
+                        usertype: this.props.usertype,
+                        semail: values.semail,
+                        skey: values.skey,
+                        sfirstname: values.sfirstname,
+                        slastname: values.slastname,
+                        sgpa: values.sgpa,
+                        sphone: values.sphone,
+                        university: values.university,
+                        smajor: values.smajor,
+                        sresume: values.sresume,
+                    }
+                }).then((response) => {
+                    message.success(response);
+                    console.log(response);
+                    _this.props.history.push("/login");
+                }, (response) => {
+                    console.log(response);
+                    message.error(response.responseText);
+                }).catch((error) => {
+                    console.log(error);
+                });
             }
         });
     }
+
+
+
     handleConfirmBlur = (e) => {
         const value = e.target.value;
         this.setState({ confirmDirty: this.state.confirmDirty || !!value });
@@ -96,7 +108,7 @@ class RegistrationForm extends React.Component {
                     validateStatus:'success',
                     validateMessage: '',
                 });
-                callback('Valid email.');
+                callback();
             }, (response) => {
                 this.setState({
                     validateStatus:'warning',
@@ -129,28 +141,6 @@ class RegistrationForm extends React.Component {
             },
         };
 
-        const formItemLayout = {
-            // labelCol: {
-            //     xs: { span: 24 },
-            //     sm: { span: 0 },
-            // },
-            // wrapperCol: {
-            //     xs: { span: 24 },
-            //     sm: { span: 16 },
-            // },
-        };
-        const tailFormItemLayout = {
-            wrapperCol: {
-                xs: {
-                    span: 24,
-                    offset: 0,
-                },
-                sm: {
-                    span: 16,
-                    offset: 8,
-                },
-            },
-        };
         const prefixSelector = getFieldDecorator('prefix', {
             initialValue: '1',
         })(
@@ -164,7 +154,6 @@ class RegistrationForm extends React.Component {
                 <div className="form-title"> Be great at what you do </div>
                 <Form onSubmit={this.handleSubmit} className="register-form">
                     <FormItem
-                        {...formItemLayout}
                         hasFeedback
                         validateStatus={this.state.validateStatus}
                     >
@@ -179,27 +168,21 @@ class RegistrationForm extends React.Component {
                             <Input placeholder="Email"/>
                         )}
                     </FormItem>
-                    <FormItem
-                        {...formItemLayout}
-                    >
+                    <FormItem>
                         {getFieldDecorator('sfirstname', {
                             rules: [{ required: true, message: 'Please input your firstname.', whitespace: true }],
                         })(
                             <Input placeholder="First Name"/>
                         )}
                     </FormItem>
-                    <FormItem
-                        {...formItemLayout}
-                    >
+                    <FormItem>
                         {getFieldDecorator('slastname', {
                             rules: [{ required: true, message: 'Please input your lastname.', whitespace: true }],
                         })(
                             <Input placeholder="Last Name"/>
                         )}
                     </FormItem>
-                    <FormItem
-                        {...formItemLayout}
-                    >
+                    <FormItem>
                         {getFieldDecorator('skey', {
                             rules: [{
                                 required: true, message: 'Please input your password.',
@@ -210,9 +193,7 @@ class RegistrationForm extends React.Component {
                             <Input placeholder="Password" type="password"/>
                         )}
                     </FormItem>
-                    <FormItem
-                        {...formItemLayout}
-                    >
+                    <FormItem>
                         {getFieldDecorator('confirm', {
                             rules: [{
                                 required: true, message: 'Please confirm your password.',
@@ -223,39 +204,29 @@ class RegistrationForm extends React.Component {
                             <Input placeholder="Confirm Password" type="password" onBlur={this.handleConfirmBlur} />
                         )}
                     </FormItem>
-                    <FormItem
-                        {...formItemLayout}
-                    >
+                    <FormItem>
                         {getFieldDecorator('sphone', {
                             rules: [{ required: true, message: 'Please input your phone number.' }],
                         })(
                             <Input placeholder="Phone Number" addonBefore={prefixSelector} style={{ width: '100%' }} />
                         )}
                     </FormItem>
-                    <FormItem
-                        {...formItemLayout}
-                    >
+                    <FormItem>
                         {getFieldDecorator('suniv')(
                             <Input placeholder="Univeristy"/>
                         )}
                     </FormItem>
-                    <FormItem
-                        {...formItemLayout}
-                    >
+                    <FormItem>
                         {getFieldDecorator('smajor')(
                             <Input placeholder="Major"/>
                         )}
                     </FormItem>
-                    <FormItem
-                        {...formItemLayout}
-                    >
+                    <FormItem>
                         {getFieldDecorator('sgpa')(
                             <Input placeholder="GPA"/>
                         )}
                     </FormItem>
-                    <FormItem // upload url... later...
-                        {...formItemLayout}
-                    >
+                    <FormItem>  /* upload url... later...*/
                         {getFieldDecorator('sresume')(
                             <Dragger {...upProps}>
                                 <p className="ant-upload-drag-icon">
@@ -265,7 +236,7 @@ class RegistrationForm extends React.Component {
                             </Dragger>
                         )}
                     </FormItem>
-                    <FormItem {...formItemLayout}>
+                    <FormItem>
                         <Button type="primary" htmlType="submit">Register</Button>
                         <p>I already have an account, go back to <Link to="/login">login</Link></p>
                     </FormItem>

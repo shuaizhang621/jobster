@@ -57,8 +57,8 @@ if ($conn->connect_error) {
 //$check_update = mysqli_query($conn, $sql_check_update);
 if ($update = mysqli_query($conn, $sql_update) == True) {
     $response = "You have registered successfully!";
-    //echo $response;
-    echo json_encode($response);
+    echo $response;
+    //echo json_encode($response);
 } else {
     header('HTTP/1.0 403 Forbidden');
     $response = "ERROR: ".$update."<br>".$conn->error;
