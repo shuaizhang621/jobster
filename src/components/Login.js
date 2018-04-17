@@ -24,7 +24,7 @@ class NormalLoginForm extends React.Component {
                         usertype: values.usertype,
                     },
                 }).then((response) => {
-                    this.props.handleLogin(response);  //response is a token;
+                    this.props.handleLogin(response, values.username);  //response is a token;
                 }, (error) => {
                     console.log(error);
                     message.error(error.responseText);
@@ -43,8 +43,14 @@ class NormalLoginForm extends React.Component {
                     <FormItem>
                         {getFieldDecorator('usertype')(
                             <RadioGroup className="user-type">
-                                <RadioButton value="student">Student</RadioButton>
-                                <RadioButton value="company">Company</RadioButton>
+                                <RadioButton
+                                    value="student"
+                                    onClick={this.props.handleOnClickStudent}
+                                >Student</RadioButton>
+                                <RadioButton
+                                    value="company"
+                                    onClick={this.props.handleOnClickCompany}
+                                >Company</RadioButton>
                             </RadioGroup>
                         )}
                     </FormItem>

@@ -15,7 +15,7 @@ export class Home extends React.Component {
         return (
             <div className="home">
                 <div className="home-main">
-                    <UserInfo/>
+                    <UserInfo username={this.props.username}/>
                     <div className="home-tab">
                         <Tabs
                             className="tab"

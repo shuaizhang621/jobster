@@ -8,12 +8,16 @@ import { TOKEN_KEY } from '../constants';
 class App extends Component {
     state = {
         isLoggedIn: !!localStorage.getItem(TOKEN_KEY),
+        username: '',
     }
 
-    handleLogin = (response) => {
+    handleLogin = (response, username) => {
         //localStorage.setItem(TOKEN_KEY, token);
         console.log(response);
-        this.setState({ isLoggedIn: true });
+        this.setState({
+            isLoggedIn: true,
+            username: username,
+        });
     }
 
     handleLogout = () => {
@@ -25,7 +29,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Header isLoggedIn={this.state.isLoggedIn} handleLogout={this.handleLogout}/>
-                <Main isLoggedIn={this.state.isLoggedIn} handleLogin={this.handleLogin}/>
+                <Main isLoggedIn={this.state.isLoggedIn} handleLogin={this.handleLogin} username={this.state.username}/>
             </div>
         );
     }

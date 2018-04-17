@@ -66,9 +66,11 @@ export class ItemContainer extends React.Component {
                         />
                         <p>Salary: {item.jsalary}</p>
                         <p>Requirements:</p>
-                        <p><Col span={1}/>Diploma: {item.jreq_diploma}</p>
-                        <p><Col span={1}/>Experience: {item.jreq_experience}</p>
-                        <p><Col span={1}/>Skills: {item.jreq_skills}</p>
+                        <ul>
+                            <li>Diploma: {item.jreq_diploma}</li>
+                            <li>Experience: {item.jreq_experience}</li>
+                            <li>Skills: {item.jreq_skills}</li>
+                        </ul>
                         <Collapse bordered={false}>
                             <Panel header="Description" key="1" style={customPanelStyle}>
                                 <p>{item.jdescription}</p>

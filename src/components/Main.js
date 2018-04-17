@@ -5,6 +5,7 @@ import { Switch, Route, Redirect } from 'react-router'
 import { Home } from './Home';
 import { PreRegister } from "./PreRegister";
 import { CompanyRegister } from "./CompanyRegister";
+import { CompanyHome} from "./CompanyHome";
 
 export class Main extends React.Component {
     state = {
@@ -26,11 +27,23 @@ export class Main extends React.Component {
 
     getLogin = () => {
         console.log(this.state);
-        return this.props.isLoggedIn ? <Redirect to="/home"/> : <Login handleLogin={this.props.handleLogin}/>;
+        return this.props.isLoggedIn ? <Redirect to="/home"/> :
+            <Login
+                handleLogin={this.props.handleLogin}
+                handleOnClickStudent={this.handleOnClickStudent}
+                handleOnClickCompany={this.handleOnClickCompany}
+            />;
     }
 
     getHome = () => {
-        return this.props.isLoggedIn ? <Home/> : <Redirect to="/login"/>;
+        console.log(this.state.usertype);
+        console.log(this.state.usertype == 'student');
+        return this.props.isLoggedIn ?
+            (
+                this.state.usertype == "student" ?
+                <Home username={this.props.username}/> : <CompanyHome username={this.props.username}/>
+            )
+            : <Redirect to="/login"/>;
     }
 
     getRegister = () => {
