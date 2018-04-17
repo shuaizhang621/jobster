@@ -11,6 +11,13 @@ export class Main extends React.Component {
     state = {
         usertype: "",
     }
+
+    setUserType = () => {
+        this.setState({
+            usertype: "",
+        });
+    }
+
     handleOnClickStudent = () => {
         console.log(this.state);
         this.setState({
@@ -32,6 +39,7 @@ export class Main extends React.Component {
                 handleLogin={this.props.handleLogin}
                 handleOnClickStudent={this.handleOnClickStudent}
                 handleOnClickCompany={this.handleOnClickCompany}
+                setUserType={this.setUserType}
             />;
     }
 
@@ -66,9 +74,6 @@ export class Main extends React.Component {
         return <Redirect to="/login"/>;
     }
 
-    componentDidMount() {
-        this.setState({usertype: ""});
-    }
 
     render() {
         return (

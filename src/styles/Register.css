@@ -16,7 +16,7 @@
     margin-top: 40px;
     width: 450px;
     padding: 20px;
-    border-radius: 2px 2px 0px 0px;
+    border-radius: 2px 2px 0 0;
     background: #F6F8FA;
     border-bottom: 1px solid rgba(0,0,0,0.15);
 }
@@ -34,7 +34,7 @@
     margin-top: 40px;
     width: 600px;
     padding: 20px;
-    border-radius: 2px 2px 0px 0px;
+    border-radius: 2px 2px 0 0;
     background: #F6F8FA;
     border-bottom: 1px solid rgba(0,0,0,0.15);
 }
@@ -42,7 +42,11 @@
 .pre-register-body {
     margin-bottom: 80px;
     padding: 30px;
-    border-radius: 2px;
     background: #EDF0FB;
     border-radius: 0px 0px 2px 2px;
 }
+
+.preregister-button {
+    width: 150px;
+}
+

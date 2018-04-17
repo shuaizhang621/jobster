@@ -26,7 +26,6 @@ class NormalLoginForm extends React.Component {
                 }).then((response) => {
                     this.props.handleLogin(response, values.username);  //response is a token;
                 }, (error) => {
-                    console.log(error);
                     message.error(error.responseText);
                 }).catch((error) => {
                     console.log(error);
@@ -34,6 +33,11 @@ class NormalLoginForm extends React.Component {
             }
         });
     }
+
+    componentDidMount() {
+        this.props.setUserType();
+    }
+
     render() {
         const { getFieldDecorator } = this.props.form;
         return (

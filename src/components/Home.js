@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Tabs } from 'antd';
+import { Input, Tabs, message } from 'antd';
 import { API_ROOT, GEO_OPTIONS, AUTH_PREFIX, TOKEN_KEY, POS_KEY } from "../constants";
 import $ from 'jquery';
 import { ItemContainer } from "./ItemContainer";
@@ -10,6 +10,28 @@ const Search = Input.Search;
 const TabPane = Tabs.TabPane;
 
 export class Home extends React.Component {
+    state = {
+        data: [],
+    }
+
+    componentDidMount() {
+        $.ajax({
+            method: 'POST',
+            url: `${API_ROOT}/student/init.php`,
+            data: {
+                semail: this.props.username,
+            },
+        }).then((response) => {
+            this.setState({
+                data: JSON.parse(response),
+            })
+            console.log(this.state.data);
+        }, (error) => {
+            message.error(error.responseText);
+        }).catch((error) => {
+            console.log(error);
+        });
+    }
 
     render() {
         return (
