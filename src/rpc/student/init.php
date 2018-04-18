@@ -1,5 +1,5 @@
 <?php
-//I dont want this.
+
 $semail = $_POST['semail'];
 //initial classes for feedback to frontend.
 class class_response{
