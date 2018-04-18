@@ -4,7 +4,7 @@ CREATE TABLE `Company` (
     `cemail` VARCHAR(10) NOT NULL,
     `clocation` VARCHAR(45) NOT NULL,
     `cphone` VARCHAR(12) NOT NULL,
-    `cindusty` VARCHAR(45) NULL,
+    `cindustry` VARCHAR(45) NULL,
     `cdescription` VARCHAR(200) NULL,
     PRIMARY KEY (`cname`)
 );

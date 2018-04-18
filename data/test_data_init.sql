@@ -43,3 +43,6 @@ INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindus
 VALUES ('ZhuHoucong', '11', 'Houcong@ming.com', 'Beijing', '1521156611', 'CS', 'xxxxx');
 INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindusty`, `cdescription`)
 VALUES ('ZhuZaiji', '12', 'Zaiji@ming.com', 'Beijing', '1566157211', 'CS', 'xxxxx');
+
+INSERT INTO `StudentFriends` VALUES ('dx1368@nyu.edu', 'cz1522@nyu.edu', 'unviewed', '2018-04-03');
+INSERT INTO `StudentFriends` VALUES ('qy1449@nyu.edu', 'cz1522@nyu.edu', 'unviewed', '2018-04-02');
