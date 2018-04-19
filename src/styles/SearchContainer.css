@@ -39,3 +39,22 @@
     transition: all 0.3s cubic-bezier(0.645, 0.045, 0.355, 1);
     font-size: 16px;
 }
+
+.search-radio {
+    text-align: center;
+    margin-left: 18px;
+    height: 45px;
+}
+
+.search-for {
+    font-weight: bold;
+    color: black;
+}
+
+.search-bar {
+    box-shadow: 1px 3px 10px 2px lightgray;
+    padding: 20px;
+    margin: 19px 10px 10px 5px;
+    border-radius: 2px;
+}
+

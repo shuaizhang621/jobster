@@ -10,13 +10,11 @@
 }
 
 .home-tab {
-    background-color: white;
+    /*background-color: white;*/
     border-radius: 2px;
-    margin-top: 20px;
-    margin-left: 20px;
+    margin-top: -59px;
     margin-bottom: 40px;
     width: 80%;
-    box-shadow: 1px 3px 10px 2px lightgray;
 }
 
 .home-left {
@@ -38,4 +36,12 @@
 .tabpane {
     background-color: white;
     border-radius: 2px;
+}
+
+.home .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+    background: white;/*#283e4a;*/
+    border: 3px solid white;
+    border-radius: 0;
+    /*color: white;*/
+    margin-right: 10px;
 }
