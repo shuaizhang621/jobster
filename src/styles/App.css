@@ -8,6 +8,7 @@
 @import "Home.css";
 @import "UserInfo.css";
 @import "FriendsList.css";
+@import "SearchContainer.css";
 
 .App {
   text-align: center;

@@ -4,7 +4,7 @@ import React from 'react';
 const Panel = Collapse.Panel;
 const listData = [];
 
-for (let i = 0; i < 5; i++) {
+for (let i = 0; i < 2; i++) {
     listData.push({
         href: 'http://ant.design',
         jtitle: `Software Engineer ${i}`,

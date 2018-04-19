@@ -1,6 +1,6 @@
 .home {
     /*background-color: white;*/
-    width: 100%;
+    width: 1200px;
     text-align: left;
 }
 
@@ -15,6 +15,8 @@
     margin-top: 20px;
     margin-left: 20px;
     margin-bottom: 40px;
+    width: 80%;
+    box-shadow: 1px 3px 10px 2px lightgray;
 }
 
 .home-left {
@@ -30,7 +32,6 @@
 .tab {
     margin-top: 20px;
     margin-left: 20px;
-    width: 1000px;
     display: block;
 }
 

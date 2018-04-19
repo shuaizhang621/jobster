@@ -150,97 +150,99 @@ class RegistrationForm extends React.Component {
             </Select>
         );
         return (
-            <div>
-                <div className="form-title"> Be great at what you do </div>
-                <Form onSubmit={this.handleSubmit} className="register-form">
-                    <FormItem
-                        hasFeedback
-                        validateStatus={this.state.validateStatus}
-                    >
-                        {getFieldDecorator('semail', {
-                            rules: [{
-                                required: true,
-                                message: this.state.validateMessage,
-                                whitespace: true,
-                                validator: this.checkEmail,
-                            }],
-                        })(
-                            <Input placeholder="Email"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('sfirstname', {
-                            rules: [{ required: true, message: 'Please input your firstname.', whitespace: true }],
-                        })(
-                            <Input placeholder="First Name"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('slastname', {
-                            rules: [{ required: true, message: 'Please input your lastname.', whitespace: true }],
-                        })(
-                            <Input placeholder="Last Name"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('skey', {
-                            rules: [{
-                                required: true, message: 'Please input your password.',
-                            }, {
-                                validator: this.validateToNextPassword,
-                            }],
-                        })(
-                            <Input placeholder="Password" type="password"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('confirm', {
-                            rules: [{
-                                required: true, message: 'Please confirm your password.',
-                            }, {
-                                validator: this.compareToFirstPassword,
-                            }],
-                        })(
-                            <Input placeholder="Confirm Password" type="password" onBlur={this.handleConfirmBlur} />
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('sphone', {
-                            rules: [{ required: true, message: 'Please input your phone number.' }],
-                        })(
-                            <Input placeholder="Phone Number" addonBefore={prefixSelector} style={{ width: '100%' }} />
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('suniv')(
-                            <Input placeholder="Univeristy"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('smajor')(
-                            <Input placeholder="Major"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('sgpa')(
-                            <Input placeholder="GPA"/>
-                        )}
-                    </FormItem>
-                    <FormItem>  /* upload url... later...*/
-                        {getFieldDecorator('sresume')(
-                            <Dragger {...upProps}>
-                                <p className="ant-upload-drag-icon">
-                                    <Icon type="inbox" />
-                                </p>
-                                <p className="ant-upload-text">Put your resume here to upload</p>
-                            </Dragger>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        <Button type="primary" htmlType="submit">Register</Button>
-                        <p>I already have an account, go back to <Link to="/login">login</Link></p>
-                    </FormItem>
-                </Form>
+            <div className='login-register'>
+                <div className='form-wrapper'>
+                    <div className="form-title"> Be great at what you do </div>
+                    <Form onSubmit={this.handleSubmit} className="register-form">
+                        <FormItem
+                            hasFeedback
+                            validateStatus={this.state.validateStatus}
+                        >
+                            {getFieldDecorator('semail', {
+                                rules: [{
+                                    required: true,
+                                    message: this.state.validateMessage,
+                                    whitespace: true,
+                                    validator: this.checkEmail,
+                                }],
+                            })(
+                                <Input placeholder="Email"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('sfirstname', {
+                                rules: [{ required: true, message: 'Please input your firstname.', whitespace: true }],
+                            })(
+                                <Input placeholder="First Name"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('slastname', {
+                                rules: [{ required: true, message: 'Please input your lastname.', whitespace: true }],
+                            })(
+                                <Input placeholder="Last Name"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('skey', {
+                                rules: [{
+                                    required: true, message: 'Please input your password.',
+                                }, {
+                                    validator: this.validateToNextPassword,
+                                }],
+                            })(
+                                <Input placeholder="Password" type="password"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('confirm', {
+                                rules: [{
+                                    required: true, message: 'Please confirm your password.',
+                                }, {
+                                    validator: this.compareToFirstPassword,
+                                }],
+                            })(
+                                <Input placeholder="Confirm Password" type="password" onBlur={this.handleConfirmBlur} />
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('sphone', {
+                                rules: [{ required: true, message: 'Please input your phone number.' }],
+                            })(
+                                <Input placeholder="Phone Number" addonBefore={prefixSelector} style={{ width: '100%' }} />
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('suniv')(
+                                <Input placeholder="Univeristy"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('smajor')(
+                                <Input placeholder="Major"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('sgpa')(
+                                <Input placeholder="GPA"/>
+                            )}
+                        </FormItem>
+                        <FormItem>  /* upload url... later...*/
+                            {getFieldDecorator('sresume')(
+                                <Dragger {...upProps}>
+                                    <p className="ant-upload-drag-icon">
+                                        <Icon type="inbox" />
+                                    </p>
+                                    <p className="ant-upload-text">Put your resume here to upload</p>
+                                </Dragger>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            <Button type="primary" htmlType="submit">Register</Button>
+                            <p>I already have an account, go back to <Link to="/login">login</Link></p>
+                        </FormItem>
+                    </Form>
+                </div>
             </div>
         );
     }

@@ -5,6 +5,8 @@ import $ from 'jquery';
 import { ItemContainer } from "./ItemContainer";
 import { UserInfo } from "./UserInfo";
 import { FriendsList } from "./FriendsList";
+import { MessageContainer} from "./MessageContainer";
+import {SearchContainer} from "./SearchContainer";
 
 const Search = Input.Search;
 const TabPane = Tabs.TabPane;
@@ -48,13 +50,10 @@ export class Home extends React.Component {
                                 <ItemContainer/>
                             </TabPane>
                             <TabPane className="tabpane" tab="Search" key="2">
-                                <Search
-                                    className="search"
-                                    placeholder="input search text"
-                                    onSearch={value => console.log(value)}
-                                    enterButton
-                                />
-                                <ItemContainer/>
+                                <SearchContainer/>
+                            </TabPane>
+                            <TabPane className="tabpane" tab="Message" key="3">
+                                <MessageContainer/>
                             </TabPane>
                         </Tabs>
                     </div>
