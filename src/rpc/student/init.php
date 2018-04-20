@@ -1,5 +1,5 @@
 <?php
-
+//$semail = "cz1522@nyy.edu";
 $semail = $_POST['semail'];
 //initial classes for feedback to frontend.
 class class_response{
@@ -140,7 +140,7 @@ if  ($result_notification_unviewed->num_rows > 0){
 
 //response to frontend.
 if ($response->isEmpty()){
-//    header('HTTP/1.0 403 Forbidden');
+    header('HTTP/1.0 403 Forbidden');
 //    echo "nothing found.";
     echo json_encode($response);
 } else {

@@ -21,8 +21,10 @@ $semailsend = $_POST['semailsend'];
 $semailreceive = $_POST['semailreceive'];
 $content = $_POST['content'];
 //update the message to database.
-$sql_update_messge = "INSERT INTO message (`semailsend`, `semailreceive`, `content`, `sendtime`, `status`)
-VALUES  ('$semailsend', '$semailreceive', '$content', CURRENT_DATE, 'unviewed');";
+$result_max_mid  = mysqli_query($conn,"select max(mid) as mmid from message;");
+$mid = string(intval($result_max_mid->fetch_assoc()['mmid']) + 1);
+$sql_update_messge = "INSERT INTO message (`mid`,`semailsend`, `semailreceive`, `content`, `sendtime`, `status`)
+VALUES  ('$mid','$semailsend', '$semailreceive', '$content', CURRENT_DATE, 'unviewed');";
 if (mysqli_query($conn, $sql_update_messge) == True){
     echo "Your message to ".$semailreceive." has been sent.";
 }
