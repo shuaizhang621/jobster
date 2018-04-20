@@ -139,7 +139,7 @@ $sql_notification_unviewed = "Select * from notification where semailreceive = '
 $result_notification_unviewed = mysqli_query($conn, $sql_notification_unviewed);
 if  ($result_notification_unviewed->num_rows > 0){
     while ($row = $result_notification_unviewed->fetch_assoc()){
-        $info = Build_Company_Info($row);
+        $info = Build_Notification_Info($row);
         array_push($temp_array3, $info);
     }
     $response->notification = $temp_array3;

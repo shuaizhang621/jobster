@@ -116,4 +116,3 @@ CREATE TABLE `Message` (
     FOREIGN KEY (`semailreceive`)
         REFERENCES `Student` (`semail`)
 );
-
