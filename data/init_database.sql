@@ -12,14 +12,14 @@ CREATE TABLE `Company` (
 CREATE TABLE `Student` (
     `semail` VARCHAR(20) NOT NULL,
     `skey` VARCHAR(16) NOT NULL,
-    `sphone` VARCHAR(12) NOT NULL,
+    `sphone` VARCHAR(12) NULL,
     `sfirstname` VARCHAR(20) NOT NULL,
     `slastname` VARCHAR(20) NOT NULL,
-    `suniversity` VARCHAR(40)  NULL,
+    `suniversity` VARCHAR(40) NULL,
     `smajor` VARCHAR(5)  NULL,
     `sgpa` VARCHAR(5)  NULL,
     `sresume` VARCHAR(40)  NULL,
-    `sprivacy` BOOLEAN NOT NULL,
+    `sprivacy` BOOLEAN  NULL,
     PRIMARY KEY (`semail`)
 );
 
@@ -116,4 +116,3 @@ CREATE TABLE `Message` (
     FOREIGN KEY (`semailreceive`)
         REFERENCES `Student` (`semail`)
 );
-
