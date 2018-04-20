@@ -26,7 +26,7 @@ export class Home extends React.Component {
         }).then((response) => {
             this.setState({
                 data: JSON.parse(response),
-            })
+            });
             console.log(this.state.data);
         }, (error) => {
             message.error(error.responseText);
