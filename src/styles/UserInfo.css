@@ -5,9 +5,9 @@
     /*padding: 30px;*/
     margin-left: 20px;
     margin-top: 20px;
-    border-radius: 2px;
     overflow: hidden;
-    box-shadow: 1px 3px 10px 2px lightgray;
+    box-shadow: 1px 2px 8px 1px #e5e5e5;
+    border-radius: 2px;
 }
 
 .user-info-img {

@@ -5,7 +5,7 @@
     padding: 5px 10px 0 15px;
     margin: 20px;
     border-radius: 2px;
-    box-shadow: 1px 3px 10px 2px lightgray;
+    box-shadow: 1px 2px 8px 1px #e5e5e5;
 }
 
 .friend-list .ant-list-item-meta-title {
