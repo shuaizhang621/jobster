@@ -7,7 +7,7 @@ import { UserInfo } from "./UserInfo";
 import { FriendsList } from "./FriendsList";
 import { MessageContainer} from "./MessageContainer";
 import {SearchContainer} from "./SearchContainer";
-
+import update from 'react-addons-update';
 
 const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
 
@@ -16,18 +16,53 @@ const TabPane = Tabs.TabPane;
 
 export class Home extends React.Component {
     state = {
-        userInfo: {
-            friend_request: [],
-            notification: [],
-            personal_info: [{
-                semail: null,
-                skey: "12345678",
-                sphone: "9998886666",
-                sfirstname: "Cong",
-                slastname: "Zhang"
-            }]
+        requestNum: 0,
+        friend_request: [],
+        notification: [],
+        personal_info: [{
+            semail: null,
+            skey: "12345678",
+            sphone: "9998886666",
+            sfirstname: "Cong",
+            slastname: "Zhang"
+        }]
+
+    };
+
+    handleUpdateRequest = (key) => {
+        let requstList = this.state.friend_request;
+        requstList[key] = null;
+        this.setState({
+            friend_request: requstList,
+        });
+    }
+
+    countRequest = (request) => {
+        let count = 0;
+        for (let i = 0; i < request.length; i++) {
+            if (request[i] != null) {
+                count += 1;
+            }
+        }
+        console.log("count", count);
+        return count;
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        //console.log(this.state);
+        let num = this.countRequest(this.state.friend_request);
+
+        console.log('prev:',prevState.requestNum);
+        console.log('this time:', num);
+
+        console.log(prevState.requestNum != num);
+        if (prevState.requestNum != num) {
+            this.setState({
+                requestNum: num,
+            });
         }
     }
+
 
     componentWillMount() {
         $.ajax({
@@ -38,16 +73,16 @@ export class Home extends React.Component {
             },
         }).then((response) => {
             let res = JSON.parse(response);
+
             this.setState({
-                userInfo: res,
+                friend_request: res.friend_request,
+                notification: res.notification,
+                personal_info: res.personal_info,
+                requestNum: this.countRequest(res.friend_request),
             });
         }, (error) => {
             message.error(error.responseText);
         });
-    }
-
-    componentDidUpdate() {
-        console.log(this.state);
     }
 
     render() {
@@ -56,8 +91,10 @@ export class Home extends React.Component {
                 <div className="home-main">
                     <UserInfo
                         username={this.props.username}
-                        info={this.state.userInfo.personal_info[0]}
-                        request={this.state.userInfo.friend_request}
+                        info={this.state.personal_info[0]}
+                        request={this.state.friend_request}
+                        update={this.handleUpdateRequest}
+                        requestNum={this.state.requestNum}
                     />
                     <div className="home-tab">
                         <Tabs
