@@ -1,6 +1,6 @@
 <?php
-$semail = "cz1522@nyu.edu";
-// $semail = $_POST['semail'];
+//$semail = "cz1522@nyu.edu";
+$semail = $_POST['semail'];
 
 //initial classes for feedback to frontend.
 class class_response{
@@ -107,7 +107,7 @@ function Build_friend_request_Info($row){
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
-$password = "";
+$password = "root";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.

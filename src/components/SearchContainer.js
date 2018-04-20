@@ -1,5 +1,5 @@
 import React from 'react';
-import { Icon, Input, AutoComplete, Radio} from 'antd';
+import { Icon, Input, Radio} from 'antd';
 import $ from 'jquery';
 import { API_ROOT } from "../constants";
 

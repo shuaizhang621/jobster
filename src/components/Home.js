@@ -7,16 +7,28 @@ import { UserInfo } from "./UserInfo";
 import { FriendsList } from "./FriendsList";
 import { MessageContainer} from "./MessageContainer";
 import {SearchContainer} from "./SearchContainer";
+import { reqwest } from 'reqwest';
+
+
+const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
 
 const Search = Input.Search;
 const TabPane = Tabs.TabPane;
 
 export class Home extends React.Component {
     state = {
-        data: [],
+        userInfo: {
+            personal_info: [{
+                semail: null,
+                skey: "12345678",
+                sphone: "9998886666",
+                sfirstname: "Cong",
+                slastname: "Zhang"
+            }]
+        }
     }
 
-    componentDidMount() {
+    componentWillMount() {
         $.ajax({
             method: 'POST',
             url: `${API_ROOT}/student/init.php`,
@@ -24,22 +36,24 @@ export class Home extends React.Component {
                 semail: this.props.username,
             },
         }).then((response) => {
+            let res = JSON.parse(response);
             this.setState({
-                data: JSON.parse(response),
+                userInfo: res,
             });
-            console.log(this.state.data);
         }, (error) => {
             message.error(error.responseText);
-        }).catch((error) => {
-            console.log(error);
         });
+    }
+
+    componentDidUpdate() {
+        console.log(this.state);
     }
 
     render() {
         return (
             <div className="home">
                 <div className="home-main">
-                    <UserInfo username={this.props.username}/>
+                    <UserInfo username={this.props.username} info={this.state.userInfo.personal_info[0]}/>
                     <div className="home-tab">
                         <Tabs
                             className="tab"
@@ -50,10 +64,10 @@ export class Home extends React.Component {
                                 <ItemContainer/>
                             </TabPane>
                             <TabPane className="tabpane" tab="Search" key="2">
-                                <SearchContainer/>
+                                <SearchContainer username={this.props.username}/>
                             </TabPane>
                             <TabPane className="tabpane" tab="Message" key="3">
-                                <MessageContainer/>
+                                <MessageContainer username={this.props.username}/>
                             </TabPane>
                         </Tabs>
                     </div>

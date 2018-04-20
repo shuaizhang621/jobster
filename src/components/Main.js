@@ -9,28 +9,28 @@ import { CompanyHome} from "./CompanyHome";
 
 export class Main extends React.Component {
     state = {
-        usertype: '',
-    }
+        usertype: 'student',
+    };
 
     setUserType = () => {
         this.setState({
             usertype: "",
         });
-    }
+    };
 
     handleOnClickStudent = () => {
         console.log(this.state);
         this.setState({
             usertype: "student",
-        })
-    }
+        });
+    };
 
     handleOnClickCompany = () => {
         console.log(this.state);
         this.setState({
             usertype: "company",
         })
-    }
+    };
 
     getLogin = () => {
         console.log(this.state);
@@ -41,7 +41,7 @@ export class Main extends React.Component {
                 handleOnClickCompany={this.handleOnClickCompany}
                 setUserType={this.setUserType}
             />;
-    }
+    };
 
     getHome = () => {
         console.log(this.state.usertype);
@@ -52,7 +52,7 @@ export class Main extends React.Component {
                 <Home username={this.props.username}/> : <CompanyHome username={this.props.username}/>
             )
             : <Redirect to="/login"/>;
-    }
+    };
 
     getRegister = () => {
         if (this.state.usertype == "student") {
@@ -68,11 +68,11 @@ export class Main extends React.Component {
                 handleOnClickCompany={this.handleOnClickCompany}
             />
         }
-    }
+    };
 
     getRoot = () => {
         return <Redirect to="/login"/>;
-    }
+    };
 
 
     render() {

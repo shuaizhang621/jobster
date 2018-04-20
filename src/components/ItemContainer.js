@@ -1,4 +1,4 @@
-import { List, Avatar, Icon, Collapse, Button, Col } from 'antd';
+import { List, Icon, Collapse, Button, } from 'antd';
 import React from 'react';
 
 const Panel = Collapse.Panel;
