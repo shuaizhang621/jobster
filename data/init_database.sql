@@ -19,6 +19,7 @@ CREATE TABLE `Student` (
     `smajor` VARCHAR(5)  NULL,
     `sgpa` VARCHAR(5)  NULL,
     `sresume` VARCHAR(40)  NULL,
+    `sprivacy` BOOLEAN NOT NULL,
     PRIMARY KEY (`semail`)
 );
 
@@ -55,14 +56,14 @@ CREATE TABLE `StudentFollowCompany` (
         REFERENCES `Company`(`cname`)
 );
 
-
 CREATE TABLE `StudentApplyJob` (
+    `aid` VARCHAR(10) NOT NULL,
     `semail` VARCHAR(20) NOT NULL,
     `jid` VARCHAR(10) NOT NULL,
     `cname` VARCHAR(45) NOT NULL,
     `status` VARCHAR(10) NULL,
     `applytime` date,
-    PRIMARY KEY (`semail`,`jid`,`cname`),
+    PRIMARY KEY (`aid`),
     FOREIGN key (`semail`)
         REFERENCES `Student` (`semail`),
     FOREIGN KEY (`cname`)
@@ -87,8 +88,8 @@ CREATE TABLE `Notification` (
     `nid` VARCHAR(10) NOT NULL,
     `companysend` VARCHAR(45) NULL,
     `semailsend` VARCHAR(20) NULL,
-    `semailreceive` VARCHAR(20)  NULL,
-    `jid` VARCHAR(10)  NULL,
+    `semailreceive` VARCHAR(20)  NOT NULL,
+    `jid` VARCHAR(10)  NOT NULL,
     `pushtime` date NOT NULL,
     `status` VARCHAR(10) NOT NULL,
     PRIMARY KEY (`nid`),
@@ -109,7 +110,7 @@ CREATE TABLE `Message` (
     `content` VARCHAR(200) NOT NULL,
     `sendtime` date NOT NULL,
     `status` VARCHAR(10) NOT NULL,
-    PRIMARY KEY (`semailsend`, `semailreceive`),
+    PRIMARY KEY (`mid`),
     FOREIGN key (`semailsend`)
         REFERENCES `Student` (`semail`),
     FOREIGN KEY (`semailreceive`)

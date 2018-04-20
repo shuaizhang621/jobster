@@ -24,8 +24,10 @@ if ($conn->connect_error) {
 }
 
 //update application to the backend database.
-$sql_update_application = "INSERT INTO StudentApplyJob(`semail`, `jid`, `cname`, `status`, `applytime`)
- VALUES('$semail', '$jid', '$cname','unviewed', CURDATE());";
+$result_max_aid  = mysqli_query($conn,"select max(aid) as maid from StudentApplyJob;");
+$aid = string(intval($result_max_aid->fetch_assoc()['maid']) + 1);
+$sql_update_application = "INSERT INTO StudentApplyJob(`aid`, `semail`, `jid`, `cname`, `status`, `applytime`)
+ VALUES('$aid','$semail', '$jid', '$cname','unviewed', CURDATE());";
 mysqli_query($conn, $sql_update_application);
 
 //check if the application has been updated.

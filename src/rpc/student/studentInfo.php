@@ -1,11 +1,10 @@
 <?php
 /**
  * Created by PhpStorm.
- * User: Stand Alone Complex
- * Date: 2018/4/17
- * Time: 20:37
+ * User: hp
+ * Date: 2018/4/19
+ * Time: 17:18
  */
-//initial classes for feedback to frontend.
 class personal_info{
     public $semail;
     public $skey;
@@ -22,6 +21,7 @@ function Build_personal_Info($row)
 {
     $personalInfo = new personal_info();
     $personalInfo->seamil = $row['semail'];
+    $personalInfo->skey = $row['skey'];
     $personalInfo->sphone = $row['sphone'];
     $personalInfo->sfirstname = $row['sfirstname'];
     $personalInfo->slastname = $row['slastname'];
@@ -31,7 +31,6 @@ function Build_personal_Info($row)
     $personalInfo->sresume = $row['sresume'];
     return $personalInfo;
 }
-
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
@@ -43,29 +42,28 @@ $conn = new mysqli($servername, $dbusername, $password, $dbname);
 if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
-//initialize return variable.
+
+//get parameter from forntend
+$semail = $_POST['semail'];
+
+//initialize response to frontend.
 $response = array();
 $temp_array = array();
-//get parameters from frontend
-$keyword = $_POST['keyword'];
-$sgpalower = $_POST['sgpalower'];
-$sgpahigh = $_POST['sgpahigh'];
 
-//query from backend database to find the students that fit the keywords;
-$sql_search_student = "select * from student where $suniverstiy like '%$keyword%' or (sgpa between '$sgpalower' and '$sgpahigh')
-or smajor like '%$keyword%';";
-$result_search_student = mysqli_query($conn, $sql_search_student);
-if ($result_search_student->num_rows > 0){
-    while($row = $result_search_student->fetch_assoc()){
-        $info = Build_personal_Info($row);
-        array_push($temp_array, $info);
-    }
-    $repsonse['student_info'] = $temp_array;
+//query student info from backend database if the company accepts the application.
+$sql_student_info = "select * from Student where semail = '$semail';";
+$result_student_info = mysqli_query($conn, $sql_student_info);
+if ($result_student_info->num_rows > 0){
+    $row = $result_student_info->fetch_assoc();
+    $info = Build_personal_Info($row);
+    array_push($temp_array, $info);
+    $response['student_info'] = $temp_array;
 }
-else{
-    $response['student_info'] = NULL;
+else
+{
+    header('HTTP/1.0 403 Forbidden');
+    echo "Database error:"."<br>"."$conn->error";
 }
-
 echo json_encode($response);
 
 $conn->close();
