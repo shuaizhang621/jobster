@@ -1,9 +1,36 @@
 import React from "react";
-import { Avatar } from 'antd';
+import { Avatar, Button, notification } from 'antd';
+
+const ButtonGroup = Button.Group;
+
 
 export class UserInfo extends React.Component {
-    render() {
 
+    close = () => {
+        console.log('Notification was closed. Either the close button was clicked or duration time elapsed.');
+    };
+
+    openRequest = () => {
+        this.props.request.map((req, index) => {
+            const key = index;
+            const btn = (
+                <ButtonGroup>
+                    <Button onClick={() => notification.close(key)}>Decline</Button>
+                    <Button onClick={() => notification.close(key)}>Accept</Button>
+                </ButtonGroup>
+            );
+            notification.open({
+                message: 'New Friend Request',
+                description: `${req.semailsend} wants to add you as friend.`,
+                btn,
+                key,
+                onClose: this.close,
+                duration: 0,
+            });
+        });
+    };
+
+    render() {
         return (
             <div className="user-info">
                 <img
@@ -21,9 +48,14 @@ export class UserInfo extends React.Component {
                     <p className="user-info-name">
                         {`${this.props.info.sfirstname} ${this.props.info.slastname}`}
                     </p>
-                    <p>Seeking for Full-time Software Engineer Position</p>
+                    <p>{this.props.info.suniversity}</p>
+                    <p>{this.props.info.smajor}</p>
                 </div>
-
+                <div>
+                    <Button type="primary" onClick={this.openRequest}>
+                        Open the notification box
+                    </Button>
+                </div>
             </div>
         )
 

@@ -7,7 +7,6 @@ import { UserInfo } from "./UserInfo";
 import { FriendsList } from "./FriendsList";
 import { MessageContainer} from "./MessageContainer";
 import {SearchContainer} from "./SearchContainer";
-import { reqwest } from 'reqwest';
 
 
 const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
@@ -18,6 +17,8 @@ const TabPane = Tabs.TabPane;
 export class Home extends React.Component {
     state = {
         userInfo: {
+            friend_request: [],
+            notification: [],
             personal_info: [{
                 semail: null,
                 skey: "12345678",
@@ -53,7 +54,11 @@ export class Home extends React.Component {
         return (
             <div className="home">
                 <div className="home-main">
-                    <UserInfo username={this.props.username} info={this.state.userInfo.personal_info[0]}/>
+                    <UserInfo
+                        username={this.props.username}
+                        info={this.state.userInfo.personal_info[0]}
+                        request={this.state.userInfo.friend_request}
+                    />
                     <div className="home-tab">
                         <Tabs
                             className="tab"
