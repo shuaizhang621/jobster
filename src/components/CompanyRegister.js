@@ -1,12 +1,11 @@
 import React from 'react';
-import { Upload, Icon, Form, Input, Select, Button, message } from 'antd';
+import { Form, Input, Select, Button, message } from 'antd';
 import {API_ROOT} from "../constants";
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
 const FormItem = Form.Item;
 const Option = Select.Option;
-const Dragger = Upload.Dragger;
 
 class RegistrationForm extends React.Component {
     state = {

@@ -1,7 +1,7 @@
 import React from 'react';
-import lobster from '../assets/image/lobster.svg';
+//import lobster from '../assets/image/lobster.svg';
 import { Icon } from 'antd';
-
+//"https://static.licdn.com/sc/h/95o6rrc5ws6mlw6wqzy0xgj7y"
 
 export class Header extends React.Component {
 

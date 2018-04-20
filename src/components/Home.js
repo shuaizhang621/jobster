@@ -1,15 +1,12 @@
 import React from 'react';
 import { Input, Tabs, message } from 'antd';
-import { API_ROOT, GEO_OPTIONS, AUTH_PREFIX, TOKEN_KEY, POS_KEY } from "../constants";
+import { API_ROOT } from "../constants";
 import $ from 'jquery';
 import { ItemContainer } from "./ItemContainer";
 import { UserInfo } from "./UserInfo";
 import { FriendsList } from "./FriendsList";
 import { MessageContainer} from "./MessageContainer";
 import {SearchContainer} from "./SearchContainer";
-import update from 'react-addons-update';
-
-const fakeDataUrl = 'https://randomuser.me/api/?results=5&inc=name,gender,email,nat&noinfo';
 
 const Search = Input.Search;
 const TabPane = Tabs.TabPane;
@@ -20,11 +17,11 @@ export class Home extends React.Component {
         friend_request: [],
         notification: [],
         personal_info: [{
-            semail: null,
-            skey: "12345678",
-            sphone: "9998886666",
-            sfirstname: "Cong",
-            slastname: "Zhang"
+            semail: "",
+            skey: "",
+            sphone: "",
+            sfirstname: "",
+            slastname: "",
         }]
 
     };
@@ -39,9 +36,11 @@ export class Home extends React.Component {
 
     countRequest = (request) => {
         let count = 0;
-        for (let i = 0; i < request.length; i++) {
-            if (request[i] != null) {
-                count += 1;
+        if (request != null) {
+            for (let i = 0; i < request.length; i++) {
+                if (request[i] != null) {
+                    count += 1;
+                }
             }
         }
         console.log("count", count);
@@ -63,6 +62,10 @@ export class Home extends React.Component {
         }
     }
 
+    componentDidUpdate() {
+        console.log(this.state);
+
+    }
 
     componentWillMount() {
         $.ajax({
