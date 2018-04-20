@@ -32,16 +32,16 @@ VALUES ('sy1567@nyu.edu', '12345678', '9998882222', 'Song', 'Yan', 'New York Uni
     `cemail` VARCHAR(10) NOT NULL,
     `clocation` VARCHAR(45) NOT NULL,
     `cphone` VARCHAR(12) NOT NULL,
-    `cindusty` VARCHAR(45) NULL,
+    `cindustry` VARCHAR(45) NULL,
     `cdescription` VARCHAR(200) NULL,
 */
-INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindusty`, `cdescription`)
+INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindustry`, `cdescription`)
 VALUES ('ZhuYuanzhang', '1', 'yuanzhang@ming.com', 'Nanjing', '1368139811', 'CS', 'xxxxx');
-INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindusty`, `cdescription`)
+INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindustry`, `cdescription`)
 VALUES ('ZhuDi', '2', 'di@ming.com', 'Nanjing', '1402142411', 'CS', 'xxxxx');
-INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindusty`, `cdescription`)
+INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindustry`, `cdescription`)
 VALUES ('ZhuHoucong', '11', 'Houcong@ming.com', 'Beijing', '1521156611', 'CS', 'xxxxx');
-INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindusty`, `cdescription`)
+INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindustry`, `cdescription`)
 VALUES ('ZhuZaiji', '12', 'Zaiji@ming.com', 'Beijing', '1566157211', 'CS', 'xxxxx');
 
 /*format of job
