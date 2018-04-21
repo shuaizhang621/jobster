@@ -135,7 +135,8 @@ if  ($result_personal_info->num_rows > 0){
 
 //query notifications of followed company and other students send from backend database.
 $temp_array3 = array();
-$sql_notification_unviewed = "Select * from notification where semailreceive = '$semail' and status = 'unviewed';";
+$sql_notification_unviewed = "select * from JobAnnouncement where jid in 
+(Select jid from notification where semailreceive = '$semail' and status = 'unviewed');";
 $result_notification_unviewed = mysqli_query($conn, $sql_notification_unviewed);
 if  ($result_notification_unviewed->num_rows > 0){
     while ($row = $result_notification_unviewed->fetch_assoc()){
