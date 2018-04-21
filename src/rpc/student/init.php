@@ -54,7 +54,7 @@ class personal_info{
 function Build_personal_Info($row)
 {
     $personalInfo = new personal_info();
-    $personalInfo->seamil = $row['semail'];
+    $personalInfo->semail = $row['semail'];
     $personalInfo->skey = $row['skey'];
     $personalInfo->sphone = $row['sphone'];
     $personalInfo->sfirstname = $row['sfirstname'];

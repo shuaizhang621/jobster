@@ -24,7 +24,7 @@ $receive = $_POST['receive'];
 
 //check if the sender and receiver are already friends.If not, then update the backend database table StudentFriends.
 $sql_send_friend_check = "select * from StudentFriends where (semailsend = '$send' and semailreceive = '$receive') 
-or (semailsend = '$receive' and seamilreceive = '$send');";
+or (semailsend = '$receive' and semailreceive = '$send');";
 
 $result_send_friend_check = mysqli_query($conn, $sql_send_friend_check);
 if ($result_send_friend_check->num_rows > 0){

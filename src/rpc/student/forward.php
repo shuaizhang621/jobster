@@ -26,7 +26,7 @@ $jid = $_POST['jid'];
 
 //update backend database
 $sql_forward_update = "INSERT INTO notification (`nid`, `semailsend`, `semailreceive`, `jid`, `pushtime`, `status`)
-values ('$nid', '$semail', '$seamilreceive', '$jid', CURDATE(), 'unviewed')";
+values ('$nid', '$semail', '$semailreceive', '$jid', CURDATE(), 'unviewed')";
 
 if (mysqli_query($conn, $sql_forward_update) == True){
     echo "Your forward has been sent successfully.";
