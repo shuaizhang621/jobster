@@ -1,6 +1,6 @@
 <?php
-$semail = "cz1522@nyu.edu";
-// $semail = $_POST['semail'];
+//$semail = "dx1368@nyu.edu";
+$semail = $_POST['semail'];
 
 //initial classes for feedback to frontend.
 class class_response{
