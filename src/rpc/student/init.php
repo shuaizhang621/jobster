@@ -151,7 +151,7 @@ if  ($result_notification_unviewed->num_rows > 0){
 //query pending student friend request
 $temp_array = array();
 $sql_pending_friend_request = "select * from student where semail in 
-(select semail from studentfriends where semailreceive = '$semail' and status = 'unviewed');";
+(select semailsend from studentfriends where semailreceive = '$semail' and status = 'unviewed');";
 $result_pending_friend_request = mysqli_query($conn, $sql_pending_friend_request);
 if ($result_pending_friend_request->num_rows > 0){
     while ($row = $result_pending_friend_request->fetch_assoc()){
@@ -164,7 +164,8 @@ if ($result_pending_friend_request->num_rows > 0){
 //query friends of a student
 $temp_array4 = array();
 $sql_pending_friend_request = "select * from student where semail in 
-(select semail from studentfriends where semailreceive = '$semail' and status = 'Accepted');";
+(select semailsend from studentfriends where semailreceive = '$semail' and status = 'Accepted') 
+or semail in (select semailreceive from StudentFriends where semailsend = '$semail');";
 $result_pending_friend_request = mysqli_query($conn, $sql_pending_friend_request);
 if ($result_pending_friend_request->num_rows > 0){
     while ($row = $result_pending_friend_request->fetch_assoc()){
