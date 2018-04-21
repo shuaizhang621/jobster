@@ -7,6 +7,7 @@ class class_response{
     public $friend_request;
     public $notification;
     public $personal_info;
+    public $friends;
     public function isEmpty()
     {
         return empty($this->friend_request) and empty($this->notification) and empty($this->personal_info);
@@ -154,10 +155,23 @@ $sql_pending_friend_request = "select * from student where semail in
 $result_pending_friend_request = mysqli_query($conn, $sql_pending_friend_request);
 if ($result_pending_friend_request->num_rows > 0){
     while ($row = $result_pending_friend_request->fetch_assoc()){
-        $info = Build_friend_request_Info($row);
+        $info = Build_personal_Info($row);
         array_push($temp_array, $info);
     }
     $response->friend_request = $temp_array;
+}
+
+//query friends of a student
+$temp_array4 = array();
+$sql_pending_friend_request = "select * from student where semail in 
+(select semail from studentfriends where semailreceive = '$semail' and status = 'Accepted');";
+$result_pending_friend_request = mysqli_query($conn, $sql_pending_friend_request);
+if ($result_pending_friend_request->num_rows > 0){
+    while ($row = $result_pending_friend_request->fetch_assoc()){
+        $info = Build_personal_Info($row);
+        array_push($temp_array4, $info);
+    }
+    $response->friends = $temp_array4;
 }
 
 //response to frontend.
