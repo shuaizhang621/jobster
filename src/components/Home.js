@@ -27,10 +27,10 @@ export class Home extends React.Component {
     };
 
     handleUpdateRequest = (key) => {
-        let requstList = this.state.friend_request;
-        requstList[key] = null;
+        let requestList = this.state.friend_request;
+        requestList[key] = null;
         this.setState({
-            friend_request: requstList,
+            friend_request: requestList,
         });
     }
 
@@ -48,7 +48,7 @@ export class Home extends React.Component {
     }
 
     componentDidUpdate(prevProps, prevState) {
-        //console.log(this.state);
+        console.log(this.state);
         let num = this.countRequest(this.state.friend_request);
 
         console.log('prev:',prevState.requestNum);
@@ -60,11 +60,6 @@ export class Home extends React.Component {
                 requestNum: num,
             });
         }
-    }
-
-    componentDidUpdate() {
-        console.log(this.state);
-
     }
 
     componentWillMount() {

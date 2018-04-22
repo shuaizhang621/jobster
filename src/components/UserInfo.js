@@ -24,19 +24,19 @@ export class UserInfo extends React.Component {
     };
 
     sendFeed = (choice, sender) => {
-        // $.ajax({
-        //     method: 'POST',
-        //     url: `${API_ROOT}/student/dealFriends.php`,
-        //     data: {
-        //         send: sender,
-        //         receive: this.props.username,
-        //         choice: choice,
-        //     }
-        // }).then((response) => {
-        //     console.log(response);
-        // }, (error) => {
-        //     console.log(error);
-        // });
+        $.ajax({
+            method: 'POST',
+            url: `${API_ROOT}/student/dealFriends.php`,
+            data: {
+                send: sender,
+                receive: this.props.username,
+                choice: choice,
+            }
+        }).then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
     };
 
 
@@ -49,10 +49,11 @@ export class UserInfo extends React.Component {
                     <Button onClick={() => this.handleAccept(key, req.semailsend)}>Accept</Button>
                 </ButtonGroup>
             );
+            console.log(req);
             if (req != null) {
                 notification.open({
                     message: 'New Friend Request',
-                    description: `${req.semailsend} wants to add you as friend.`,
+                    description: `${req.seamil} wants to add you as friend.`,
                     btn,
                     key,
                     onClose: this.close,
