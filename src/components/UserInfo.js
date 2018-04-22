@@ -45,8 +45,8 @@ export class UserInfo extends React.Component {
             const key = `${index}`;
             const btn = (
                 <ButtonGroup>
-                    <Button onClick={() => this.handleDecline(key, req.semailsend)}>Decline</Button>
-                    <Button onClick={() => this.handleAccept(key, req.semailsend)}>Accept</Button>
+                    <Button onClick={() => this.handleDecline(key, req.semail)}>Decline</Button>
+                    <Button onClick={() => this.handleAccept(key, req.semail)}>Accept</Button>
                 </ButtonGroup>
             );
             console.log(req);

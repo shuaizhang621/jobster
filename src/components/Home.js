@@ -15,6 +15,7 @@ export class Home extends React.Component {
     state = {
         requestNum: 0,
         friend_request: [],
+        friends: [],
         notification: [],
         personal_info: [{
             semail: "",
@@ -47,21 +48,6 @@ export class Home extends React.Component {
         return count;
     }
 
-    componentDidUpdate(prevProps, prevState) {
-        console.log(this.state);
-        let num = this.countRequest(this.state.friend_request);
-
-        console.log('prev:',prevState.requestNum);
-        console.log('this time:', num);
-
-        console.log(prevState.requestNum != num);
-        if (prevState.requestNum != num) {
-            this.setState({
-                requestNum: num,
-            });
-        }
-    }
-
     componentWillMount() {
         $.ajax({
             method: 'POST',
@@ -71,16 +57,48 @@ export class Home extends React.Component {
             },
         }).then((response) => {
             let res = JSON.parse(response);
+            console.log(res);
 
             this.setState({
-                friend_request: res.friend_request,
-                notification: res.notification,
-                personal_info: res.personal_info,
+                friend_request: res.friend_request == null ? [] : res.friend_request,
+                friends: res.friends == null ? [] : res.friends,
+                notification: res.notification == null ? [] : res.notification,
+                personal_info: res.personal_info == null ? [] : res.personal_info,
                 requestNum: this.countRequest(res.friend_request),
             });
         }, (error) => {
             message.error(error.responseText);
         });
+    }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log(this.state);
+        let num = this.countRequest(this.state.friend_request);
+        if (prevState.requestNum != num) {
+            this.setState({
+                requestNum: num,
+            });
+        }
+        $.ajax({
+            method: 'POST',
+            url: `${API_ROOT}/student/init.php`,
+            data: {
+                semail: this.props.username,
+            },
+        }).then((response) => {
+            let res = JSON.parse(response);
+            if (res != null && res.friends != null) {
+                if (prevState.friends.length != res.friends.length) {
+                    this.setState({
+                        friends: res.friends,
+                    });
+                }
+            }
+
+        }, (error) => {
+            message.error(error.responseText);
+        });
+
     }
 
     render() {
@@ -111,7 +129,7 @@ export class Home extends React.Component {
                             </TabPane>
                         </Tabs>
                     </div>
-                    <FriendsList/>
+                    <FriendsList friends={this.state.friends}/>
                 </div>
 
             </div>
