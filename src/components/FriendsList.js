@@ -24,8 +24,12 @@ export class FriendsList extends React.Component {
                                         placement="leftTop"
                                         content={
                                             <div>
+                                                <p>{item.sfirstname} {item.slastname}</p>
+                                                <p>{item.suniversity}</p>
+                                                <p>{item.smajor}</p>
+                                                <p>{item.sphone}</p>
+                                                <p>{item.semail}</p>
                                                 <Button>Message</Button>
-                                                <Button>bt2</Button>
                                             </div>
                                         }
                                         trigger="click"
