@@ -23,27 +23,35 @@ $send = $_POST['send'];
 $receive = $_POST['receive'];
 $choice = $_POST['choice'];
 
+//initialize response to frontend.
+$response = array();
 //update the status based on what choice has been made by the receiver.
 if ($choice == "Accepted"){
 $sql_update_friend_status = "UPDATE StudentFriends SET status = 'Accepted' where semailsend = '$send' 
 and semailreceive = '$receive';";
     if (mysqli_query($conn, $sql_update_friend_status) == True ){
-        echo $receive."accepted your friend request.";
+        $response['update_status'] = True;
+        $response['update_statement'] = $receive."accepted your friend request.";
+        echo $response;
     }
     else{
         header('HTTP/1.0 403 Forbidden');
-        echo "Database error:"."\"<br>\".$conn->error";
+        $response['update_status'] = False;
+        $response['update_statement'] =  "Database error:"."<br>".$conn->error;
+        echo $response;
     }
 
 }
 elseif ($choice == "Denied"){
 $sql_update_friend_status = "DELETE FROM StudentFriends WHERE semailsend = '$send' and semailreceive = '$receive';";
     if (mysqli_query($conn, $sql_update_friend_status) == True){
-        echo $receive." denied your request.";
+        $response['update_status'] = $receive." denied your request.";
+        echo $response;
     }
     else{
         header('HTTP/1.0 403 Forbidden');
-        echo "Database error:"."\"<br>\".$conn->error";
+        $response['update_status'] = "Database error:"."<br>".$conn->error;
+        echo $response;
     }
 }
 else{

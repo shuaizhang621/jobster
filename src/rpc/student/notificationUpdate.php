@@ -25,7 +25,7 @@ $nid = $_POST['nid'];
 $sql_update_notification = "update notification set status = 'viewed' where nid = '$nid'";
 
 if (mysqli_query($conn, $sql_update_notification) == True){
-    echo "Notification has been update to viewed.";
+    echo "Notification (nid = ".$nid.")has been update to viewed.";
 }
 else{
     header('HTTP/1.0 403 Forbidden');

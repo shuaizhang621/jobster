@@ -22,7 +22,12 @@ $semailreceive = $_POST['semailreceive'];
 $content = $_POST['content'];
 //update the message to database.
 $result_max_mid  = mysqli_query($conn,"select max(mid) as mmid from message;");
-$mid = string(intval($result_max_mid->fetch_assoc()['mmid']) + 1);
+if ($result_max_mid->num_rows > 0){
+    $mid = strval(intval($result_max_mid->fetch_assoc()['mmid']) + 1);
+}
+else{
+    $mid = 1;
+}
 $sql_update_messge = "INSERT INTO message (`mid`,`semailsend`, `semailreceive`, `content`, `sendtime`, `status`)
 VALUES  ('$mid','$semailsend', '$semailreceive', '$content', CURRENT_DATE, 'unviewed');";
 if (mysqli_query($conn, $sql_update_messge) == True){
