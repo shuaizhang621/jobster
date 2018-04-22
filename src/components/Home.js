@@ -119,7 +119,7 @@ export class Home extends React.Component {
                             tabPosition="top"
                         >
                             <TabPane className="tabpane" tab="Home" key="1">
-                                <ItemContainer/>
+                                <ItemContainer notification={this.state.notification}/>
                             </TabPane>
                             <TabPane className="tabpane" tab="Search" key="2">
                                 <SearchContainer username={this.props.username}/>
