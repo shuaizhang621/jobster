@@ -34,7 +34,7 @@ if ($result_send_friend_check->num_rows > 0){
 }
 else{
     $sql_insert_send_friend = "INSERT INTO StudentFriends (`semailsend`, `semailreceive`, `status`, `sendtime`) 
-VALUES ('$send', '$receive', 'pending', CURDATE());";
+VALUES ('$send', '$receive', 'unviewed', CURDATE());";
     mysqli_query($conn, $sql_insert_send_friend);
     $result_check_insert = mysqli_query($conn, $sql_send_friend_check);
     if ($result_check_inser->num_rows > 0){

@@ -20,17 +20,21 @@ if ($conn->connect_error) {
 
 //get parameters from frontend.
 $mid = $_POST['mid'];
-
+//initialize response to frontend.
+$response = array();
 //update the notification status to 'viewed' at backend database.
 $sql_update_message = "update message set status = 'viewed' where mid = '$mid';";
 
 if (mysqli_query($conn, $sql_update_message) == True){
-    echo "Message has been update to viewed.";
+    $response['update_status'] = True;
+    $response['update_statement'] = "Message has been update to viewed.";
+    echo $response;
 }
 else{
     header('HTTP/1.0 403 Forbidden');
-    echo "Database error:"."<br>"."$conn->error";
+    $response ['update_status'] = True;
+    $response['update_statement'] = "Database error:"."<br>".$conn->error;
+    echo $response;
 }
-
 $conn->close();
 ?>

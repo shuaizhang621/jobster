@@ -33,6 +33,8 @@ function Build_Job_Info($row)
 
 //get parameter from frontend.
 $keyword = $_POST['keyword'];
+//initialize response to frontend.
+$response = array();
 
 //the parameters that used for connecting to database.
 $servername = "localhost";
@@ -46,7 +48,7 @@ if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
 //search companies that fit the keywords from backend database.
-$sql_job_search = "select *  from  job where jid LIKE '%$keyword%' or jtitle like '%$keyword%' or 
+$sql_job_search = "select *  from  JobAnnouncement where jid LIKE '%$keyword%' or jtitle like '%$keyword%' or 
 jsalary like '%$keyword%' or jreq_diploma like '%$keyword%' or jreq_experience like '%$keyword%' or 
 jreq_skills like '%$keyword%' or jlocation like '%$keyword%' or jdescription like '%$keyword%';";
 $result_job_search = mysqli_query($conn, $sql_job_search);
@@ -56,7 +58,7 @@ if  ($result_job_search->num_rows > 0){
         $info = Build_job_Info($row);
         array_push($response, $info);
     }
-    echo json_encode($response_job_info);
+    echo json_encode($response);
 }
 else{
     header('HTTP/1.0 403 Forbidden');
