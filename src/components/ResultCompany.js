@@ -1,6 +1,5 @@
-import { List, Icon, Collapse, Button, } from 'antd';
+import { List, Collapse, Button, } from 'antd';
 import React from 'react';
-import {UserInfo} from "./UserInfo";
 
 const Panel = Collapse.Panel;
 const listData = [];
@@ -12,23 +11,7 @@ const pagination = {
     onChange: (() => {}),
 };
 
-const IconText = ({ type, text }) => (
-    <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-        {text}
-  </span>
-);
-
-const customPanelStyle = {
-    background: '#f7f7f7',
-    borderRadius: 4,
-    marginBottom: 24,
-    marginRight: 20,
-    border: 0,
-    overflow: 'hidden',
-};
-
-export class PeopleResult extends React.Component {
+export class ResultCompany extends React.Component {
     render() {
         return (
             <List

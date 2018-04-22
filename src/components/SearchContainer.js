@@ -3,7 +3,9 @@ import { Icon, Input, Radio} from 'antd';
 import $ from 'jquery';
 import { API_ROOT } from "../constants";
 import {ItemContainer} from "./ItemContainer";
-import {PeopleResult} from "./PeopleResult";
+import {ResultPeople} from "./ResultPeople";
+import {ResultCompany} from "./ResultCompany";
+import {ResultJob} from "./ResultJob";
 
 const RadioButton = Radio.Button;
 const RadioGroup = Radio.Group;
@@ -84,9 +86,9 @@ export class SearchContainer extends React.Component {
                         style={{ width: 620 }}
                     />
                 </div>
-                {this.state.show === 1 && <PeopleResult result={this.state.data} />}
-                {this.state.show === 2 && <ItemContainer />}
-                {this.state.show === 3 && <ItemContainer />}
+                {this.state.show === 1 && <ResultPeople result={this.state.data} />}
+                {this.state.show === 2 && <ResultJob result={this.state.data} />}
+                {this.state.show === 3 && <ResultCompany result={this.state.data} />}
             </div>
 
 
