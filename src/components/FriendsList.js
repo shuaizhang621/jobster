@@ -34,7 +34,7 @@ export class FriendsList extends React.Component {
                                         }
                                         trigger="click"
                                     >
-                                        <div onClick={this.handleOnClickAvatar}>
+                                        <div>
                                             <Avatar
                                                 style={{ backgroundColor: colorList[Math.floor(Math.random() * 4)], verticalAlign: 'middle' }}
                                                 size="middle"

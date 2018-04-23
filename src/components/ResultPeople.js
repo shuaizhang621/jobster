@@ -1,5 +1,7 @@
-import { List, Collapse, Button, } from 'antd';
+import { List, Collapse, Button, Avatar } from 'antd';
 import React from 'react';
+import $ from 'jquery';
+import {API_ROOT} from "../constants";
 
 const Panel = Collapse.Panel;
 const listData = [];
@@ -12,7 +14,27 @@ const pagination = {
 };
 
 export class ResultPeople extends React.Component {
+    handleAddFriend = (e) => {
+        let receiver = e.target.id;
+        console.log(e.target.id);
+        $.ajax({
+            url: `${API_ROOT}/student/sendFriend.php`,
+            method: 'POST',
+            data: {
+                send: this.props.username,
+                receive: receiver,
+            }
+        }).then((response) => {
+            let res = JSON.parse(response);
+            console.log(res);
+        }, (error) => {
+            console.log(error);
+        })
+    }
+
     render() {
+        const colorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];
+
         return (
             <List
                 className="item-container"
@@ -23,13 +45,35 @@ export class ResultPeople extends React.Component {
                 renderItem={item => (
                     <List.Item
                         key={item.jtitle}
-                        actions={[<Button>Forword</Button>, <Button>Apply</Button>]}
                     >
                         <List.Item.Meta
-                            title={<a href={item.href}>{item.jtitle}</a>}
-                            description='dscripasfaslf'
+                            title={
+                                <div>
+                                    <Avatar
+                                        style={{
+                                            backgroundColor: colorList[Math.floor(Math.random() * 4)],
+                                            verticalAlign: 'middle'
+                                        }}
+                                        size="middle"
+                                    >
+                                        {item.sfirstname}
+                                    </Avatar>
+                                    <span>{` ${item.sfirstname} ${item.slastname}`}</span>
+                                </div>
+                            }
+                            description={
+                                <span>
+                                    <span>{`${item.suniversity}  |   ${item.smajor}`}</span>
+                                    <Button
+                                        id={item.semail}
+                                        shape="circle"
+                                        icon="user-add"
+                                        size="large"
+                                        onClick={this.handleAddFriend}
+                                    />
+                                </span>
+                            }
                         />
-                        <div>{JSON.stringify(item)}</div>
                     </List.Item>
                 )}
             />

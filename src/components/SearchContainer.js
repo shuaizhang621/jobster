@@ -61,7 +61,7 @@ export class SearchContainer extends React.Component {
 
     render() {
         return (
-            <div>
+            <div className="search">
                 <div className="search-bar">
                     <div className="search-selection">
                         <span className="search-for">Search for:</span>
@@ -86,9 +86,28 @@ export class SearchContainer extends React.Component {
                         style={{ width: 620 }}
                     />
                 </div>
-                {this.state.show === 1 && <ResultPeople result={this.state.data} />}
-                {this.state.show === 2 && <ResultJob result={this.state.data} />}
-                {this.state.show === 3 && <ResultCompany result={this.state.data} />}
+                {
+                    this.state.show === 1
+                    &&
+                    <ResultPeople
+                        result={this.state.data}
+                        username={this.props.username}
+                    />
+                } {
+                    this.state.show === 2
+                    &&
+                    <ResultJob
+                        result={this.state.data}
+                        username={this.props.username}
+                    />
+                } {
+                    this.state.show === 3
+                    &&
+                    <ResultCompany
+                        result={this.state.data}
+                        username={this.props.username}
+                    />
+                }
             </div>
 
 
