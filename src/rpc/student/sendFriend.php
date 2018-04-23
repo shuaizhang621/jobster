@@ -28,8 +28,14 @@ or (semailsend = '$receive' and semailreceive = '$send');";
 
 $result_send_friend_check = mysqli_query($conn, $sql_send_friend_check);
 if ($result_send_friend_check->num_rows > 0){
-    $response = "You are already friends.";
-    //echo $response;
+    $row = $result_send_friend_check->fetch_assoc();
+    if ($row['status']  == 'unviewed'){
+        $response = "Your request is still being pending.";
+    }
+    else {
+        $response = "You are already friends.";
+        //echo $response;
+    }
     echo json_encode($response);
 }
 else{
@@ -37,7 +43,7 @@ else{
 VALUES ('$send', '$receive', 'unviewed', CURDATE());";
     mysqli_query($conn, $sql_insert_send_friend);
     $result_check_insert = mysqli_query($conn, $sql_send_friend_check);
-    if ($result_check_inser->num_rows > 0){
+    if ($result_check_insert->num_rows > 0){
         $response = "Your friend request has been sent.";
         //echo $response;
         echo json_encode($response);
