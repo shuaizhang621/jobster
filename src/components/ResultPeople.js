@@ -36,35 +36,36 @@ export class ResultPeople extends React.Component {
         const colorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];
 
         return (
-            <List
-                className="item-container"
-                itemLayout="vertical"
-                size="large"
-                pagination={pagination}
-                dataSource={this.props.result}
-                renderItem={item => (
-                    <List.Item
-                        key={item.jtitle}
-                    >
-                        <List.Item.Meta
-                            title={
-                                <div>
-                                    <Avatar
-                                        style={{
-                                            backgroundColor: colorList[Math.floor(Math.random() * 4)],
-                                            verticalAlign: 'middle'
-                                        }}
-                                        size="middle"
-                                    >
-                                        {item.sfirstname}
-                                    </Avatar>
-                                    <span>{` ${item.sfirstname} ${item.slastname}`}</span>
-                                </div>
-                            }
-                            description={
-                                <span>
+            <div className="result-people">
+                <List
+                    className="item-container"
+                    grid={{ column: 2, gutter: 20, }}
+                    size="large"
+                    dataSource={this.props.result}
+                    renderItem={item => (
+                        <List.Item
+                            key={item.jtitle}
+                        >
+                            <List.Item.Meta
+                                title={
+                                    <div>
+                                        <Avatar
+                                            style={{
+                                                backgroundColor: colorList[Math.floor(Math.random() * 4)],
+                                                verticalAlign: 'middle'
+                                            }}
+                                            size="middle"
+                                        >
+                                            {item.sfirstname}
+                                        </Avatar>
+                                        <span>{` ${item.sfirstname} ${item.slastname}`}</span>
+                                    </div>
+                                }
+                                description={
+                                    <span>
                                     <span>{`${item.suniversity}  |   ${item.smajor}`}</span>
                                     <Button
+                                        className="add-friend-button"
                                         id={item.semail}
                                         shape="circle"
                                         icon="user-add"
@@ -72,11 +73,13 @@ export class ResultPeople extends React.Component {
                                         onClick={this.handleAddFriend}
                                     />
                                 </span>
-                            }
-                        />
-                    </List.Item>
-                )}
-            />
+                                }
+                            />
+                        </List.Item>
+                    )}
+                />
+            </div>
+
         );
     }
 }

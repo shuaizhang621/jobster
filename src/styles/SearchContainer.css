@@ -15,3 +15,19 @@
     margin: 19px 10px 10px 10px;
     border-radius: 2px;
 }
+
+.result-people .item-container .ant-list-item{
+    width: 320px;
+    margin-left: 10px;
+    padding: 20px;
+}
+
+.result-people .item-container .ant-list-item .element.style{
+    padding: 20px;
+}
+
+.add-friend-button {
+    margin-top: -28px;
+    margin-right: 15px;
+    float: right;
+}
