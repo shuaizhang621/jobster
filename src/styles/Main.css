@@ -19,7 +19,8 @@
 .main {
     display: flex;
     justify-content: center;
-
+    background-color: #F5F5F5;
+    height: 2000px;
     /*position: fixed;*/
     /*left: 0;*/
     /*right: 0;*/
