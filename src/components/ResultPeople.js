@@ -1,4 +1,4 @@
-import { List, Collapse, Button, Avatar } from 'antd';
+import { List, Collapse, Button, Avatar, message } from 'antd';
 import React from 'react';
 import $ from 'jquery';
 import {API_ROOT, colorList } from "../constants";
@@ -26,6 +26,13 @@ export class ResultPeople extends React.Component {
             }
         }).then((response) => {
             let res = JSON.parse(response);
+            console.log(response.length);
+            if (response.length === 38) {
+                message.warning(response.substring(1,37));
+            }
+            if (response.length === 36) {
+                message.success(response.substring(1, 35));
+            }
             console.log(res);
         }, (error) => {
             console.log(error);
