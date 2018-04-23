@@ -158,6 +158,9 @@ if  ($result_personal_info->num_rows > 0){
     $response->personal_info = $temp_array2;
     //echo json_encode($response_personal_info);
 }
+else{
+    $response->personal_info=[];
+}
 
 //query notifications of followed company and other students send from backend database.
 $temp_array3 = array();
@@ -172,6 +175,9 @@ if  ($result_notification_unviewed->num_rows > 0){
     $response->notification = $temp_array3;
     //echo json_encode($response_personal_info);
 }
+else{
+    $response->notification = [];
+}
 
 //query pending student friend request
 $temp_array = array();
@@ -184,6 +190,9 @@ if ($result_pending_friend_request->num_rows > 0){
         array_push($temp_array, $info);
     }
     $response->friend_request = $temp_array;
+}
+else{
+    $response->friend_request = [];
 }
 
 //query friends of a student
@@ -198,6 +207,9 @@ if ($result_pending_friend_request->num_rows > 0){
         array_push($temp_array4, $info);
     }
     $response->friends = $temp_array4;
+}
+else{
+    $response->friends = [];
 }
 
 //response to frontend.

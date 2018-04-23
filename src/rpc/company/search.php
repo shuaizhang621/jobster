@@ -52,7 +52,7 @@ $sgpalower = $_POST['sgpalower'];
 $sgpahigh = $_POST['sgpahigh'];
 
 //query from backend database to find the students that fit the keywords;
-$sql_search_student = "select * from student where $suniverstiy like '%$keyword%' or (sgpa between '$sgpalower' and '$sgpahigh')
+$sql_search_student = "select * from student where suniversity like '%$keyword%' or (sgpa between '$sgpalower' and '$sgpahigh')
 or smajor like '%$keyword%';";
 $result_search_student = mysqli_query($conn, $sql_search_student);
 if ($result_search_student->num_rows > 0){
@@ -60,10 +60,10 @@ if ($result_search_student->num_rows > 0){
         $info = Build_personal_Info($row);
         array_push($temp_array, $info);
     }
-    $repsonse['student_info'] = $temp_array;
+    $response['student_info'] = $temp_array;
 }
 else{
-    $response['student_info'] = NULL;
+    $response['student_info'] = []  ;
 }
 
 echo json_encode($response);
