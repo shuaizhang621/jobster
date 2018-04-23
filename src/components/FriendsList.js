@@ -46,7 +46,7 @@ export class FriendsList extends React.Component {
 
                                 }
                                 description={item.semail}
-                                title={<a href="https://ant.design">{item.sfirstname} {item.slastname}</a>}
+                                title={<a href="https://www.linkedin.com/in/shuaizhang621">{item.sfirstname} {item.slastname}</a>}
                             />
                         </List.Item>
                     )}

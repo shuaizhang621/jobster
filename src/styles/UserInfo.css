@@ -20,6 +20,7 @@
 .user-avatar {
     display: table;
     margin: -30px auto auto auto;
+
 }
 
 .user-avatar-content {
@@ -28,8 +29,13 @@
     border-radius: 30px;
 }
 
-.ant-avatar-lg > * {
+.user-avatar .ant-avatar-lg > * {
+    font-size: 30px;
     line-height: 60px;
+    marign-left: -20px;
+}
+.user-avatar .ant-avatar-string {
+    left: calc(50% - 8px);
 }
 
 .user-info-detail {

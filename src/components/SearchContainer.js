@@ -27,7 +27,7 @@ export class SearchContainer extends React.Component {
             this.setState({
                 show: 2,
             })
-        } else if (this.state.search == "company") {
+        } else if (this.state.searchFor == "company") {
             this.setState({
                 show: 3,
             })

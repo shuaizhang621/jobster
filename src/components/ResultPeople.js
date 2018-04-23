@@ -47,19 +47,22 @@ export class ResultPeople extends React.Component {
                             key={item.jtitle}
                         >
                             <List.Item.Meta
+                                avatar={
+                                    <Avatar
+                                        style={{
+                                            backgroundColor: colorList[Math.floor(Math.random() * 4)],
+                                            verticalAlign: 'middle',
+                                            lineHeight: '50'
+                                        }}
+                                        size="large"
+                                    >
+                                        {item.sfirstname}
+                                    </Avatar>
+                                }
                                 title={
-                                    <div>
-                                        <Avatar
-                                            style={{
-                                                backgroundColor: colorList[Math.floor(Math.random() * 4)],
-                                                verticalAlign: 'middle'
-                                            }}
-                                            size="middle"
-                                        >
-                                            {item.sfirstname}
-                                        </Avatar>
-                                        <span>{` ${item.sfirstname} ${item.slastname}`}</span>
-                                    </div>
+                                    <a href="https://www.linkedin.com/in/shuaizhang621">
+                                        {item.sfirstname} {item.slastname} {item.semail == this.props.username && " <-- You"}
+                                        </a>
                                 }
                                 description={
                                     <span>
@@ -71,6 +74,7 @@ export class ResultPeople extends React.Component {
                                         icon="user-add"
                                         size="large"
                                         onClick={this.handleAddFriend}
+                                        disabled={item.semail == this.props.username}
                                     />
                                 </span>
                                 }
