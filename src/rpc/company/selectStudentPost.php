@@ -55,14 +55,21 @@ $response = array();
 
 foreach ($student_array as $student){
     $result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from notification;");
-    $nid = string(intval($result_max_nid->fetch_assoc()['mnid']) + 1);
+    if ($result_max_nid->num_rows > 0){
+        $nid = strval(intval($result_max_nid->fetch_assoc()['mnid']) + 1);
+    }
+    else{
+        $nid = 1;
+    }
+
+    $nid = strval(intval($result_max_nid->fetch_assoc()['mnid']) + 1);
     $sql_post_selected_student = "INSERT INTO notification(`nid`, `companysend`, `semailreceive`, `jid`, `pushtime`, `status`)
     VALUES ('$nid', '$cname', '$student', '$jid', CURDATE(), 'unviewed');";
     if (mysqli_query($conn, $sql_post_selected_student) == True){
-        $response['$student'] = "Updated successfully.";
+        $response[$student] = $student."Updated successfully.";
     }
     else{
-        $response['$student'] = NULL;
+        $response[$student] = $student."Updated unsuccessfully.";
     }
 }
 
