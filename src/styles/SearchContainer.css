@@ -41,6 +41,12 @@
     line-height: 10px;
 }
 
+.result-company .ant-list-item-meta-description {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+    line-height: 10px;
+}
+
 .search .item-container .ant-list-item {
     background-color: white;
     border: lightgrey solid 1px;

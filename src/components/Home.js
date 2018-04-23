@@ -122,7 +122,7 @@ export class Home extends React.Component {
                                      tab=
                                          {
                                              <div>
-                                                 <Icon type="home" style={{ fontSize: 20, color: 'white' }} />
+                                                 <Icon type="home" style={{ fontSize: 18, color: 'white' }} />
                                                  <span style={{float: 'bottom'}}>Home</span>
                                              </div>
 
@@ -135,8 +135,8 @@ export class Home extends React.Component {
                                      tab=
                                          {
                                              <div>
-                                                 <Icon type="search" style={{ fontSize: 20, color: 'white' }} />
-                                                 <span style={{float: 'bottom'}}>Home</span>
+                                                 <Icon type="search" style={{ fontSize: 18, color: 'white' }} />
+                                                 <span style={{float: 'bottom'}}>Search</span>
                                              </div>
 
                                          }
@@ -148,8 +148,8 @@ export class Home extends React.Component {
                                      tab=
                                          {
                                              <div>
-                                                 <Icon type="mail" style={{ fontSize: 20, color: 'white' }} />
-                                                 <span style={{float: 'bottom'}}>Home</span>
+                                                 <Icon type="mail" style={{ fontSize: 18, color: 'white' }} />
+                                                 <span style={{float: 'bottom'}}>Message</span>
                                              </div>
 
                                          }

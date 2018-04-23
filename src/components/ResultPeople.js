@@ -1,7 +1,7 @@
 import { List, Collapse, Button, Avatar } from 'antd';
 import React from 'react';
 import $ from 'jquery';
-import {API_ROOT} from "../constants";
+import {API_ROOT, colorList } from "../constants";
 
 const Panel = Collapse.Panel;
 const listData = [];
@@ -33,8 +33,6 @@ export class ResultPeople extends React.Component {
     }
 
     render() {
-        const colorList = ['#f56a00', '#7265e6', '#ffbf00', '#00a2ae'];
-
         return (
             <div className="result-people">
                 <List
@@ -44,7 +42,7 @@ export class ResultPeople extends React.Component {
                     dataSource={this.props.result}
                     renderItem={item => (
                         <List.Item
-                            key={item.jtitle}
+                            key={item.semial}
                         >
                             <List.Item.Meta
                                 avatar={

@@ -1,5 +1,6 @@
-import { List, Collapse, Button, } from 'antd';
+import { List, Collapse, Button, Avatar } from 'antd';
 import React from 'react';
+import { colorList } from "../constants";
 
 const Panel = Collapse.Panel;
 const listData = [];
@@ -14,25 +15,51 @@ const pagination = {
 export class ResultCompany extends React.Component {
     render() {
         return (
-            <List
-                className="item-container"
-                itemLayout="vertical"
-                size="large"
-                pagination={pagination}
-                dataSource={this.props.result}
-                renderItem={item => (
-                    <List.Item
-                        key={item.jtitle}
-                        actions={[<Button>Forword</Button>, <Button>Apply</Button>]}
-                    >
-                        <List.Item.Meta
-                            title={<a href={item.href}>{item.jtitle}</a>}
-                            description='dscripasfaslf'
-                        />
-                        <div>{JSON.stringify(item)}</div>
-                    </List.Item>
-                )}
-            />
+            <div className="result-company">
+                <List
+                    className="item-container"
+                    size="large"
+                    dataSource={this.props.result}
+                    renderItem={item => (
+                        <List.Item
+                            key={item.cname}
+                        >
+                            <List.Item.Meta
+                                avatar={
+                                    <Avatar
+                                        style={{
+                                            backgroundColor: colorList[Math.floor(Math.random() * 4)],
+                                            verticalAlign: 'middle',
+                                            lineHeight: '50'
+                                        }}
+                                        size="large"
+                                    >
+                                        {item.cname}
+                                    </Avatar>
+                                }
+                                title={
+                                    <a href="https://www.linkedin.com/in/shuaizhang621">
+                                        {item.cname}
+                                    </a>
+                                }
+                                description={
+                                    <span>
+                                    <span>{`${item.cindustry}  |   ${item.clocation}`}</span>
+                                    <Button
+                                        className="add-friend-button"
+                                        id={item.cname}
+                                        shape="circle"
+                                        icon="heart-o"
+                                        size="large"
+                                        onClick={this.handleFollowCompany}
+                                    />
+                                </span>
+                                }
+                            />
+                        </List.Item>
+                    )}
+                />
+            </div>
         );
     }
 }

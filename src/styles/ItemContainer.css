@@ -4,3 +4,9 @@
     padding: 20px;
     border-radius: 2px;
 }
+
+.item-container .ant-list-item {
+    background-color: white;
+    border: lightgrey solid 1px;
+    border-bottom: lightgrey solid 1px;
+}
