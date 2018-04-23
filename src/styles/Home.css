@@ -38,14 +38,14 @@
 }
 
 .home .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
-    background: white;/*#283e4a;*/
-    border: 3px solid white;
-    border-radius: 5px;
+    background: #283e4a;
+    border: 3px solid #283e4a;
+    /*border-radius: 0px;*/
     /*color: white;*/
     margin-right: 5px;
 }
 
-.home .ant-list-split .ant-list-item {
+.friend-list .ant-list-split .ant-list-item {
     border-bottom: 0;
 }
 

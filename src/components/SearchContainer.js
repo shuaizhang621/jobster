@@ -66,15 +66,15 @@ export class SearchContainer extends React.Component {
                     <div className="search-selection">
                         <span className="search-for">Search for:</span>
                         <RadioGroup className="search-radio" defaultValue="student" onChange={this.handleChange}>
-                            <RadioButton style={{ width: 175 }} value="student">
+                            <RadioButton style={{ width: 170 }} value="student">
                                 <Icon type="shop" />
                                 People
                             </RadioButton>
-                            <RadioButton style={{ width: 175 }} value="job">
+                            <RadioButton style={{ width: 170 }} value="job">
                                 <Icon type="red-envelope" />
                                 Jobs
                             </RadioButton>
-                            <RadioButton style={{ width: 175 }} value="company">
+                            <RadioButton style={{ width: 170 }} value="company">
                                 <Icon type="team" />
                                 Companies
                             </RadioButton>

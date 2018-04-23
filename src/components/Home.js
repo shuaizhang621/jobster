@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Tabs, message } from 'antd';
+import { Input, Tabs, message, Icon } from 'antd';
 import { API_ROOT } from "../constants";
 import $ from 'jquery';
 import { ItemContainer } from "./ItemContainer";
@@ -118,13 +118,43 @@ export class Home extends React.Component {
                             type="card"
                             tabPosition="top"
                         >
-                            <TabPane className="tabpane" tab="Home" key="1">
+                            <TabPane className="tabpane"
+                                     tab=
+                                         {
+                                             <div>
+                                                 <Icon type="home" style={{ fontSize: 20, color: 'white' }} />
+                                                 <span style={{float: 'bottom'}}>Home</span>
+                                             </div>
+
+                                         }
+                                     key="1"
+                            >
                                 <ItemContainer notification={this.state.notification}/>
                             </TabPane>
-                            <TabPane className="tabpane" tab="Search" key="2">
+                            <TabPane className="tabpane"
+                                     tab=
+                                         {
+                                             <div>
+                                                 <Icon type="search" style={{ fontSize: 20, color: 'white' }} />
+                                                 <span style={{float: 'bottom'}}>Home</span>
+                                             </div>
+
+                                         }
+                                     key="2"
+                            >
                                 <SearchContainer username={this.props.username}/>
                             </TabPane>
-                            <TabPane className="tabpane" tab="Message" key="3">
+                            <TabPane className="tabpane"
+                                     tab=
+                                         {
+                                             <div>
+                                                 <Icon type="mail" style={{ fontSize: 20, color: 'white' }} />
+                                                 <span style={{float: 'bottom'}}>Home</span>
+                                             </div>
+
+                                         }
+                                     key="3"
+                            >
                                 <MessageContainer username={this.props.username}/>
                             </TabPane>
                         </Tabs>
