@@ -33,6 +33,9 @@ export class ResultPeople extends React.Component {
             if (response.length === 36) {
                 message.success(response.substring(1, 35));
             }
+            if (response.length === 26) {
+                message.warning(response.substring(1, 25));
+            }
             console.log(res);
         }, (error) => {
             console.log(error);

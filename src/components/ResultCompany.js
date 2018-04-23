@@ -13,6 +13,7 @@ const pagination = {
 };
 
 export class ResultCompany extends React.Component {
+
     render() {
         return (
             <div className="result-company">
