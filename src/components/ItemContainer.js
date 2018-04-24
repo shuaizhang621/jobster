@@ -17,56 +17,69 @@ export class ItemContainer extends React.Component {
     }
     handleOk = (e) => {
         console.log(e);
+        // $.ajax({
+        //     url: `${API_ROOT}/student/forward.php`,
+        //     method: 'POST',
+        //     data: {
+        //         semail: this.props.username,
+        //         semailreceive: this.state.receiver,
+        //         jid: e.target.id,
+        //     }
+        // }).then((response) => {
+        //     console.log(response);
+        // }, (error) => {
+        //     console.log(error);
+        // });
         this.setState({
             visible: false,
         });
-    }
+    };
+
     handleCancel = (e) => {
         console.log(e);
         this.setState({
             visible: false,
         });
-    }
+    };
 
     handleFollowCompany = (e) => {
         console.log(e.target.id);
     };
 
-    handleShareToFriends = (e) => {
-        console.log(e.target.id);
-        $.ajax({
-            url: `${API_ROOT}/student/forward.php`,
-            method: 'POST',
-            data: {
-                semail: this.props.username,
-                semailreceive: this.state.receiver,
-                jid: e.target.id,
+    addReceiver = (receiver) => {
+        let list = this.state.receiver;
+        let hasReceiver = false;
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].semail === receiver) {
+                hasReceiver = true;
             }
-        }).then((response) => {
-            console.log(response);
-        }, (error) => {
-            console.log(error);
-        })
+        }
+        if (!hasReceiver) {
+            list.push({semail: receiver});
+            this.setState({receiver: list});
+        }
     };
 
-    handleClickSend = (e) => {
-        $.ajax({
-            url: `${API_ROOT}/student/forward.php`,
-            method: 'POST',
-            data: {
-                semail: this.props.username,
-                semailreceive: this.state.receiver,
-                jid: e.target.id,
+    removeReceiver = (receiver) => {
+        let list = this.state.receiver;
+        let receiverIndex = -1;
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].semail === receiver) {
+                receiverIndex = i;
             }
-        }).then((response) => {
-            console.log(response);
-        }, (error) => {
-            console.log(error);
-        })
+        }
+        if (receiverIndex >= 0) {
+            list.splice(receiverIndex, 1);
+            this.setState({receiver: list});
+        }
     };
 
-    onChange = (checked) => {
-        console.log(`switch to ${checked}`);
+    componentDidMount() {
+        console.log(this.state);
+    }
+
+    componentDidUpdate() {
+        console.log(this.state);
     }
 
     render() {
@@ -113,7 +126,10 @@ export class ItemContainer extends React.Component {
                                         avatar={
                                               <div>
                                                   <Avatar
-                                                      style={{ backgroundColor: COLOR_LIST[Math.floor(Math.random() * 4)], verticalAlign: 'middle' }}
+                                                      style={{
+                                                          backgroundColor: COLOR_LIST[Math.floor(Math.random() * 4)],
+                                                          verticalAlign: 'middle'
+                                                      }}
                                                       size="middle"
                                                   >
                                                       {item.sfirstname}
@@ -123,11 +139,21 @@ export class ItemContainer extends React.Component {
                                         description={item.semail}
                                         title={
                                             <div>
-                                                <a href="https://www.linkedin.com/in/shuaizhang621">{item.sfirstname} {item.slastname}</a>
+                                                <a href="https://www.linkedin.com/in/shuaizhang621">
+                                                    {item.sfirstname} {item.slastname}
+                                                </a>
                                                 <Switch
+                                                    id={item.semail}
                                                     className="switch"
-                                                    defaultChecked
-                                                    onChange={this.onChange}
+                                                    defaultChecked={false}
+                                                    onChange={(checked) => {
+                                                        if (checked) {
+                                                            this.addReceiver(item.semail);
+                                                        } else {
+                                                            this.removeReceiver(item.semail);
+                                                        }
+                                                        console.log(item.semail);
+                                                    }}
                                                 />
                                             </div>
 
