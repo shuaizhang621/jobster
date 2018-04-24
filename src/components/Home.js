@@ -129,7 +129,11 @@ export class Home extends React.Component {
                                          }
                                      key="1"
                             >
-                                <ItemContainer notification={this.state.notification}/>
+                                <ItemContainer
+                                    username={this.props.username}
+                                    notification={this.state.notification}
+                                    friends={this.state.friends}
+                                />
                             </TabPane>
                             <TabPane className="tabpane"
                                      tab=

@@ -15,7 +15,7 @@ $jid = 2;
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $username = "root";
-$password = "";
+$password = "root";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.

@@ -1,17 +1,7 @@
-import { List, Collapse, Button, Avatar, message } from 'antd';
+import { List, Button, Avatar, message } from 'antd';
 import React from 'react';
 import $ from 'jquery';
-import {API_ROOT, colorList } from "../constants";
-
-const Panel = Collapse.Panel;
-const listData = [];
-
-const pagination = {
-    pageSize: 10,
-    current: 1,
-    total: listData.length,
-    onChange: (() => {}),
-};
+import {API_ROOT, COLOR_LIST } from '../constants';
 
 export class ResultPeople extends React.Component {
     handleAddFriend = (e) => {
@@ -28,13 +18,13 @@ export class ResultPeople extends React.Component {
             let res = JSON.parse(response);
             console.log(response.length);
             if (response.length === 38) {
-                message.warning(response.substring(1,37));
+                message.warning(`${receiver} has not accepted your request yet.`);
             }
             if (response.length === 36) {
-                message.success(response.substring(1, 35));
+                message.success(`${receiver} has received your request.`);
             }
             if (response.length === 26) {
-                message.warning(response.substring(1, 25));
+                message.warning("You guys are already friends.");
             }
             console.log(res);
         }, (error) => {
@@ -43,6 +33,40 @@ export class ResultPeople extends React.Component {
     }
 
     render() {
+        const avatar = (item) => (
+            <Avatar
+                style={{
+                    backgroundColor: COLOR_LIST[Math.floor(Math.random() * 4)],
+                    verticalAlign: 'middle',
+                    lineHeight: '50'
+                }}
+                size="large"
+            >
+                {item.sfirstname}
+            </Avatar>
+        );
+
+        const title = (item) => (
+            <a href="https://www.linkedin.com/in/shuaizhang621">
+                {item.sfirstname} {item.slastname} {item.semail == this.props.username && " <-- You"}
+            </a>
+        );
+
+        const description = (item) => (
+            <span>
+                <span>{`${item.suniversity}  |   ${item.smajor}`}</span>
+                <Button
+                    className="add-friend-button"
+                    id={item.semail}
+                    shape="circle"
+                    icon="user-add"
+                    size="large"
+                    onClick={this.handleAddFriend}
+                    disabled={item.semail == this.props.username}
+                />
+            </span>
+        );
+
         return (
             <div className="result-people">
                 <List
@@ -52,40 +76,12 @@ export class ResultPeople extends React.Component {
                     dataSource={this.props.result}
                     renderItem={item => (
                         <List.Item
-                            key={item.semial}
+                            key={item.semail}
                         >
                             <List.Item.Meta
-                                avatar={
-                                    <Avatar
-                                        style={{
-                                            backgroundColor: colorList[Math.floor(Math.random() * 4)],
-                                            verticalAlign: 'middle',
-                                            lineHeight: '50'
-                                        }}
-                                        size="large"
-                                    >
-                                        {item.sfirstname}
-                                    </Avatar>
-                                }
-                                title={
-                                    <a href="https://www.linkedin.com/in/shuaizhang621">
-                                        {item.sfirstname} {item.slastname} {item.semail == this.props.username && " <-- You"}
-                                        </a>
-                                }
-                                description={
-                                    <span>
-                                    <span>{`${item.suniversity}  |   ${item.smajor}`}</span>
-                                    <Button
-                                        className="add-friend-button"
-                                        id={item.semail}
-                                        shape="circle"
-                                        icon="user-add"
-                                        size="large"
-                                        onClick={this.handleAddFriend}
-                                        disabled={item.semail == this.props.username}
-                                    />
-                                </span>
-                                }
+                                avatar={avatar(item)}
+                                title={title(item)}
+                                description={description(item)}
                             />
                         </List.Item>
                     )}
