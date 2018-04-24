@@ -146,7 +146,10 @@ export class Home extends React.Component {
                                          }
                                      key="2"
                             >
-                                <SearchContainer username={this.props.username}/>
+                                <SearchContainer
+                                    username={this.props.username}
+                                    friends={this.state.friends}
+                                />
                             </TabPane>
                             <TabPane className="tabpane"
                                      tab=

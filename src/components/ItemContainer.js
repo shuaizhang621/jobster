@@ -44,6 +44,18 @@ export class ItemContainer extends React.Component {
 
     handleFollowCompany = (e) => {
         console.log(e.target.id);
+        $.ajax({
+            url: `${API_ROOT}/student/##TODO##FollowCompany.php`,
+            method: 'POST',
+            data: {
+                semail: this.props.username,
+                jid: e.target.id,
+            }
+        }).then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
     };
 
     addReceiver = (receiver) => {

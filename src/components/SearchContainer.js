@@ -99,6 +99,7 @@ export class SearchContainer extends React.Component {
                     <ResultJob
                         result={this.state.data}
                         username={this.props.username}
+                        friends={this.props.friends}
                     />
                 } {
                     this.state.show === 3
