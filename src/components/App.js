@@ -11,7 +11,8 @@ class App extends Component {
         //username: 'dx1368@nyu.edu',
         //username: 'cz1522@nyu.edu',
         //username: 'qy1449@nyu.edu',
-        username: 'sy1567@nyu.edu',
+        //username: 'sy1567@nyu.edu',
+        username: 'ZhuYuanZhang'
     }
 
     handleLogin = (response, username) => {
