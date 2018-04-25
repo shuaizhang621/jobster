@@ -1,11 +1,16 @@
 import React from "react";
-import { Avatar, Button, notification, Badge } from 'antd';
+import { Avatar, Button, notification, Badge, Modal, Switch } from 'antd';
 import $ from 'jquery';
 import {API_ROOT} from "../constants";
+import {UpdateForm} from "./UpdateInfoForm";
 
 const ButtonGroup = Button.Group;
 
 export class UserInfo extends React.Component {
+    state = {
+        visible: false,
+        publicProfile: this.props.info.sprivacy,
+    }
 
     close = () => {
         console.log('Notification was closed. Either the close button was clicked or duration time elapsed.');
@@ -63,6 +68,44 @@ export class UserInfo extends React.Component {
         });
     };
 
+    showModal = () => {
+        this.setState({
+            visible: true,
+        });
+    }
+    handleOk = (e) => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    }
+    handleCancel = (e) => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    }
+
+    onChange = (checked) => {
+        let privacy;
+        if (checked) {
+            privacy = 1;
+        } else {
+            privacy = 0;
+        }
+        $.ajax({
+            url: `${API_ROOT}/student/updateStudentProfile.php`,
+            method: 'POST',
+            data: {
+                sprivacy: privacy,
+            }
+        }).then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
+    }
+
     render() {
         return (
             <div className="user-info">
@@ -92,6 +135,29 @@ export class UserInfo extends React.Component {
                         <a className="head-example" />
                     </Badge>
                 </div>
+                <div>
+                    <Button onClick={this.showModal} className='request-button'>
+                        Update Profile
+                    </Button>
+                    <Modal
+                        title="Update Profile"
+                        visible={this.state.visible}
+                        onOk={this.handleOk}
+                        onCancel={this.handleCancel}
+                    >
+                        <UpdateForm
+                            username={this.props.username}
+                            info={this.props.info}
+                            closeModal={this.handleCancel}
+                        />
+                    </Modal>
+                </div>
+                <div>
+                    {"Open to public: "}
+                    <Switch defaultChecked onChange={this.onChange} />
+                </div>
+
+
             </div>
         )
 
