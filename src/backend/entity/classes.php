@@ -1,6 +1,7 @@
 <?php
 class job_info{
 	public $jid;
+	public $cname;
 	public $jtitle;
 	public $jsalary;
 	public $jreq_diploma;
@@ -8,11 +9,13 @@ class job_info{
 	public $jreq_skills;
 	public $jlocation;
 	public $jdescription;
+	public $postdate;
 	public $student_applied = array();
 	function Build_Job_Info($row)
 	{
     $jobInfo = new job_info();
     $jobInfo->jid = $row['jid'];
+    $jobInfo->cname = $row['cname'];
     $jobInfo->jtitle = $row['jtitle'];
     $jobInfo->jsalary = $row['jsalary'];
     $jobInfo->jreq_diploma = $row['jreq_diploma'];
@@ -20,10 +23,11 @@ class job_info{
     $jobInfo->jreq_experience = $row['jreq_experience'];
     $jobInfo->jdescription = $row['jdescription'];
     $jobInfo->jlocation = $row['jlocation'];
+    $jobInfo->postdate = $row['postdate'];
     return $jobInfo;
 	}
 	function Append_student_followed($student){;
-	    arraypush($this->student_applied, $student);
+	    array_push($this->student_applied, $student);
     }
 }
 
@@ -37,6 +41,7 @@ class personal_info{
     public $smajor;
     public $sgpa;
     public $sresume;
+    public $sprivacy;
     function Build_personal_Info($row)
     {
         $personalInfo = new personal_info();
@@ -49,6 +54,7 @@ class personal_info{
         $personalInfo->smajor = $row['smajor'];
         $personalInfo->sgpa = $row['sgpa'];
         $personalInfo->sresume = $row['sresume'];
+        $personalInfo->sprivacy = $row['sprivacy'];
         return $personalInfo;
     }
 }

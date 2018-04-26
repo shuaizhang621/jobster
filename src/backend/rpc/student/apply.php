@@ -39,10 +39,11 @@ else
     $aid = 1;
 }
 
-$sql_check_application_update = "select * from StudentApplyJob where semail = '$semail', jid = '$jid', cname = '$cname';";
+$sql_check_application_update = "select * from StudentApplyJob where semail = '$semail' and jid = '$jid' and cname = '$cname';";
 $result_check_application_update = mysqli_query($conn, $sql_check_application_update);
 if($result_check_application_update->num_rows > 0){
     $response = "You have already applied the job!";
+    echo $response;
 }
 else{
     $sql_update_application = "INSERT INTO StudentApplyJob(`aid`, `semail`, `jid`, `cname`, `status`, `applytime`)

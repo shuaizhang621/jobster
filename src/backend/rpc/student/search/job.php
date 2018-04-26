@@ -27,9 +27,10 @@ if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
 //search companies that fit the keywords from backend database.
-$sql_job_search = "select *  from  JobAnnouncement where jid LIKE '%$keyword%' or jtitle like '%$keyword%' or 
-jsalary like '%$keyword%' or jreq_diploma like '%$keyword%' or jreq_experience like '%$keyword%' or 
-jreq_skills like '%$keyword%' or jlocation like '%$keyword%' or jdescription like '%$keyword%';";
+$sql_job_search = "select *  from  JobAnnouncement where jid LIKE '%$keyword%' or cname like '%$keyword%' or 
+jtitle like '%$keyword%' or jsalary like '%$keyword%' or jreq_diploma like '%$keyword%' or 
+jreq_experience like '%$keyword%' or jreq_skills like '%$keyword%' or jlocation like '%$keyword%' 
+or jdescription like '%$keyword%';";
 $result_job_search = mysqli_query($conn, $sql_job_search);
 
 if  ($result_job_search->num_rows > 0){
