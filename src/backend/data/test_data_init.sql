@@ -122,6 +122,6 @@ VALUES('2', 'ZhuHoucong', 'sy1567@nyu.edu', '1', '2018-04-13', 'unviewed');
 INSERT INTO `Message` (`mid`, `semailsend`, `semailreceive`, `content`, `sendtime`, `status`)
 VALUES('1','dx1368@nyu.edu', 'cz1522@nyu.edu',"gaige ruhe", '2018-04-15', 'unviewed');
 INSERT INTO `Message` (`mid`, `semailsend`, `semailreceive`, `content`, `sendtime`, `status`)
-VALUES('1','cz1522@nyu.edu', 'qy1522@nyu.edu',"beijing baoweizhan chenggong lema", '2018-04-15', 'unviewed');
+VALUES('2','cz1522@nyu.edu', 'qy1449@nyu.edu','beijing baoweizhan chenggong lema', '2018-04-15', 'unviewed');
 
 
