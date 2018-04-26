@@ -94,7 +94,7 @@ export class ItemContainer extends React.Component {
             data: {
                 semail: this.props.username,
                 jid: item.jid,
-                cname: item.cname,
+                cname: 'ZhuYuanzhang',
             }
         }).then((response) => {
             console.log(response);

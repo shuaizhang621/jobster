@@ -2,9 +2,28 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9482d9f3-c543-4ec6-bf94-db61a94ce15a" name="Default" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/company/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/company/init.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/company/post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/company/post.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/company/responseApplication.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/company/responseApplication.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/company/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/company/search.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/company/studentInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/company/studentInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/apply.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/apply.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/dealFriends.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/dealFriends.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/forward.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/forward.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/init.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/message.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/message.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/messgeUpdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/messgeUpdate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/notificationUpdate.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/notificationUpdate.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/search/company.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/search/company.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/search/job.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/search/job.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/search/student.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/search/student.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/sendFriend.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/sendFriend.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/studentFollow.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/studentFollow.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/studentInfo.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/studentInfo.php" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/updateStudentProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/updateStudentProfile.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/ItemContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/ItemContainer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ItemContainer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/SearchContainer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/SearchContainer.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -87,52 +106,68 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="Home.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/Home.css">
+      <file leaf-file-name="init.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/rpc/company/init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="690">
-              <caret line="46" column="17" selection-start-line="46" selection-start-column="17" selection-end-line="46" selection-end-column="17" />
+            <state relative-caret-position="150">
+              <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Header.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/Header.css">
+      <file leaf-file-name="apply.php" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/apply.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="60">
-              <caret line="4" column="1" selection-start-line="4" selection-start-column="1" selection-end-line="4" selection-end-column="1" />
+            <state relative-caret-position="-124">
+              <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="UserInfo.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/UserInfo.css">
+      <file leaf-file-name="job.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/search/job.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="195">
-              <caret line="13" column="8" selection-start-line="13" selection-start-column="8" selection-end-line="13" selection-end-column="8" />
+            <state relative-caret-position="225">
+              <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="SearchContainer.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/SearchContainer.css">
+      <file leaf-file-name="init.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/init.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="221">
-              <caret line="29" selection-start-line="29" selection-end-line="29" />
+            <state relative-caret-position="345">
+              <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Login.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/Login.css">
-          <provider selected="true" editor-type-id="text-editor" />
+      <file leaf-file-name="init_database.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/data/init_database.sql">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="423">
+              <caret line="104" column="34" selection-end-line="111" />
+            </state>
+          </provider>
         </entry>
       </file>
-      <file leaf-file-name="ItemContainer.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/ItemContainer.css">
+      <file leaf-file-name="test_data_init.sql" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/data/test_data_init.sql">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="431">
-              <caret line="66" column="28" selection-start-line="66" selection-start-column="28" selection-end-line="66" selection-end-column="28" />
+            <state relative-caret-position="468">
+              <caret line="123" selection-start-line="123" selection-end-line="124" selection-end-column="109" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="261">
+              <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="70" selection-end-column="11" />
+              <folding>
+                <element signature="e#0#26#0" expanded="true" />
+              </folding>
             </state>
           </provider>
         </entry>
@@ -141,35 +176,24 @@
         <entry file="file://$PROJECT_DIR$/src/components/ItemContainer.js">
           <provider selected="true" editor-type-id="text-editor">
             <state relative-caret-position="367">
-              <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+              <caret line="96" column="18" lean-forward="true" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="apply.php" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/rpc/student/apply.php">
+      <file leaf-file-name="studentInfo.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/rpc/company/studentInfo.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="397">
-              <caret line="53" column="40" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="40" />
+            <state relative-caret-position="120">
+              <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
             </state>
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="search.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/rpc/company/search.php">
+      <file leaf-file-name="classes.php" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/backend/entity/classes.php">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="372">
-              <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="Poster.css" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/styles/Poster.css">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="498">
-              <caret line="42" column="14" selection-start-line="42" selection-start-column="14" selection-end-line="42" selection-end-column="14" />
-            </state>
+            <state relative-caret-position="-1834" />
           </provider>
         </entry>
       </file>
@@ -204,28 +228,9 @@
   <component name="IdeDocumentHistory">
     <option name="CHANGED_PATHS">
       <list>
-        <option value="$PROJECT_DIR$/.idea/workspace.xml" />
-        <option value="$PROJECT_DIR$/src/components/MessageContainer.js" />
-        <option value="$PROJECT_DIR$/src/components/Login.js" />
-        <option value="$PROJECT_DIR$/src/styles/Login.css" />
-        <option value="$PROJECT_DIR$/src/styles/Register.css" />
-        <option value="$PROJECT_DIR$/src/components/PreRegister.js" />
-        <option value="$PROJECT_DIR$/src/components/FriendRequest.js" />
-        <option value="$PROJECT_DIR$/src/components/CompanyRegister.js" />
-        <option value="$PROJECT_DIR$/src/components/Header.js" />
-        <option value="$PROJECT_DIR$/src/rpc/student/studentInfo.php" />
-        <option value="$PROJECT_DIR$/src/rpc/student/init.php" />
-        <option value="$PROJECT_DIR$/src/rpc/student/dealFriends.php" />
-        <option value="$PROJECT_DIR$/src/rpc/student/search/company.php" />
-        <option value="$PROJECT_DIR$/src/rpc/student/search/job.php" />
-        <option value="$PROJECT_DIR$/src/rpc/student/search/student.php" />
-        <option value="$PROJECT_DIR$/src/components/CompanyResult.js" />
-        <option value="$PROJECT_DIR$/src/components/PeopleResult.js" />
-        <option value="$PROJECT_DIR$/src/rpc/student/sendFriend.php" />
         <option value="$PROJECT_DIR$/src/components/FriendsList.js" />
         <option value="$PROJECT_DIR$/src/styles/FriendsList.css" />
         <option value="$PROJECT_DIR$/src/styles/Main.css" />
-        <option value="$PROJECT_DIR$/src/constants.js" />
         <option value="$PROJECT_DIR$/src/components/ResultCompany.js" />
         <option value="$PROJECT_DIR$/src/components/ResultPeople.js" />
         <option value="$PROJECT_DIR$/src/rpc/student/forward.php" />
@@ -253,6 +258,26 @@
         <option value="$PROJECT_DIR$/src/rpc/student/apply.php" />
         <option value="$PROJECT_DIR$/src/styles/SearchContainer.css" />
         <option value="$PROJECT_DIR$/src/styles/ItemContainer.css" />
+        <option value="$PROJECT_DIR$/src/constants.js" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/studentInfo.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/updateStudentProfile.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/studentFollow.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/sendFriend.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/notificationUpdate.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/messgeUpdate.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/message.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/forward.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/dealFriends.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/apply.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/search/student.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/search/job.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/search/company.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/company/init.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/company/post.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/company/responseApplication.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/company/search.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/company/studentInfo.php" />
+        <option value="$PROJECT_DIR$/src/backend/rpc/student/init.php" />
         <option value="$PROJECT_DIR$/src/components/ItemContainer.js" />
       </list>
     </option>
@@ -277,7 +302,7 @@
     <ConfirmationsSetting value="2" id="Add" />
   </component>
   <component name="ProjectView">
-    <navigator currentView="Scope" currentSubView="Project Files" proportions="" version="1">
+    <navigator proportions="" version="1">
       <foldersAlwaysOnTop value="true" />
     </navigator>
     <panes>
@@ -297,26 +322,59 @@
               <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
               <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
               <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="assets" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="image" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="entity" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="rpc" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="rpc" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="company" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="rpc" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="student" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="rpc" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="student" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="search" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
               <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="components" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="rpc" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
@@ -357,63 +415,12 @@
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="jobster" type="cbb8eebc:String" user="jobster" />
-              <item name="data" type="cbb8eebc:String" user="data" />
+              <item name="public" type="cbb8eebc:String" user="public" />
             </path>
             <path>
               <item name="Root" type="cbb8eebc:String" user="Root" />
               <item name="jobster" type="cbb8eebc:String" user="jobster" />
               <item name="src" type="cbb8eebc:String" user="src" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="jobster" type="cbb8eebc:String" user="jobster" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="assets" type="cbb8eebc:String" user="assets" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="jobster" type="cbb8eebc:String" user="jobster" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="assets" type="cbb8eebc:String" user="assets" />
-              <item name="image" type="cbb8eebc:String" user="image" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="jobster" type="cbb8eebc:String" user="jobster" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="components" type="cbb8eebc:String" user="components" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="jobster" type="cbb8eebc:String" user="jobster" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="rpc" type="cbb8eebc:String" user="rpc" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="jobster" type="cbb8eebc:String" user="jobster" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="rpc" type="cbb8eebc:String" user="rpc" />
-              <item name="company" type="cbb8eebc:String" user="company" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="jobster" type="cbb8eebc:String" user="jobster" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="rpc" type="cbb8eebc:String" user="rpc" />
-              <item name="student" type="cbb8eebc:String" user="student" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="jobster" type="cbb8eebc:String" user="jobster" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="styles" type="cbb8eebc:String" user="styles" />
-            </path>
-            <path>
-              <item name="Root" type="cbb8eebc:String" user="Root" />
-              <item name="jobster" type="cbb8eebc:String" user="jobster" />
-              <item name="src" type="cbb8eebc:String" user="src" />
-              <item name="tests" type="cbb8eebc:String" user="tests" />
             </path>
           </expand>
           <select />
@@ -462,7 +469,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="123765000" />
+    <option name="totallyTimeSpent" value="125636000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="101" y="22" width="1563" height="1012" extended-state="0" />
@@ -518,190 +525,6 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/rpc/student/search/job.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="540">
-          <caret line="41" column="17" selection-start-line="41" selection-start-column="17" selection-end-line="41" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rpc/student/message.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="7" selection-start-line="7" selection-end-line="7" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/assets/image/ic_send_black_24px.svg">
-      <provider selected="true" editor-type-id="images" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/index.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="30">
-          <caret line="2" column="23" selection-start-line="2" selection-start-column="23" selection-end-line="2" selection-end-column="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rpc/student/dealFriends.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-68">
-          <caret line="23" column="10" selection-start-line="23" selection-start-column="10" selection-end-line="23" selection-end-column="10" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rpc/student/sendFriend.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-33">
-          <caret line="23" lean-forward="true" selection-start-line="23" selection-end-line="23" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ResultCompany.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-229">
-          <caret line="14" column="76" selection-start-line="14" selection-start-column="76" selection-end-line="14" selection-end-column="76" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/CompanyRegister.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="8" selection-start-line="1" selection-start-column="8" selection-end-line="1" selection-end-column="8" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/FriendRequest.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="4" lean-forward="true" selection-start-line="25" selection-start-column="4" selection-end-line="27" selection-end-column="13" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Header.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="1" column="2" selection-start-line="1" selection-start-column="2" selection-end-line="1" selection-end-column="2" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ResultPeople.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="20" column="79" selection-start-line="20" selection-start-column="79" selection-end-line="20" selection-end-column="79" />
-          <folding>
-            <element signature="e#0#53#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/ResultJob.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#1#27#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rpc/student/notificationUpdate.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/PreRegister.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="420">
-          <caret line="28" column="18" selection-start-line="28" selection-start-column="18" selection-end-line="28" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/UpdateInfoForm.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-934">
-          <caret line="38" column="46" lean-forward="true" selection-start-line="38" selection-start-column="46" selection-end-line="38" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Register.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="422">
-          <caret line="216" column="64" lean-forward="true" selection-start-line="216" selection-start-column="64" selection-end-line="216" selection-end-column="64" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rpc/student/updateStudentProfile.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="255">
-          <caret line="22" column="27" lean-forward="true" selection-start-line="22" selection-start-column="27" selection-end-line="22" selection-end-column="27" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/FriendsList.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="465">
-          <caret line="31" column="22" lean-forward="true" selection-start-line="31" selection-start-column="22" selection-end-line="31" selection-end-column="22" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/UserInfo.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="320">
-          <caret line="104" column="31" lean-forward="true" selection-start-line="104" selection-start-column="31" selection-end-line="104" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rpc/student/studentInfo.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="257">
-          <caret line="36" column="13" selection-start-line="36" selection-start-column="13" selection-end-line="36" selection-end-column="13" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/rpc/company/init.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="720">
-          <caret line="53" column="17" selection-start-line="53" selection-start-column="17" selection-end-line="53" selection-end-column="17" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/MessageContainer.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="90">
-          <caret line="6" column="42" selection-start-line="6" selection-start-column="42" selection-end-line="6" selection-end-column="42" />
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/rpc/company/responseApplication.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="75">
@@ -713,16 +536,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="234">
           <caret line="27" selection-start-line="27" selection-end-line="29" selection-end-column="21" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="261">
-          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="70" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -760,13 +573,6 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/data/init_database.sql">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="375">
-          <caret line="25" column="32" lean-forward="true" selection-end-line="118" />
         </state>
       </provider>
     </entry>
@@ -883,21 +689,200 @@
     <entry file="file://$PROJECT_DIR$/src/rpc/company/search.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="372">
-          <caret line="42" column="22" lean-forward="true" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+          <caret line="42" column="22" selection-start-line="42" selection-start-column="22" selection-end-line="42" selection-end-column="22" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/rpc/student/apply.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="183">
+          <caret line="38" column="1" selection-start-line="24" selection-end-line="38" selection-end-column="1" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/data/init_database.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="20">
+          <caret line="20" column="32" lean-forward="true" selection-start-line="20" selection-start-column="32" selection-end-line="20" selection-end-column="32" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <caret column="67" selection-start-column="67" selection-end-column="67" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/studentInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="117">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/updateStudentProfile.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/studentFollow.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/sendFriend.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/notificationUpdate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/messgeUpdate.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/message.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/forward.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="180">
+          <caret line="17" column="17" selection-start-line="17" selection-start-column="17" selection-end-line="17" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/dealFriends.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="90">
+          <caret line="11" column="17" selection-start-line="11" selection-start-column="17" selection-end-line="11" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/search/student.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/search/company.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="210">
+          <caret line="19" column="17" selection-start-line="19" selection-start-column="17" selection-end-line="19" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/company/post.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="105">
+          <caret line="7" column="17" selection-start-line="7" selection-start-column="17" selection-end-line="7" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/company/responseApplication.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="75">
+          <caret line="10" column="17" selection-start-line="10" selection-start-column="17" selection-end-line="10" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/company/search.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="135">
+          <caret line="14" column="17" selection-start-line="14" selection-start-column="17" selection-end-line="14" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/company/selectStudentPost.php">
+      <provider selected="true" editor-type-id="text-editor" />
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/company/studentInfo.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="120">
+          <caret line="13" column="17" selection-start-line="13" selection-start-column="17" selection-end-line="13" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/entity/classes.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-1834" />
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/company/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="150">
+          <caret line="15" column="17" selection-start-line="15" selection-start-column="17" selection-end-line="15" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/init.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="345">
+          <caret line="23" column="17" selection-start-line="23" selection-start-column="17" selection-end-line="23" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/data/init_database.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="423">
+          <caret line="104" column="34" selection-end-line="111" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/data/test_data_init.sql">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="468">
+          <caret line="123" selection-start-line="123" selection-end-line="124" selection-end-column="109" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="261">
+          <caret line="51" column="8" selection-start-line="51" selection-start-column="8" selection-end-line="70" selection-end-column="11" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ItemContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="367">
-          <caret line="96" column="34" selection-start-line="96" selection-start-column="34" selection-end-line="96" selection-end-column="34" />
+          <caret line="96" column="18" lean-forward="true" selection-start-line="96" selection-start-column="18" selection-end-line="96" selection-end-column="18" />
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/rpc/student/apply.php">
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/search/job.php">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="397">
-          <caret line="53" column="40" selection-start-line="53" selection-start-column="8" selection-end-line="53" selection-end-column="40" />
+        <state relative-caret-position="225">
+          <caret line="20" column="17" selection-start-line="20" selection-start-column="17" selection-end-line="20" selection-end-column="17" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/apply.php">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-124">
+          <caret line="22" column="17" selection-start-line="22" selection-start-column="17" selection-end-line="22" selection-end-column="17" />
         </state>
       </provider>
     </entry>
