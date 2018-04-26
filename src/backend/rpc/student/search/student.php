@@ -7,7 +7,7 @@
  */
 
 // import the classes used in this file
-require("../../entity/classes.php");
+require("../../../entity/classes.php");
 $objectStudentInfo = new personal_info();
 
 //the parameters that used for connecting to database.
