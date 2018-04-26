@@ -37,7 +37,7 @@ class UpdateInfoForm extends React.Component {
                         slastname: values.slastname,
                         sgpa: values.sgpa,
                         sphone: values.sphone,
-                        suniversity: values.suniversity,
+                        university: values.suniversity,
                         smajor: values.smajor,
                         sresume: values.sresume,
                     }
@@ -173,7 +173,7 @@ class UpdateInfoForm extends React.Component {
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('suniv', {
+                            {getFieldDecorator('suniversity', {
                                 initialValue: this.props.info.suniversity,
                             })(
                                 <Input placeholder="Univeristy"/>
