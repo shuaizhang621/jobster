@@ -9,6 +9,9 @@
 require("../../entity/classes.php");
 $objectStudentInfo = new personal_info();
 
+require ("../../entity/class.pdf2text.php.php");
+$PDF_reader = new PDF2Text();
+
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
@@ -28,6 +31,7 @@ $keyword = $_POST['keyword'];
 $sgpalower = $_POST['sgpalower'];
 $sgpahigh = $_POST['sgpahigh'];
 
+$response = array();
 //query from backend database to find the students that fit the keywords;
 $sql_search_student = "select * from student where suniversity like '%$keyword%' or (sgpa between '$sgpalower' and '$sgpahigh')
 or smajor like '%$keyword%';";
@@ -35,15 +39,27 @@ $result_search_student = mysqli_query($conn, $sql_search_student);
 if ($result_search_student->num_rows > 0){
     while($row = $result_search_student->fetch_assoc()){
         $info = $objectStudentInfo->Build_personal_Info($row);
-        array_push($temp_array, $info);
+        $response[$row['semail']] = $info;
     }
-    $response['student_info'] = $temp_array;
 }
-else{
-    $response['student_info'] = []  ;
+//query resume that fit the keyword
+$sql_resume_path = "select * from Student;";
+$result_resume_path = mysqli_query($conn, $sql_resume_path);
+if ($result_resume_path->num_rows > 0) {
+    while ($row = $result_resume_path->fetch_assoc()) {
+        $PDF_reader->setFilename($row['sresume']);
+        $PDF_reader->decodePDF();
+        if (strpos($PDF_reader->output(), $keyword)) {
+            $info = $objectStudentInfo->Build_personal_Info($row);
+            $response[$row['semail']] = $info;
+        }
+    }
+}
+else {
+//    echo 'error!';
 }
 
-echo json_encode($response);
+echo json_encode(array_unqiue($response));
 
 $conn->close();
 ?>
