@@ -7,7 +7,8 @@
  */
 // import the classes used in this file
 require("../../entity/classes.php");
-$objectStudentApplicationInfo = new student_application();
+$objectJobInfo = new job_info();
+$objectStudentInfo = new personal_info();
 
 //the parameters that used for connecting to database.
 $servername = "localhost";
@@ -27,12 +28,30 @@ $response = array();
 $cname = $_POST['cname'];
 
 //get new application from backend database
-$sql_get_application_update = "select * from StudentApplyJob where cname = '$cname' and status = 'unviewed';";
-$result_get_application_update = mysqli_query($conn, $sql_get_application_update);
-$temp_array = array();
-if ($result_get_application_update->num_rows > 0){
-    while ($row = $result_get_application_update->fetch_assoc()){
-        $info = $objectStudentApplicationInfo->Build_Student_Application_Info($row);
+
+$sql_get_application_jobinfo = "select jid from StudentApplyJob where cname = '$cname' and status = 'unviewed';";
+
+$result_get_application_studentinfo = mysqli_query($conn, $sql_get_application_studentinfo);
+$result_get_application_jobinfo = mysqli_query($conn, $sql_get_application_jobinfo);
+
+$temp_array =array();
+if ($result_get_application_jobinfo->num_rows > 0){
+    while ($row = $result_get_application_jobinfo->fetch_assoc()){
+        $info = $objectJobInfo->Build_Job_Info($row);
+        $temp_jid = $row['jid'];
+        $sql_get_application_studentinfo = "select semail, sphone, sfirstname, slastname, sgpa, suniversity,
+        smajor, sresume from Student where semail in (
+select semail from StudentApplyJob where cname = '$cname' and status = 'unviewed' and jid = '$temp_jid';)";
+        $result_get_application_studentinfo = mysqli_query($conn, $sql_get_application_studentinfo);
+        if($result_get_application_studentinfo->num_rows > 0){
+            while ($row_student = $result_get_application_studentinfo){
+                $info_student = $objectStudentInfo->Build_personal_Info($row_student);
+                $info->Append_student_followed($info_student);
+            }
+        }
+        else{
+            //echo error;
+        }
         array_push($temp_array, $info);
     }
     $response['studentApplicationInfo'] = $temp_array;

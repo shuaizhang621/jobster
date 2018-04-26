@@ -36,8 +36,8 @@ else{
 }
 
 //update the JobAnnouncement and Notification table.
-$sql_update_jobannouncement = "INSERT INTO JobAnnouncement (`jid`, `jlocation`, `jtitle`, `jreq_experience`, `jreq_skills`, `jreq_diploma`, `jdescription`)
-VALUES ('$jid', '$jlocation', '$jtitle', '$jreq_experience', '$jreq_skills', '$jreq_diploma', '$jdescription');";
+$sql_update_jobannouncement = "INSERT INTO JobAnnouncement (`jid`, `jlocation`, `jtitle`,`jsalary`, `jreq_experience`, `jreq_skills`, `jreq_diploma`, `jdescription`)
+VALUES ('$jid', '$jlocation', '$jtitle', ''$jsalary'','$jreq_experience', '$jreq_skills', '$jreq_diploma', '$jdescription');";
 if (mysqli_query($conn, $sql_update_jobannouncement) == True){
     $response['Update_JobAnnouncement'] = "Update job announcement successfully.".$jid;
 }

@@ -24,7 +24,7 @@ CREATE TABLE `Student` (
 );
 
 CREATE TABLE `JobAnnouncement` (
-    `jid` VARCHAR(10) NOT NULL,
+    `jid` INT NOT NULL,
     `cname` VARCHAR(45) NOT NULL,
     `jlocation` VARCHAR(45) NULL,
     `jtitle` VARCHAR(45) NULL,
@@ -50,9 +50,9 @@ CREATE TABLE `StudentFollowCompany` (
 );
 
 CREATE TABLE `StudentApplyJob` (
-    `aid` VARCHAR(10) NOT NULL,
+    `aid` INT NOT NULL,
     `semail` VARCHAR(20) NOT NULL,
-    `jid` VARCHAR(10) NOT NULL,
+    `jid` INT NOT NULL,
     `cname` VARCHAR(45) NOT NULL,
     `status` VARCHAR(10) NULL,
     `applytime` date,
@@ -78,11 +78,11 @@ CREATE TABLE `StudentFriends` (
 );
 
 CREATE TABLE `Notification` (
-    `nid` VARCHAR(10) NOT NULL,
+    `nid` INT NOT NULL,
     `companysend` VARCHAR(45) NULL,
     `semailsend` VARCHAR(20) NULL,
     `semailreceive` VARCHAR(20)  NOT NULL,
-    `jid` VARCHAR(10)  NOT NULL,
+    `jid` INT  NOT NULL,
     `pushtime` date NOT NULL,
     `status` VARCHAR(10) NOT NULL,
     PRIMARY KEY (`nid`),
@@ -97,7 +97,7 @@ CREATE TABLE `Notification` (
 );
 
 CREATE TABLE `Message` (
-    `mid` VARCHAR(20) NOT NULL,
+    `mid` INT NOT NULL,
     `semailsend` VARCHAR(20) NOT NULL,
     `semailreceive` VARCHAR(20) NOT NULL,
     `content` VARCHAR(200) NOT NULL,

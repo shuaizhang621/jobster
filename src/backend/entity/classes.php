@@ -8,6 +8,7 @@ class job_info{
 	public $jreq_skills;
 	public $jlocation;
 	public $jdescription;
+	public $student_applied = array();
 	function Build_Job_Info($row)
 	{
     $jobInfo = new job_info();
@@ -21,6 +22,9 @@ class job_info{
     $jobInfo->jlocation = $row['jlocation'];
     return $jobInfo;
 	}
+	function Append_student_followed($student){;
+	    arraypush($this->student_applied, $student);
+    }
 }
 
 class personal_info{
@@ -37,7 +41,7 @@ class personal_info{
     {
         $personalInfo = new personal_info();
         $personalInfo->semail = $row['semail'];
-        $personalInfo->skey = $row['skey'];
+        //$personalInfo->skey = $row['skey'];
         $personalInfo->sphone = $row['sphone'];
         $personalInfo->sfirstname = $row['sfirstname'];
         $personalInfo->slastname = $row['slastname'];
@@ -61,7 +65,7 @@ class company_info{
     {
         $companyInfo = new company_info();
         $companyInfo->ceamil = $row['cemail'];
-        $companyInfo->ckey = $row['ckey'];
+        //$companyInfo->ckey = $row['ckey'];
         $companyInfo->cphone = $row['cphone'];
         $companyInfo->cname = $row['cname'];
         $companyInfo->cindustry = $row['cindustry'];
