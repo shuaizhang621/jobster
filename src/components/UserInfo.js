@@ -128,9 +128,7 @@ export class UserInfo extends React.Component {
                     <p>{this.props.info.smajor}</p>
                 </div>
                 <div className='info-tools'>
-                    <Button onClick={this.openRequest} className='request-button'>
-                        Friend Requset
-                    </Button>
+                    <Button onClick={this.openRequest} icon="plus" shape='circle'  className='request-button'/>
                     <Badge count={this.props.requestNum} className="request-badge">
                         <a className="head-example" />
                     </Badge>

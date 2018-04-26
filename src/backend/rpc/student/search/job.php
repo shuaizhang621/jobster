@@ -7,7 +7,7 @@
  */
 
 // import the classes used in this file
-require("../../entity/classes.php");
+require("../../../entity/classes.php");
 $objectJobInfo = new job_info();
 
 //get parameter from frontend.

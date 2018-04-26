@@ -6,7 +6,7 @@
  * Time: 20:58
  */
 // import the classes used in this file
-require("../../entity/classes.php");
+require("../../../entity/classes.php");
 $objectCompanyInfo = new company_info();
 
 //get parameter from frontend.
