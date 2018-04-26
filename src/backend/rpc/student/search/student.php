@@ -30,7 +30,7 @@ $response = array();
 //query from backend database which fit the keywords.
 $sql_search_student = "select * from Student where semail like '%$keyword%' or  sphone like '%$keyword%' or  
 sfirstname like '%$keyword%' or  slastname like '%$keyword%' or suniversity like '%$keyword%' or 
-smajor  like '%$keyword%' or  sgpa  like '%$keyword%' or sresume like '%$keyword%';";
+smajor  like '%$keyword%';";
 
 $result_search_student = mysqli_query($conn, $sql_search_student);
     if  ($result_search_student->num_rows > 0){

@@ -47,8 +47,15 @@ if($result_check_application_update->num_rows > 0){
 else{
     $sql_update_application = "INSERT INTO StudentApplyJob(`aid`, `semail`, `jid`, `cname`, `status`, `applytime`)
  VALUES('$aid','$semail', '$jid', '$cname','unviewed', CURDATE());";
-    mysqli_query($conn, $sql_update_application);
-
+    if(mysqli_query($conn, $sql_update_application) == True){
+        $response = True;
+        echo json_encode($response);
+    }
+    else{
+        $response = False;
+        echo json_encode($response);
+    }
+/*
 //check if the application has been updated.
     $sql_check_application_update = "select * from StudentApplyJob where semail = '$semail', jid = '$jid', cname = '$cname';";
     $result_check_application_update = mysqli_query($conn, $sql_check_application_update);
@@ -60,6 +67,8 @@ else{
         $response = False;
         echo json_encode($response);
     }
+*/
 }
+
 $conn->close();
 ?>
