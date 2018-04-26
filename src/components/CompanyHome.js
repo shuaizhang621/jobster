@@ -5,6 +5,7 @@ import {API_ROOT} from "../constants";
 import {CompanyInfo} from "./CompanyInfo";
 import {ApplicationContainer} from "./ApplicationContainer";
 import {SearchContainer} from "./SearchContainer";
+import {Poster} from "./Poster";
 
 const Search = Input.Search;
 const TabPane = Tabs.TabPane;
@@ -69,7 +70,10 @@ export class CompanyHome extends React.Component {
         return (
             <div className='home'>
                 <div className="home-main">
-                    <CompanyInfo info={this.state.companyInfo}/>
+                    <CompanyInfo
+                        info={this.state.companyInfo}
+                        username={this.props.username}
+                    />
                     <div className="home-tab">
                         <Tabs
                             className="tab"
@@ -87,6 +91,7 @@ export class CompanyHome extends React.Component {
                                          }
                                      key="1"
                             >
+                                <Poster info={this.state.companyInfo}/>
                                 <ApplicationContainer application={this.state.studentApplicationInfo}/>
                             </TabPane>
                             <TabPane className="tabpane"

@@ -16,12 +16,12 @@ export class CompanyInfo extends React.Component {
                     <Avatar className="user-avatar-content"
                             style={{backgroundColor: '#7265e6', verticalAlign: 'middle', lineHeight: '50'}}
                             size="large">
-                        {this.props.info.cname}
+                        {this.props.username}
                     </Avatar>
                 </div>
                 <div className="user-info-detail">
                     <p className="user-info-name">
-                        {`${this.props.info.cname}`}
+                        {`${this.props.username}`}
                     </p>
                     <p>{this.props.info.clocation}</p>
                     <p>{this.props.info.cindustry}</p>

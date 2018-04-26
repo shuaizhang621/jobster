@@ -9,6 +9,7 @@
 @import "UserInfo.css";
 @import "FriendsList.css";
 @import "SearchContainer.css";
+@import "Poster.css";
 
 .App {
   text-align: center;

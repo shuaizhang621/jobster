@@ -27,7 +27,6 @@
 }
 
 .tab {
-    color: white;
     margin-top: 20px;
     margin-left: 20px;
     display: block;
@@ -45,6 +44,7 @@
 }
 
 .home .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+    color: white;
     background: #283e4a;
     border: 3px solid #283e4a;
     /*border-radius: 0px;*/
