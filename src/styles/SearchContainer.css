@@ -28,11 +28,6 @@
     padding: 20px;
 }
 
-.add-friend-button {
-    margin-top: -27px;
-    margin-right: 0px;
-    float: right;
-}
 
 .result-people .ant-list-item-meta-description {
     color: rgba(0, 0, 0, 0.4);

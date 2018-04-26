@@ -58,3 +58,15 @@
     float: right;
     margin-top: 8px;
 }
+
+.add-friend-button {
+    margin-top: -27px;
+    margin-right: 0px;
+    float: right;
+}
+.item-container .ant-btn-lg {
+    border-radius: 20px;
+    margin-top: -27px;
+    margin-right: 0px;
+    float: right;
+}

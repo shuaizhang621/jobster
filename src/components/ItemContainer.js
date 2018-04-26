@@ -86,6 +86,23 @@ export class ItemContainer extends React.Component {
         }
     };
 
+    handleApply = (item) => {
+        console.log(item);
+        $.ajax({
+            url: `${API_ROOT}/student/apply.php`,
+            method: 'POST',
+            data: {
+                semail: this.props.username,
+                jid: item.jid,
+                cname: item.cname,
+            }
+        }).then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
+    }
+
     componentDidMount() {
         console.log(this.state);
     }
@@ -185,6 +202,13 @@ export class ItemContainer extends React.Component {
                     style = {{marginRight: 10}}
                     onClick={this.handleFollowCompany}
                 />
+                <Button
+                    className="apply-button"
+                    id={item}
+                    size="large"
+                    style = {{marginRight: 10}}
+                    onClick={() => this.handleApply(item)}
+                >Apply</Button>
             </span>
         );
 
