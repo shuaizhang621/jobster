@@ -6,6 +6,7 @@ import {CompanyInfo} from "./CompanyInfo";
 import {ApplicationContainer} from "./ApplicationContainer";
 import {SearchContainer} from "./SearchContainer";
 import {Poster} from "./Poster";
+import {CompanySearch} from "./CompanySearch";
 
 const Search = Input.Search;
 const TabPane = Tabs.TabPane;
@@ -106,7 +107,7 @@ export class CompanyHome extends React.Component {
                                          }
                                      key="2"
                             >
-                                <SearchContainer
+                                <CompanySearch
                                     username={this.props.username}
                                     friends={this.state.friends}
                                 />

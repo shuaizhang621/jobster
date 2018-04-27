@@ -1,0 +1,11 @@
+.gpa-bar {
+    display: inline-flex;
+    margin-top: 15px;
+    margin-left: 2px;
+}
+
+.gpa-slider {
+    width: 530px;
+    margin-top: -10px;
+    margin-left: 10px;
+}

@@ -3,7 +3,7 @@ import React from 'react';
 import $ from 'jquery';
 import {API_ROOT, COLOR_LIST } from '../constants';
 
-export class ResultPeople extends React.Component {
+export class CompanySearchResult extends React.Component {
     handleAddFriend = (e) => {
         let receiver = e.target.id;
         console.log(e.target.id);
@@ -32,17 +32,6 @@ export class ResultPeople extends React.Component {
         })
     }
 
-    handleForward = (e) => {
-        let receiver = e.target.id;
-        console.log(e.target.id);
-        $.ajax({
-            url: `${API_ROOT}/company/selectStudentPost.php`,
-            method: 'POST',
-            data: {
-            }
-        })
-    }
-
     render() {
         const avatar = (item) => (
             <Avatar
@@ -66,16 +55,7 @@ export class ResultPeople extends React.Component {
         const description = (item) => (
             <span>
                 <span>{`${item.suniversity}  |   ${item.smajor}`}</span>
-                {this.props.company===true && <Button
-                    className="add-friend-button"
-                    id={item.semail}
-                    shape="circle"
-                    icon="mail"
-                    size="large"
-                    onClick={this.handleForword}
-                    disabled={item.semail == this.props.username}
-                />}
-                {this.props.student===true && <Button
+                <Button
                     className="add-friend-button"
                     id={item.semail}
                     shape="circle"
@@ -83,7 +63,7 @@ export class ResultPeople extends React.Component {
                     size="large"
                     onClick={this.handleAddFriend}
                     disabled={item.semail == this.props.username}
-                />}
+                />
             </span>
         );
 

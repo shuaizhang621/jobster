@@ -11,6 +11,7 @@
 @import "SearchContainer.css";
 @import "Poster.css";
 @import "ApplicationContainer.css";
+@import "CompanySearch.css";
 
 .App {
   text-align: center;

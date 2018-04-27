@@ -25,7 +25,7 @@ if ($conn->connect_error) {
 $response = array();
 
 //get parameter from frontend.
-$cname = 'ZhuYuanzhang';//$_POST['cname'];
+$cname = $_POST['cname'];
 
 //get new application from backend database
 
@@ -34,17 +34,21 @@ $sql_get_application_jobinfo = "select * from JobAnnouncement where jid in
 
 $result_get_application_jobinfo = mysqli_query($conn, $sql_get_application_jobinfo);
 
+
 $temp_array =array();
 if ($result_get_application_jobinfo->num_rows > 0){
     while ($row = $result_get_application_jobinfo->fetch_assoc()){
         $info = $objectJobInfo->Build_Job_Info($row);
         $temp_jid = $row['jid'];
-        $sql_get_application_studentinfo = "select * from Student where semail in (
-select semail, aid from StudentApplyJob where (cname = '$cname') and (status = 'unviewed') and (jid = '$temp_jid'));";
+//        echo $temp_jid."<br>";
+        $sql_get_application_studentinfo = "select semail, aid, sphone, slastname,sfirstname,sgpa,smajor, suniversity,
+sresume, aid from Student natural join StudentApplyJob where semail in (
+select semail from StudentApplyJob where (cname = '$cname') and (status = 'unviewed') and (jid = '$temp_jid'));";
         $result_get_application_studentinfo = mysqli_query($conn, $sql_get_application_studentinfo);
         if($result_get_application_studentinfo->num_rows > 0){
+            //echo 'got student'."<br>";
             while ($row_student = $result_get_application_studentinfo->fetch_assoc()){
-                $info_student = $objectStudentInfo->Build_personal_Info($row_student);
+                $info_student = $objectStudentInfo->Init_Company_Student_Info($row_student);
                 $info->Append_student_followed($info_student);
             }
         }
@@ -55,6 +59,7 @@ select semail, aid from StudentApplyJob where (cname = '$cname') and (status = '
     }
     $response['studentApplicationInfo'] = $temp_array;
 }
+
 
 
 //get company info
