@@ -3,7 +3,7 @@
     width: 450px;
     padding: 20px;
     border-radius: 2px;
-    background: #EDF0FB;
+    background: #ECF0F3;
     border-radius: 0px 0px 2px 2px;
 }
 
@@ -17,7 +17,7 @@
     width: 450px;
     padding: 20px;
     border-radius: 2px 2px 0 0;
-    background: #F6F8FA;
+    background: #ECF0F3;
     border-bottom: 1px solid rgba(0,0,0,0.15);
 }
 
@@ -42,7 +42,7 @@
 .pre-register-body {
     margin-bottom: 80px;
     padding: 30px;
-    background: #EDF0FB;
+    background: #ECF0F3;
     border-radius: 0px 0px 2px 2px;
 }
 

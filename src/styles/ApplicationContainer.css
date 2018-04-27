@@ -1,0 +1,28 @@
+
+
+.applicants .ant-collapse-header{
+    margin-left: -70px;
+}
+
+
+
+.applicants .ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content {
+    padding: 0 0 0 0;
+}
+.applicants .ant-list-item {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    margin-left: -90px;
+    border: none;
+    width: 637px;
+    padding-right: 0;
+    padding-bottom: 0;
+}
+
+.ant-collapse-borderless > .ant-collapse-item {
+    border-bottom: none;
+}
+
+.ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content {
+    overflow: visible;
+}

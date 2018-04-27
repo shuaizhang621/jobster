@@ -8,13 +8,16 @@
 @import "Home.css";
 @import "UserInfo.css";
 @import "FriendsList.css";
+@import "SearchContainer.css";
+@import "Poster.css";
+@import "ApplicationContainer.css";
 
 .App {
   text-align: center;
 }
 
 .App-logo {
-  margin: 10px;
+  margin: 10px 25px;
   height: 30px;
   float: left;
 }

@@ -1,6 +1,72 @@
 .item-container {
-    width: 100%;
-    background-color: white;
+    width: 680px;
+    background-color: #F5F5F5;
     padding: 20px;
     border-radius: 2px;
+}
+
+.item-container .ant-list-item {
+    background-color: white;
+    border: lightgrey solid 1px;
+    border-bottom: lightgrey solid 1px;
+    display: block;
+}
+
+.item-container .ant-list-item-content {
+    line-height: 15px;
+    display: block;
+    margin: 10px 0 0 56px;
+}
+
+.item-container .ant-collapse-item {
+    padding-bottom: 0;
+}
+
+.item-container .ant-list-item-meta-title {
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 20px;
+}
+
+.item-container .ant-list-item-meta-description {
+    color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 10px;
+}
+
+.modal-friend-list .ant-modal-body {
+    padding: 0 20px;
+}
+
+.modal-friend-list .ant-list-item-meta-description {
+    color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 4px;
+    font-size: 12px;
+    line-height: 10px;
+}
+
+.modal-friend-list .ant-list-item-meta-title {
+    color: rgba(0, 0, 0, 0.65);
+    margin-bottom: 4px;
+    font-size: 14px;
+    line-height: 18px;
+}
+
+.modal-friend-list .switch {
+    float: right;
+    margin-top: 8px;
+}
+
+.add-friend-button {
+    margin-top: -27px;
+    margin-right: 0px;
+    float: right;
+}
+.item-container .ant-btn-lg {
+    border-radius: 20px;
+    margin-top: -27px;
+    margin-right: 0px;
+    float: right;
 }

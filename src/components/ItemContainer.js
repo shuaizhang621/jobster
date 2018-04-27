@@ -1,81 +1,235 @@
-import { List, Avatar, Icon, Collapse, Button, Col } from 'antd';
+import { List, Button, Avatar, Modal, Switch } from 'antd';
 import React from 'react';
-
-const Panel = Collapse.Panel;
-const listData = [];
-
-for (let i = 0; i < 5; i++) {
-    listData.push({
-        href: 'http://ant.design',
-        jtitle: `Software Engineer ${i}`,
-        jsalary: '100k-150k',
-        jreq_diploma: "Master of Science",
-        jreq_experience: "1 year +",
-        jreq_skills: "Java, Python, PHP",
-        jlocation: '5 MetroTech，Brooklyn, NY, 11201',
-        jdescription: 'We’re searching for a Software Engineering Manager ' +
-        'to lead a team of product engineers. The software and ' +
-        'services built by this team will be supporting the transformation ' +
-        'of digital products culture with WGSN and building a base to allow ' +
-        'the business to drive rapid improvement and create innovative new offerings. ' +
-        'It’s an exciting time for WGSN and we will need the right talent to continue working in smart, multidisciplinary teams tackling big problems. ' +
-        'This role will join our in-house engineering team based in our WGSN New York office. ',
-    });
-}
-
-const pagination = {
-    pageSize: 10,
-    current: 1,
-    total: listData.length,
-    onChange: (() => {}),
-};
-
-const IconText = ({ type, text }) => (
-    <span>
-    <Icon type={type} style={{ marginRight: 8 }} />
-        {text}
-  </span>
-);
-
-const customPanelStyle = {
-    background: '#f7f7f7',
-    borderRadius: 4,
-    marginBottom: 24,
-    marginRight: 20,
-    border: 0,
-    overflow: 'hidden',
-};
+import $ from 'jquery';
+import { COLOR_LIST, API_ROOT } from '../constants';
+import {FriendsList} from "./FriendsList";
 
 export class ItemContainer extends React.Component {
+    state = {
+        receiver: [],
+        visible: false,
+        jid: 0,
+    }
+
+    showModal = (e) => {
+        this.setState({
+            visible: true,
+            jid: e.target.id,
+        });
+    }
+    handleOk = (e) => {
+        $.ajax({
+            url: `${API_ROOT}/student/forward.php`,
+            method: 'POST',
+            data: {
+                semail: this.props.username,
+                semailreceive: this.state.receiver,
+                jid: this.state.jid,
+            }
+        }).then((response) => {
+            console.log("backend response: ", response);
+        }, (error) => {
+            console.log(error);
+        });
+        this.setState({
+            visible: false,
+        });
+    };
+
+    handleCancel = (e) => {
+        console.log(e);
+        this.setState({
+            visible: false,
+        });
+    };
+
+    addReceiver = (receiver) => {
+        let list = this.state.receiver;
+        let hasReceiver = false;
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].semail === receiver) {
+                hasReceiver = true;
+            }
+        }
+        if (!hasReceiver) {
+            list.push({semail: receiver});
+            this.setState({receiver: list});
+        }
+    };
+
+    removeReceiver = (receiver) => {
+        let list = this.state.receiver;
+        let receiverIndex = -1;
+        for (let i = 0; i < list.length; i++) {
+            if (list[i].semail === receiver) {
+                receiverIndex = i;
+            }
+        }
+        if (receiverIndex >= 0) {
+            list.splice(receiverIndex, 1);
+            this.setState({receiver: list});
+        }
+    };
+
+    handleApply = (item) => {
+        console.log(item);
+        $.ajax({
+            url: `${API_ROOT}/student/apply.php`,
+            method: 'POST',
+            data: {
+                semail: this.props.username,
+                jid: item.jid,
+                cname: 'ZhuYuanzhang',
+            }
+        }).then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
+    }
+
+    componentDidMount() {
+        console.log(this.state);
+    }
+
+    componentDidUpdate() {
+        console.log(this.state);
+    }
+
     render() {
+        const avatar = (item) => (
+            <Avatar
+                style={{
+                    backgroundColor: COLOR_LIST[Math.floor(Math.random() * 7)],
+                    verticalAlign: 'middle',
+                    lineHeight: '50'
+                }}
+                size="large"
+            >
+                {item.jtitle}
+            </Avatar>
+        );
+
+        const description = (item) => (
+            <span>
+                <span>{`Google  |   ${item.jlocation}`}</span>
+                <div>
+                    <Button
+                        className="add-friend-button"
+                        id={item.jid}
+                        shape="circle"
+                        size="large"
+                        icon="share-alt"
+                        onClick={this.showModal}
+                    />
+                    <Modal
+                        className='modal-friend-list'
+                        title="Forward to friends:"
+                        visible={this.state.visible}
+                        onOk={this.handleOk}
+                        onCancel={this.handleCancel}
+                    >
+                        <List
+                            itemLayout="horizontal"
+                            dataSource={this.props.friends}
+                            renderItem={item => (
+                                <List.Item
+                                      key={item.index}
+                                >
+                                    <List.Item.Meta
+                                        avatar={
+                                              <div>
+                                                  <Avatar
+                                                      style={{
+                                                          backgroundColor: COLOR_LIST[Math.floor(Math.random() * 4)],
+                                                          verticalAlign: 'middle'
+                                                      }}
+                                                      size="middle"
+                                                  >
+                                                      {item.sfirstname}
+                                                      </Avatar>
+                                              </div>
+                                        }
+                                        description={item.semail}
+                                        title={
+                                            <div>
+                                                <a href="https://www.linkedin.com/in/shuaizhang621">
+                                                    {item.sfirstname} {item.slastname}
+                                                </a>
+                                                <Switch
+                                                    id={item.semail}
+                                                    className="switch"
+                                                    defaultChecked={false}
+                                                    onChange={(checked) => {
+                                                        if (checked) {
+                                                            this.addReceiver(item.semail);
+                                                        } else {
+                                                            this.removeReceiver(item.semail);
+                                                        }
+                                                        console.log(item.semail);
+                                                    }}
+                                                />
+                                            </div>
+
+                                        }
+                                    />
+                                </List.Item>
+                            )}
+                        />
+                    </Modal>
+                </div>
+                <Button
+                    className="add-friend-button"
+                    id={item.jid}
+                    shape="circle"
+                    icon="heart-o"
+                    size="large"
+                    style = {{marginRight: 10}}
+                    onClick={() => {this.props.handleFollowCompany(item)}}
+                />
+                <Button
+                    className="apply-button"
+                    id={item}
+                    size="large"
+                    style = {{marginRight: 10}}
+                    onClick={() => this.handleApply(item)}
+                >Apply</Button>
+            </span>
+        );
+
+        const content = (item) => (
+            <div className='job-detail'>
+                <p>Salary: {item.jsalary}</p>
+                <p>Requirements:</p>
+                <ul>
+                    <li>Diploma: {item.jreq_diploma}</li>
+                    <li>Experience: {item.jreq_experience} years</li>
+                    <li>Skills: {item.jreq_skills}</li>
+                    <li>Description: {item.jdescription}</li>
+                </ul>
+            </div>
+        );
+
         return (
             <List
                 className="item-container"
-                itemLayout="vertical"
+                itemLayout="horizon"
                 size="large"
-                pagination={pagination}
-                dataSource={listData}
+                dataSource={this.props.notification}
                 renderItem={item => (
                     <List.Item
                         key={item.jtitle}
-                        actions={[<Button>Forword</Button>, <Button>Apply</Button>]}
                     >
                         <List.Item.Meta
-                            title={<a href={item.href}>{item.jtitle}</a>}
-                            description={item.jlocation}
+                            avatar={avatar(item)}
+                            title={
+                                <a href="https://www.linkedin.com/in/shuaizhang621">
+                                    {item.jtitle}
+                                </a>
+                            }
+                            description={description(item)}
                         />
-                        <p>Salary: {item.jsalary}</p>
-                        <p>Requirements:</p>
-                        <ul>
-                            <li>Diploma: {item.jreq_diploma}</li>
-                            <li>Experience: {item.jreq_experience}</li>
-                            <li>Skills: {item.jreq_skills}</li>
-                        </ul>
-                        <Collapse bordered={false}>
-                            <Panel header="Description" key="1" style={customPanelStyle}>
-                                <p>{item.jdescription}</p>
-                            </Panel>
-                        </Collapse>
+                        {content(item)}
                     </List.Item>
                 )}
             />

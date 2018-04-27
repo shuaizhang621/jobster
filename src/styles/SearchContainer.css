@@ -1,0 +1,49 @@
+.search-radio {
+    text-align: center;
+    margin-left: 18px;
+    height: 45px;
+}
+
+.search-for {
+    font-weight: bold;
+    color: black;
+}
+
+.search-bar {
+    box-shadow: 1px 3px 10px 2px #e5e5e5;
+    padding: 20px;
+    margin: 19px 10px 10px 10px;
+    border-radius: 2px;
+    background: white;
+    border: lightgrey solid 1px;
+}
+
+.result-people .item-container .ant-list-item{
+    width: 320px;
+    margin-left: 10px;
+    padding: 20px;
+}
+
+.result-people .item-container .ant-list-item .element.style{
+    padding: 20px;
+}
+
+
+.result-people .ant-list-item-meta-description {
+    color: rgba(0, 0, 0, 0.4);
+    margin-bottom: 4px;
+    font-size: 10px;
+    line-height: 10px;
+}
+
+.result-company .ant-list-item-meta-description {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+    line-height: 10px;
+}
+
+.search .item-container .ant-list-item {
+    background-color: white;
+    border: lightgrey solid 1px;
+    border-bottom: lightgrey solid 1px;
+}

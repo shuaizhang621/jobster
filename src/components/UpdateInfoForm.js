@@ -8,13 +8,18 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const Dragger = Upload.Dragger;
 
-export class RegistrationForm extends React.Component {
+class UpdateInfoForm extends React.Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
         validateStatus: '',
         validateMessage: '',
     };
+
+    componentDidUpdate() {
+        console.log(this.props.info);
+    }
+
     handleSubmit = (e) => {
         e.preventDefault();
         let _this = this;
@@ -22,7 +27,7 @@ export class RegistrationForm extends React.Component {
             if (!err) {
                 console.log('Received values of form: ', values);
                 $.ajax({
-                    url: `${API_ROOT}/register.php`,
+                    url: `${API_ROOT}/student/updateStudentProfile.php`,
                     method: 'POST',
                     data: {
                         usertype: this.props.usertype,
@@ -32,14 +37,14 @@ export class RegistrationForm extends React.Component {
                         slastname: values.slastname,
                         sgpa: values.sgpa,
                         sphone: values.sphone,
-                        suniversity: values.suniversity,
+                        university: values.suniversity,
                         smajor: values.smajor,
                         sresume: values.sresume,
                     }
                 }).then((response) => {
                     message.success(response);
                     console.log(response);
-                    _this.props.history.push("/login");
+                    this.props.closeModal();
                 }, (response) => {
                     console.log(response);
                     message.error(response.responseText);
@@ -50,12 +55,11 @@ export class RegistrationForm extends React.Component {
         });
     }
 
-
-
     handleConfirmBlur = (e) => {
         const value = e.target.value;
         this.setState({ confirmDirty: this.state.confirmDirty || !!value });
     }
+
     compareToFirstPassword = (rule, value, callback) => {
         const form = this.props.form;
         if (value && value !== form.getFieldValue('skey')) {
@@ -64,6 +68,7 @@ export class RegistrationForm extends React.Component {
             callback();
         }
     }
+
     validateToNextPassword = (rule, value, callback) => {
         const form = this.props.form;
         if (value && this.state.confirmDirty) {
@@ -72,56 +77,8 @@ export class RegistrationForm extends React.Component {
         callback();
     }
 
-    checkEmail = (rule, value, callback) => {
-        let re = /^(([^<>()\[\]\\.,;:\s@"]+(\.[^<>()\[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
-
-        if (value === '') {
-            console.log('checkempty', value);
-            this.setState({
-                validateStatus:'error',
-                validateMessage: 'Please input your email.'
-            });
-            callback('Please input your email.')
-        } else if (!re.test(value)) {
-            console.log("valid email");
-            this.setState({
-                validateStatus:'warning',
-                validateMessage: 'Please input a valid email.'
-            });
-            callback('Please input a valid email.')
-        } else {
-            this.setState({
-                validateStatus:'validating',
-            });
-            console.log(value);
-            console.log('usertype:', this.props.usertype);
-            $.ajax({
-                url: `${API_ROOT}/emailvalidation.php`,
-                method: 'POST',
-                data: {
-                    usertype: this.props.usertype,
-                    semail: value,
-                },
-            }).then((response) => {
-                console.log(response);
-                this.setState({
-                    validateStatus:'success',
-                    validateMessage: '',
-                });
-                callback();
-            }, (response) => {
-                this.setState({
-                    validateStatus:'warning',
-                    validateMessage: 'This email has been used.'
-                });
-                callback('This email has been used.');
-            }).catch((error) => {
-                console.log(error);
-            });
-        }
-    }
-
     render() {
+        console.log("render:", this.props.info);
         const { getFieldDecorator } = this.props.form;
 
         const upProps = {
@@ -150,10 +107,9 @@ export class RegistrationForm extends React.Component {
             </Select>
         );
         return (
-            <div className='login-register'>
+            <div className='update-form'>
                 <div className='form-wrapper'>
-                    <div className="form-title"> Be great at what you do </div>
-                    <Form onSubmit={this.handleSubmit} className="register-form">
+                    <Form onSubmit={this.handleSubmit}>
                         <FormItem
                             hasFeedback
                             validateStatus={this.state.validateStatus}
@@ -165,13 +121,15 @@ export class RegistrationForm extends React.Component {
                                     whitespace: true,
                                     validator: this.checkEmail,
                                 }],
+                                initialValue: this.props.username,
                             })(
-                                <Input placeholder="Email"/>
+                                <Input placeholder={this.props.username} disabled/>
                             )}
                         </FormItem>
                         <FormItem>
                             {getFieldDecorator('sfirstname', {
                                 rules: [{ required: true, message: 'Please input your firstname.', whitespace: true }],
+                                initialValue: this.props.info.sfirstname,
                             })(
                                 <Input placeholder="First Name"/>
                             )}
@@ -179,6 +137,7 @@ export class RegistrationForm extends React.Component {
                         <FormItem>
                             {getFieldDecorator('slastname', {
                                 rules: [{ required: true, message: 'Please input your lastname.', whitespace: true }],
+                                initialValue: this.props.info.slastname,
                             })(
                                 <Input placeholder="Last Name"/>
                             )}
@@ -208,23 +167,30 @@ export class RegistrationForm extends React.Component {
                         <FormItem>
                             {getFieldDecorator('sphone', {
                                 rules: [{ required: true, message: 'Please input your phone number.' }],
+                                initialValue: this.props.info.sphone,
                             })(
                                 <Input placeholder="Phone Number" addonBefore={prefixSelector} style={{ width: '100%' }} />
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('suniversity')(
+                            {getFieldDecorator('suniversity', {
+                                initialValue: this.props.info.suniversity,
+                            })(
                                 <Input placeholder="Univeristy"/>
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('smajor')(
-                                <Input placeholder="Major"/>
+                            {getFieldDecorator('smajor', {
+                                initialValue: this.props.info.smajor,
+                            })(
+                                <Input placeholder="Major" />
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('sgpa')(
-                                <Input placeholder="GPA"/>
+                            {getFieldDecorator('sgpa', {
+                                initialValue: this.props.info.sgpa,
+                            })(
+                                <Input placeholder="GPA" />
                             )}
                         </FormItem>
                         <FormItem>  /* upload url... later...*/
@@ -239,7 +205,6 @@ export class RegistrationForm extends React.Component {
                         </FormItem>
                         <FormItem>
                             <Button type="primary" htmlType="submit">Register</Button>
-                            <p>I already have an account, go back to <Link to="/login">login</Link></p>
                         </FormItem>
                     </Form>
                 </div>
@@ -248,4 +213,4 @@ export class RegistrationForm extends React.Component {
     }
 }
 
-export const Register = Form.create()(RegistrationForm);
+export const UpdateForm = Form.create()(UpdateInfoForm);

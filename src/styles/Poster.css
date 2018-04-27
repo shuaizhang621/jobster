@@ -1,0 +1,45 @@
+.poster {
+    width: 660px;
+    box-shadow: 1px 3px 10px 2px #e5e5e5;
+    padding: 20px;
+    margin: 19px 10px 10px 10px;
+    border-radius: 2px;
+    background: white;
+    border: lightgrey solid 1px;
+    overflow: auto;
+}
+
+.poster .title {
+    display: flex;
+    margin-bottom: 10px;
+}
+
+.poster .title .title-text {
+    margin-left: 10px;
+}
+
+.poster .sub-title {
+    color: rgba(0, 0, 0, 0.4);
+    font-size: 12px;
+    line-height: 15px;
+}
+
+.poster-button {
+    display: flex;
+    margin-top: 10px;
+    float: right;
+}
+
+.post-button {
+    margin-left: 10px;
+}
+
+.poster .detail {
+    margin-top: 10px;
+    margin-right: -30px;
+}
+
+.poster .ant-form-inline .ant-form-item > .ant-form-item-control-wrapper, .ant-form-inline .ant-form-item > .ant-form-item-label {
+    width: 195px;
+    margin-bottom: 10px;
+}

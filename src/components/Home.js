@@ -1,20 +1,58 @@
 import React from 'react';
-import { Input, Tabs, message } from 'antd';
-import { API_ROOT, GEO_OPTIONS, AUTH_PREFIX, TOKEN_KEY, POS_KEY } from "../constants";
+import { Input, Tabs, message, Icon } from 'antd';
+import { API_ROOT } from "../constants";
 import $ from 'jquery';
 import { ItemContainer } from "./ItemContainer";
 import { UserInfo } from "./UserInfo";
 import { FriendsList } from "./FriendsList";
+import { MessageContainer} from "./MessageContainer";
+import {SearchContainer} from "./SearchContainer";
 
 const Search = Input.Search;
 const TabPane = Tabs.TabPane;
 
 export class Home extends React.Component {
     state = {
-        data: [],
+        requestNum: 0,
+        friend_request: [],
+        friends: [],
+        notification: [],
+        personal_info: [{
+            semail: "",
+            skey: "",
+            sphone: "",
+            sfirstname: "",
+            slastname: "",
+        }]
+
+    };
+
+    handleUpdateRequest = (key) => {
+        let requestList = this.state.friend_request;
+        requestList[key] = null;
+        this.setState({
+            friend_request: requestList,
+        });
     }
 
-    componentDidMount() {
+    countRequest = (request) => {
+        let count = 0;
+        if (request != null) {
+            for (let i = 0; i < request.length; i++) {
+                if (request[i] != null) {
+                    count += 1;
+                }
+            }
+        }
+        console.log("count", count);
+        return count;
+    }
+
+    componentWillMount() {
+        this.getDate();
+    }
+
+    getDate = () => {
         $.ajax({
             method: 'POST',
             url: `${API_ROOT}/student/init.php`,
@@ -22,43 +60,135 @@ export class Home extends React.Component {
                 semail: this.props.username,
             },
         }).then((response) => {
+            let res = JSON.parse(response);
+            console.log(res);
+
             this.setState({
-                data: JSON.parse(response),
-            })
-            console.log(this.state.data);
+                friend_request: res.friend_request == null ? [] : res.friend_request,
+                friends: res.friends == null ? [] : res.friends,
+                notification: res.notification == null ? [] : res.notification,
+                personal_info: res.personal_info == null ? [] : res.personal_info,
+                requestNum: this.countRequest(res.friend_request),
+            });
         }, (error) => {
             message.error(error.responseText);
-        }).catch((error) => {
-            console.log(error);
         });
     }
+
+    componentDidUpdate(prevProps, prevState) {
+        console.log(this.state);
+        let num = this.countRequest(this.state.friend_request);
+        if (prevState.requestNum != num) {
+            this.setState({
+                requestNum: num,
+            });
+        }
+        $.ajax({
+            method: 'POST',
+            url: `${API_ROOT}/student/init.php`,
+            data: {
+                semail: this.props.username,
+            },
+        }).then((response) => {
+            let res = JSON.parse(response);
+            if (res != null && res.friends != null) {
+                if (prevState.friends.length != res.friends.length) {
+                    this.setState({
+                        friends: res.friends,
+                    });
+                }
+            }
+
+        }, (error) => {
+            message.error(error.responseText);
+        });
+    }
+
+    handleFollowCompany = (item) => {
+        console.log(item);
+        $.ajax({
+            url: `${API_ROOT}/student/studentFollow.php`,
+            method: 'POST',
+            data: {
+                semail: this.props.username,
+                cname: item.cname,
+            }
+        }).then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
+    };
 
     render() {
         return (
             <div className="home">
                 <div className="home-main">
-                    <UserInfo username={this.props.username}/>
+                    <UserInfo
+                        username={this.props.username}
+                        info={this.state.personal_info[0]}
+                        request={this.state.friend_request}
+                        update={this.handleUpdateRequest}
+                        requestNum={this.state.requestNum}
+                    />
                     <div className="home-tab">
                         <Tabs
                             className="tab"
                             type="card"
                             tabPosition="top"
+                            onTabClick={this.getData}
                         >
-                            <TabPane className="tabpane" tab="Home" key="1">
-                                <ItemContainer/>
-                            </TabPane>
-                            <TabPane className="tabpane" tab="Search" key="2">
-                                <Search
-                                    className="search"
-                                    placeholder="input search text"
-                                    onSearch={value => console.log(value)}
-                                    enterButton
+                            <TabPane className="tabpane"
+                                     tab=
+                                         {
+                                             <div>
+                                                 <Icon type="home" style={{ fontSize: 18, color: 'white' }} />
+                                                 <span style={{float: 'bottom'}}>Home</span>
+                                             </div>
+
+                                         }
+                                     key="1"
+                            >
+                                <ItemContainer
+                                    username={this.props.username}
+                                    notification={this.state.notification}
+                                    friends={this.state.friends}
+                                    handleFollowCompany={this.handleFollowCompany}
                                 />
-                                <ItemContainer/>
+                            </TabPane>
+                            <TabPane className="tabpane"
+                                     tab=
+                                         {
+                                             <div>
+                                                 <Icon type="search" style={{ fontSize: 18, color: 'white' }} />
+                                                 <span style={{float: 'bottom'}}>Search</span>
+                                             </div>
+
+                                         }
+                                     key="2"
+                            >
+                                <SearchContainer
+                                    username={this.props.username}
+                                    friends={this.state.friends}
+                                    handleFollowCompany={this.handleFollowCompany}
+                                />
+                            </TabPane>
+                            <TabPane className="tabpane"
+                                     tab=
+                                         {
+                                             <div>
+                                                 <Icon type="mail" style={{ fontSize: 18, color: 'white' }} />
+                                                 <span style={{float: 'bottom'}}>Message</span>
+                                             </div>
+
+                                         }
+                                     key="3"
+                            >
+                                <MessageContainer username={this.props.username}/>
                             </TabPane>
                         </Tabs>
                     </div>
-                    <FriendsList/>
+                    <FriendsList friends={this.state.friends}/>
                 </div>
 
             </div>

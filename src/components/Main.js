@@ -9,28 +9,28 @@ import { CompanyHome} from "./CompanyHome";
 
 export class Main extends React.Component {
     state = {
-        usertype: "",
-    }
+        usertype: 'company',
+    };
 
     setUserType = () => {
         this.setState({
             usertype: "",
         });
-    }
+    };
 
     handleOnClickStudent = () => {
         console.log(this.state);
         this.setState({
             usertype: "student",
-        })
-    }
+        });
+    };
 
     handleOnClickCompany = () => {
         console.log(this.state);
         this.setState({
             usertype: "company",
         })
-    }
+    };
 
     getLogin = () => {
         console.log(this.state);
@@ -41,7 +41,7 @@ export class Main extends React.Component {
                 handleOnClickCompany={this.handleOnClickCompany}
                 setUserType={this.setUserType}
             />;
-    }
+    };
 
     getHome = () => {
         console.log(this.state.usertype);
@@ -52,7 +52,7 @@ export class Main extends React.Component {
                 <Home username={this.props.username}/> : <CompanyHome username={this.props.username}/>
             )
             : <Redirect to="/login"/>;
-    }
+    };
 
     getRegister = () => {
         if (this.state.usertype == "student") {
@@ -68,24 +68,28 @@ export class Main extends React.Component {
                 handleOnClickCompany={this.handleOnClickCompany}
             />
         }
-    }
+    };
 
     getRoot = () => {
         return <Redirect to="/login"/>;
-    }
+    };
 
 
     render() {
         return (
-            <div className="main">
-                <Switch>
-                    <Route exact path="/" render={this.getRoot}/>
-                    <Route path="/login" render={this.getLogin}/>
-                    <Route path="/register" render={this.getRegister}/>
-                    <Route path="/home" render={this.getHome}/>
-                    <Route render={this.getRoot}/>
-                </Switch>
+            <div>
+                <div className="background-image"></div>
+                <div className="main">
+                    <Switch>
+                        <Route exact path="/" render={this.getRoot}/>
+                        <Route path="/login" render={this.getLogin}/>
+                        <Route path="/register" render={this.getRegister}/>
+                        <Route path="/home" render={this.getHome}/>
+                        <Route render={this.getRoot}/>
+                    </Switch>
+                </div>
             </div>
+
         )
     }
 }
