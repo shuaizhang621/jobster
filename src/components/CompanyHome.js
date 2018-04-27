@@ -23,6 +23,7 @@ export class CompanyHome extends React.Component {
     }
 
     componentWillMount() {
+        console.log(this.props.username);
         $.ajax({
             method: 'POST',
             url: `${API_ROOT}/company/init.php`,
@@ -42,28 +43,28 @@ export class CompanyHome extends React.Component {
         });
     }
 
-    // componentDidUpdate(prevProps, prevState) {
-    //     console.log(this.state);
-    //     $.ajax({
-    //         method: 'POST',
-    //         url: `${API_ROOT}/company/init.php`,
-    //         data: {
-    //             cname: this.props.username,
-    //         },
-    //     }).then((response) => {
-    //         let res = JSON.parse(response);
-    //         if (res != null && res.studentApplicationInfo!= null) {
-    //             if (prevState.studentApplicationInfo.length != res.studentApplicationInfo.length) {
-    //                 this.setState({
-    //                     studentApplicationInfo: res.studentApplicationInfo,
-    //                 });
-    //             }
-    //         }
-    //     }, (error) => {
-    //         message.error(error.responseText);
-    //     });
-    //
-    // }
+    componentDidUpdate(prevProps, prevState) {
+        console.log(this.state);
+        // $.ajax({
+        //     method: 'POST',
+        //     url: `${API_ROOT}/company/init.php`,
+        //     data: {
+        //         cname: this.props.username,
+        //     },
+        // }).then((response) => {
+        //     let res = JSON.parse(response);
+        //     if (res != null && res.studentApplicationInfo!= null) {
+        //         if (prevState.studentApplicationInfo.length != res.studentApplicationInfo.length) {
+        //             this.setState({
+        //                 studentApplicationInfo: res.studentApplicationInfo,
+        //             });
+        //         }
+        //     }
+        // }, (error) => {
+        //     message.error(error.responseText);
+        // });
+
+    }
 
 
     render() {

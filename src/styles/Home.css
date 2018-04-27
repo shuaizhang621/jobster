@@ -56,14 +56,14 @@
     border-bottom: 0;
 }
 
-.home .home-tab .ant-list-item {
+.home .ant-list-item {
     box-shadow: 1px 2px 8px 1px #e5e5e5;
     border-radius: 2px;
     margin-bottom: 10px;
     padding: 20px;
 }
 
-.home  .item-container {
+.home .item-container {
     padding-top: 3px;
     padding-left: 10px;
     padding-right: 10px;

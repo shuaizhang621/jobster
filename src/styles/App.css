@@ -10,6 +10,7 @@
 @import "FriendsList.css";
 @import "SearchContainer.css";
 @import "Poster.css";
+@import "ApplicationContainer.css";
 
 .App {
   text-align: center;

@@ -68,6 +68,8 @@ foreach ($semailreceive as $student){
     else{
         $response[$student] = $student."Updated unsuccessfully.";
     }
+    echo $response;
 }
+
 $conn->close();
 ?>

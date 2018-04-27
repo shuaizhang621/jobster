@@ -8,28 +8,29 @@ export class ItemContainer extends React.Component {
     state = {
         receiver: [],
         visible: false,
+        jid: 0,
     }
 
-    showModal = () => {
+    showModal = (e) => {
         this.setState({
             visible: true,
+            jid: e.target.id,
         });
     }
     handleOk = (e) => {
-        console.log(e);
-        // $.ajax({
-        //     url: `${API_ROOT}/student/forward.php`,
-        //     method: 'POST',
-        //     data: {
-        //         semail: this.props.username,
-        //         semailreceive: this.state.receiver,
-        //         jid: e.target.id,
-        //     }
-        // }).then((response) => {
-        //     console.log(response);
-        // }, (error) => {
-        //     console.log(error);
-        // });
+        $.ajax({
+            url: `${API_ROOT}/student/forward.php`,
+            method: 'POST',
+            data: {
+                semail: this.props.username,
+                semailreceive: this.state.receiver,
+                jid: this.state.jid,
+            }
+        }).then((response) => {
+            console.log("backend response: ", response);
+        }, (error) => {
+            console.log(error);
+        });
         this.setState({
             visible: false,
         });
