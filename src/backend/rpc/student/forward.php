@@ -60,7 +60,7 @@ foreach ($semailreceive as $student){
     else{
         $nid = 1;
     }
-    echo $nid."<br>";
+//    echo $nid."<br>";
     $sql_post_selected_student = "INSERT INTO notification(`nid`, `semailsend`, `semailreceive`, `jid`, `pushtime`, `status`)
     VALUES ('$nid', '$semail', '$student', '$jid', CURDATE(), 'unviewed');";
     if (mysqli_query($conn, $sql_post_selected_student) == True){
