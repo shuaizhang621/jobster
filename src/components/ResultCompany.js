@@ -3,11 +3,6 @@ import { List, Button, Avatar } from 'antd';
 import { COLOR_LIST } from '../constants';
 
 export class ResultCompany extends React.Component {
-    handleFollowCompany = (e) => {
-        console.log("clicked on: ", e.target.id);
-
-    };
-
     render() {
         const avatar = (item) => (
             <Avatar
@@ -37,7 +32,7 @@ export class ResultCompany extends React.Component {
                     shape="circle"
                     icon="heart-o"
                     size="large"
-                    onClick={this.handleFollowCompany}
+                    onClick={() => this.props.handleFollowCompany(item)}
                 />
             </span>
         );

@@ -49,6 +49,10 @@ export class Home extends React.Component {
     }
 
     componentWillMount() {
+        this.getDate();
+    }
+
+    getDate = () => {
         $.ajax({
             method: 'POST',
             url: `${API_ROOT}/student/init.php`,
@@ -98,8 +102,23 @@ export class Home extends React.Component {
         }, (error) => {
             message.error(error.responseText);
         });
-
     }
+
+    handleFollowCompany = (item) => {
+        console.log(item);
+        $.ajax({
+            url: `${API_ROOT}/student/studentFollow.php`,
+            method: 'POST',
+            data: {
+                semail: this.props.username,
+                cname: item.cname,
+            }
+        }).then((response) => {
+            console.log(response);
+        }, (error) => {
+            console.log(error);
+        });
+    };
 
     render() {
         return (
@@ -117,6 +136,7 @@ export class Home extends React.Component {
                             className="tab"
                             type="card"
                             tabPosition="top"
+                            onTabClick={this.getData}
                         >
                             <TabPane className="tabpane"
                                      tab=
@@ -133,6 +153,7 @@ export class Home extends React.Component {
                                     username={this.props.username}
                                     notification={this.state.notification}
                                     friends={this.state.friends}
+                                    handleFollowCompany={this.handleFollowCompany}
                                 />
                             </TabPane>
                             <TabPane className="tabpane"
@@ -149,6 +170,7 @@ export class Home extends React.Component {
                                 <SearchContainer
                                     username={this.props.username}
                                     friends={this.state.friends}
+                                    handleFollowCompany={this.handleFollowCompany}
                                 />
                             </TabPane>
                             <TabPane className="tabpane"

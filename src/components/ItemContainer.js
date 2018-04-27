@@ -42,22 +42,6 @@ export class ItemContainer extends React.Component {
         });
     };
 
-    handleFollowCompany = (e) => {
-        console.log(e.target.id);
-        $.ajax({
-            url: `${API_ROOT}/student/##TODO##FollowCompany.php`,
-            method: 'POST',
-            data: {
-                semail: this.props.username,
-                jid: e.target.id,
-            }
-        }).then((response) => {
-            console.log(response);
-        }, (error) => {
-            console.log(error);
-        });
-    };
-
     addReceiver = (receiver) => {
         let list = this.state.receiver;
         let hasReceiver = false;
@@ -200,7 +184,7 @@ export class ItemContainer extends React.Component {
                     icon="heart-o"
                     size="large"
                     style = {{marginRight: 10}}
-                    onClick={this.handleFollowCompany}
+                    onClick={() => {this.props.handleFollowCompany(item)}}
                 />
                 <Button
                     className="apply-button"
