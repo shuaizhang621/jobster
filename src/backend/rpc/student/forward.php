@@ -29,14 +29,16 @@ $semail = $_POST['semail'];
 $semailreceive = $_POST['semailreceive'];
 $jid = $_POST['jid'];
 
+$response = array();
 // get nid
-$result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from notification;");
-if ($result_max_nid->num_rows > 0) {
-    $nid = strval(intval($result_max_nid->fetch_assoc()['mnid']) + 1);
-}
-else{
-    $nid = 1;
-}
+//$result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from notification;");
+//if ($result_max_nid->num_rows > 0) {
+//    $nid = strval(intval($result_max_nid->fetch_assoc()['mnid']) + 1);
+//}
+//else{
+//    $nid = 1;
+//}
+
 //update backend database
 /*
 $sql_forward_update = "INSERT INTO notification (`nid`, `semailsend`, `semailreceive`, `jid`, `pushtime`, `status`)
@@ -58,18 +60,16 @@ foreach ($semailreceive as $student){
     else{
         $nid = 1;
     }
-
-    $nid = strval(intval($result_max_nid->fetch_assoc()['mnid']) + 1);
+//    echo $nid."<br>";
     $sql_post_selected_student = "INSERT INTO notification(`nid`, `semailsend`, `semailreceive`, `jid`, `pushtime`, `status`)
     VALUES ('$nid', '$semail', '$student', '$jid', CURDATE(), 'unviewed');";
     if (mysqli_query($conn, $sql_post_selected_student) == True){
-        $response[$student] = $student."Updated successfully.";
+        $response[$student] = $student." Updated successfully.";
     }
     else{
-        $response[$student] = $student."Updated unsuccessfully.";
+        $response[$student] = $student." Updated unsuccessfully.";
     }
     echo $response;
 }
-
 $conn->close();
 ?>

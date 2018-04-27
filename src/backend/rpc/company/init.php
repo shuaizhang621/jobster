@@ -31,6 +31,7 @@ $cname = 'ZhuYuanzhang';//$_POST['cname'];
 
 $sql_get_application_jobinfo = "select * from JobAnnouncement where jid in 
 (select jid from StudentApplyJob where cname = '$cname' and status = 'unviewed');";
+
 $result_get_application_jobinfo = mysqli_query($conn, $sql_get_application_jobinfo);
 
 $temp_array =array();
@@ -39,7 +40,7 @@ if ($result_get_application_jobinfo->num_rows > 0){
         $info = $objectJobInfo->Build_Job_Info($row);
         $temp_jid = $row['jid'];
         $sql_get_application_studentinfo = "select * from Student where semail in (
-select semail from StudentApplyJob where (cname = '$cname') and (status = 'unviewed') and (jid = '$temp_jid'));";
+select semail, aid from StudentApplyJob where (cname = '$cname') and (status = 'unviewed') and (jid = '$temp_jid'));";
         $result_get_application_studentinfo = mysqli_query($conn, $sql_get_application_studentinfo);
         if($result_get_application_studentinfo->num_rows > 0){
             while ($row_student = $result_get_application_studentinfo->fetch_assoc()){
