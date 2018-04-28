@@ -8,7 +8,7 @@
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
-$password = "root";
+$password = "";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.

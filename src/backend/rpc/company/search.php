@@ -15,7 +15,7 @@ $PDF_reader = new PDF2Text();
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
-$password = "root";
+$password = "";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.
@@ -43,23 +43,28 @@ if ($result_search_student->num_rows > 0){
     }
 }
 //query resume that fit the keyword
+
 $sql_resume_path = "select * from Student;";
 $result_resume_path = mysqli_query($conn, $sql_resume_path);
 if ($result_resume_path->num_rows > 0) {
+    // echo "!!!"."<br>";
     while ($row = $result_resume_path->fetch_assoc()) {
         $PDF_reader->setFilename($row['sresume']);
         $PDF_reader->decodePDF();
-        if (strpos($PDF_reader->output(), $keyword)) {
+        if (strpos($PDF_reader->output(), $keyword) or (strstr($row['suniversity'],$keyword)) or (strstr($row['smajor'], $keyword)))
+        {
             $info = $objectStudentInfo->Build_personal_Info($row);
             $response[$row['semail']] = $info;
         }
     }
 }
 else {
-//    echo 'error!';
+    // header('HTTP/1.0 403 Forbidden');
+    $response['error'] = "No result fits your keyword.";
 }
 
-echo json_encode(array_unique($response));
+
+echo json_encode($response);
 
 $conn->close();
 ?>
