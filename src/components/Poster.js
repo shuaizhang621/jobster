@@ -1,5 +1,5 @@
 import React from 'react';
-import { Input, Avatar, Button, Form } from 'antd';
+import { Input, Avatar, Button, Form, Tooltip } from 'antd';
 import {API_ROOT, COLOR_LIST} from "../constants";
 import $ from "jquery";
 import {message} from "antd/lib/index";
@@ -168,16 +168,26 @@ export class Poster extends React.Component {
                     </div>
                 </div>
                 <TextArea
-                    rows={2}
+                    rows={1}
                     placeholder="Description"
                     onBlur={(e) => this.setState({jdescription: e.target.value})}
                 />
                 {!this.state.hiddenDetail && <div className="detail">
                     <DetailForm {...fields} onChange={this.handleFormChange} />
                 </div>}
-                <div className='poster-button'>
-                    <Button onClick={this.handleHide}>Detail</Button>
-                    <Button type="primary" onClick={this.handlePost} className='post-button'>Post</Button>
+                <div className='poster-button-detail'>
+                    <Button
+                        onClick={this.handleHide}
+                        shape='circle'
+                        icon={this.state.hiddenDetail ? 'down' : 'up'}
+                    />
+                </div>
+                <div className='poster-button-post'>
+                    <Button
+                        type="primary"
+                        onClick={this.handlePost}
+                        className='post-button'
+                    >Post</Button>
                 </div>
 
             </div>

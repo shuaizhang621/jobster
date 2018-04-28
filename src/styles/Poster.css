@@ -24,10 +24,16 @@
     line-height: 15px;
 }
 
-.poster-button {
+.poster-button-post {
     display: flex;
-    margin-top: 10px;
+    margin-top: 15px;
     float: right;
+}
+
+.poster-button-detail {
+    display: flex;
+    margin-top: 15px;
+    float: left;
 }
 
 .post-button {

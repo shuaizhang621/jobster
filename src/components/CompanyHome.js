@@ -21,6 +21,7 @@ export class CompanyHome extends React.Component {
             cphone: "",
         },
         studentApplicationInfo: [],
+        jobList: [],
     }
 
     componentWillMount() {
@@ -34,10 +35,17 @@ export class CompanyHome extends React.Component {
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(res);
+            let jobListTemp = [];
+            if (res != null && res.studentApplicationInfo != null) {
+                for (let i = 0; i < res.studentApplicationInfo.length; i++) {
+                    jobListTemp.push({jid: res.studentApplicationInfo[i].jid});
+                }
+            }
 
             this.setState({
                 companyInfo: res.companyInfo,
                 studentApplicationInfo: res.studentApplicationInfo,
+                jobList: jobListTemp,
             });
         }, (error) => {
             message.error(error.responseText);
@@ -110,6 +118,7 @@ export class CompanyHome extends React.Component {
                                 <CompanySearch
                                     username={this.props.username}
                                     friends={this.state.friends}
+                                    jobList={this.state.jobList}
                                 />
                             </TabPane>
                         </Tabs>

@@ -27,9 +27,17 @@ if ($conn->connect_error) {
 $response = array();
 $temp_array = array();
 //get parameters from frontend
-$keyword = $_POST['keyword'];
-$sgpalower = $_POST['sgpalower'];
-$sgpahigh = $_POST['sgpahigh'];
+//$keyword = $_POST['keyword'];
+//$sgpalower = $_POST['sgpalower'];
+//$sgpahigh = $_POST['sgpahigh'];
+
+//$keyword = 'java';$_POST['keyword'];
+//$sgpalower = 3;$_POST['sgpalower'];
+//$sgpahigh = 4;$_POST['sgpahigh'];
+
+$keyword = 'java';$_POST['keyword'];
+$sgpalower = '3';$_POST['sgpalower'];
+$sgpahigh = '4';$_POST['sgpahigh'];
 
 $response = array();
 //query from backend database to find the students that fit the keywords;
