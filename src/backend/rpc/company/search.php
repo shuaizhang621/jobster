@@ -32,16 +32,6 @@ $sgpalower = $_POST['sgpalower'];
 $sgpahigh = $_POST['sgpahigh'];
 
 $response = array();
-//query from backend database to find the students that fit the keywords;
-$sql_search_student = "select * from student where suniversity like '%$keyword%' or (sgpa between '$sgpalower' and '$sgpahigh')
-or smajor like '%$keyword%';";
-$result_search_student = mysqli_query($conn, $sql_search_student);
-if ($result_search_student->num_rows > 0){
-    while($row = $result_search_student->fetch_assoc()){
-        $info = $objectStudentInfo->Build_personal_Info($row);
-        $response[$row['semail']] = $info;
-    }
-}
 //query resume that fit the keyword
 
 $sql_resume_path = "select * from Student;";
@@ -51,7 +41,7 @@ if ($result_resume_path->num_rows > 0) {
     while ($row = $result_resume_path->fetch_assoc()) {
         $PDF_reader->setFilename($row['sresume']);
         $PDF_reader->decodePDF();
-        if (strpos($PDF_reader->output(), $keyword) or (strstr($row['suniversity'],$keyword)) or (strstr($row['smajor'], $keyword)))
+        if (strpos($PDF_reader->output(), $keyword) or (strstr($row['suniversity'],$keyword)) or (strstr($row['smajor'], $keyword)) or (($row['sgpa']<$sgpahigh) and ($row['sgpa']>$sgpalower)))
         {
             $info = $objectStudentInfo->Build_personal_Info($row);
             $response[$row['semail']] = $info;
