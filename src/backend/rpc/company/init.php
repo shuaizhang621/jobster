@@ -13,7 +13,7 @@ $objectStudentInfo = new personal_info();
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
-$password = "root";
+$password = "";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.
@@ -42,8 +42,8 @@ if ($result_get_application_jobinfo->num_rows > 0){
         $temp_jid = $row['jid'];
 //        echo $temp_jid."<br>";
         $sql_get_application_studentinfo = "select semail, aid, sphone, slastname,sfirstname,sgpa,smajor, suniversity,
-sresume, aid from Student natural join StudentApplyJob where semail, aid in (
-select semail ,aid from StudentApplyJob where (cname = '$cname') and (status = 'unviewed') and (jid = '$temp_jid'));";
+sresume, aid from Student natural join StudentApplyJob where aid in (
+select aid from StudentApplyJob where (cname = '$cname') and (status = 'unviewed') and (jid = '$temp_jid'));";
         $result_get_application_studentinfo = mysqli_query($conn, $sql_get_application_studentinfo);
         if($result_get_application_studentinfo->num_rows > 0){
             //echo 'got student'."<br>";
@@ -59,7 +59,7 @@ select semail ,aid from StudentApplyJob where (cname = '$cname') and (status = '
     }
     $response['studentApplicationInfo'] = $temp_array;
 }
-
+//get all the job has posted
 
 
 //get company info

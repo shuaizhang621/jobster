@@ -39,8 +39,7 @@ foreach ($student_array as $student){
     else{
         $nid = 1;
     }
-
-    $nid = strval(intval($result_max_nid->fetch_assoc()['mnid']) + 1);
+    
     $sql_post_selected_student = "INSERT INTO notification(`nid`, `companysend`, `semailreceive`, `jid`, `pushtime`, `status`)
     VALUES ('$nid', '$cname', '$student', '$jid', CURDATE(), 'unviewed');";
     if (mysqli_query($conn, $sql_post_selected_student) == True){

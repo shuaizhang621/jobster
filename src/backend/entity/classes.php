@@ -1,33 +1,33 @@
 <?php
 class job_info{
-    public $jid;
-    public $cname;
-    public $jtitle;
-    public $jsalary;
-    public $jreq_diploma;
-    public $jreq_experience;
-    public $jreq_skills;
-    public $jlocation;
-    public $jdescription;
-    public $posttime;
-    public $student_applied = array();
-    function Build_Job_Info($row)
-    {
-        $jobInfo = new job_info();
-        $jobInfo->jid = $row['jid'];
-        $jobInfo->cname = $row['cname'];
-        $jobInfo->jtitle = $row['jtitle'];
-        $jobInfo->jsalary = $row['jsalary'];
-        $jobInfo->jreq_diploma = $row['jreq_diploma'];
-        $jobInfo->jreq_skills = $row['jreq_skills'];
-        $jobInfo->jreq_experience = $row['jreq_experience'];
-        $jobInfo->jdescription = $row['jdescription'];
-        $jobInfo->jlocation = $row['jlocation'];
-        $jobInfo->posttime = $row['posttime'];
-        return $jobInfo;
-    }
-    function Append_student_followed($student){;
-        array_push($this->student_applied, $student);
+	public $jid;
+	public $cname;
+	public $jtitle;
+	public $jsalary;
+	public $jreq_diploma;
+	public $jreq_experience;
+	public $jreq_skills;
+	public $jlocation;
+	public $jdescription;
+	public $posttime;
+	public $student_applied = array();
+	function Build_Job_Info($row)
+	{
+    $jobInfo = new job_info();
+    $jobInfo->jid = $row['jid'];
+    $jobInfo->cname = $row['cname'];
+    $jobInfo->jtitle = $row['jtitle'];
+    $jobInfo->jsalary = $row['jsalary'];
+    $jobInfo->jreq_diploma = $row['jreq_diploma'];
+    $jobInfo->jreq_skills = $row['jreq_skills'];
+    $jobInfo->jreq_experience = $row['jreq_experience'];
+    $jobInfo->jdescription = $row['jdescription'];
+    $jobInfo->jlocation = $row['jlocation'];
+    $jobInfo->posttime = $row['posttime'];
+    return $jobInfo;
+	}
+	function Append_student_followed($student){;
+	    array_push($this->student_applied, $student);
     }
 }
 
