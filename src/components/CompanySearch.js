@@ -17,7 +17,6 @@ export class CompanySearch extends React.Component {
         forwardList: [],
     };
 
-
     handleSearch = (value) => {
         console.log(value);
         console.log(this.state.searchFor);
@@ -25,7 +24,7 @@ export class CompanySearch extends React.Component {
             searched: true,
         });
         $.ajax({
-            url:`${ API_ROOT }/student/search/student.php`,
+            url:`${ API_ROOT }/company/search.php`,
             method: 'POST',
             data: {
                 keyword: value,

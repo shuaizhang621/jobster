@@ -25,7 +25,7 @@ export class CompanyHome extends React.Component {
     }
 
     componentWillMount() {
-        console.log(this.props.username);
+        console.log("username: ", this.props.username);
         $.ajax({
             method: 'POST',
             url: `${API_ROOT}/company/init.php`,

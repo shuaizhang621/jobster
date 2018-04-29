@@ -90,6 +90,7 @@ export class SearchContainer extends React.Component {
                     this.state.show === 1
                     &&
                     <ResultPeople
+                        usertype="student"
                         result={this.state.data}
                         username={this.props.username}
                     />
@@ -108,6 +109,7 @@ export class SearchContainer extends React.Component {
                     <ResultCompany
                         result={this.state.data}
                         username={this.props.username}
+                        friends={this.props.friends}
                         handleFollowCompany={this.props.handleFollowCompany}
                     />
                 }

@@ -8,6 +8,12 @@
     border: lightgrey solid 1px;
 }
 
+.home .friend-list .ant-list-item {
+    -webkit-box-shadow: none;
+    box-shadow: none;
+    padding: 10px 0 0 0;
+}
+
 .friend-list .ant-list-item-meta-title {
      color: rgba(0, 0, 0, 0.65);
      margin-bottom: 4px;
