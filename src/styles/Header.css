@@ -1,5 +1,10 @@
 .logout {
     float: right;
-    padding-top: 20px;
-    padding-right: 20px;
+    padding: 15px 40px 0 0;
+}
+
+.valid-header {
+    width: 1200px;
+    margin-left: auto;
+    margin-right: auto;
 }

@@ -1,53 +1,44 @@
-/*.background-image {*/
-    /*position: fixed;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*z-index: 1;*/
-
-    /*display: block;*/
-    /*background-image: url(https://static.licdn.com/sc/h/64xk850n3a8uzse6fi11l3vmz);*/
-    /*width: 2160px;*/
-    /*height: 1080px;*/
-
-    /*-webkit-filter: blur(5px);*/
-    /*-moz-filter: blur(5px);*/
-    /*-o-filter: blur(5px);*/
+.background-image {
+    /*background: #333 url(http://www.dailyrindblog.com/wp-content/uploads/2016/05/Bloom-Factor%E2%80%99s-Customer-Avatar-Worksheet-1.jpg);*/
+    /*background-size: 50%;*/
+    height:1000px;
+    /*background: #F5F5F5;*/
+    /*background-repeat: repeat;*/
+    /*margin-left: -50%;*/
+    /*margin-right: -50%;*/
+    /*-webkit-filter: blur(45px);*/
+    /*-moz-filter: blur(15px);*/
+    /*-o-filter: blur(15px);*/
     /*-ms-filter: blur(5px);*/
-    /*filter: blur(5px);*/
-/*}*/
+    /*filter: blur(50px);*/
+}
+
+
 
 .main {
+    /*margin-top: -1000px;*/
+    /*position:absolute;*/
     display: flex;
     justify-content: center;
     background-color: #F5F5F5;
-    min-height: 900px;
-    /*position: fixed;*/
-    /*left: 0;*/
-    /*right: 0;*/
-    /*z-index: 9999;*/
-    /*margin-left: 20px;*/
-    /*margin-right: 20px;*/
-    /*background: #333 url(https://static.licdn.com/sc/h/64xk850n3a8uzse6fi11l3vmz);*/
-    /*background-size: 100%;*/
-    /*background-repeat: repeat-y;*/
-
-    /*-webkit-filter: blur(5px);*/
-    /*-moz-filter: blur(5px);*/
-    /*-o-filter: blur(5px);*/
-    /*-ms-filter: blur(5px);*/
-    /*filter: blur(5px);*/
+    min-height: 940px;
+    /*background: #333 url(http://www.dailyrindblog.com/wp-content/uploads/2016/05/Bloom-Factor%E2%80%99s-Customer-Avatar-Worksheet-1.jpg);*/
+    /*background-size: 40%;*/
+    /*background-repeat: repeat;*/
 }
 
 .login-register {
     display: flex;
     justify-content: center;
     width: 100%;
-    height: 100%;
-    background: #333 url(https://static.licdn.com/sc/h/64xk850n3a8uzse6fi11l3vmz);
-    background-size: 100%;
-    background-repeat: repeat-y;
+    min-height: 700px;
+    /*background: #333 url(https://static.licdn.com/sc/h/64xk850n3a8uzse6fi11l3vmz);*/
+    background: #333 url(http://www.dailyrindblog.com/wp-content/uploads/2016/05/Bloom-Factor%E2%80%99s-Customer-Avatar-Worksheet-1.jpg);
+    background-size: 50%;
+    background-repeat: repeat;
 }
 
 .form-wrapper {
     display: block;
 }
+

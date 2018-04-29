@@ -1,25 +1,25 @@
-.home {
+.company-home {
     /*background-color: white;*/
-    position: relative;
-    margin-top: -1000px;
     width: 1200px;
     text-align: left;
+    position: relative;
+    margin-top: -1000px;
 }
 
-.home-main {
+.company-home .home-main {
     display: flex;
     margin: auto;
 }
 
-.home-tab {
+.company-home .home-tab {
     /*background-color: white;*/
     border-radius: 2px;
     margin-top: -65px;
     margin-bottom: 40px;
-    width: 80%;
+    width: 700px;
 }
 
-.home .ant-tabs-bar {
+.company-home .home .ant-tabs-bar {
     margin-bottom: 12px;
 }
 
@@ -28,24 +28,12 @@
     width: 25%;
 }
 
-.tab {
-    margin-top: 20px;
-    margin-left: 20px;
-    display: block;
-}
-
-.ant-tabs-bar {
-    height: 50px;
-    border-bottom: 0px;
-
-}
-
 .tabpane {
     /*background-color: #F5F5F5;*/
-    /*border-radius: 2px;*/
+    border-radius: 2px;
 }
 
-.home .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
+.company-home .ant-tabs.ant-tabs-card > .ant-tabs-bar .ant-tabs-tab {
     color: white;
     background: transparent;/*#283e4a;*/
     border: 0px solid #283e4a;
@@ -58,15 +46,21 @@
     border-bottom: 0;
 }
 
-.home .ant-list-item {
+.company-home .ant-list-item {
     /*box-shadow: 1px 2px 8px 1px #e5e5e5;*/
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
     border-radius: 2px;
     margin-bottom: 10px;
     padding: 20px;
 }
 
-.home .item-container {
+.company-home .item-container {
     padding-top: 3px;
     padding-left: 10px;
     padding-right: 10px;
+}
+
+.company-home .company-info {
+    width: 300px;
+    height: 220px;
 }

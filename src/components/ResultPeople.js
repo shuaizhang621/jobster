@@ -32,11 +32,12 @@ export class ResultPeople extends React.Component {
         })
     }
 
+
     render() {
         const avatar = (item) => (
             <Avatar
                 style={{
-                    backgroundColor: COLOR_LIST[Math.floor(Math.random() * 4)],
+                    backgroundColor: COLOR_LIST[item.key % 10],
                     verticalAlign: 'middle',
                     lineHeight: '50'
                 }}
@@ -56,7 +57,11 @@ export class ResultPeople extends React.Component {
             <span>
                 <span>{`${item.suniversity}  |   ${item.smajor}`}</span>
                 {this.props.usertype == 'company' &&
-                <Switch className="add-friend-button" defaultChecked onChange={(checked) => this.props.handleChooseStudent(item.semail, checked)} />}
+                <Switch
+                    className="add-friend-button"
+                    defaultChecked
+                    onChange={(checked) => this.props.handleChooseStudent(item.semail, checked)}
+                />}
                 {this.props.usertype== 'student' && <Button
                     className="add-friend-button"
                     id={item.semail}
@@ -69,6 +74,8 @@ export class ResultPeople extends React.Component {
             </span>
         );
 
+        let index = 0;
+
         return (
             <div className="result-people">
                 <List
@@ -76,21 +83,30 @@ export class ResultPeople extends React.Component {
                     grid={{ column: 2, gutter: 20, }}
                     size="large"
                     dataSource={this.props.result}
-                    renderItem={item => (
-                        <List.Item
-                            key={item.semail}
-                        >
-                            <List.Item.Meta
-                                avatar={avatar(item)}
-                                title={title(item)}
-                                description={description(item)}
-                            />
-                        </List.Item>
-                    )}
+                    renderItem={item => {
+                        item.key = index;
+                        index += 1;
+                        return (
+                            <List.Item
+                                key={item.semail}
+                            >
+                                <List.Item.Meta
+                                    avatar={avatar(item)}
+                                    title={title(item)}
+                                    description={description(item)}
+                                />
+                            </List.Item>
+                        )
+                    }}
                 />
                 {
                     this.props.usertype == 'company' &&
-                        <Button onClick={this.props.handleForward}>Forward to student</Button>
+                        <Button
+                            className='company-forward-button'
+                            onClick={this.props.handleForward}
+                        >
+                            Forward to student
+                        </Button>
                 }
             </div>
 

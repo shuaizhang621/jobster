@@ -1,3 +1,9 @@
+.search {
+    width: 680px;
+    margin-right: auto;
+    margin-left: auto;
+}
+
 .search-radio {
     text-align: center;
     margin-left: 18px;
@@ -10,12 +16,13 @@
 }
 
 .search-bar {
-    box-shadow: 1px 3px 10px 2px #e5e5e5;
+    /*box-shadow: 1px 3px 10px 2px #e5e5e5;*/
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
     padding: 20px;
-    margin: 19px 10px 10px 10px;
+    margin: 15px 10px 10px 10px;
     border-radius: 2px;
     background: white;
-    border: lightgrey solid 1px;
+    /*border: lightgrey solid 1px;*/
 }
 
 .result-people .item-container .ant-list-item{
@@ -44,6 +51,6 @@
 
 .search .item-container .ant-list-item {
     background-color: white;
-    border: lightgrey solid 1px;
-    border-bottom: lightgrey solid 1px;
+    /*border: lightgrey solid 1px;*/
+    border-bottom: none;
 }

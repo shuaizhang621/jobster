@@ -13,21 +13,29 @@
 @import "ApplicationContainer.css";
 @import "CompanySearch.css";
 @import "ResultCompany.css";
+@import "MessageContainer.css";
+@import "ResultPeople.css";
+@import "CompanyHome.css";
+@import "UpdateInfoForm.css";
 
 .App {
   text-align: center;
 }
 
 .App-logo {
-  margin: 10px 25px;
+  margin: 12px 30px;
   height: 30px;
   float: left;
+  font-size: 25px;
+  font-weight: bold;
 }
 
 .App-header {
   background-color: #283e4a;
   height: 50px;
   color: white;
+  display: flex;
+  /*position: fixed;*/
 }
 
 .App-title {

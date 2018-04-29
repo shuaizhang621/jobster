@@ -137,14 +137,14 @@ export class ResultCompany extends React.Component {
         const avatar = (item) => (
             <Avatar
                 style={{
-                    backgroundColor: COLOR_LIST[Math.floor(Math.random() * 7)],
+                    backgroundColor: COLOR_LIST[item.key % 10],
                     verticalAlign: 'middle',
                     lineHeight: '50'
                 }}
                 size="large"
                 onClick={() => this.showJobs(item.cname)}
             >
-                {item.cname}
+                {item.cname != null ? item.cname.substr(0, 1) : ""}
             </Avatar>
         );
 
@@ -171,19 +171,21 @@ export class ResultCompany extends React.Component {
         const avatarJobs = (item) => (
             <Avatar
                 style={{
-                    backgroundColor: COLOR_LIST[Math.floor(Math.random() * 7)],
+                    backgroundColor: COLOR_LIST[(item.key + 7) % 10],
                     verticalAlign: 'middle',
                     lineHeight: '50'
                 }}
                 size="large"
             >
-                {item.jtitle}
+                {item.jtitle.substr(0, 1)}
             </Avatar>
         );
 
-        const descriptionJobs = (item) => (
+        const descriptionJobs = (item) => {
+            let index = 0;
+            return (
             <span>
-                <span>{`Google  |   ${item.jlocation}`}</span>
+                <span>{`${item.cname}  |   ${item.jlocation}`}</span>
                 <div>
                     <Button
                         className="add-friend-button"
@@ -203,49 +205,53 @@ export class ResultCompany extends React.Component {
                         <List
                             itemLayout="horizontal"
                             dataSource={this.props.friends}
-                            renderItem={item => (
-                                <List.Item
-                                    key={item.index}
-                                >
-                                    <List.Item.Meta
-                                        avatar={
-                                            <div>
-                                                <Avatar
-                                                    style={{
-                                                        backgroundColor: COLOR_LIST[Math.floor(Math.random() * 4)],
-                                                        verticalAlign: 'middle'
-                                                    }}
-                                                    size="middle"
-                                                >
-                                                    {item.sfirstname}
-                                                </Avatar>
-                                            </div>
-                                        }
-                                        description={item.semail}
-                                        title={
-                                            <div>
-                                                <a href="https://www.linkedin.com/in/shuaizhang621">
-                                                    {item.sfirstname} {item.slastname}
-                                                </a>
-                                                <Switch
-                                                    id={item.semail}
-                                                    className="switch"
-                                                    defaultChecked={false}
-                                                    onChange={(checked) => {
-                                                        if (checked) {
-                                                            this.addReceiver(item.semail);
-                                                        } else {
-                                                            this.removeReceiver(item.semail);
-                                                        }
-                                                        console.log(item.semail);
-                                                    }}
-                                                />
-                                            </div>
+                            renderItem={item => {
+                                item.key = index;
+                                index += 1;
+                                return (
+                                    <List.Item
+                                        key={item.index}
+                                    >
+                                        <List.Item.Meta
+                                            avatar={
+                                                <div>
+                                                    <Avatar
+                                                        style={{
+                                                            backgroundColor: COLOR_LIST[item.key],
+                                                            verticalAlign: 'middle'
+                                                        }}
+                                                        size="middle"
+                                                    >
+                                                        {item.sfirstname.substr(0, 1)}
+                                                    </Avatar>
+                                                </div>
+                                            }
+                                            description={item.semail}
+                                            title={
+                                                <div>
+                                                    <a href="https://www.linkedin.com/in/shuaizhang621">
+                                                        {item.sfirstname} {item.slastname}
+                                                    </a>
+                                                    <Switch
+                                                        id={item.semail}
+                                                        className="switch"
+                                                        defaultChecked={false}
+                                                        onChange={(checked) => {
+                                                            if (checked) {
+                                                                this.addReceiver(item.semail);
+                                                            } else {
+                                                                this.removeReceiver(item.semail);
+                                                            }
+                                                            console.log(item.semail);
+                                                        }}
+                                                    />
+                                                </div>
 
-                                        }
-                                    />
-                                </List.Item>
-                            )}
+                                            }
+                                        />
+                                    </List.Item>
+                                )}
+                            }
                         />
                     </Modal>
                 </div>
@@ -257,7 +263,7 @@ export class ResultCompany extends React.Component {
                     onClick={() => this.handleApply(item)}
                 >Apply</Button>
             </span>
-        );
+        )};
 
         const content = (item) => (
             <div className='job-detail'>
@@ -272,32 +278,39 @@ export class ResultCompany extends React.Component {
             </div>
         );
 
-        const jobs = (data) => (
-            <Collapse className='applicants' bordered={false}>
-                <Panel header="Jobs" key="1">
-                    <List
-                        className='applicants-list'
-                        itemLayout="horizontal"
-                        dataSource={data.jobs}
-                        renderItem={item => (
-                            <List.Item>
-                                <List.Item.Meta
-                                    avatar={avatarJobs(item)}
-                                    title={
-                                        <a href="https://www.linkedin.com/in/shuaizhang621">
-                                            {item.jtitle}
-                                        </a>
-                                    }
-                                    description={descriptionJobs(item)}
+        const jobs = (data) => {
+            let index = 0;
+            return (
+                <Collapse className='company-jobs' bordered={false}>
+                    <Panel header="See job openings" key="1">
+                        <List
+                            className='applicants-list'
+                            itemLayout="horizontal"
+                            dataSource={data.jobs}
+                            renderItem={item => {
+                                item.key = index;
+                                index += 1;
+                                return (
+                                    <List.Item>
+                                        <List.Item.Meta
+                                            avatar={avatarJobs(item)}
+                                            title={
+                                                <a href="https://www.linkedin.com/in/shuaizhang621">
+                                                    {item.jtitle}
+                                                </a>
+                                            }
+                                            description={descriptionJobs(item)}
 
-                                />
-                                {content(item)}
-                            </List.Item>
-                        )}
-                    />
-                </Panel>
-            </Collapse>
-        );
+                                        />
+                                        {content(item)}
+                                    </List.Item>
+                            )}}
+                        />
+                    </Panel>
+                </Collapse>
+        )};
+
+        let index = 0;
 
         return (
             <div className="result-company">
@@ -305,18 +318,22 @@ export class ResultCompany extends React.Component {
                     className="item-container"
                     size="large"
                     dataSource={this.props.result}
-                    renderItem={item => (
-                        <List.Item
-                            key={item.cname}
-                        >
-                            <List.Item.Meta
-                                avatar = {avatar(item)}
-                                title={title(item)}
-                                description={description(item)}
-                            />
-                            {jobs(item)}
-                        </List.Item>
-                    )}
+                    renderItem={item => {
+                        item.key = index;
+                        index += 1;
+                        return (
+                            <List.Item
+                                key={item.cname}
+                            >
+                                <List.Item.Meta
+                                    avatar = {avatar(item)}
+                                    title={title(item)}
+                                    description={description(item)}
+                                />
+                                {jobs(item)}
+                            </List.Item>
+                        )
+                    }}
                 />
             </div>
         );

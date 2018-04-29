@@ -10,10 +10,10 @@ class App extends Component {
         isLoggedIn: true,//!!localStorage.getItem(TOKEN_KEY),//true,//
         // username: '',
         //username: 'dx1368@nyu.edu',
-        username: 'cz1522@nyu.edu',
+        //username: 'cz1522@nyu.edu',
         //username: 'qy1449@nyu.edu',
         //username: 'sy1567@nyu.edu',
-        //username: 'ZhuYuanzhang',
+        username: 'ZhuYuanzhang',
     }
 
     handleLogin = (response, username) => {

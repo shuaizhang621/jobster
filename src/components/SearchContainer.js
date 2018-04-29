@@ -2,7 +2,6 @@ import React from 'react';
 import { Icon, Input, Radio} from 'antd';
 import $ from 'jquery';
 import { API_ROOT } from "../constants";
-import {ItemContainer} from "./ItemContainer";
 import {ResultPeople} from "./ResultPeople";
 import {ResultCompany} from "./ResultCompany";
 import {ResultJob} from "./ResultJob";

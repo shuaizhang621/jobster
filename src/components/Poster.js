@@ -150,7 +150,7 @@ export class Poster extends React.Component {
                 <div className='title'>
                     <Avatar
                         style={{
-                            backgroundColor: COLOR_LIST[Math.floor(Math.random() * 7)],
+                            backgroundColor: COLOR_LIST[3],
                             verticalAlign: 'middle',
                             lineHeight: '50'
                         }}
@@ -167,21 +167,27 @@ export class Poster extends React.Component {
                         </div>
                     </div>
                 </div>
-                <TextArea
-                    rows={1}
-                    placeholder="Description"
-                    onBlur={(e) => this.setState({jdescription: e.target.value})}
-                />
+                <div className='detail-textarea'>
+                    <div className='poster-button-detail'>
+                        <Button
+                            onClick={this.handleHide}
+                            shape='circle'
+                            icon={this.state.hiddenDetail ? 'right' : 'down'}
+                        />
+                    </div>
+                    <TextArea
+                        rows={1}
+                        placeholder="Description"
+                        onFocus={this.handleHide}
+                        onBlur={(e) => {
+                            this.handleHide();
+                            this.setState({jdescription: e.target.value});
+                        }}
+                    />
+                </div>
                 {!this.state.hiddenDetail && <div className="detail">
                     <DetailForm {...fields} onChange={this.handleFormChange} />
                 </div>}
-                <div className='poster-button-detail'>
-                    <Button
-                        onClick={this.handleHide}
-                        shape='circle'
-                        icon={this.state.hiddenDetail ? 'down' : 'up'}
-                    />
-                </div>
                 <div className='poster-button-post'>
                     <Button
                         type="primary"

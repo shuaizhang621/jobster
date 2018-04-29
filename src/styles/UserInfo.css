@@ -1,14 +1,13 @@
 .user-info {
     width: 25%;
-    height: 300px;
+    height: 360px;
     background-color: white;
     /*padding: 30px;*/
     margin-left: 20px;
     margin-top: 20px;
     overflow: hidden;
-    box-shadow: 1px 2px 8px 1px #e5e5e5;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
     border-radius: 2px;
-    border: lightgrey solid 1px;
 }
 
 .company-info {
@@ -74,6 +73,19 @@
 .info-tools {
     display: flex;
     justify-content: center;
+    margin-top: 20px;
+}
 
+.info-tools Button{
+    width: 140px;
+}
+
+.friend-request {
+    display: flex;
+    margin: auto;
+}
+
+.info-tools .switch {
+    margin-left: 5px;
 }
 

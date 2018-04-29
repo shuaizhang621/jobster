@@ -57,20 +57,20 @@ export class ApplicationContainer extends React.Component {
         const avatar = (item) => (
             <Avatar
                 style={{
-                    backgroundColor: COLOR_LIST[Math.floor(Math.random() * 7)],
+                    backgroundColor: COLOR_LIST[item.key % 10],
                     verticalAlign: 'middle',
                     lineHeight: '50'
                 }}
                 size="large"
             >
-                {item.jid}
+                {item.jtitle.substr(0, 1)}
             </Avatar>
         );
 
         const avatarApplicant = (item) => (
             <Avatar
                 style={{
-                    backgroundColor: COLOR_LIST[Math.floor(Math.random() * 4)],
+                    backgroundColor: COLOR_LIST[(item.key + 3) % 10],
                     verticalAlign: 'middle',
                     lineHeight: '50'
                 }}
@@ -153,26 +153,34 @@ export class ApplicationContainer extends React.Component {
             </div>
         );
 
-        const applicants = (data) => (
-            <Collapse className='applicants' bordered={false}>
-                <Panel header="Applicants" key="1">
-                    <List
-                        className='applicants-list'
-                        itemLayout="horizontal"
-                        dataSource={data.student_applied}
-                        renderItem={item => (
-                            <List.Item>
-                                <List.Item.Meta
-                                    avatar={avatarApplicant(item)}
-                                    title={titleApplicant(item)}
-                                    description={descriptionApplicant(item)}
-                                />
-                            </List.Item>
-                        )}
-                    />
-                </Panel>
-            </Collapse>
-        );
+        const applicants = (data) => {
+            let index = 0;
+            return (
+                <Collapse className='applicants' bordered={false}>
+                    <Panel header="Applicants" key="1">
+                        <List
+                            className='applicants-list'
+                            itemLayout="horizontal"
+                            dataSource={data.student_applied}
+                            renderItem={item => {
+                                item.key = index;
+                                index += 1;
+                                return (
+                                <List.Item>
+                                    <List.Item.Meta
+                                        avatar={avatarApplicant(item)}
+                                        title={titleApplicant(item)}
+                                        description={descriptionApplicant(item)}
+                                    />
+                                </List.Item>
+                            )}}
+                        />
+                    </Panel>
+                </Collapse>
+            )
+        };
+
+        let index = 0;
 
         return (
             <List
@@ -180,23 +188,27 @@ export class ApplicationContainer extends React.Component {
                 itemLayout="horizon"
                 size="large"
                 dataSource={this.props.application}
-                renderItem={item => (
-                    <List.Item
-                        key={item.applytime}
-                    >
-                        <List.Item.Meta
-                            avatar={avatar(item)}
-                            title={
-                                <a href="https://www.linkedin.com/in/shuaizhang621">
-                                    {item.jtitle}
-                                </a>
-                            }
-                            description={description(item)}
-                        />
-                        {content(item)}
-                        {applicants(item)}
-                    </List.Item>
-                )}
+                renderItem={item => {
+                    item.key = index;
+                    index += 1;
+                    return (
+                        <List.Item
+                            key={item.applytime}
+                        >
+                            <List.Item.Meta
+                                avatar={avatar(item)}
+                                title={
+                                    <a href="https://www.linkedin.com/in/shuaizhang621">
+                                        {item.jtitle}
+                                    </a>
+                                }
+                                description={description(item)}
+                            />
+                            {content(item)}
+                            {applicants(item)}
+                        </List.Item>
+                    )
+                }}
             />
         );
     }

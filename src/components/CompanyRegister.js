@@ -118,86 +118,89 @@ class RegistrationForm extends React.Component {
             </Select>
         );
         return (
-            <div>
-                <div className="form-title"> Your answer is here </div>
-                <Form onSubmit={this.handleSubmit} className="register-form">
-                    <FormItem
-                        hasFeedback
-                        validateStatus={this.state.validateStatus}
-                    >
-                        {getFieldDecorator('cname', {
-                            rules: [{
-                                required: true,
-                                message: this.state.validateMessage,
-                                whitespace: true,
-                                validator: this.checkCompanyName,
-                            }],
-                        })(
-                            <Input placeholder="Company Name"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('ckey', {
-                            rules: [{
-                                required: true, message: 'Please input your password.',
-                            }, {
-                                validator: this.validateToNextPassword,
-                            }],
-                        })(
-                            <Input placeholder="Password" type="password"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('confirm', {
-                            rules: [{
-                                required: true, message: 'Please confirm your password.',
-                            }, {
-                                validator: this.compareToFirstPassword,
-                            }],
-                        })(
-                            <Input placeholder="Confirm Password" type="password" onBlur={this.handleConfirmBlur} />
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('cemail', {
-                            rules: [{
-                                type: 'email', message: 'The input is not valid E-mail.',
-                            }, {
-                                required: true, message: 'Please input your E-mail.',
-                            }],
-                        })(
-                            <Input placeholder="E-mail"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('cphone', {
-                            rules: [{ required: true, message: 'Please input your phone number.' }],
-                        })(
-                            <Input placeholder="Phone Number" addonBefore={prefixSelector} style={{ width: '100%' }} />
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('clocation', {
-                            rules: [{ required: true, message: 'Please input your location.', whitespace: true }],
-                        })(
-                            <Input placeholder="Address"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('cindusty')(
-                            <Input placeholder="Industry"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        {getFieldDecorator('cdescription')(
-                            <Input placeholder="Description"/>
-                        )}
-                    </FormItem>
-                    <FormItem>
-                        <Button type="primary" htmlType="submit">Register</Button>
-                        <p>I already have an account, go back to <Link to="/login">login</Link></p>
-                    </FormItem>
-                </Form>
+            <div className='login-register'>
+                <div className='form-wrapper'>
+                    <div className="form-title"> Your answer is here </div>
+                    <Form onSubmit={this.handleSubmit} className="register-form">
+                        <FormItem
+                            hasFeedback
+                            validateStatus={this.state.validateStatus}
+                        >
+                            {getFieldDecorator('cname', {
+                                rules: [{
+                                    required: true,
+                                    message: this.state.validateMessage,
+                                    whitespace: true,
+                                    validator: this.checkCompanyName,
+                                }],
+                            })(
+                                <Input placeholder="Company Name"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('ckey', {
+                                rules: [{
+                                    required: true, message: 'Please input your password.',
+                                }, {
+                                    validator: this.validateToNextPassword,
+                                }],
+                            })(
+                                <Input placeholder="Password" type="password"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('confirm', {
+                                rules: [{
+                                    required: true, message: 'Please confirm your password.',
+                                }, {
+                                    validator: this.compareToFirstPassword,
+                                }],
+                            })(
+                                <Input placeholder="Confirm Password" type="password" onBlur={this.handleConfirmBlur} />
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('cemail', {
+                                rules: [{
+                                    type: 'email', message: 'The input is not valid E-mail.',
+                                }, {
+                                    required: true, message: 'Please input your E-mail.',
+                                }],
+                            })(
+                                <Input placeholder="E-mail"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('cphone', {
+                                rules: [{ required: true, message: 'Please input your phone number.' }],
+                            })(
+                                <Input placeholder="Phone Number" addonBefore={prefixSelector} style={{ width: '100%' }} />
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('clocation', {
+                                rules: [{ required: true, message: 'Please input your location.', whitespace: true }],
+                            })(
+                                <Input placeholder="Address"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('cindusty')(
+                                <Input placeholder="Industry"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('cdescription')(
+                                <Input placeholder="Description"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            <Button type="primary" htmlType="submit">Register</Button>
+                            <p>I already have an account, go back to <Link to="/login">login</Link></p>
+                        </FormItem>
+                    </Form>
+                </div>
+
             </div>
         );
     }

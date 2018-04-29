@@ -1,0 +1,9 @@
+.company-forward-button {
+    width: 660px;
+    margin-left: 10px;
+    border-radius: 0;
+    background-color: #1890ff;
+    color: white;
+    height: 50px;
+    margin-top: -20px;
+}

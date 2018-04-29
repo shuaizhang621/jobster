@@ -78,54 +78,58 @@ export class CompanyHome extends React.Component {
 
     render() {
         return (
-            <div className='home'>
-                <div className="home-main">
-                    <CompanyInfo
-                        info={this.state.companyInfo}
-                        username={this.props.username}
-                    />
-                    <div className="home-tab">
-                        <Tabs
-                            className="tab"
-                            type="card"
-                            tabPosition="top"
-                        >
-                            <TabPane className="tabpane"
-                                     tab=
-                                         {
-                                             <div>
-                                                 <Icon type="home" style={{ fontSize: 18, color: 'white' }} />
-                                                 <span style={{float: 'bottom'}}>Home</span>
-                                             </div>
-
-                                         }
-                                     key="1"
+            <div>
+                <div className='background-image'></div>
+                <div className='company-home'>
+                    <div className="home-main">
+                        <CompanyInfo
+                            info={this.state.companyInfo}
+                            username={this.props.username}
+                        />
+                        <div className="home-tab">
+                            <Tabs
+                                className="tab"
+                                type="card"
+                                tabPosition="top"
                             >
-                                <Poster info={this.state.companyInfo}/>
-                                <ApplicationContainer application={this.state.studentApplicationInfo}/>
-                            </TabPane>
-                            <TabPane className="tabpane"
-                                     tab=
-                                         {
-                                             <div>
-                                                 <Icon type="search" style={{ fontSize: 18, color: 'white' }} />
-                                                 <span style={{float: 'bottom'}}>Search</span>
-                                             </div>
+                                <TabPane className="tabpane"
+                                         tab=
+                                             {
+                                                 <div>
+                                                     <Icon type="home" style={{ fontSize: 18, color: 'white' }} />
+                                                     <span style={{float: 'bottom'}}>Home</span>
+                                                 </div>
 
-                                         }
-                                     key="2"
-                            >
-                                <CompanySearch
-                                    username={this.props.username}
-                                    friends={this.state.friends}
-                                    jobList={this.state.jobList}
-                                />
-                            </TabPane>
-                        </Tabs>
+                                             }
+                                         key="1"
+                                >
+                                    <Poster info={this.state.companyInfo}/>
+                                    <ApplicationContainer application={this.state.studentApplicationInfo}/>
+                                </TabPane>
+                                <TabPane className="tabpane"
+                                         tab=
+                                             {
+                                                 <div>
+                                                     <Icon type="search" style={{ fontSize: 18, color: 'white' }} />
+                                                     <span style={{float: 'bottom'}}>Search</span>
+                                                 </div>
+
+                                             }
+                                         key="2"
+                                >
+                                    <CompanySearch
+                                        username={this.props.username}
+                                        friends={this.state.friends}
+                                        jobList={this.state.jobList}
+                                    />
+                                </TabPane>
+                            </Tabs>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
+
         )
     }
 }
