@@ -95,6 +95,9 @@ class company_info{
         $companyInfo->cdescription = $row['cdescription'];
         return $companyInfo;
     }
+    function Build_Company_Job($job){
+
+    }
 }
 
 
@@ -173,7 +176,24 @@ class student_info_restircted{
     }
 }
 
-
+class message{
+    public $mid;
+    public $semailsend;
+    public $semailreceive;
+    public $content;
+    public $sendtime;
+    public $status;
+    function  Build_message_info($row){
+        $messageInfo = new message();
+        $messageInfo->mid = $row['mid'];
+        $messageInfo->seamilsend= $row['semailsend'];
+        $messageInfo->semailreceive = $row['semailreceive'];
+        $messageInfo->content = $row['content'];
+        $messageInfo->sendtime = $row['sendtime'];
+        $messageInfo->status = $row['status'];
+        return $messageInfo;
+    }
+}
 
 
 ?>
