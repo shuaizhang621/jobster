@@ -83,6 +83,7 @@ class company_info{
     public $cindustry;
     public $clocation;
     public $cdescription;
+    public $jobs = array();
     function Build_Company_Info($row)
     {
         $companyInfo = new company_info();
@@ -95,8 +96,13 @@ class company_info{
         $companyInfo->cdescription = $row['cdescription'];
         return $companyInfo;
     }
+<<<<<<< HEAD
     function Build_Company_Job($job){
 
+=======
+    function add_Jobs($job){
+        array_push($this->jobs, $job);
+>>>>>>> 84d17fdcec0c2b1a7d7e37ecd34189399cdb8efe
     }
 }
 

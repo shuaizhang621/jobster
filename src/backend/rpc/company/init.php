@@ -13,7 +13,7 @@ $objectStudentInfo = new personal_info();
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
-$password = "";
+$password = "root";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.
@@ -29,8 +29,7 @@ $cname = $_POST['cname'];
 
 //get new application from backend database
 
-$sql_get_application_jobinfo = "select * from JobAnnouncement where jid in 
-(select jid from StudentApplyJob where cname = '$cname' and status = 'unviewed');";
+$sql_get_application_jobinfo = "select * from JobAnnouncement where cname = '$cname';";
 
 $result_get_application_jobinfo = mysqli_query($conn, $sql_get_application_jobinfo);
 

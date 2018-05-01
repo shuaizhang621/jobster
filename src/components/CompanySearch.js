@@ -14,8 +14,8 @@ export class CompanySearch extends React.Component {
         data: [],
         gpaLow: 3.3,
         gpaHigh: 4.0,
+        forwardList: [],
     };
-
 
     handleSearch = (value) => {
         console.log(value);
@@ -24,31 +24,76 @@ export class CompanySearch extends React.Component {
             searched: true,
         });
         $.ajax({
-            url:`${ API_ROOT }/student/search/student.php`,
+            url:`${ API_ROOT }/company/search.php`,
             method: 'POST',
             data: {
                 keyword: value,
-                //sgpalower: this.state.gpaLow,
-                //sgpahigh: this.state.gpaHigh,
+                sgpalower: this.state.gpaLow,
+                sgpahigh: this.state.gpaHigh,
             },
         }).then((response) => {
-            let res = JSON.parse(response)
+            let res = JSON.parse(response);
             console.log(res);
             this.setState({
                 data: res == null ? [] : res,
             })
+            let friendListTemp = [];
+            if (res != null) {
+                for (let i = 0; i < res.length; i++) {
+                    friendListTemp.push(res[i].semail);
+                }
+            }
+            this.setState({forwardList: friendListTemp});
         }, (error) => {
             console.log(error);
         });
     };
 
-
-    onChange = (value) => {
-        console.log('onChange: ', value);
-    }
-
     onAfterChange = (value) => {
         console.log('onAfterChange: ', value);
+        this.setState({
+            gpaLow: value[0],
+            gpaHigh: value[1],
+        })
+    }
+
+    handleChooseStudent = (email, checked) => {
+        let array = this.state.forwardList;
+        if (checked) {
+            array.push(email)
+        } else {
+            if (array != null) {
+                for (let i = 0; i < array.length; i++) {
+                    if (array[i] == email) {
+                        array.splice(i, 1);
+                        break;
+                    }
+                }
+            }
+        }
+        console.log(array);
+        this.setState({forwardList: array});
+    }
+
+    handleForward = () => {
+        if (this.props.jobList != null) {
+            for (let i = 0; i < this.props.jobList.length; i++) {
+                console.log(this.props.username, this.state.forwardList, this.props.jobList[i].jid);
+                $.ajax({
+                    url:`${ API_ROOT }/company/selectStudentPost.php`,
+                    method: 'POST',
+                    data: {
+                        cname: this.props.username,
+                        student_array: this.state.forwardList,
+                        jid: this.props.jobList[i].jid,
+                    },
+                }).then((response) => {
+                    console.log(response);
+                }, (error) => {
+                    console.log(error);
+                });
+            }
+        }
     }
 
     render() {
@@ -99,6 +144,9 @@ export class CompanySearch extends React.Component {
                     <ResultPeople
                         result={this.state.data}
                         username={this.props.username}
+                        handleChooseStudent={this.handleChooseStudent}
+                        handleForward={this.handleForward}
+                        usertype='company'
                     />
                 }
             </div>

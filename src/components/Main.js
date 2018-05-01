@@ -77,17 +77,14 @@ export class Main extends React.Component {
 
     render() {
         return (
-            <div>
-                <div className="background-image"></div>
-                <div className="main">
-                    <Switch>
-                        <Route exact path="/" render={this.getRoot}/>
-                        <Route path="/login" render={this.getLogin}/>
-                        <Route path="/register" render={this.getRegister}/>
-                        <Route path="/home" render={this.getHome}/>
-                        <Route render={this.getRoot}/>
-                    </Switch>
-                </div>
+            <div className="main">
+                <Switch>
+                    <Route exact path="/" render={this.getRoot}/>
+                    <Route path="/login" render={this.getLogin}/>
+                    <Route path="/register" render={this.getRegister}/>
+                    <Route path="/home" render={this.getHome}/>
+                    <Route render={this.getRoot}/>
+                </Switch>
             </div>
 
         )

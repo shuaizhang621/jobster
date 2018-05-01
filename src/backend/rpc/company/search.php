@@ -15,7 +15,7 @@ $PDF_reader = new PDF2Text();
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
-$password = "";
+$password = "root";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.
@@ -27,6 +27,14 @@ if ($conn->connect_error) {
 $response = array();
 $temp_array = array();
 //get parameters from frontend
+//$keyword = $_POST['keyword'];
+//$sgpalower = $_POST['sgpalower'];
+//$sgpahigh = $_POST['sgpahigh'];
+
+//$keyword = 'java';$_POST['keyword'];
+//$sgpalower = 3;$_POST['sgpalower'];
+//$sgpahigh = 4;$_POST['sgpahigh'];
+
 $keyword = $_POST['keyword'];
 $sgpalower = $_POST['sgpalower'];
 $sgpahigh = $_POST['sgpahigh'];
@@ -41,10 +49,15 @@ if ($result_resume_path->num_rows > 0) {
     while ($row = $result_resume_path->fetch_assoc()) {
         $PDF_reader->setFilename($row['sresume']);
         $PDF_reader->decodePDF();
-        if (strpos($PDF_reader->output(), $keyword) or (strstr($row['suniversity'],$keyword)) or (strstr($row['smajor'], $keyword)) or (($row['sgpa']<$sgpahigh) and ($row['sgpa']>$sgpalower)))
+        if (strpos($PDF_reader->output(), $keyword)
+            or (strstr($row['suniversity'],$keyword))
+            or (strstr($row['smajor'], $keyword))
+            or (($row['sgpa']<=$sgpahigh)
+                and ($row['sgpa']>=$sgpalower)))
         {
             $info = $objectStudentInfo->Build_personal_Info($row);
-            $response[$row['semail']] = $info;
+            array_push($response, $info);
+//            $response[$row['semail']] = $info;
         }
     }
 }

@@ -21,10 +21,11 @@ export class CompanyHome extends React.Component {
             cphone: "",
         },
         studentApplicationInfo: [],
+        jobList: [],
     }
 
     componentWillMount() {
-        console.log(this.props.username);
+        console.log("username: ", this.props.username);
         $.ajax({
             method: 'POST',
             url: `${API_ROOT}/company/init.php`,
@@ -34,10 +35,17 @@ export class CompanyHome extends React.Component {
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(res);
+            let jobListTemp = [];
+            if (res != null && res.studentApplicationInfo != null) {
+                for (let i = 0; i < res.studentApplicationInfo.length; i++) {
+                    jobListTemp.push({jid: res.studentApplicationInfo[i].jid});
+                }
+            }
 
             this.setState({
                 companyInfo: res.companyInfo,
                 studentApplicationInfo: res.studentApplicationInfo,
+                jobList: jobListTemp,
             });
         }, (error) => {
             message.error(error.responseText);
@@ -70,53 +78,58 @@ export class CompanyHome extends React.Component {
 
     render() {
         return (
-            <div className='home'>
-                <div className="home-main">
-                    <CompanyInfo
-                        info={this.state.companyInfo}
-                        username={this.props.username}
-                    />
-                    <div className="home-tab">
-                        <Tabs
-                            className="tab"
-                            type="card"
-                            tabPosition="top"
-                        >
-                            <TabPane className="tabpane"
-                                     tab=
-                                         {
-                                             <div>
-                                                 <Icon type="home" style={{ fontSize: 18, color: 'white' }} />
-                                                 <span style={{float: 'bottom'}}>Home</span>
-                                             </div>
-
-                                         }
-                                     key="1"
+            <div>
+                <div className='background-image'></div>
+                <div className='company-home'>
+                    <div className="home-main">
+                        <CompanyInfo
+                            info={this.state.companyInfo}
+                            username={this.props.username}
+                        />
+                        <div className="home-tab">
+                            <Tabs
+                                className="tab"
+                                type="card"
+                                tabPosition="top"
                             >
-                                <Poster info={this.state.companyInfo}/>
-                                <ApplicationContainer application={this.state.studentApplicationInfo}/>
-                            </TabPane>
-                            <TabPane className="tabpane"
-                                     tab=
-                                         {
-                                             <div>
-                                                 <Icon type="search" style={{ fontSize: 18, color: 'white' }} />
-                                                 <span style={{float: 'bottom'}}>Search</span>
-                                             </div>
+                                <TabPane className="tabpane"
+                                         tab=
+                                             {
+                                                 <div>
+                                                     <Icon type="home" style={{ fontSize: 18, color: 'white' }} />
+                                                     <span style={{float: 'bottom'}}>Home</span>
+                                                 </div>
 
-                                         }
-                                     key="2"
-                            >
-                                <CompanySearch
-                                    username={this.props.username}
-                                    friends={this.state.friends}
-                                />
-                            </TabPane>
-                        </Tabs>
+                                             }
+                                         key="1"
+                                >
+                                    <Poster info={this.state.companyInfo}/>
+                                    <ApplicationContainer application={this.state.studentApplicationInfo}/>
+                                </TabPane>
+                                <TabPane className="tabpane"
+                                         tab=
+                                             {
+                                                 <div>
+                                                     <Icon type="search" style={{ fontSize: 18, color: 'white' }} />
+                                                     <span style={{float: 'bottom'}}>Search</span>
+                                                 </div>
+
+                                             }
+                                         key="2"
+                                >
+                                    <CompanySearch
+                                        username={this.props.username}
+                                        friends={this.state.friends}
+                                        jobList={this.state.jobList}
+                                    />
+                                </TabPane>
+                            </Tabs>
+                        </div>
                     </div>
-                </div>
 
+                </div>
             </div>
+
         )
     }
 }

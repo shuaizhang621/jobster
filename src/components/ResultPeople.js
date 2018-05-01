@@ -1,4 +1,4 @@
-import { List, Button, Avatar, message } from 'antd';
+import { List, Button, Avatar, message, Switch } from 'antd';
 import React from 'react';
 import $ from 'jquery';
 import {API_ROOT, COLOR_LIST } from '../constants';
@@ -32,22 +32,12 @@ export class ResultPeople extends React.Component {
         })
     }
 
-    handleForward = (e) => {
-        let receiver = e.target.id;
-        console.log(e.target.id);
-        $.ajax({
-            url: `${API_ROOT}/company/selectStudentPost.php`,
-            method: 'POST',
-            data: {
-            }
-        })
-    }
 
     render() {
         const avatar = (item) => (
             <Avatar
                 style={{
-                    backgroundColor: COLOR_LIST[Math.floor(Math.random() * 4)],
+                    backgroundColor: COLOR_LIST[item.key % 10],
                     verticalAlign: 'middle',
                     lineHeight: '50'
                 }}
@@ -66,16 +56,13 @@ export class ResultPeople extends React.Component {
         const description = (item) => (
             <span>
                 <span>{`${item.suniversity}  |   ${item.smajor}`}</span>
-                {this.props.company===true && <Button
+                {this.props.usertype == 'company' &&
+                <Switch
                     className="add-friend-button"
-                    id={item.semail}
-                    shape="circle"
-                    icon="mail"
-                    size="large"
-                    onClick={this.handleForword}
-                    disabled={item.semail == this.props.username}
+                    defaultChecked
+                    onChange={(checked) => this.props.handleChooseStudent(item.semail, checked)}
                 />}
-                {this.props.student===true && <Button
+                {this.props.usertype== 'student' && <Button
                     className="add-friend-button"
                     id={item.semail}
                     shape="circle"
@@ -87,6 +74,8 @@ export class ResultPeople extends React.Component {
             </span>
         );
 
+        let index = 0;
+
         return (
             <div className="result-people">
                 <List
@@ -94,18 +83,31 @@ export class ResultPeople extends React.Component {
                     grid={{ column: 2, gutter: 20, }}
                     size="large"
                     dataSource={this.props.result}
-                    renderItem={item => (
-                        <List.Item
-                            key={item.semail}
-                        >
-                            <List.Item.Meta
-                                avatar={avatar(item)}
-                                title={title(item)}
-                                description={description(item)}
-                            />
-                        </List.Item>
-                    )}
+                    renderItem={item => {
+                        item.key = index;
+                        index += 1;
+                        return (
+                            <List.Item
+                                key={item.semail}
+                            >
+                                <List.Item.Meta
+                                    avatar={avatar(item)}
+                                    title={title(item)}
+                                    description={description(item)}
+                                />
+                            </List.Item>
+                        )
+                    }}
                 />
+                {
+                    this.props.usertype == 'company' &&
+                        <Button
+                            className='company-forward-button'
+                            onClick={this.props.handleForward}
+                        >
+                            Forward to student
+                        </Button>
+                }
             </div>
 
         );

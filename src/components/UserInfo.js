@@ -127,35 +127,38 @@ export class UserInfo extends React.Component {
                     <p>{this.props.info.suniversity}</p>
                     <p>{this.props.info.smajor}</p>
                 </div>
-                <div className='info-tools'>
-                    <Button onClick={this.openRequest} icon="plus" shape='circle'  className='request-button'/>
-                    <Badge count={this.props.requestNum} className="request-badge">
-                        <a className="head-example" />
-                    </Badge>
-                </div>
                 <div>
-                    <Button onClick={this.showModal} className='request-button'>
-                        Update Profile
-                    </Button>
-                    <Modal
-                        title="Update Profile"
-                        visible={this.state.visible}
-                        onOk={this.handleOk}
-                        onCancel={this.handleCancel}
-                    >
-                        <UpdateForm
-                            username={this.props.username}
-                            info={this.props.info}
-                            closeModal={this.handleCancel}
-                        />
-                    </Modal>
-                </div>
-                <div>
-                    {"Open to public: "}
-                    <Switch defaultChecked onChange={this.onChange} />
-                </div>
+                    <div className='info-tools'>
+                        <Button onClick={this.openRequest} className='request-button'>
+                            Friend Request
+                        </Button>
+                        <Badge count={this.props.requestNum} className="request-badge">
+                            <a className="head-example" />
+                        </Badge>
+                    </div>
 
-
+                    <div className='info-tools'>
+                        <Button onClick={this.showModal} className='request-button'>
+                            Update Profile
+                        </Button>
+                        <Modal
+                            title="Update Profile"
+                            visible={this.state.visible}
+                            onOk={this.handleOk}
+                            onCancel={this.handleCancel}
+                        >
+                            <UpdateForm
+                                username={this.props.username}
+                                info={this.props.info}
+                                closeModal={this.handleCancel}
+                            />
+                        </Modal>
+                    </div>
+                    <div className='info-tools'>
+                        {"Open to public:  "}
+                        <Switch className='switch' defaultChecked onChange={this.onChange} />
+                    </div>
+                </div>
             </div>
         )
 

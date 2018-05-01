@@ -1,11 +1,12 @@
 .poster {
     width: 660px;
-    box-shadow: 1px 3px 10px 2px #e5e5e5;
+    /*box-shadow: 1px 3px 10px 2px #e5e5e5;*/
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
     padding: 20px;
-    margin: 19px 10px 10px 10px;
+    margin: 15px 10px 10px 10px;
     border-radius: 2px;
     background: white;
-    border: lightgrey solid 1px;
+    /*border: lightgrey solid 1px;*/
     overflow: auto;
 }
 
@@ -24,10 +25,25 @@
     line-height: 15px;
 }
 
-.poster-button {
+.poster-button-post {
     display: flex;
-    margin-top: 10px;
+    margin-top: 15px;
     float: right;
+}
+
+.detail-textarea {
+    display: flex;
+    margin-top: 20px;
+}
+
+.poster textarea.ant-input {
+    margin-left: 15px;
+}
+
+.poster-button-detail {
+    display: flex;
+    margin-left: 5px;
+    /*float: left;*/
 }
 
 .post-button {

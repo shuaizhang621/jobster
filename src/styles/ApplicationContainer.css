@@ -1,15 +1,11 @@
-
-
 .applicants .ant-collapse-header{
     margin-left: -70px;
 }
 
-
-
 .applicants .ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content {
     padding: 0 0 0 0;
 }
-.applicants .ant-list-item {
+.company-home .applicants .ant-list-item {
     -webkit-box-shadow: none;
     box-shadow: none;
     margin-left: -90px;

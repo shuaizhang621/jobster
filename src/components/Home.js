@@ -122,76 +122,83 @@ export class Home extends React.Component {
 
     render() {
         return (
-            <div className="home">
-                <div className="home-main">
-                    <UserInfo
-                        username={this.props.username}
-                        info={this.state.personal_info[0]}
-                        request={this.state.friend_request}
-                        update={this.handleUpdateRequest}
-                        requestNum={this.state.requestNum}
-                    />
-                    <div className="home-tab">
-                        <Tabs
-                            className="tab"
-                            type="card"
-                            tabPosition="top"
-                            onTabClick={this.getData}
-                        >
-                            <TabPane className="tabpane"
-                                     tab=
-                                         {
-                                             <div>
-                                                 <Icon type="home" style={{ fontSize: 18, color: 'white' }} />
-                                                 <span style={{float: 'bottom'}}>Home</span>
-                                             </div>
-
-                                         }
-                                     key="1"
+            <div>
+                <div className='background-image'></div>
+                <div className="home">
+                    <div className="home-main">
+                        <UserInfo
+                            username={this.props.username}
+                            info={this.state.personal_info[0]}
+                            request={this.state.friend_request}
+                            update={this.handleUpdateRequest}
+                            requestNum={this.state.requestNum}
+                        />
+                        <div className="home-tab">
+                            <Tabs
+                                className="tab"
+                                type="card"
+                                tabPosition="top"
+                                onTabClick={this.getData}
                             >
-                                <ItemContainer
-                                    username={this.props.username}
-                                    notification={this.state.notification}
-                                    friends={this.state.friends}
-                                    handleFollowCompany={this.handleFollowCompany}
-                                />
-                            </TabPane>
-                            <TabPane className="tabpane"
-                                     tab=
-                                         {
-                                             <div>
-                                                 <Icon type="search" style={{ fontSize: 18, color: 'white' }} />
-                                                 <span style={{float: 'bottom'}}>Search</span>
-                                             </div>
+                                <TabPane className="tabpane"
+                                         tab=
+                                             {
+                                                 <div>
+                                                     <Icon type="home" style={{ fontSize: 18, color: 'white' }} />
+                                                     <span style={{float: 'bottom'}}>Home</span>
+                                                 </div>
 
-                                         }
-                                     key="2"
-                            >
-                                <SearchContainer
-                                    username={this.props.username}
-                                    friends={this.state.friends}
-                                    handleFollowCompany={this.handleFollowCompany}
-                                />
-                            </TabPane>
-                            <TabPane className="tabpane"
-                                     tab=
-                                         {
-                                             <div>
-                                                 <Icon type="mail" style={{ fontSize: 18, color: 'white' }} />
-                                                 <span style={{float: 'bottom'}}>Message</span>
-                                             </div>
+                                             }
+                                         key="1"
+                                >
+                                    <ItemContainer
+                                        username={this.props.username}
+                                        notification={this.state.notification}
+                                        friends={this.state.friends}
+                                        handleFollowCompany={this.handleFollowCompany}
+                                    />
+                                </TabPane>
+                                <TabPane className="tabpane"
+                                         tab=
+                                             {
+                                                 <div>
+                                                     <Icon type="search" style={{ fontSize: 18, color: 'white' }} />
+                                                     <span style={{float: 'bottom'}}>Search</span>
+                                                 </div>
 
-                                         }
-                                     key="3"
-                            >
-                                <MessageContainer username={this.props.username}/>
-                            </TabPane>
-                        </Tabs>
+                                             }
+                                         key="2"
+                                >
+                                    <SearchContainer
+                                        username={this.props.username}
+                                        friends={this.state.friends}
+                                        handleFollowCompany={this.handleFollowCompany}
+                                    />
+                                </TabPane>
+                                <TabPane className="tabpane"
+                                         tab=
+                                             {
+                                                 <div>
+                                                     <Icon type="mail" style={{ fontSize: 18, color: 'white' }} />
+                                                     <span style={{float: 'bottom'}}>Message</span>
+                                                 </div>
+
+                                             }
+                                         key="3"
+                                >
+                                    <MessageContainer
+                                        className='message-container'
+                                        username={this.props.username}
+                                    />
+                                </TabPane>
+                            </Tabs>
+                        </div>
+                        <FriendsList friends={this.state.friends}/>
                     </div>
-                    <FriendsList friends={this.state.friends}/>
-                </div>
 
+                </div>
             </div>
+
 
         );
     }
