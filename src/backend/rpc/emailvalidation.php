@@ -13,12 +13,22 @@ if ($user_type == 'student')
 {
 //    echo 'student';
     $reg_username = $_POST['semail'];
-    $sql_check_double_email = "select semail from Student where semail = '$reg_username'";
+    $sql_check_double_email = "select semail from Student where semail = ?;";
+    //query to check if there is a semail which is the same as the new one.
+    $double_check  = $conn->prepare($sql_check_double_email);
+    $double_check->bind_param('s',$semail);
+    $double_check->execute();
+    $result_double_check = $double_check->get_result();
 }
 elseif ($user_type == 'company') {
 //    echo 'company';
     $reg_username =$_POST['cname'];
-    $sql_check_double_email = "select cname from Company where cname = '$reg_username'";
+    $sql_check_double_email = "select cname from Company where cname = ?;";
+    //query to check if there is a semail which is the same as the new one.
+    $double_check  = $conn->prepare($sql_check_double_email);
+    $double_check->bind_param('s',$cname);
+    $double_check->execute();
+    $result_double_check = $double_check->get_result();
 }
 //the parameters that used for connecting to database.
 $servername = "localhost";
@@ -27,11 +37,13 @@ $password = "root";
 $dbname = "jobster";
 //create new connection and check if it is connected successfully.
 $conn = new mysqli($servername, $dbusername, $password, $dbname);
+
 if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
-$double_check  = mysqli_query($conn, $sql_check_double_email);
-if ($double_check->num_rows > 0)
+
+//get result of double_check.
+if ($result_double_check->num_rows > 0)
 {
 //    echo "This username has been occupied. Please choose another one!";
     header('HTTP/1.0 403 Forbidden');
