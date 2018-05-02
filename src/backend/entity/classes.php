@@ -96,13 +96,8 @@ class company_info{
         $companyInfo->cdescription = $row['cdescription'];
         return $companyInfo;
     }
-<<<<<<< HEAD
-    function Build_Company_Job($job){
-
-=======
     function add_Jobs($job){
         array_push($this->jobs, $job);
->>>>>>> 84d17fdcec0c2b1a7d7e37ecd34189399cdb8efe
     }
 }
 
@@ -201,5 +196,15 @@ class message{
     }
 }
 
-
+//class used for response in student init page,for there are too much to response in that page.
+class class_response{
+    public $friend_request;
+    public $notification;
+    public $personal_info;
+    public $friends;
+    public function isEmpty()
+    {
+        return empty($this->friend_request) and empty($this->notification) and empty($this->personal_info);
+    }
+}
 ?>
