@@ -23,13 +23,18 @@ if ($conn->connect_error) {
 
 //get parameters from frontend.
 $semail = $_POST['semail'];
+$semailreceive = $_POST['semailreceive'];
 
 //initialize response
 $response = array();
 
 //query all the messages whose sender or receiver is semail.
-$sql_get_messages = "select * from message where semailsend = '$semail' or semailreceive = '$semail';";
-$result_get_messages = mysqli_query($conn,$sql_get_messages);
+$sql_get_messages = "select * from message where (semailsend = ? and semailreceive = ?) 
+or (semailsend = ? and semailreceive = ?;";
+$get_messages = $conn->prepare($sql_get_messages);
+$get_messages->bind_param('ss',$semail, $semailreceive, $semailreceive, $semail);
+$get_messages->execute();
+$result_get_messages = $get_messages->get_result();
 if ($result_get_messages->num_rows > 0){
     while ($row = $result_get_messages->fetch_assoc()){
         $messageInfo = $object_message_info->Build_message_info($row);

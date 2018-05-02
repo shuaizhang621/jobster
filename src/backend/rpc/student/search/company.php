@@ -26,7 +26,9 @@ $conn = new mysqli($servername, $dbusername, $password, $dbname);
 if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
-$sql_company_search = "select * from  Company where (cname LIKE '%$keyword%') or (clocation like '%$keyword%') or (cindustry like '%$keyword%') or (cemail like '%$keyword%') or (cphone like '%$keyword%') or (cdescription like '%$keyword%') ;";
+$sql_company_search = "select * from  Company where (cname LIKE concat('%',#{$keyword},'%')) or (clocation like '%$keyword%') 
+or (cindustry like '%$keyword%') or (cemail like '%$keyword%') or (cphone like '%$keyword%') 
+or (cdescription like '%$keyword%') ;";
 
 $result_company_search = mysqli_query($conn, $sql_company_search);
 

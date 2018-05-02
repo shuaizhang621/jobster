@@ -27,8 +27,11 @@ $cname = $_POST['cname'];
 //initialize response to frontend.
 $response = array();
 
-$sql_job_of_company = "select * from JobAnnouncement where cname = '$cname';";
-$result_sql_job_of_company = mysqli_query($conn, $sql_job_of_company);
+$sql_job_of_company = "select * from JobAnnouncement where cname = ?;";
+$job_of_company = $conn->prepare($sql_job_of_company);
+$job_of_company->bind_param('s',$cname);
+$job_of_company->execute();
+$result_sql_job_of_company = $job_of_company->get_result();
 if ($result_sql_job_of_company->num_rows > 0){
     while ($row = $result_sql_job_of_company->fetch_assoc()){
         $info = $objectJobInfo->Build_Job_Info($row);

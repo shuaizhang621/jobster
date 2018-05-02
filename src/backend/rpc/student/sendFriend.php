@@ -23,10 +23,12 @@ $send = $_POST['send'];
 $receive = $_POST['receive'];
 
 //check if the sender and receiver are already friends.If not, then update the backend database table StudentFriends.
-$sql_send_friend_check = "select * from StudentFriends where (semailsend = '$send' and semailreceive = '$receive') 
-or (semailsend = '$receive' and semailreceive = '$send');";
-
-$result_send_friend_check = mysqli_query($conn, $sql_send_friend_check);
+$sql_send_friend_check = "select * from StudentFriends where (semailsend = ? and semailreceive = ?) 
+or (semailsend = ? and semailreceive = ?);";
+$send_friend_check = $conn->prepare($sql_send_friend_check);
+$send_friend_check->bind_param('ssss',$send,$receive,$send,$receive);
+$send_friend_check->execute();
+$result_send_friend_check = $send_friend_check->get_result();
 if ($result_send_friend_check->num_rows > 0){
     $row = $result_send_friend_check->fetch_assoc();
     if ($row['status']  == 'unviewed'){
@@ -40,10 +42,10 @@ if ($result_send_friend_check->num_rows > 0){
 }
 else{
     $sql_insert_send_friend = "INSERT INTO StudentFriends (`semailsend`, `semailreceive`, `status`, `sendtime`) 
-VALUES ('$send', '$receive', 'unviewed', CURDATE());";
-    mysqli_query($conn, $sql_insert_send_friend);
-    $result_check_insert = mysqli_query($conn, $sql_send_friend_check);
-    if ($result_check_insert->num_rows > 0){
+VALUES (?, ?, 'unviewed', CURDATE());";
+    $insert_send_friend = $conn->prepare($sql_insert_send_friend);
+    $insert_send_friend->bind_param('ss',$send,$receive);
+    if ($insert_send_friend->execute()){
         $response = "Your friend request has been sent.";
         //echo $response;
         echo json_encode($response);

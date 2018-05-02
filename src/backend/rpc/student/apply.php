@@ -20,7 +20,7 @@ $jid = $_POST['jid'];
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
-$password = "root";
+$password = "";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.
@@ -39,16 +39,22 @@ else
     $aid = 1;
 }
 
-$sql_check_application_update = "select * from StudentApplyJob where semail = '$semail' and jid = '$jid' and cname = '$cname';";
-$result_check_application_update = mysqli_query($conn, $sql_check_application_update);
+$sql_check_application_update = "select * from StudentApplyJob where semail = ? and jid = ? and cname = ?;";
+$check_application_update = $conn->prepare($sql_check_application_update);
+$check_application_update->bind_param('sss',$semail, $jid, $cname);
+$check_application_update->execute();
+$result_check_application_update = $check_application_update->get_result();
+// echo $result_check_application_update->num_rows;
 if($result_check_application_update->num_rows > 0){
     $response = "You have already applied the job!";
-    echo $response;
+    echo json_encode($response);
 }
 else{
     $sql_update_application = "INSERT INTO StudentApplyJob(`aid`, `semail`, `jid`, `cname`, `status`, `applytime`)
- VALUES('$aid','$semail', '$jid', '$cname','unviewed', CURDATE());";
-    if(mysqli_query($conn, $sql_update_application) == True){
+ VALUES('$aid',?, ?, ?,'unviewed', CURDATE());";
+    $update_application = $conn->prepare($sql_update_application);
+    $update_application->bind_param('sss',$semail,$jid, $cname);
+    if($update_application->execute()){
         $response = True;
         echo json_encode($response);
     }
@@ -56,19 +62,19 @@ else{
         $response = False;
         echo json_encode($response);
     }
-/*
-//check if the application has been updated.
-    $sql_check_application_update = "select * from StudentApplyJob where semail = '$semail', jid = '$jid', cname = '$cname';";
-    $result_check_application_update = mysqli_query($conn, $sql_check_application_update);
-    if ($result_check_application_update->num_rows > 0){
-        $response = True;
-        echo json_encode($response);
-    }
-    else{
-        $response = False;
-        echo json_encode($response);
-    }
-*/
+    /*
+    //check if the application has been updated.
+        $sql_check_application_update = "select * from StudentApplyJob where semail = '$semail', jid = '$jid', cname = '$cname';";
+        $result_check_application_update = mysqli_query($conn, $sql_check_application_update);
+        if ($result_check_application_update->num_rows > 0){
+            $response = True;
+            echo json_encode($response);
+        }
+        else{
+            $response = False;
+            echo json_encode($response);
+        }
+    */
 }
 
 $conn->close();

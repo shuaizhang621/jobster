@@ -28,9 +28,11 @@ if ($result_max_mid->num_rows > 0){
 else{
     $mid = 1;
 }
-$sql_update_messge = "INSERT INTO message (`mid`,`semailsend`, `semailreceive`, `content`, `sendtime`, `status`)
-VALUES  ('$mid','$semailsend', '$semailreceive', '$content', CURRENT_DATE, 'unviewed');";
-if (mysqli_query($conn, $sql_update_messge) == True){
+$sql_update_message = "INSERT INTO message (`mid`,`semailsend`, `semailreceive`, `content`, `sendtime`, `status`)
+VALUES  ('$mid',?,?,?, CURRENT_DATE, 'unviewed');";
+$update_message = $conn->prepare($sql_update_message);
+$update_message->bind_param('sss', $semailsend,$semailreceive, $content);
+if ($update_message->execute()){
     echo "Your message to ".$semailreceive." has been sent.";
 }
 else{

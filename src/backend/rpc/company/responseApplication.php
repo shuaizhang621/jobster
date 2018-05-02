@@ -25,8 +25,10 @@ $status = $_POST['status'];
 $response = array();
 
 //update the backend database.
-$sql_update_application_accepted = "update studentapplyjob set status = '$status' where aid = '$aid';";
-if (mysqli_query($conn, $sql_update_application_accepted) == True){
+$sql_update_application_accepted = "update studentapplyjob set status = ? where aid = ?;";
+$update_application_accepted = $conn->prepare($sql_update_application_accepted);
+$update_application_accepted->bind_param('ss', $status, $aid);
+if ($update_application_accepted->execute()){
     $response['update_status'] = "Updated successfully.";
 }
 else

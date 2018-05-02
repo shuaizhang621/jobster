@@ -24,14 +24,17 @@ $sphone = $_POST['sphone'];
 $suniversity = $_POST['university'];
 $smajor = $_POST['smajor'];
 $sresume = $_POST['sresume'];
-
+$sprivacy = $_POST['sprivacy'];
 //initialize response to frontend.
 $response = array();
 
 //update personal information to backend database.
-$sql_update_personal_info = "update student set sgpa = '$sgpa', sphone = '$sphone', suniversity = '$suniversity', smajor = '$smajor', sresume = '$sresume'
-where semail = '$semail';";
-if (mysqli_query($conn, $sql_update_personal_info) == True){
+$sql_update_personal_info = "update student set sgpa = ?, sphone = ?, suniversity = ?, 
+smajor = ?, sresume = ?, sprivacy = ? where semail = ?;";
+$update_personal_info = $conn->prepare($sql_update_personal_info);
+$update_personal_info->bind_param('sssssss',$sgpa, $sphone, $suniversity, $smajor, $sresume,
+    $sprivacy, $semail);
+if ($update_personal_info->execute()){
     $response['update_personal_info'] = "Student user ".$semail.": Profile updated successfully!";
 }
 else{

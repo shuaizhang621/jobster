@@ -29,9 +29,11 @@ $cname = $_POST['cname'];
 
 //get new application from backend database
 
-$sql_get_application_jobinfo = "select * from JobAnnouncement where cname = '$cname';";
-
-$result_get_application_jobinfo = mysqli_query($conn, $sql_get_application_jobinfo);
+$sql_get_application_jobinfo = "select * from JobAnnouncement where cname = ?;";
+$get_application_jobinfo = $conn->prepare($sql_get_application_studentinfo);
+$get_application_jobinfo->bind_param('s', $cname);
+$get_application_jobinfo->execute();
+$result_get_application_jobinfo = $get_application_jobinfo->get_result();
 
 
 $temp_array =array();
@@ -42,8 +44,11 @@ if ($result_get_application_jobinfo->num_rows > 0){
 //        echo $temp_jid."<br>";
         $sql_get_application_studentinfo = "select semail, aid, sphone, slastname,sfirstname,sgpa,smajor, suniversity,
 sresume, aid from Student natural join StudentApplyJob where aid in (
-select aid from StudentApplyJob where (cname = '$cname') and (status = 'unviewed') and (jid = '$temp_jid'));";
-        $result_get_application_studentinfo = mysqli_query($conn, $sql_get_application_studentinfo);
+select aid from StudentApplyJob where (cname = ?) and (status = 'unviewed') and (jid = '$temp_jid'));";
+        $get_application_studentinfo = $conn->prepare($sql_get_application_studentinfo);
+        $get_application_studentinfo->bind_param('s', $cname);
+        $get_application_studentinfo->execute();
+        $result_get_application_studentinfo = $get_application_studentinfo->get_result();
         if($result_get_application_studentinfo->num_rows > 0){
             //echo 'got student'."<br>";
             while ($row_student = $result_get_application_studentinfo->fetch_assoc()){
@@ -62,8 +67,11 @@ select aid from StudentApplyJob where (cname = '$cname') and (status = 'unviewed
 
 
 //get company info
-$sql_company_info = "select * from Company where cname = '$cname';";
-$result_company_info = mysqli_query($conn, $sql_company_info);
+$sql_company_info = "select * from Company where cname = ?;";
+$company_info = $conn->prepare($sql_company_info);
+$company_info->bind_param('s',$cname);
+$company_info->execute();
+$result_company_info = $company_info->get_result();
 $temp_array2 = array();
 if ($result_company_info->num_rows > 0){
     $temp_array = $result_company_info->fetch_assoc();

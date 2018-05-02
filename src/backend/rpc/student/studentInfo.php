@@ -28,8 +28,11 @@ $response = array();
 $temp_array = array();
 
 //query student info from backend database if the company accepts the application.
-$sql_student_info = "select * from Student where semail = '$semail';";
-$result_student_info = mysqli_query($conn, $sql_student_info);
+$sql_student_info = "select * from Student where semail = ?;";
+$student_info = $conn->prepare($sql_student_info);
+$student_info->bind_param('s',$semail);
+$student_info->execute();
+$result_student_info = $student_info->get_result();
 if ($result_student_info->num_rows > 0){
     $row = $result_student_info->fetch_assoc();
     $info = $objectStudentInfo->Build_personal_Info($row);
