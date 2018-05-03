@@ -21,7 +21,7 @@ if ($conn->connect_error) {
 $semail = $_POST['semail'];
 $sgpa = $_POST['sgpa'];
 $sphone = $_POST['sphone'];
-$suniversity = $_POST['university'];
+$suniversity = $_POST['suniversity'];
 $smajor = $_POST['smajor'];
 $sresume = $_POST['sresume'];
 $sprivacy = $_POST['sprivacy'];
