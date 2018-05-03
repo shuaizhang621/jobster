@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input, Tabs, message, Icon } from 'antd';
-import { API_ROOT } from "../constants";
+import { API_ROOT, TOKEN_KEY } from "../constants";
 import $ from 'jquery';
 import { ItemContainer } from "./ItemContainer";
 import { UserInfo } from "./UserInfo";
@@ -62,6 +62,9 @@ export class Home extends React.Component {
             data: {
                 semail: this.props.username,
             },
+            headers: {
+                Authorization: localStorage.getItem(TOKEN_KEY)
+            }
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(res);

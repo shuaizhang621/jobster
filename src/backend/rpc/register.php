@@ -40,7 +40,7 @@ if ($user_type == 'student'){
     $cphone = $_POST['cphone'];
     $cindusty = $_POST['cindustry'];
     $cdescription = $_POST['cdescription'];
-    $sql_update = "INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindusty`, `cdescription`)
+    $sql_update = "INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindustry`, `cdescription`)
 					   VALUES ('$cname', '$ckey', '$cemail', '$clocation', '$cphone', '$cindusty', '$cdescription');";
 }
 
