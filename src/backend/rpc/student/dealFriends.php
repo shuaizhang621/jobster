@@ -22,6 +22,10 @@ if ($conn->connect_error) {
 $send = $_POST['send'];
 $receive = $_POST['receive'];
 $choice = $_POST['choice'];
+//prevent xss attack
+$send = htmlspecialchars($send, ENT_QUOTES);
+$receive = htmlspecialchars($receive, ENT_QUOTES);
+$choice = htmlspecialchars($choice, ENT_QUOTES);
 
 //initialize response to frontend.
 $response = array();

@@ -20,6 +20,9 @@ if ($conn->connect_error) {
 //get parameter from frontend.
 $semail = $_POST['semail'];
 $cname = $_POST['cname'];
+//prevent xss attack
+$semail = htmlspecialchars($semail, ENT_QUOTES);
+$cname = htmlspecialchars($cname, ENT_QUOTES);
 
 //initialize response to frontend.
 $reponse = array();

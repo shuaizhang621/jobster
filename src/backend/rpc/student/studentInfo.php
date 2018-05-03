@@ -22,7 +22,7 @@ if ($conn->connect_error) {
 
 //get parameter from forntend
 $semail = $_POST['semail'];
-
+$semail = htmlspecialchars($semail, ENT_QUOTES);
 //initialize response to frontend.
 $response = array();
 $temp_array = array();

@@ -20,6 +20,10 @@ if ($conn->connect_error) {
 $semailsend = $_POST['semailsend'];
 $semailreceive = $_POST['semailreceive'];
 $content = $_POST['content'];
+//prevent xss attack
+$semailsend = htmlspecialchars($semailsend, ENT_QUOTES);
+$semailreceive = htmlspecialchars($semailreceive, ENT_QUOTES);
+$content = htmlspecialchars($content, ENT_QUOTES);
 //update the message to database.
 $result_max_mid  = mysqli_query($conn,"select max(mid) as mmid from message;");
 if ($result_max_mid->num_rows > 0){

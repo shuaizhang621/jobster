@@ -3,6 +3,9 @@
 //$semail = "cz1522@nyu.edu";
  $semail = $_POST['semail'];
 
+ //prevent xss attack
+$semail = htmlspecialchars($semail, ENT_QUOTES);
+
 // import the classes used in this file
 require("../../entity/classes.php");
 $objectJobInfo = new job_info();

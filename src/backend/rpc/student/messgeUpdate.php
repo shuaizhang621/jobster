@@ -20,6 +20,8 @@ if ($conn->connect_error) {
 
 //get parameters from frontend.
 $mid = $_POST['mid'];
+//prevent xss attack
+$mid = htmlspecialchars($mid, ENT_QUOTES);
 //initialize response to frontend.
 $response = array();
 //update the notification status to 'viewed' at backend database.

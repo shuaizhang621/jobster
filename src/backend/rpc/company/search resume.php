@@ -11,6 +11,7 @@ $PDF_reader = new PDF2Text();
 
 //get parameter from frontend and initialize response to frontend
 $keyword = $_POST['keyword'];
+$keyword = htmlspecialchars($keyword, ENT_QUOTES);
 $response = array();
 //the parameters that used for connecting to database.
 $servername = "localhost";

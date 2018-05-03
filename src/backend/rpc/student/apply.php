@@ -16,6 +16,10 @@
 $semail = $_POST['semail'];
 $cname = $_POST['cname'];
 $jid = $_POST['jid'];
+//prevent xss attack
+$semail = htmlspecialchars($semail, ENT_QUOTES);
+$cname = htmlspecialchars($cname, ENT_QUOTES);
+$jid = htmlspecialchars($jid, ENT_QUOTES);
 
 //the parameters that used for connecting to database.
 $servername = "localhost";

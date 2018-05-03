@@ -25,6 +25,14 @@ $suniversity = $_POST['university'];
 $smajor = $_POST['smajor'];
 $sresume = $_POST['sresume'];
 $sprivacy = $_POST['sprivacy'];
+//prevent xss attack
+$semail = htmlspecialchars($semail, ENT_QUOTES);
+$sgpa = htmlspecialchars($sgpa, ENT_QUOTES);
+$sphone = htmlspecialchars($sphone, ENT_QUOTES);
+$suniversity = htmlspecialchars($suniversity, ENT_QUOTES);
+$smajor = htmlspecialchars($smajor, ENT_QUOTES);
+$sresume = htmlspecialchars($sresume, ENT_QUOTES);
+$sprivacy = htmlspecialchars($sprivacy, ENT_QUOTES);
 //initialize response to frontend.
 $response = array();
 

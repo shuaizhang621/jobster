@@ -20,6 +20,7 @@ if ($user_type == 'student')
 {
 //    echo 'student';
     $reg_username = $_POST['semail'];
+    $reg_username = htmlspecialchars($reg_username, ENT_QUOTES);
     $sql_check_double_email = "select semail from Student where semail = ?;";
     //query to check if there is a semail which is the same as the new one.
     $double_check  = $conn->prepare($sql_check_double_email);
@@ -30,6 +31,7 @@ if ($user_type == 'student')
 elseif ($user_type == 'company') {
 //    echo 'company';
     $reg_username =$_POST['cname'];
+    $reg_username = htmlspecialchars($reg_username, ENT_QUOTES);
     $sql_check_double_email = "select cname from Company where cname = ?;";
     //query to check if there is a semail which is the same as the new one.
     $double_check  = $conn->prepare($sql_check_double_email);

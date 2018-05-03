@@ -17,6 +17,11 @@ $username = $_POST['username'];
 $keywords = $_POST['keywords'];
 $user_type = $_POST['usertype'];
 
+//prevent xss attack
+$username = htmlspecialchars($username, ENT_QUOTES);
+$keywords = htmlspecialchars($keywords, ENT_QUOTES);
+$user_type = htmlspecialchars($user_type, ENT_QUOTES);
+
 if ($user_type == 'student') {
     $sql_check_username_exist = "select semail from Student where semail = ?";
     $check_username_exist = $conn->prepare($sql_check_username_exist);

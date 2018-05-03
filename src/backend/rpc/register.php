@@ -40,6 +40,18 @@ if ($user_type == 'student'){
     $suniversity = $_POST['university'];
     $smajor = $_POST['smajor'];
     $sresume = $_POST['sresume'];
+
+    //prevent xss attack.
+    $semail = htmlspecialchars($semail, ENT_QUOTES);
+    $skey = htmlspecialchars($skey, ENT_QUOTES);
+    $sfirstname = htmlspecialchars($sfirstname, ENT_QUOTES);
+    $slastname = htmlspecialchars($slastname, ENT_QUOTES);
+    $sgpa = htmlspecialchars($sgpa, ENT_QUOTES);
+    $sphone = htmlspecialchars($sphone, ENT_QUOTES);
+    $suniversity = htmlspecialchars($suniversity, ENT_QUOTES);
+    $smajor = htmlspecialchars($smajor, ENT_QUOTES);
+    $sresume = htmlspecialchars($sresume, ENT_QUOTES);
+
     $sql_update = "INSERT INTO `Student` (`semail`, `skey`, `sphone`, `sfirstname`, `slastname`, `suniversity`, `smajor`, `sgpa`, `sresume`)
 					   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? )";
     $register_update = $conn->prepare($sql_update);
@@ -52,8 +64,18 @@ if ($user_type == 'student'){
     $clocation = $_POST['clocation'];
     $cemail = $_POST['cemail'];
     $cphone = $_POST['cphone'];
-    $cindusty = $_POST['cindustry'];
+    $cindustry = $_POST['cindustry'];
     $cdescription = $_POST['cdescription'];
+
+    //prevent xss attack.
+    $cname = htmlspecialchars($cname, ENT_QUOTES);
+    $ckey = htmlspecialchars($ckey, ENT_QUOTES);
+    $clocation = htmlspecialchars($clocation, ENT_QUOTES);
+    $cemail = htmlspecialchars($cemail, ENT_QUOTES);
+    $cphone = htmlspecialchars($cphone, ENT_QUOTES);
+    $cindustry = htmlspecialchars($cindustry, ENT_QUOTES);
+    $cdescription = htmlspecialchars($cdescription, ENT_QUOTES);
+
     $sql_update = "INSERT INTO `Company` (`cname`, `ckey`, `cemail`, `clocation`, `cphone`, `cindustry`, `cdescription`)
 					   VALUES (?, ?, ?, ?, ?, ?, ?);";
     $register_update = $conn->prepare($sql_update);

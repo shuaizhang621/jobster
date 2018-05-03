@@ -23,6 +23,9 @@ if ($conn->connect_error) {
 //get parameter from forntend
 $aid = $_POST['aid'];
 $semail = $_POST['semail'];
+//prevent xss attack
+$aid = htmlspecialchars($aid, ENT_QUOTES);
+$semail = htmlspecialchars($semail, ENT_QUOTES);
 
 //initialize response to frontend.
 $response = array();

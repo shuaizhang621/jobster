@@ -5,16 +5,6 @@
  * Date: 2018/4/12
  * Time: 21:13
  */
-
-// import the classes used in this file
-require("../../../entity/classes.php");
-$objectJobInfo = new job_info();
-
-//get parameter from frontend.
-$keyword = $_POST['keyword'];
-//initialize response to frontend.
-$response = array();
-
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
@@ -26,6 +16,20 @@ $conn = new mysqli($servername, $dbusername, $password, $dbname);
 if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
+
+// import the classes used in this file
+require("../../../entity/classes.php");
+$objectJobInfo = new job_info();
+
+//get parameter from frontend.
+$keyword = $_POST['keyword'];
+//prevent injection
+$keyword = $conn->real_escape_string($keyword);
+$keyword = htmlspecialchars($keyword, ENT_QUOTES);
+//initialize response to frontend.
+$response = array();
+
+
 //search companies that fit the keywords from backend database.
 $sql_job_search = "select *  from  JobAnnouncement where jid LIKE '%$keyword%' or cname like '%$keyword%' or 
 jtitle like '%$keyword%' or jsalary like '%$keyword%' or jreq_diploma like '%$keyword%' or 

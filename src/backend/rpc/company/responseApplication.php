@@ -20,6 +20,9 @@ if ($conn->connect_error) {
 //get parameters from the frontend.
 $aid = $_POST['aid'];
 $status = $_POST['status'];
+//prevent xss attack.
+$aid = htmlspecialchars($aid, ENT_QUOTES);
+$status = htmlspecialchars($status, ENT_QUOTES);
 
 //initialize the response to frontend.
 $response = array();

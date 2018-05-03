@@ -25,6 +25,15 @@ $jreq_diploma = $_POST['jreq_diploma'];
 $jreq_experience = $_POST['jreq_experience'];
 $jreq_skills = $_POST['jskills'];
 $jdescription = $_POST['jdescription'];
+//prevent xss attack.
+$cname = htmlspecialchars($cname, ENT_QUOTES);
+$jlocation = htmlspecialchars($jlocation, ENT_QUOTES);
+$jtitle = htmlspecialchars($jtitle, ENT_QUOTES);
+$jsalary = htmlspecialchars($jsalary, ENT_QUOTES);
+$jreq_diploma = htmlspecialchars($jreq_diploma, ENT_QUOTES);
+$jreq_experience = htmlspecialchars($jreq_experience, ENT_QUOTES);
+$jreq_skills = htmlspecialchars($jreq_skills, ENT_QUOTES);
+$jdescription = htmlspecialchars($jdescription, ENT_QUOTES);
 
 //create jid.
 $result_max_jid  = mysqli_query($conn,"select max(jid) as mjid from JobAnnouncement;");

@@ -5,16 +5,6 @@
  * Date: 2018/4/12
  * Time: 20:58
  */
-// import the classes used in this file
-require("../../../entity/classes.php");
-$objectCompanyInfo = new company_info();
-$objectJobInfo = new job_info();
-
-//get parameter from frontend.
-$keyword = $_POST['keyword'];
-//initialize response to frontend.
-$response = array();
-
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
@@ -26,6 +16,20 @@ $conn = new mysqli($servername, $dbusername, $password, $dbname);
 if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
+
+// import the classes used in this file
+require("../../../entity/classes.php");
+$objectCompanyInfo = new company_info();
+$objectJobInfo = new job_info();
+
+//get parameter from frontend.
+$keyword = $_POST['keyword'];
+// prevent injection and xss injection.
+$keyword = $conn->real_escape_string($keyword);
+$keyword = htmlspecialchars($keyword,ENT_QUOTES);
+//initialize response to frontend.
+$response = array();
+
 $sql_company_search = "select * from  Company where (cname LIKE concat('%',#{$keyword},'%')) or (clocation like '%$keyword%') 
 or (cindustry like '%$keyword%') or (cemail like '%$keyword%') or (cphone like '%$keyword%') 
 or (cdescription like '%$keyword%') ;";

@@ -21,6 +21,9 @@ if ($conn->connect_error) {
 //get parameter from frontend.
 $send = $_POST['send'];
 $receive = $_POST['receive'];
+//prevent xss attack
+$send = htmlspecialchars($send, ENT_QUOTES);
+$receive = htmlspecialchars($receive, ENT_QUOTES);
 
 //check if the sender and receiver are already friends.If not, then update the backend database table StudentFriends.
 $sql_send_friend_check = "select * from StudentFriends where (semailsend = ? and semailreceive = ?) 

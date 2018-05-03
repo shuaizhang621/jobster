@@ -20,6 +20,8 @@ if ($conn->connect_error) {
 
 //get parameters from frontend.
 $nid = $_POST['nid'];
+//prevent xss attack
+$nid = htmlspecialchars($nid, ENT_QUOTES);
 
 //update the notification status to 'viewed' at backend database.
 $sql_update_notification = "update notification set status = 'viewed' where nid = ?";

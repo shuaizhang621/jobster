@@ -26,7 +26,8 @@ $response = array();
 
 //get parameter from frontend.
 $cname = $_POST['cname'];
-
+//prevent xss attack
+$cname = htmlspecialchars($cname, ENT_QUOTES);
 //get new application from backend database
 
 $sql_get_application_jobinfo = "select * from JobAnnouncement where cname = ?;";

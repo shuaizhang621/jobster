@@ -25,6 +25,12 @@ if ($conn->connect_error) {
 $cname = $_POST['cname'];
 $jid = $_POST['jid'];
 $student_array = $_POST['student_array'];
+//prevent xss attack
+$cname = htmlspecialchars($cname, ENT_QUOTES);
+$jid = htmlspecialchars($jid, ENT_QUOTES);
+foreach ($student_array as $student) {
+    $student = htmlspecialchars($student, ENT_QUOTES);
+}
 
 //initialize array for feedback to frontend.
 $response = array();
