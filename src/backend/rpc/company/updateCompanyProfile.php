@@ -38,7 +38,7 @@ $response = array();
 $sql_update_company_info = "update company set clocation = ?, cemail = ?, cindustry = ?, cdescription = ? 
                               where cname = ?;";
 $update_company_info = $conn->prepare($sql_update_company_info);
-$update_company_info->bind_param('sssssss',$clocation, $cemail, $cindustry, $cdescription,$cname);
+$update_company_info->bind_param('sssss',$clocation, $cemail, $cindustry, $cdescription,$cname);
 if ($update_company_info->execute()){
     $response['update_company_info'] = "Company user ".$cname.": Profile updated successfully!";
 }
