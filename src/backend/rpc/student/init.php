@@ -1,7 +1,7 @@
 <?php
 //get parameters from frontend
-$semail = "cz1522@nyu.edu";
-// $semail = $_POST['semail'];
+//$semail = "cz1522@nyu.edu";
+$semail = $_POST['semail'];
 // import the classes used in this file
 require("../../entity/classes.php");
 $objectJobInfo = new job_info();

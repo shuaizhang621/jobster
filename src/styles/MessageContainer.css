@@ -1,3 +1,74 @@
 .message-container {
-    width: 1200px;
+    width: 660px;
+    height: 530px;
+    box-shadow: 0 0 0 1px rgba(0,0,0,.1), 0 2px 3px rgba(0,0,0,.2);
+    margin: 15px 10px 10px 10px;
+    border-radius: 2px;
+    background: white;
+}
+
+.message-container .header {
+    padding: 10px;
+    border-bottom: 1px solid lightgray;
+    display: flex;
+}
+
+.message-container .header .header-name {
+    margin-left: 6px;
+    margin-top: 3px;
+}
+
+.chat-message {
+    height: 360px;
+    overflow: scroll;
+}
+
+.chat-poster {
+    border-top: 1px solid lightgray;
+}
+
+.send-button {
+    margin-top: 10px;
+    float: right;
+}
+
+.home .message-container .ant-list-item {
+    padding: 5px;
+    border: none;
+}
+
+/*.home .message-container .ant-list-item-content-single {*/
+    /*width: 100px;*/
+/*}*/
+
+.sender-wrapper {
+}
+
+.message-container .sender-pop {
+    text-align: right;
+    background-color: #AFE46E;
+    float: right;
+    padding: 8px;
+    border-radius: 4px;
+    margin-top: 10px;
+
+}
+
+.message-container .ant-spin-container {
+    display: inline-grid;
+    width: 660px;
+    padding: 15px;
+}
+
+.message-container .receiver-pop {
+    background-color: #F5F5F5;
+    padding: 8px;
+    margin-right: 10px;
+    border-radius: 4px;
+    float: left;
+    margin-top: 15px;
+}
+
+.message-container .ant-input {
+    border: none;
 }

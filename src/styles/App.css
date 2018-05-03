@@ -23,16 +23,16 @@
 }
 
 .App-logo {
-  margin: 8px 12px;
-  height: 45px;
+  margin: 5px 12px;
+  height: 40px;
   float: left;
   font-size: 25px;
   font-weight: bold;
 }
 
 .App-header {
-  background-color: #54adff;
-  height: 60px;
+  background-color: #153144;
+  height: 50px;
   color: white;
   display: flex;
   /*position: fixed;*/
