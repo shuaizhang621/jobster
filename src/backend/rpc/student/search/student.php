@@ -22,16 +22,12 @@ if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
 
+//get parameter forntend.
+$semail = $_POST['semail'];
+$keyword = $_POST['keyword'];
+
 //get token
 $token = $_POST["token"];
-//verify the token
-require("../../entity/JWT.php");
-$object_JWT = new JWT();
-if (!$object_JWT->token_verify($token, $semail)){
-    header('HTTP/1.0 401 Unauthorized');
-    die ("Your token is not matched with your username");
-}
-
 //verify the token
 require("../../../entity/JWT.php");
 $object_JWT = new JWT();

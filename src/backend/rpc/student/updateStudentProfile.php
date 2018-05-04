@@ -19,6 +19,9 @@ if ($conn->connect_error) {
 
 //get parameters from frontend.
 $semail = $_POST['semail'];
+$skey = $_POST['skey'];
+$sfirstname = $_POST['sfirstname'];
+$slastname = $_POST['slastname'];
 $sgpa = $_POST['sgpa'];
 $sphone = $_POST['sphone'];
 $suniversity = $_POST['suniversity'];
@@ -27,6 +30,9 @@ $sresume = $_POST['sresume'];
 $sprivacy = $_POST['sprivacy'];
 //prevent xss attack
 $semail = htmlspecialchars($semail, ENT_QUOTES);
+$skey = htmlspecialchars($skey, ENT_QUOTES);
+$sfirstname = htmlspecialchars($sfirstname, ENT_QUOTES);
+$slastname = htmlspecialchars($slastname, ENT_QUOTES);
 $sgpa = htmlspecialchars($sgpa, ENT_QUOTES);
 $sphone = htmlspecialchars($sphone, ENT_QUOTES);
 $suniversity = htmlspecialchars($suniversity, ENT_QUOTES);
@@ -47,11 +53,11 @@ if (!$object_JWT->token_verify($token, $semail)){
 }
 
 //update personal information to backend database.
-$sql_update_personal_info = "update student set sgpa = ?, sphone = ?, suniversity = ?, 
-smajor = ?, sresume = ?, sprivacy = ? where semail = ?;";
+$sql_update_personal_info = "update student set skey = ?, sfirstname = ?, slastname = ?, sgpa = ?, sphone = ?, 
+suniversity = ?, smajor = ?, sresume = ?, sprivacy = ? where semail = ?;";
 $update_personal_info = $conn->prepare($sql_update_personal_info);
-$update_personal_info->bind_param('sssssss',$sgpa, $sphone, $suniversity, $smajor, $sresume,
-    $sprivacy, $semail);
+$update_personal_info->bind_param('sssssssss',$skey, $sfirstname, $slastname, $sgpa, $sphone,
+    $suniversity, $smajor, $sresume, $sprivacy, $semail);
 if ($update_personal_info->execute()){
     $response['update_personal_info'] = "Student user ".$semail.": Profile updated successfully!";
 }
