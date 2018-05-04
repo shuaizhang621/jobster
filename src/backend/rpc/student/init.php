@@ -1,7 +1,7 @@
 <?php
 //get parameters from frontend
-//$semail = "cz1522@nyu.edu";
- $semail = $_POST['semail'];
+$semail = "cz1522@nyu.edu";
+//$semail = $_POST['semail'];
 
  //prevent xss attack
 $semail = htmlspecialchars($semail, ENT_QUOTES);

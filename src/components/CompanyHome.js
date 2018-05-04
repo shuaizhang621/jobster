@@ -1,7 +1,7 @@
 import React from 'react';
 import $ from "jquery";
 import {Input, Tabs, message, Icon} from "antd/lib/index";
-import {API_ROOT} from "../constants";
+import {API_ROOT, TOKEN_KEY} from "../constants";
 import {CompanyInfo} from "./CompanyInfo";
 import {ApplicationContainer} from "./ApplicationContainer";
 import {SearchContainer} from "./SearchContainer";
@@ -32,6 +32,9 @@ export class CompanyHome extends React.Component {
             data: {
                 cname: this.props.username,
             },
+            headers: {
+                Authorization: localStorage.getItem(TOKEN_KEY)
+            }
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(res);

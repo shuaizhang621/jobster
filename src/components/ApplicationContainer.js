@@ -1,7 +1,7 @@
 import { List, Button, Avatar, Modal, Switch, Collapse, Tooltip } from 'antd';
 import React from 'react';
 import $ from 'jquery';
-import { COLOR_LIST, API_ROOT } from '../constants';
+import {COLOR_LIST, API_ROOT, TOKEN_KEY} from '../constants';
 import {FriendsList} from "./FriendsList";
 
 const Panel = Collapse.Panel;
@@ -43,9 +43,13 @@ export class ApplicationContainer extends React.Component {
             url: `${API_ROOT}/company/responseApplication.php`,
             method: 'POST',
             data: {
+                cname: this.props.username,
                 status: decision,
                 aid: aid,
             },
+            headers: {
+                Authorization: localStorage.getItem(TOKEN_KEY)
+            }
         }).then((response) => {
             console.log(response);
         }, (error) => {

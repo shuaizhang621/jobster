@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Radio, Slider} from 'antd';
 import $ from 'jquery';
-import { API_ROOT } from "../constants";
+import {API_ROOT, TOKEN_KEY} from "../constants";
 import {ResultPeople} from "./ResultPeople";
 
 const RadioButton = Radio.Button;
@@ -27,10 +27,14 @@ export class CompanySearch extends React.Component {
             url:`${ API_ROOT }/company/search.php`,
             method: 'POST',
             data: {
+                cname: this.props.username,
                 keyword: value,
                 sgpalower: this.state.gpaLow,
                 sgpahigh: this.state.gpaHigh,
             },
+            headers: {
+                Authorization: localStorage.getItem(TOKEN_KEY)
+            }
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(res);

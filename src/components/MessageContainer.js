@@ -1,7 +1,7 @@
 import React from 'react';
 import { List, Button, Input, Avatar } from 'antd';
 import $ from "jquery";
-import {API_ROOT, COLOR_LIST } from "../constants";
+import {API_ROOT, COLOR_LIST, TOKEN_KEY} from "../constants";
 
 const { TextArea } = Input;
 
@@ -17,9 +17,13 @@ export class MessageContainer extends React.Component {
             url: `${API_ROOT}/student/message.php`,
             method: 'POST',
             data: {
+                semail: this.props.username,
                 semailsend: this.props.username,
                 semailreceive: this.props.receiver,
                 content: this.state.newMessage,
+            },
+            headers: {
+                Authorization: localStorage.getItem(TOKEN_KEY)
             }
         }).then((response) => {
             console.log(response);

@@ -102,6 +102,9 @@ export class Home extends React.Component {
             data: {
                 semail: this.props.username,
             },
+            headers: {
+                Authorization: localStorage.getItem(TOKEN_KEY)
+            }
         }).then((response) => {
             let res = JSON.parse(response);
             if (res != null && res.friends != null) {
@@ -124,6 +127,9 @@ export class Home extends React.Component {
                 semail: this.props.username,
                 semailreceive: receiver,
             },
+            headers: {
+                Authorization: localStorage.getItem(TOKEN_KEY)
+            }
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(res);
@@ -145,6 +151,9 @@ export class Home extends React.Component {
             data: {
                 semail: this.props.username,
                 cname: item.cname,
+            },
+            headers: {
+                Authorization: localStorage.getItem(TOKEN_KEY)
             }
         }).then((response) => {
             console.log(response);

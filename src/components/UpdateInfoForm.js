@@ -1,6 +1,6 @@
 import React from 'react';
 import { Upload, Icon, Form, Input, Select, Button, message } from 'antd';
-import {API_ROOT} from "../constants";
+import {API_ROOT, TOKEN_KEY} from "../constants";
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
@@ -40,6 +40,9 @@ class UpdateInfoForm extends React.Component {
                         university: values.suniversity,
                         smajor: values.smajor,
                         sresume: values.sresume,
+                    },
+                    headers: {
+                        Authorization: localStorage.getItem(TOKEN_KEY)
                     }
                 }).then((response) => {
                     message.success(response);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input, Avatar, Button, Form, Tooltip } from 'antd';
-import {API_ROOT, COLOR_LIST} from "../constants";
+import {API_ROOT, COLOR_LIST, TOKEN_KEY} from "../constants";
 import $ from "jquery";
 import {message} from "antd/lib/index";
 
@@ -133,6 +133,9 @@ export class Poster extends React.Component {
                 jreq_experience: this.state.fields.jreq_experience.value,
                 jskills: this.state.fields.jreq_skills.value,
             },
+            headers: {
+                Authorization: localStorage.getItem(TOKEN_KEY)
+            }
         }).then((response) => {
             console.log(response);
         }, (error) => {
