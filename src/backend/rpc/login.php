@@ -1,6 +1,6 @@
 <?php
 //import JWT for create a token for this user.
-require("../../entity/JWT.php");
+require("../entity/JWT.php");
 $object_JWT = new JWT();
 //function used for create token.
 function token_create($username){
