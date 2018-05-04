@@ -19,13 +19,25 @@ if ($conn->connect_error) {
 }
 
 //get parameter from frontend.
+$semail = $_POST['semail'];
 $send = $_POST['send'];
 $receive = $_POST['receive'];
 $choice = $_POST['choice'];
 //prevent xss attack
+$semail = htmlspecialchars($semail, ENT_QUOTES);
 $send = htmlspecialchars($send, ENT_QUOTES);
 $receive = htmlspecialchars($receive, ENT_QUOTES);
 $choice = htmlspecialchars($choice, ENT_QUOTES);
+
+//get token
+$token = $_POST["token"];
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
 
 //initialize response to frontend.
 $response = array();

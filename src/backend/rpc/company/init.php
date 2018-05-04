@@ -29,8 +29,19 @@ $cname = "ZhuYuanzhang";
 //$cname = $_POST['cname'];
 //prevent xss attack
 $cname = htmlspecialchars($cname, ENT_QUOTES);
-//get new application from backend database
 
+//get token
+$token = $_POST["token"];
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
+
+
+//get new application from backend database
 $sql_get_application_jobinfo = "select * from JobAnnouncement where cname = ?;";
 $get_application_jobinfo = $conn->prepare($sql_get_application_studentinfo);
 $get_application_jobinfo->bind_param('s', $cname);
@@ -45,7 +56,7 @@ if ($result_get_application_jobinfo->num_rows > 0){
         $temp_jid = $row['jid'];
 //        echo $temp_jid."<br>";
         $sql_get_application_studentinfo = "select semail, aid, sphone, slastname,sfirstname,sgpa,smajor, suniversity,
-sresume, aid from Student natural join StudentApplyJob where aid in (
+sresume, sprivacy from Student natural join StudentApplyJob where aid in (
 select aid from StudentApplyJob where (cname = ?) and (status = 'unviewed') and (jid = '$temp_jid'));";
         $get_application_studentinfo = $conn->prepare($sql_get_application_studentinfo);
         $get_application_studentinfo->bind_param('s', $cname);
@@ -76,8 +87,8 @@ $company_info->execute();
 $result_company_info = $company_info->get_result();
 $temp_array2 = array();
 if ($result_company_info->num_rows > 0){
-    $temp_array = $result_company_info->fetch_assoc();
-    $response['companyInfo'] = $temp_array;
+    $temp_array3 = $result_company_info->fetch_assoc();
+    $response['companyInfo'] = $temp_array3;
 }
 
 //return the results to frontend and close the connection to database.

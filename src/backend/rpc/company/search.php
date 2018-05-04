@@ -35,18 +35,32 @@ $temp_array = array();
 //$keyword = 'java';$_POST['keyword'];
 //$sgpalower = 3;$_POST['sgpalower'];
 //$sgpahigh = 4;$_POST['sgpahigh'];
-
+$cname = $_POST['cname'];
 $keyword = $_POST['keyword'];
 $sgpalower = $_POST['sgpalower'];
 $sgpahigh = $_POST['sgpahigh'];
 //prevent injection and xss attack.
+
 $keyword = $conn->real_escape_string($keyword);
 $sgpahigh = $conn->real_escape_string($sgpahigh);
 $sgpalower = $conn->real_escape_string($sgpalower);
 
+$cname = htmlspecialchars($cname, ENT_QUOTES);
 $keyword = htmlspecialchars($keyword, ENT_QUOTES);
 $keyword = htmlspecialchars($sgpahigh, ENT_QUOTES);
 $keyword = htmlspecialchars($sgpalower, ENT_QUOTES);
+
+
+//get token
+$token = $_POST["token"];
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
+
 
 //query resume that fit the keyword
 

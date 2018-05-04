@@ -180,7 +180,6 @@ class JWT
                 : 'Unknown JSON error: ' . $errno
         );
     }
-
     public function token_verify($token,$cname){
         $payload = $this->decode($token);
         if ($cname == $payload->id) {

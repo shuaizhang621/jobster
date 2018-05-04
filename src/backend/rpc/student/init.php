@@ -34,6 +34,7 @@ if (!$object_JWT->token_verify($token, $semail)){
     die ("Your token is not matched with your username");
 }
 
+
 //query personal infomation  from backend database.
 $temp_array2 = array();
 $sql_personal_info = "select * from Student where semail = ?;";

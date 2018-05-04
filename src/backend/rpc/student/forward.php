@@ -34,6 +34,18 @@ $jid = htmlspecialchars($jid, ENT_QUOTES);
 foreach($semailreceive as $student){
     $student = htmlspecialchars($student, ENT_QUOTES);
 }
+
+//get token
+$token = $_POST["token"];
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
+
+//initialize response to frontend.
 $response = array();
 // get nid
 //$result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from notification;");

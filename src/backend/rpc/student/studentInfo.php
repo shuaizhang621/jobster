@@ -27,6 +27,16 @@ $semail = htmlspecialchars($semail, ENT_QUOTES);
 $response = array();
 $temp_array = array();
 
+//get token
+$token = $_POST["token"];
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
+
 //query student info from backend database if the company accepts the application.
 $sql_student_info = "select * from Student where semail = ?;";
 $student_info = $conn->prepare($sql_student_info);
