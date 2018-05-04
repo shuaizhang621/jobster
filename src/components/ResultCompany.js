@@ -35,10 +35,8 @@ export class ResultCompany extends React.Component {
             method: 'POST',
             data: {
                 cname: cname,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             let res = JSON.parse(response);
             console.log("show jobs", res);
@@ -69,10 +67,8 @@ export class ResultCompany extends React.Component {
                 semail: this.props.username,
                 semailreceive: this.state.receiver,
                 jid: this.state.jid,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             console.log("backend response: ", response);
         }, (error) => {
@@ -127,10 +123,8 @@ export class ResultCompany extends React.Component {
                 semail: this.props.username,
                 jid: item.jid,
                 cname: 'ZhuYuanzhang',
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             console.log(response);
         }, (error) => {

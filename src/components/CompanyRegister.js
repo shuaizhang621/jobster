@@ -32,10 +32,8 @@ class RegistrationForm extends React.Component {
                         clocation: values.clocation,
                         cindustry: values.cindustry,
                         cdescription: values.cdescription,
+                        token: localStorage.getItem(TOKEN_KEY),
                     },
-                    headers: {
-                        Authorization: localStorage.getItem(TOKEN_KEY)
-                    }
                 }).then((response) => {
                     message.success(response);
                     console.log(response);

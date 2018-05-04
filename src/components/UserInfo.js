@@ -37,10 +37,8 @@ export class UserInfo extends React.Component {
                 send: sender,
                 receive: this.props.username,
                 choice: choice,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             console.log(response);
         }, (error) => {
@@ -103,10 +101,8 @@ export class UserInfo extends React.Component {
             data: {
                 sprivacy: privacy,
                 semail: this.props.username,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             console.log(response);
         }, (error) => {

@@ -56,18 +56,17 @@ export class Home extends React.Component {
     }
 
     getDate = () => {
+        console.log("before: ", localStorage.getItem(TOKEN_KEY));
         $.ajax({
             method: 'POST',
             url: `${API_ROOT}/student/init.php`,
             data: {
                 semail: this.props.username,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
+            console.log("after init:", response);
             let res = JSON.parse(response);
-            console.log(res);
 
             this.setState({
                 friend_request: res.friend_request == null ? [] : res.friend_request,
@@ -101,10 +100,8 @@ export class Home extends React.Component {
             url: `${API_ROOT}/student/init.php`,
             data: {
                 semail: this.props.username,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             let res = JSON.parse(response);
             if (res != null && res.friends != null) {
@@ -126,10 +123,8 @@ export class Home extends React.Component {
             data: {
                 semail: this.props.username,
                 semailreceive: receiver,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(res);
@@ -151,10 +146,8 @@ export class Home extends React.Component {
             data: {
                 semail: this.props.username,
                 cname: item.cname,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             console.log(response);
         }, (error) => {

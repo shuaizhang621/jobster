@@ -31,10 +31,8 @@ export class CompanyHome extends React.Component {
             url: `${API_ROOT}/company/init.php`,
             data: {
                 cname: this.props.username,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(res);

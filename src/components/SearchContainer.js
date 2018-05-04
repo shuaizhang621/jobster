@@ -41,10 +41,8 @@ export class SearchContainer extends React.Component {
             data: {
                 semail: this.props.username,
                 keyword: value,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             let res = JSON.parse(response)
             console.log(res);

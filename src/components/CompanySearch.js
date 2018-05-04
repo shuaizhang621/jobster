@@ -31,10 +31,8 @@ export class CompanySearch extends React.Component {
                 keyword: value,
                 sgpalower: this.state.gpaLow,
                 sgpahigh: this.state.gpaHigh,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(res);
@@ -90,6 +88,7 @@ export class CompanySearch extends React.Component {
                         cname: this.props.username,
                         student_array: this.state.forwardList,
                         jid: this.props.jobList[i].jid,
+                        token: localStorage.getItem(TOKEN_KEY),
                     },
                 }).then((response) => {
                     console.log(response);

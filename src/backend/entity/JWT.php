@@ -5,6 +5,7 @@
  * Date: 2018/5/3
  * Time: 17:31
  */
+require("constants.php");
 
 class JWT
 {
@@ -24,6 +25,8 @@ class JWT
      */
     public static function decode($jwt, $key = null, $verify = true)
     {
+        $constant = new constants();
+        $key = $constant->key;
         $tks = explode('.', $jwt);
         if (count($tks) != 3) {
             throw new UnexpectedValueException('Wrong number of segments');
@@ -60,6 +63,8 @@ class JWT
      */
     public static function encode($payload, $key, $algo = 'HS256')
     {
+        $constant = new constants();
+        $key = $constant->key;
         $header = array('typ' => 'JWT', 'alg' => $algo);
         $segments = array();
         $segments[] = JWT::urlsafeB64Encode(JWT::jsonEncode($header));
@@ -177,12 +182,10 @@ class JWT
     }
 
     public function token_verify($token,$cname){
-//    $object_JWT = new JWT();
         $payload = $this->decode($token);
-        if ($cname == $payload->id){
+        if ($cname == $payload->id) {
             return True;
-        }
-        else {
+        } else {
             return False;
         }
     }

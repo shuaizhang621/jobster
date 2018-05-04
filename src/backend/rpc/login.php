@@ -1,14 +1,14 @@
 <?php
 //import JWT for create a token for this user.
-require("../../entity/JWT.php");
+require("../entity/JWT.php");
 $object_JWT = new JWT();
 //function used for create token.
 function token_create($username){
-    $key = "ZhangshuaiReallyhandsome";
+//    $key = "123456";
     $object_JWT = new JWT();
     $token = array();
-    $token['id'] == $username;
-    $object_token = $object_JWT->encode($token, $key);
+    $token['id'] = $username;
+    $object_token = $object_JWT->encode($token);
     return $object_token;
 }
 //the parameters that used for connecting to database.
@@ -52,7 +52,7 @@ if ($user_type == 'student') {
     $result_keywords_match = $keywords_match->get_result();
 
     //create token.
-    $response = token_create($username);
+    $response = token_create($username, $key);
 }
 else if ($user_type == 'company') {
     $sql_check_username_exist = "select cname from Company where cname = ?";
@@ -68,7 +68,7 @@ else if ($user_type == 'company') {
     $result_keywords_match = $keywords_match->get_result();
 
     //create token.
-    $response = token_create($username);
+    $response = token_create($username, $key);
 }
 
 //$result_username_exist = mysqli_query($conn, $sql_check_username_exist);
@@ -85,5 +85,5 @@ if ($result_check_user_name_exist->num_rows > 0) {
     die("The username has not been registered.");
 }
 
-echo json_encode($response);
+echo $response;
 ?>

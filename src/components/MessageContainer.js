@@ -21,10 +21,8 @@ export class MessageContainer extends React.Component {
                 semailsend: this.props.username,
                 semailreceive: this.props.receiver,
                 content: this.state.newMessage,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             console.log(response);
             this.props.handleGetMessage(this.props.receiver, this.props.receiverName);
@@ -83,7 +81,7 @@ export class MessageContainer extends React.Component {
                 </div>
                 <div className="chat-poster">
                     <TextArea
-                        placeHolder="Press Enter to Send..."
+                        placeholder="Press Enter to Send..."
                         autosize={{ minRows: 5, maxRows: 5 }}
                         onChange={(e) => {
                             this.setState({newMessage: e.target.value});

@@ -14,10 +14,8 @@ export class ResultPeople extends React.Component {
                 semail: this.props.username,
                 send: this.props.username,
                 receive: receiver,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(response.length);

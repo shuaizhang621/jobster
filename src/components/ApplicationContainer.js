@@ -46,10 +46,8 @@ export class ApplicationContainer extends React.Component {
                 cname: this.props.username,
                 status: decision,
                 aid: aid,
+                token: localStorage.getItem(TOKEN_KEY),
             },
-            headers: {
-                Authorization: localStorage.getItem(TOKEN_KEY)
-            }
         }).then((response) => {
             console.log(response);
         }, (error) => {

@@ -40,10 +40,8 @@ class UpdateInfoForm extends React.Component {
                         university: values.suniversity,
                         smajor: values.smajor,
                         sresume: values.sresume,
+                        token: localStorage.getItem(TOKEN_KEY),
                     },
-                    headers: {
-                        Authorization: localStorage.getItem(TOKEN_KEY)
-                    }
                 }).then((response) => {
                     message.success(response);
                     console.log(response);
