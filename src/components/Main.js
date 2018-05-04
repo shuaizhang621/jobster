@@ -6,6 +6,7 @@ import { Home } from './Home';
 import { PreRegister } from "./PreRegister";
 import { CompanyRegister } from "./CompanyRegister";
 import { CompanyHome} from "./CompanyHome";
+import { USER_TYPE } from "../constants";
 
 export class Main extends React.Component {
     state = {
@@ -13,27 +14,27 @@ export class Main extends React.Component {
     };
 
     setUserType = () => {
+        localStorage.removeItem(USER_TYPE);
         this.setState({
             usertype: "",
         });
     };
 
     handleOnClickStudent = () => {
-        console.log(this.state);
+        localStorage.setItem(USER_TYPE, 'student');
         this.setState({
             usertype: "student",
         });
     };
 
     handleOnClickCompany = () => {
-        console.log(this.state);
+        localStorage.setItem(USER_TYPE, 'company');
         this.setState({
             usertype: "company",
         })
     };
 
     getLogin = () => {
-        console.log(this.state);
         return this.props.isLoggedIn ? <Redirect to="/home"/> :
             <Login
                 handleLogin={this.props.handleLogin}
@@ -44,26 +45,22 @@ export class Main extends React.Component {
     };
 
     getHome = () => {
-        console.log(this.state.usertype);
-        console.log(this.state.usertype == 'student');
         return this.props.isLoggedIn ?
             (
-                this.state.usertype == "student" ?
+                localStorage.getItem(USER_TYPE)  == "student" ?
                 <Home username={this.props.username}/> : <CompanyHome username={this.props.username}/>
             )
             : <Redirect to="/login"/>;
     };
 
     getRegister = () => {
-        if (this.state.usertype == "student") {
-            console.log("student");
+        if (localStorage.getItem(USER_TYPE) == "student") {
             return <Register usertype={this.state.usertype}/>
-        } else if (this.state.usertype == "company") {
+        } else if (localStorage.getItem(USER_TYPE) == "company") {
             return <CompanyRegister usertype={this.state.usertype}/>
         } else {
-            console.log("else");
             return <PreRegister
-                usertype={this.state.usertype}
+                usertype={localStorage.getItem(USER_TYPE)}
                 handleOnClickStudent={this.handleOnClickStudent}
                 handleOnClickCompany={this.handleOnClickCompany}
             />

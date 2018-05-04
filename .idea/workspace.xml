@@ -2,26 +2,11 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9482d9f3-c543-4ec6-bf94-db61a94ce15a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/backend/entity/constants.php" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/entity/JWT.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/entity/JWT.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/entity/classes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/entity/classes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/login.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/login.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ApplicationContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ApplicationContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CompanyHome.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompanyHome.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CompanyRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompanyRegister.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CompanySearch.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompanySearch.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CompanySearchResult.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompanySearchResult.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Home.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Home.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ItemContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MessageContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MessageContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Poster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Poster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ResultCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ResultCompany.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ResultPeople.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ResultPeople.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/SearchContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/SearchContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UpdateInfoForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UpdateInfoForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfo.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/App.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/App.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Main.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/styles/FriendsList.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/FriendsList.css" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -104,11 +89,11 @@
   </component>
   <component name="FileEditorManager">
     <leaf SIDE_TABS_SIZE_LIMIT_KEY="300">
-      <file leaf-file-name="MessageContainer.js" pinned="false" current-in-tab="true">
-        <entry file="file://$PROJECT_DIR$/src/components/MessageContainer.js">
+      <file leaf-file-name="Main.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Main.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="213">
-              <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
+            <state relative-caret-position="170">
+              <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -116,14 +101,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Poster.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/Poster.js">
+      <file leaf-file-name="FriendsList.css" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/styles/FriendsList.css">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2010">
-              <caret line="134" column="55" selection-start-line="134" selection-start-column="55" selection-end-line="134" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
+            <state relative-caret-position="30">
+              <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
             </state>
           </provider>
         </entry>
@@ -131,7 +113,7 @@
       <file leaf-file-name="PreRegister.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/PreRegister.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-109">
+            <state relative-caret-position="-26">
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -139,11 +121,32 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResultCompany.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ResultCompany.js">
+      <file leaf-file-name="App.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/App.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-2899">
-              <caret line="125" column="55" selection-start-line="125" selection-start-column="55" selection-end-line="125" selection-end-column="55" />
+            <state relative-caret-position="356">
+              <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="43" />
+              <folding>
+                <element signature="e#0#41#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/constants.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="45">
+              <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="Login.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/Login.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state relative-caret-position="-24">
+              <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -151,34 +154,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="ResultJob.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ResultJob.js">
+      <file leaf-file-name="MessageContainer.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/components/MessageContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state>
-              <folding>
-                <element signature="e#0#26#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="ResultPeople.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/ResultPeople.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-1129">
-              <caret line="16" column="55" selection-start-line="16" selection-start-column="55" selection-end-line="16" selection-end-column="55" />
-              <folding>
-                <element signature="e#0#61#0" expanded="true" />
-              </folding>
-            </state>
-          </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="SearchContainer.js" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/components/SearchContainer.js">
-          <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-479">
-              <caret line="43" column="55" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
+            <state relative-caret-position="213">
+              <caret line="83" column="30" selection-start-line="83" selection-start-column="30" selection-end-line="83" selection-end-column="30" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -255,7 +235,6 @@
         <option value="$PROJECT_DIR$/src/backend/rpc/student/search/company.php" />
         <option value="$PROJECT_DIR$/src/styles/Header.css" />
         <option value="$PROJECT_DIR$/src/styles/ResultPeople.css" />
-        <option value="$PROJECT_DIR$/src/constants.js" />
         <option value="$PROJECT_DIR$/src/styles/UpdateInfoForm.css" />
         <option value="$PROJECT_DIR$/src/styles/ApplicationContainer.css" />
         <option value="$PROJECT_DIR$/src/components/Register.js" />
@@ -267,15 +246,12 @@
         <option value="$PROJECT_DIR$/src/styles/UserInfo.css" />
         <option value="$PROJECT_DIR$/src/styles/Poster.css" />
         <option value="$PROJECT_DIR$/src/styles/ResultCompany.css" />
-        <option value="$PROJECT_DIR$/src/components/Login.js" />
         <option value="$PROJECT_DIR$/src/backend/db/DBConnection.php" />
         <option value="$PROJECT_DIR$/src/rpc/student/updateStudentProfile.php" />
         <option value="$PROJECT_DIR$/src/rpc/student/messageLoad.php" />
-        <option value="$PROJECT_DIR$/src/styles/FriendsList.css" />
         <option value="$PROJECT_DIR$/src/backend/rpc/student/messageLoad.php" />
         <option value="$PROJECT_DIR$/src/backend/rpc/student/message.php" />
         <option value="$PROJECT_DIR$/src/styles/MessageContainer.css" />
-        <option value="$PROJECT_DIR$/src/components/Main.js" />
         <option value="$PROJECT_DIR$/src/components/FriendsList.js" />
         <option value="$PROJECT_DIR$/src/styles/App.css" />
         <option value="$PROJECT_DIR$/src/styles/Home.css" />
@@ -283,7 +259,6 @@
         <option value="$PROJECT_DIR$/src/backend/rpc/register.php" />
         <option value="$PROJECT_DIR$/.htaccess" />
         <option value="$PROJECT_DIR$/src/backend/rpc/company/init.php" />
-        <option value="$PROJECT_DIR$/src/components/App.js" />
         <option value="$PROJECT_DIR$/src/backend/entity/constants.php" />
         <option value="$PROJECT_DIR$/src/backend/entity/classes.php" />
         <option value="$PROJECT_DIR$/src/backend/rpc/login.php" />
@@ -303,6 +278,11 @@
         <option value="$PROJECT_DIR$/src/components/UserInfo.js" />
         <option value="$PROJECT_DIR$/src/backend/rpc/student/init.php" />
         <option value="$PROJECT_DIR$/src/components/MessageContainer.js" />
+        <option value="$PROJECT_DIR$/src/components/Login.js" />
+        <option value="$PROJECT_DIR$/src/components/App.js" />
+        <option value="$PROJECT_DIR$/src/constants.js" />
+        <option value="$PROJECT_DIR$/src/components/Main.js" />
+        <option value="$PROJECT_DIR$/src/styles/FriendsList.css" />
       </list>
     </option>
   </component>
@@ -422,6 +402,12 @@
             </path>
             <path>
               <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
+              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
+              <item name="styles" type="2a2b976b:PhpTreeStructureProvider$1" />
+            </path>
+            <path>
+              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
               <item name="External Libraries" type="bcb0276e:PhpExternalLibrariesNodePatcher$PatchedExternalLibrariesNode" />
             </path>
             <path>
@@ -502,7 +488,7 @@
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="223357000" />
+    <option name="totallyTimeSpent" value="225372000" />
   </component>
   <component name="ToolWindowManager">
     <frame x="126" y="22" width="1563" height="1012" extended-state="0" />
@@ -559,27 +545,10 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
-    <entry file="file://$PROJECT_DIR$/src/components/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="223">
-          <caret line="20" column="31" selection-start-line="20" selection-start-column="31" selection-end-line="20" selection-end-column="31" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/init.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="289">
           <caret line="42" column="47" selection-start-line="42" selection-start-column="4" selection-end-line="42" selection-end-column="47" />
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/FriendsList.css">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="480">
-          <caret line="32" column="17" selection-start-line="32" selection-start-column="17" selection-end-line="32" selection-end-column="17" />
         </state>
       </provider>
     </entry>
@@ -751,16 +720,6 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/App.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="71">
-          <caret line="24" column="11" lean-forward="true" selection-start-line="24" selection-start-column="11" selection-end-line="24" selection-end-column="11" />
-          <folding>
-            <element signature="e#0#41#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ApplicationContainer.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-2149">
@@ -869,39 +828,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Login.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
-          <caret line="25" column="39" selection-start-line="25" selection-start-column="39" selection-end-line="25" selection-end-column="39" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="165">
-          <caret line="11" column="19" selection-start-line="11" selection-start-column="19" selection-end-line="11" selection-end-column="19" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Poster.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="2010">
           <caret line="134" column="55" selection-start-line="134" selection-start-column="55" selection-end-line="134" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/PreRegister.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-109">
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -981,6 +911,59 @@
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="45">
+          <caret line="3" column="35" selection-start-line="3" selection-start-column="35" selection-end-line="3" selection-end-column="35" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/App.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="356">
+          <caret line="30" column="8" lean-forward="true" selection-start-line="30" selection-start-column="8" selection-end-line="30" selection-end-column="43" />
+          <folding>
+            <element signature="e#0#41#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/PreRegister.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-26">
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Login.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="-24">
+          <caret line="36" column="16" selection-start-line="36" selection-start-column="16" selection-end-line="36" selection-end-column="16" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Main.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="170">
+          <caret line="36" column="22" selection-start-line="36" selection-start-column="22" selection-end-line="36" selection-end-column="22" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/styles/FriendsList.css">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="14" selection-start-line="2" selection-start-column="14" selection-end-line="2" selection-end-column="14" />
         </state>
       </provider>
     </entry>
