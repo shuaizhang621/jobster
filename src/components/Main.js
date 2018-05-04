@@ -9,7 +9,7 @@ import { CompanyHome} from "./CompanyHome";
 
 export class Main extends React.Component {
     state = {
-        usertype: 'company',
+        usertype: '',
     };
 
     setUserType = () => {

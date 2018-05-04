@@ -1,6 +1,6 @@
 import React from 'react';
 import { Input, Tabs, message, Icon } from 'antd';
-import { API_ROOT } from "../constants";
+import { API_ROOT, TOKEN_KEY } from "../constants";
 import $ from 'jquery';
 import { ItemContainer } from "./ItemContainer";
 import { UserInfo } from "./UserInfo";
@@ -23,7 +23,10 @@ export class Home extends React.Component {
             sphone: "",
             sfirstname: "",
             slastname: "",
-        }]
+        }],
+        message: [],
+        receiver: "",
+        receiverName: "",
 
     };
 
@@ -59,6 +62,9 @@ export class Home extends React.Component {
             data: {
                 semail: this.props.username,
             },
+            headers: {
+                Authorization: localStorage.getItem(TOKEN_KEY)
+            }
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(res);
@@ -70,6 +76,13 @@ export class Home extends React.Component {
                 personal_info: res.personal_info == null ? [] : res.personal_info,
                 requestNum: this.countRequest(res.friend_request),
             });
+            if (res.friends !== null && res.friends.length >= 1) {
+                this.setState ({
+                    receiverName: res.friends[0].sfirstname,
+                    receiver: res.friends[0].semail,
+                });
+                this.handleGetMessage(res.friends[0].semail, res.friends[0].sfirstname);
+            }
         }, (error) => {
             message.error(error.responseText);
         });
@@ -98,7 +111,27 @@ export class Home extends React.Component {
                     });
                 }
             }
+        }, (error) => {
+            message.error(error.responseText);
+        });
+    }
 
+    handleGetMessage = (receiver, receiverName) => {
+        $.ajax({
+            method: 'POST',
+            url: `${API_ROOT}/student/messageLoad.php`,
+            data: {
+                semail: this.props.username,
+                semailreceive: receiver,
+            },
+        }).then((response) => {
+            let res = JSON.parse(response);
+            console.log(res);
+            this.setState({
+                message: res,
+                receiver: receiver,
+                receiverName: receiverName,
+            });
         }, (error) => {
             message.error(error.responseText);
         });
@@ -189,11 +222,19 @@ export class Home extends React.Component {
                                     <MessageContainer
                                         className='message-container'
                                         username={this.props.username}
+                                        message={this.state.message}
+                                        receiver={this.state.receiver}
+                                        receiverName={this.state.receiverName}
+                                        handleGetMessage={this.handleGetMessage}
+
                                     />
                                 </TabPane>
                             </Tabs>
                         </div>
-                        <FriendsList friends={this.state.friends}/>
+                        <FriendsList
+                            friends={this.state.friends}
+                            handleGetMessage={this.handleGetMessage}
+                        />
                     </div>
 
                 </div>
