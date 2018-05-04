@@ -62,7 +62,7 @@ if ($update_personal_info->execute()){
     $response['update_personal_info'] = "Student user ".$semail.": Profile updated successfully!";
 }
 else{
-    $response = "ERROR: ".$update."<br>".$conn->error;
+    $response = "ERROR: "."<br>".$conn->error;
 }
 echo json_encode($response);
 $conn->close();
