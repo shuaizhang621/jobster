@@ -17,7 +17,7 @@ if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
 //get parameters from frontend.
-
+$semail = $_POST['semail'];
 $semailsend = $_POST['semailsend'];
 $semailreceive = $_POST['semailreceive'];
 $content = $_POST['content'];
@@ -25,6 +25,17 @@ $content = $_POST['content'];
 $semailsend = htmlspecialchars($semailsend, ENT_QUOTES);
 $semailreceive = htmlspecialchars($semailreceive, ENT_QUOTES);
 $content = htmlspecialchars($content, ENT_QUOTES);
+$semail = htmlspecialchars($semail, ENT_QUOTES);
+
+//get token
+$token = $_POST["token"];
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
 
 //update the message to database.
 $result_max_mid  = mysqli_query($conn,"select max(mid) as mmid from message;");

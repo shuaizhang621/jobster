@@ -23,14 +23,28 @@ $objectCompanyInfo = new company_info();
 $objectJobInfo = new job_info();
 
 //get parameter from frontend.
+$semail = $_POST['semail'];
 $keyword = $_POST['keyword'];
 // prevent injection and xss injection.
 $keyword = $conn->real_escape_string($keyword);
 $keyword = htmlspecialchars($keyword,ENT_QUOTES);
+$semail = htmlspecialchars($semail, ENT_QUOTES);
+
+//get token
+$token = $_POST["token"];
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
+
+
 //initialize response to frontend.
 $response = array();
 
-$sql_company_search = "select * from  Company where (cname LIKE concat('%',#{$keyword},'%')) or (clocation like '%$keyword%') 
+$sql_company_search = "select * from  Company where (cname LIKE '%$keyword%') or (clocation like '%$keyword%') 
 or (cindustry like '%$keyword%') or (cemail like '%$keyword%') or (cphone like '%$keyword%') 
 or (cdescription like '%$keyword%') ;";
 

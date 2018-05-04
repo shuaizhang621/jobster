@@ -35,6 +35,17 @@ $jreq_experience = htmlspecialchars($jreq_experience, ENT_QUOTES);
 $jreq_skills = htmlspecialchars($jreq_skills, ENT_QUOTES);
 $jdescription = htmlspecialchars($jdescription, ENT_QUOTES);
 
+//get token
+$token = $_POST["token"];
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
+
+
 //create jid.
 $result_max_jid  = mysqli_query($conn,"select max(jid) as mjid from JobAnnouncement;");
 if ($result_max_jid->num_rows > 0){

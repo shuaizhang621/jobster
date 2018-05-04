@@ -7,7 +7,7 @@ function token_create($username){
     $key = "ZhangshuaiReallyhandsome";
     $object_JWT = new JWT();
     $token = array();
-    $token['id'] == $username;
+    $token['id'] = $username;
     $object_token = $object_JWT->encode($token, $key);
     return $object_token;
 }

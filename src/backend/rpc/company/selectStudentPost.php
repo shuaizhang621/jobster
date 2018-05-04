@@ -32,6 +32,19 @@ foreach ($student_array as $student) {
     $student = htmlspecialchars($student, ENT_QUOTES);
 }
 
+
+//get token
+$token = $_POST["token"];
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
+
+
+
 //initialize array for feedback to frontend.
 $response = array();
 
@@ -45,7 +58,7 @@ foreach ($student_array as $student){
     else{
         $nid = 1;
     }
-    
+
     $sql_post_selected_student = "INSERT INTO notification(`nid`, `companysend`, `semailreceive`, `jid`, `pushtime`, `status`)
     VALUES ('$nid', ?, ?, ?, CURDATE(), 'unviewed');";
     $post_selected_student = $conn->prepare($sql_post_selected_student);

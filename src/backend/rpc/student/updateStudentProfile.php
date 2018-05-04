@@ -36,6 +36,16 @@ $sprivacy = htmlspecialchars($sprivacy, ENT_QUOTES);
 //initialize response to frontend.
 $response = array();
 
+//get token
+$token = $_POST["token"];
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
+
 //update personal information to backend database.
 $sql_update_personal_info = "update student set sgpa = ?, sphone = ?, suniversity = ?, 
 smajor = ?, sresume = ?, sprivacy = ? where semail = ?;";
