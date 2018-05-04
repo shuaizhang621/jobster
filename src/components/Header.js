@@ -15,7 +15,7 @@ export class Header extends React.Component {
                     {/*<div className="App-logo">JOBSTER</div>*/}
                     <img src={icon} className="App-logo" alt="logo" />
                     {this.props.isLoggedIn ?
-                        <a className = "logout" onClick={this.props.handleLogout}>
+                        <a className = "logout" style={{color: "white"}} onClick={this.props.handleLogout}>
                             <Icon type="logout" />{' '}Logout
                         </a>
                         : null}

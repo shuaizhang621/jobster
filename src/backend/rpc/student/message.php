@@ -17,6 +17,7 @@ if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
 //get parameters from frontend.
+
 $semailsend = $_POST['semailsend'];
 $semailreceive = $_POST['semailreceive'];
 $content = $_POST['content'];
@@ -24,6 +25,7 @@ $content = $_POST['content'];
 $semailsend = htmlspecialchars($semailsend, ENT_QUOTES);
 $semailreceive = htmlspecialchars($semailreceive, ENT_QUOTES);
 $content = htmlspecialchars($content, ENT_QUOTES);
+
 //update the message to database.
 $result_max_mid  = mysqli_query($conn,"select max(mid) as mmid from message;");
 if ($result_max_mid->num_rows > 0){

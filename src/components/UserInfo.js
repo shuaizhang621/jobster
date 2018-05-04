@@ -58,7 +58,7 @@ export class UserInfo extends React.Component {
             if (req != null) {
                 notification.open({
                     message: 'New Friend Request',
-                    description: `${req.seamil} wants to add you as friend.`,
+                    description: `New friend request from ${req.semail}.`,
                     btn,
                     key,
                     onClose: this.close,
