@@ -202,6 +202,7 @@ class class_response{
     public $notification;
     public $personal_info;
     public $friends;
+    public $token;
     public function isEmpty()
     {
         return empty($this->friend_request) and empty($this->notification) and empty($this->personal_info);

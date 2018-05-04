@@ -1,7 +1,7 @@
 import React from 'react';
 import { Icon, Input, Radio} from 'antd';
 import $ from 'jquery';
-import { API_ROOT } from "../constants";
+import {API_ROOT, TOKEN_KEY} from "../constants";
 import {ResultPeople} from "./ResultPeople";
 import {ResultCompany} from "./ResultCompany";
 import {ResultJob} from "./ResultJob";
@@ -39,7 +39,9 @@ export class SearchContainer extends React.Component {
             url:`${ API_ROOT }/student/search/${ this.state.searchFor }.php`,
             method: 'POST',
             data: {
+                semail: this.props.username,
                 keyword: value,
+                token: localStorage.getItem(TOKEN_KEY),
             },
         }).then((response) => {
             let res = JSON.parse(response)

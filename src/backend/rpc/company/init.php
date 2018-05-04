@@ -25,7 +25,8 @@ if ($conn->connect_error) {
 $response = array();
 
 //get parameter from frontend.
-$cname = $_POST['cname'];
+$cname = "ZhuYuanzhang";
+//$cname = $_POST['cname'];
 //prevent xss attack
 $cname = htmlspecialchars($cname, ENT_QUOTES);
 
