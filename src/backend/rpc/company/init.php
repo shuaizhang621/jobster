@@ -25,8 +25,8 @@ if ($conn->connect_error) {
 $response = array();
 
 //get parameter from frontend.
-$cname = "ZhuYuanzhang";
-//$cname = $_POST['cname'];
+//$cname = "ZhuYuanzhang";
+$cname = $_POST['cname'];
 //prevent xss attack
 $cname = htmlspecialchars($cname, ENT_QUOTES);
 
@@ -35,7 +35,7 @@ $token = $_POST["token"];
 //verify the token
 require("../../entity/JWT.php");
 $object_JWT = new JWT();
-if (!$object_JWT->token_verify($token, $semail)){
+if (!$object_JWT->token_verify($token, $cname)){
     header('HTTP/1.0 401 Unauthorized');
     die ("Your token is not matched with your username");
 }
@@ -43,7 +43,7 @@ if (!$object_JWT->token_verify($token, $semail)){
 
 //get new application from backend database
 $sql_get_application_jobinfo = "select * from JobAnnouncement where cname = ?;";
-$get_application_jobinfo = $conn->prepare($sql_get_application_studentinfo);
+$get_application_jobinfo = $conn->prepare($sql_get_application_jobinfo);
 $get_application_jobinfo->bind_param('s', $cname);
 $get_application_jobinfo->execute();
 $result_get_application_jobinfo = $get_application_jobinfo->get_result();

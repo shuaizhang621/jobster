@@ -40,7 +40,7 @@ $token = $_POST["token"];
 //verify the token
 require("../../entity/JWT.php");
 $object_JWT = new JWT();
-if (!$object_JWT->token_verify($token, $semail)){
+if (!$object_JWT->token_verify($token, $cname)){
     header('HTTP/1.0 401 Unauthorized');
     die ("Your token is not matched with your username");
 }
