@@ -25,6 +25,24 @@ if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
 
+//get token from header.
+$token = null;
+$headers = apache_request_headers();
+if(isset($headers['Authorization'])){
+    $matches = array();
+    preg_match('/Token token="(.*)"/', $headers['Authorization'], $matches);
+    if(isset($matches[1])){
+        $token = $matches[1];
+    }
+}
+//verify the token
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+if (!$object_JWT->token_verify($token, $semail)){
+    header('HTTP/1.0 401 Unauthorized');
+    die ("Your token is not matched with your username");
+}
+
 //query personal infomation  from backend database.
 $temp_array2 = array();
 $sql_personal_info = "select * from Student where semail = ?;";

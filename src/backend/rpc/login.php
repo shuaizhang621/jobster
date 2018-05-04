@@ -1,5 +1,16 @@
 <?php
-
+//import JWT for create a token for this user.
+require("../../entity/JWT.php");
+$object_JWT = new JWT();
+//function used for create token.
+function token_create($username){
+    $key = "ZhangshuaiReallyhandsome";
+    $object_JWT = new JWT();
+    $token = array();
+    $token['id'] == $username;
+    $object_token = $object_JWT->encode($token, $key);
+    return $object_token;
+}
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
@@ -11,6 +22,9 @@ $conn = new mysqli($servername, $dbusername, $password, $dbname);
 if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
+
+//initialize response to frontend.
+$response = array();
 
 //login page,check if the username and keywords are valid.
 $username = $_POST['username'];
@@ -36,6 +50,9 @@ if ($user_type == 'student') {
     $keywords_match->bind_param('ss',$username, $keywords);
     $keywords_match->execute();
     $result_keywords_match = $keywords_match->get_result();
+
+    //create token.
+    $response = token_create($username);
 }
 else if ($user_type == 'company') {
     $sql_check_username_exist = "select cname from Company where cname = ?";
@@ -49,13 +66,16 @@ else if ($user_type == 'company') {
     $keywords_match->bind_param('ss',$username,$keywords);
     $keywords_match->execute();
     $result_keywords_match = $keywords_match->get_result();
+
+    //create token.
+    $response = token_create($username);
 }
 
 //$result_username_exist = mysqli_query($conn, $sql_check_username_exist);
 if ($result_check_user_name_exist->num_rows > 0) {
 //    $result_keywords_match = mysqli_query($conn, $sql_keywords_match);
     if ($result_keywords_match->num_rows > 0) {
-        $response = "Login successfully!";
+//        $response['login status'] = "Login successfully!";
     } else {
         header('HTTP/1.0 403 Forbidden');
         die('The keyword is not correct!');
@@ -65,5 +85,5 @@ if ($result_check_user_name_exist->num_rows > 0) {
     die("The username has not been registered.");
 }
 
-echo $response;
+echo json_encode($response);
 ?>
