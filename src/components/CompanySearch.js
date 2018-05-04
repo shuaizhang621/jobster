@@ -1,7 +1,7 @@
 import React from 'react';
 import { Input, Radio, Slider} from 'antd';
 import $ from 'jquery';
-import { API_ROOT } from "../constants";
+import {API_ROOT, TOKEN_KEY} from "../constants";
 import {ResultPeople} from "./ResultPeople";
 
 const RadioButton = Radio.Button;
@@ -27,9 +27,11 @@ export class CompanySearch extends React.Component {
             url:`${ API_ROOT }/company/search.php`,
             method: 'POST',
             data: {
+                cname: this.props.username,
                 keyword: value,
                 sgpalower: this.state.gpaLow,
                 sgpahigh: this.state.gpaHigh,
+                token: localStorage.getItem(TOKEN_KEY),
             },
         }).then((response) => {
             let res = JSON.parse(response);
@@ -86,6 +88,7 @@ export class CompanySearch extends React.Component {
                         cname: this.props.username,
                         student_array: this.state.forwardList,
                         jid: this.props.jobList[i].jid,
+                        token: localStorage.getItem(TOKEN_KEY),
                     },
                 }).then((response) => {
                     console.log(response);

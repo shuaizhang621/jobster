@@ -1,7 +1,7 @@
 <?php
 //get parameters from frontend
 //$semail = "cz1522@nyu.edu";
- $semail = $_POST['semail'];
+$semail = $_POST['semail'];
 
  //prevent xss attack
 $semail = htmlspecialchars($semail, ENT_QUOTES);
@@ -25,7 +25,6 @@ if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
 
-//get token
 $token = $_POST["token"];
 //verify the token
 require("../../entity/JWT.php");
@@ -116,6 +115,8 @@ if ($result_friend_list->num_rows > 0){
 else{
     $response->friends = [];
 }
+
+$response->token = $token;
 
 //response to frontend.
 echo json_encode($response);

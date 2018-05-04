@@ -6,6 +6,7 @@
  * Time: 17:31
  */
 require("constants.php");
+
 class JWT
 {
     /**

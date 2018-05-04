@@ -2,7 +2,7 @@ import React, { Component } from 'react';
 import '../styles/App.css';
 import { Header } from './Header';
 import { Main } from './Main';
-import { TOKEN_KEY } from '../constants';
+import { TOKEN_KEY, USER_NAME } from '../constants';
 
 
 class App extends Component {
@@ -17,7 +17,8 @@ class App extends Component {
     }
 
     handleLogin = (response, username) => {
-        //localStorage.setItem(TOKEN_KEY, token);
+        localStorage.setItem(TOKEN_KEY, response);
+        localStorage.setItem(USER_NAME, username);
         console.log(response);
         this.setState({
             isLoggedIn: true,
@@ -34,7 +35,7 @@ class App extends Component {
         return (
             <div className="App">
                 <Header isLoggedIn={this.state.isLoggedIn} handleLogout={this.handleLogout}/>
-                <Main isLoggedIn={this.state.isLoggedIn} handleLogin={this.handleLogin} username={this.state.username}/>
+                <Main isLoggedIn={this.state.isLoggedIn} handleLogin={this.handleLogin} username={localStorage.getItem(USER_NAME)}/>
             </div>
         );
     }

@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Select, Button, message } from 'antd';
-import {API_ROOT} from "../constants";
+import {API_ROOT, TOKEN_KEY} from "../constants";
 import $ from 'jquery';
 import { Link } from 'react-router-dom';
 
@@ -32,7 +32,8 @@ class RegistrationForm extends React.Component {
                         clocation: values.clocation,
                         cindustry: values.cindustry,
                         cdescription: values.cdescription,
-                    }
+                        token: localStorage.getItem(TOKEN_KEY),
+                    },
                 }).then((response) => {
                     message.success(response);
                     console.log(response);

@@ -1,6 +1,6 @@
 import React from 'react';
 import { List, Button, Avatar, Collapse, Tooltip, Modal, Switch } from 'antd';
-import {API_ROOT, COLOR_LIST} from '../constants';
+import {API_ROOT, COLOR_LIST, TOKEN_KEY} from '../constants';
 import $ from "jquery";
 import {ItemContainer} from "./ItemContainer";
 
@@ -35,6 +35,7 @@ export class ResultCompany extends React.Component {
             method: 'POST',
             data: {
                 cname: cname,
+                token: localStorage.getItem(TOKEN_KEY),
             },
         }).then((response) => {
             let res = JSON.parse(response);
@@ -66,7 +67,8 @@ export class ResultCompany extends React.Component {
                 semail: this.props.username,
                 semailreceive: this.state.receiver,
                 jid: this.state.jid,
-            }
+                token: localStorage.getItem(TOKEN_KEY),
+            },
         }).then((response) => {
             console.log("backend response: ", response);
         }, (error) => {
@@ -121,7 +123,8 @@ export class ResultCompany extends React.Component {
                 semail: this.props.username,
                 jid: item.jid,
                 cname: 'ZhuYuanzhang',
-            }
+                token: localStorage.getItem(TOKEN_KEY),
+            },
         }).then((response) => {
             console.log(response);
         }, (error) => {

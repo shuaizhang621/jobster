@@ -1,7 +1,7 @@
 import { List, Button, Avatar, message, Switch } from 'antd';
 import React from 'react';
 import $ from 'jquery';
-import {API_ROOT, COLOR_LIST } from '../constants';
+import {API_ROOT, COLOR_LIST, TOKEN_KEY} from '../constants';
 
 export class ResultPeople extends React.Component {
     handleAddFriend = (e) => {
@@ -11,9 +11,11 @@ export class ResultPeople extends React.Component {
             url: `${API_ROOT}/student/sendFriend.php`,
             method: 'POST',
             data: {
+                semail: this.props.username,
                 send: this.props.username,
                 receive: receiver,
-            }
+                token: localStorage.getItem(TOKEN_KEY),
+            },
         }).then((response) => {
             let res = JSON.parse(response);
             console.log(response.length);

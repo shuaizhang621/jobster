@@ -1,7 +1,7 @@
 import React from "react";
 import { Avatar, Button, notification, Badge, Modal, Switch } from 'antd';
 import $ from 'jquery';
-import {API_ROOT} from "../constants";
+import {API_ROOT, TOKEN_KEY} from "../constants";
 import {UpdateForm} from "./UpdateInfoForm";
 
 const ButtonGroup = Button.Group;
@@ -10,7 +10,7 @@ export class UserInfo extends React.Component {
     state = {
         visible: false,
         publicProfile: this.props.info.sprivacy,
-    }
+    };
 
     close = () => {
         console.log('Notification was closed. Either the close button was clicked or duration time elapsed.');
@@ -33,10 +33,12 @@ export class UserInfo extends React.Component {
             method: 'POST',
             url: `${API_ROOT}/student/dealFriends.php`,
             data: {
+                semail: this.props.username,
                 send: sender,
                 receive: this.props.username,
                 choice: choice,
-            }
+                token: localStorage.getItem(TOKEN_KEY),
+            },
         }).then((response) => {
             console.log(response);
         }, (error) => {
@@ -98,7 +100,9 @@ export class UserInfo extends React.Component {
             method: 'POST',
             data: {
                 sprivacy: privacy,
-            }
+                semail: this.props.username,
+                token: localStorage.getItem(TOKEN_KEY),
+            },
         }).then((response) => {
             console.log(response);
         }, (error) => {
