@@ -24,6 +24,9 @@ if ($conn->connect_error) {
 
 //get parameter from frontend
 $keyword = $_POST['keyword'];
+//prevent injection and xss attack
+$keyword = $conn->real_escape_string($keyword);
+$keyword = htmlspecialchars($keyword, ENT_QUOTES);
 //initialize response to frontend.
 $response = array();
 

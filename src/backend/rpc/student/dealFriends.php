@@ -22,14 +22,20 @@ if ($conn->connect_error) {
 $send = $_POST['send'];
 $receive = $_POST['receive'];
 $choice = $_POST['choice'];
+//prevent xss attack
+$send = htmlspecialchars($send, ENT_QUOTES);
+$receive = htmlspecialchars($receive, ENT_QUOTES);
+$choice = htmlspecialchars($choice, ENT_QUOTES);
 
 //initialize response to frontend.
 $response = array();
 //update the status based on what choice has been made by the receiver.
 if ($choice == "Accepted"){
-$sql_update_friend_status = "UPDATE StudentFriends SET status = 'Accepted' where semailsend = '$send' 
-and semailreceive = '$receive';";
-    if (mysqli_query($conn, $sql_update_friend_status) == True ){
+$sql_update_friend_status = "UPDATE StudentFriends SET status = 'Accepted' where semailsend = ?
+and semailreceive = ?;";
+$update_friend_status = $conn->prepare($sql_update_friend_status);
+$update_friend_status->bind_param('ss', $send, $receive);
+    if ($update_friend_status->execute() ){
         $response['update_status'] = True;
         $response['update_statement'] = $receive."accepted your friend request.";
         echo $response;
@@ -43,8 +49,10 @@ and semailreceive = '$receive';";
 
 }
 elseif ($choice == "Denied"){
-$sql_update_friend_status = "DELETE FROM StudentFriends WHERE semailsend = '$send' and semailreceive = '$receive';";
-    if (mysqli_query($conn, $sql_update_friend_status) == True){
+$sql_update_friend_status = "DELETE FROM StudentFriends WHERE semailsend =? and semailreceive = ?;";
+    $update_friend_status = $conn->prepare($sql_update_friend_status);
+    $update_friend_status->bind_param('ss', $send, $receive);
+    if ($update_friend_status->execute()){
         $response['update_status'] = $receive." denied your request.";
         echo $response;
     }

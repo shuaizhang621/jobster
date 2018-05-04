@@ -28,7 +28,12 @@ if ($conn->connect_error) {
 $semail = $_POST['semail'];
 $semailreceive = $_POST['semailreceive'];
 $jid = $_POST['jid'];
-
+//prevent xss attack
+$semail = htmlspecialchars($semail, ENT_QUOTES);
+$jid = htmlspecialchars($jid, ENT_QUOTES);
+foreach($semailreceive as $student){
+    $student = htmlspecialchars($student, ENT_QUOTES);
+}
 $response = array();
 // get nid
 //$result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from notification;");
@@ -62,8 +67,10 @@ foreach ($semailreceive as $student){
     }
 //    echo $nid."<br>";
     $sql_post_selected_student = "INSERT INTO notification(`nid`, `semailsend`, `semailreceive`, `jid`, `pushtime`, `status`)
-    VALUES ('$nid', '$semail', '$student', '$jid', CURDATE(), 'unviewed');";
-    if (mysqli_query($conn, $sql_post_selected_student) == True){
+    VALUES ('$nid', ?, ?, ?, CURDATE(), 'unviewed');";
+    $post_selected_student = $conn->prepare($sql_post_selected_student);
+    $post_selected_student->bind_param('sss',$semail,$student, $jid);
+    if ($post_selected_student->execute()){
         $response[$student] = $student." Updated successfully.";
     }
     else{

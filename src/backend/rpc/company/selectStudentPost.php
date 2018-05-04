@@ -25,6 +25,12 @@ if ($conn->connect_error) {
 $cname = $_POST['cname'];
 $jid = $_POST['jid'];
 $student_array = $_POST['student_array'];
+//prevent xss attack
+$cname = htmlspecialchars($cname, ENT_QUOTES);
+$jid = htmlspecialchars($jid, ENT_QUOTES);
+foreach ($student_array as $student) {
+    $student = htmlspecialchars($student, ENT_QUOTES);
+}
 
 //initialize array for feedback to frontend.
 $response = array();
@@ -41,8 +47,10 @@ foreach ($student_array as $student){
     }
     
     $sql_post_selected_student = "INSERT INTO notification(`nid`, `companysend`, `semailreceive`, `jid`, `pushtime`, `status`)
-    VALUES ('$nid', '$cname', '$student', '$jid', CURDATE(), 'unviewed');";
-    if (mysqli_query($conn, $sql_post_selected_student) == True){
+    VALUES ('$nid', ?, ?, ?, CURDATE(), 'unviewed');";
+    $post_selected_student = $conn->prepare($sql_post_selected_student);
+    $post_selected_student->bind_param('sss',$cname, $student, $jid);
+    if ($post_selected_student->execute()){
         $response[$student] = $student."Updated successfully.";
     }
     else{

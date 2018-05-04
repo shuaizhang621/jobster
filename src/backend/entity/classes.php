@@ -196,6 +196,15 @@ class message{
     }
 }
 
-
-
+//class used for response in student init page,for there are too much to response in that page.
+class class_response{
+    public $friend_request;
+    public $notification;
+    public $personal_info;
+    public $friends;
+    public function isEmpty()
+    {
+        return empty($this->friend_request) and empty($this->notification) and empty($this->personal_info);
+    }
+}
 ?>

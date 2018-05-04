@@ -17,9 +17,15 @@ if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
 //get parameters from frontend.
-$semailsend = $_POST['semailsend'];//"cz1522@nyu.edu";//
-$semailreceive = $_POST['semailreceive'];//"dx1368@nyu.edu";//
-$content = $_POST['content'];//"abc";//
+
+$semailsend = $_POST['semailsend'];
+$semailreceive = $_POST['semailreceive'];
+$content = $_POST['content'];
+//prevent xss attack
+$semailsend = htmlspecialchars($semailsend, ENT_QUOTES);
+$semailreceive = htmlspecialchars($semailreceive, ENT_QUOTES);
+$content = htmlspecialchars($content, ENT_QUOTES);
+
 //update the message to database.
 $result_max_mid  = mysqli_query($conn,"select max(mid) as mmid from message;");
 if ($result_max_mid->num_rows > 0){
@@ -28,9 +34,11 @@ if ($result_max_mid->num_rows > 0){
 else{
     $mid = 1;
 }
-$sql_update_messge = "INSERT INTO message (`mid`,`semailsend`, `semailreceive`, `content`, `sendtime`, `status`)
-VALUES  ('$mid','$semailsend', '$semailreceive', '$content', CURRENT_DATE, 'unviewed');";
-if (mysqli_query($conn, $sql_update_messge) == True){
+$sql_update_message = "INSERT INTO message (`mid`,`semailsend`, `semailreceive`, `content`, `sendtime`, `status`)
+VALUES  ('$mid',?,?,?, CURRENT_DATE, 'unviewed');";
+$update_message = $conn->prepare($sql_update_message);
+$update_message->bind_param('sss', $semailsend,$semailreceive, $content);
+if ($update_message->execute()){
     echo "Your message to ".$semailreceive." has been sent.";
 }
 else{

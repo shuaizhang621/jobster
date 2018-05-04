@@ -20,13 +20,18 @@ if ($conn->connect_error) {
 //get parameter from frontend.
 $semail = $_POST['semail'];
 $cname = $_POST['cname'];
+//prevent xss attack
+$semail = htmlspecialchars($semail, ENT_QUOTES);
+$cname = htmlspecialchars($cname, ENT_QUOTES);
 
 //initialize response to frontend.
 $reponse = array();
 
 //insert tuple into backend database.
-$sql_init_student_follow = "INSERT INTO StudentFollowCompany (`semail`,`cname`) VALUES ('$semail', '$cname');";
-if (mysqli_query($conn, $sql_init_student_follow) == True){
+$sql_init_student_follow = "INSERT INTO StudentFollowCompany (`semail`,`cname`) VALUES (?, ?);";
+$init_student_follow = $conn->prepare($sql_init_student_follow);
+$init_student_follow->bind_param('ss',$semail,$cname);
+if ($init_student_follow->execute()){
     $response['Insert status'] = True;
     $response['Insert content'] = $semail." has followed ".$cname;
 }

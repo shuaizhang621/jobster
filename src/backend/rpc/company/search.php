@@ -26,6 +26,7 @@ if ($conn->connect_error) {
 //initialize return variable.
 $response = array();
 $temp_array = array();
+
 //get parameters from frontend
 //$keyword = $_POST['keyword'];
 //$sgpalower = $_POST['sgpalower'];
@@ -38,8 +39,15 @@ $temp_array = array();
 $keyword = $_POST['keyword'];
 $sgpalower = $_POST['sgpalower'];
 $sgpahigh = $_POST['sgpahigh'];
+//prevent injection and xss attack.
+$keyword = $conn->real_escape_string($keyword);
+$sgpahigh = $conn->real_escape_string($sgpahigh);
+$sgpalower = $conn->real_escape_string($sgpalower);
 
-$response = array();
+$keyword = htmlspecialchars($keyword, ENT_QUOTES);
+$keyword = htmlspecialchars($sgpahigh, ENT_QUOTES);
+$keyword = htmlspecialchars($sgpalower, ENT_QUOTES);
+
 //query resume that fit the keyword
 
 $sql_resume_path = "select * from Student;";

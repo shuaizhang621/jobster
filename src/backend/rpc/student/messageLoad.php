@@ -25,6 +25,10 @@ if ($conn->connect_error) {
 $semail = $_POST['semail'];
 $semailreceive = $_POST['semailreceive'];
 
+//prevent xss attack.
+$semail = htmlspecialchars($semail, ENT_QUOTES);
+$semailreceive = htmlspecialchars($semailreceive, ENT_QUOTES);
+
 //initialize response
 $response = array();
 

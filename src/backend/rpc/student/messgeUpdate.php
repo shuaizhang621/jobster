@@ -20,12 +20,15 @@ if ($conn->connect_error) {
 
 //get parameters from frontend.
 $mid = $_POST['mid'];
+//prevent xss attack
+$mid = htmlspecialchars($mid, ENT_QUOTES);
 //initialize response to frontend.
 $response = array();
 //update the notification status to 'viewed' at backend database.
-$sql_update_message = "update message set status = 'viewed' where mid = '$mid';";
-
-if (mysqli_query($conn, $sql_update_message) == True){
+$sql_update_message = "update message set status = 'viewed' where mid = ?;";
+$update_message = $conn->prepare($sql_update_message);
+$update_message->bind_param('s',$mid);
+if ($update_message->execute()){
     $response['update_status'] = True;
     $response['update_statement'] = "Message has been update to viewed.";
     echo $response;
