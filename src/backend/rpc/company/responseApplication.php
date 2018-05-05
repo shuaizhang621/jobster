@@ -52,6 +52,6 @@ else
     header('HTTP/1.0 403 Forbidden');
     $reponse['update_status'] = "Database error:"."<br>"."$conn->error";
 }
-echo json_encode($repsonse);
+echo json_encode($response);
 $conn->close();
 ?>

@@ -27,7 +27,7 @@ $sphone = $_POST['sphone'];
 $suniversity = $_POST['suniversity'];
 $smajor = $_POST['smajor'];
 $sresume = $_POST['sresume'];
-$sprivacy = $_POST['sprivacy'];
+//$sprivacy = $_POST['sprivacy'];
 //prevent xss attack
 $semail = htmlspecialchars($semail, ENT_QUOTES);
 $skey = htmlspecialchars($skey, ENT_QUOTES);
@@ -38,7 +38,7 @@ $sphone = htmlspecialchars($sphone, ENT_QUOTES);
 $suniversity = htmlspecialchars($suniversity, ENT_QUOTES);
 $smajor = htmlspecialchars($smajor, ENT_QUOTES);
 $sresume = htmlspecialchars($sresume, ENT_QUOTES);
-$sprivacy = htmlspecialchars($sprivacy, ENT_QUOTES);
+//$sprivacy = htmlspecialchars($sprivacy, ENT_QUOTES);
 //initialize response to frontend.
 $response = array();
 
@@ -54,7 +54,7 @@ if (!$object_JWT->token_verify($token, $semail)){
 
 //update personal information to backend database.
 $sql_update_personal_info = "update student set skey = ?, sfirstname = ?, slastname = ?, sgpa = ?, sphone = ?, 
-suniversity = ?, smajor = ?, sresume = ?, sprivacy = ? where semail = ?;";
+suniversity = ?, smajor = ?, sresume = ? where semail = ?;";
 $update_personal_info = $conn->prepare($sql_update_personal_info);
 $update_personal_info->bind_param('sssssssss',$skey, $sfirstname, $slastname, $sgpa, $sphone,
     $suniversity, $smajor, $sresume, $sprivacy, $semail);
