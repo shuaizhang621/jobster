@@ -20,7 +20,7 @@ export class ResultPeople extends React.Component {
             let res = JSON.parse(response);
             console.log(response.length);
             if (response.length === 38) {
-                message.warning(`${receiver} has not accepted your request yet.`);
+                message.warning(`Your request to ${receiver} is still being pending.`);
             }
             if (response.length === 36) {
                 message.success(`${receiver} has received your request.`);

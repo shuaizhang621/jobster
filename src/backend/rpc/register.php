@@ -88,13 +88,13 @@ if ($user_type == 'student'){
 //$check_update = mysqli_query($conn, $sql_check_update);
     if ($register_update->execute()) {
         $response = "You have registered successfully!";
-        echo json_encode($response);
+        echo $response;
         //echo json_encode($response);
     } else {
         header('HTTP/1.0 403 Forbidden');
         $response = "ERROR: ".$update."<br>".$conn->error;
         //echo $response;
-        echo json_encode($response);
+        echo $response;
     }
     $conn->close();
 ?>

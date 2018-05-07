@@ -229,7 +229,7 @@ export class RegistrationForm extends React.Component {
                                         <Input placeholder="GPA"/>
                                     )}
                                 </FormItem>
-                                <FormItem>  /* upload url... later...*/
+                                <FormItem>
                                     {getFieldDecorator('sresume')(
                                         <Dragger {...upProps}>
                                             <p className="ant-upload-drag-icon">

@@ -1,4 +1,4 @@
-import { List, Button, Avatar, Modal, Switch, Collapse, Tooltip } from 'antd';
+import { List, Button, Avatar, Modal, Switch, Collapse, Tooltip, message } from 'antd';
 import React from 'react';
 import $ from 'jquery';
 import {COLOR_LIST, API_ROOT, TOKEN_KEY} from '../constants';
@@ -39,6 +39,7 @@ export class ApplicationContainer extends React.Component {
 
     responseApplication = (decision, aid) => {
         console.log(aid);
+        console.log(this.props.username);
         $.ajax({
             url: `${API_ROOT}/company/responseApplication.php`,
             method: 'POST',
@@ -50,6 +51,7 @@ export class ApplicationContainer extends React.Component {
             },
         }).then((response) => {
             console.log(response);
+            message.success(response);
         }, (error) => {
             console.log(error);
         });

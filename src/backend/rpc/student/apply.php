@@ -62,7 +62,6 @@ $result_check_application_update = $check_application_update->get_result();
 // echo $result_check_application_update->num_rows;
 if($result_check_application_update->num_rows > 0){
     $response = "You have already applied this job.";
-    echo $response;
 }
 else{
     $sql_update_application = "INSERT INTO StudentApplyJob(`aid`, `semail`, `jid`, `cname`, `status`, `applytime`)
@@ -70,27 +69,13 @@ else{
     $update_application = $conn->prepare($sql_update_application);
     $update_application->bind_param('sss',$semail,$jid, $cname);
     if($update_application->execute()){
-        $response = True;
-        echo $response;
+        $response = "Applied successfully.";
     }
     else{
-        $response = False;
-        echo $response;
+        $response = "Applied unsuccessfully.";
     }
-    /*
-    //check if the application has been updated.
-        $sql_check_application_update = "select * from StudentApplyJob where semail = '$semail', jid = '$jid', cname = '$cname';";
-        $result_check_application_update = mysqli_query($conn, $sql_check_application_update);
-        if ($result_check_application_update->num_rows > 0){
-            $response = True;
-            echo json_encode($response);
-        }
-        else{
-            $response = False;
-            echo json_encode($response);
-        }
-    */
 }
+echo $response;
 
 $conn->close();
 ?>

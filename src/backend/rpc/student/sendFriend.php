@@ -71,7 +71,6 @@ VALUES (?, ?, 'unviewed', CURDATE());";
         //echo json_encode($response);
         header('HTTP/1.0 403 Forbidden');
         die("Your friend request has not been sent.");
-
     }
 }
 ?>

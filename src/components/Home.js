@@ -149,6 +149,7 @@ export class Home extends React.Component {
                 token: localStorage.getItem(TOKEN_KEY),
             },
         }).then((response) => {
+            message.success(response);
             console.log(response);
         }, (error) => {
             console.log(error);
