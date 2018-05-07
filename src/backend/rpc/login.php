@@ -24,7 +24,7 @@ if ($conn->connect_error) {
 }
 
 //initialize response to frontend.
-$response = array();
+//$response = array();
 
 //login page,check if the username and keywords are valid.
 $username = $_POST['username'];
@@ -52,7 +52,7 @@ if ($user_type == 'student') {
     $result_keywords_match = $keywords_match->get_result();
 
     //create token.
-    $response = token_create($username, $key);
+    $response = token_create($username);
 }
 else if ($user_type == 'company') {
     $sql_check_username_exist = "select cname from Company where cname = ?";
@@ -68,7 +68,7 @@ else if ($user_type == 'company') {
     $result_keywords_match = $keywords_match->get_result();
 
     //create token.
-    $response = token_create($username, $key);
+    $response = token_create($username);
 }
 
 //$result_username_exist = mysqli_query($conn, $sql_check_username_exist);

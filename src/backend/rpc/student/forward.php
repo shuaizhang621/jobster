@@ -26,7 +26,7 @@ if ($conn->connect_error) {
 
 //get parameters from frontend
 $semail = $_POST['semail'];
-$semailreceive = $_POST['semailreceive'];
+$semailreceive = json_decode($_POST['semailreceive']);
 $jid = $_POST['jid'];
 //prevent xss attack
 $semail = htmlspecialchars($semail, ENT_QUOTES);
