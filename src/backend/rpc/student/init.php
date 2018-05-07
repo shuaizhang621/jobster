@@ -79,8 +79,8 @@ else{
 $temp_array = array();
 $sql_pending_friend_request = "select * from student where semail in 
 (select semailsend from studentfriends where semailreceive = ? and status = 'unviewed');";
-$pending_friend_request = $conn->prepare($sql_notification_unviewed);
-$pending_friend_request->bind_param('s', $seamil);
+$pending_friend_request = $conn->prepare($sql_pending_friend_request);
+$pending_friend_request->bind_param('s', $semail);
 $pending_friend_request->execute();
 $result_pending_friend_request = $pending_friend_request->get_result();
 if ($result_pending_friend_request->num_rows > 0){

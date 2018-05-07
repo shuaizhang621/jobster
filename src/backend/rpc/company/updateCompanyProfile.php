@@ -5,10 +5,11 @@
  * Date: 2018/4/20
  * Time: 14:13
  */
+
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
-$password = "";
+$password = "root";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.
@@ -37,7 +38,7 @@ $token = $_POST["token"];
 //verify the token
 require("../../entity/JWT.php");
 $object_JWT = new JWT();
-if (!$object_JWT->token_verify($token, $semail)){
+if (!$object_JWT->token_verify($token, $cname)){
     header('HTTP/1.0 401 Unauthorized');
     die ("Your token is not matched with your username");
 }

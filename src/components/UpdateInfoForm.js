@@ -37,7 +37,7 @@ class UpdateInfoForm extends React.Component {
                         slastname: values.slastname,
                         sgpa: values.sgpa,
                         sphone: values.sphone,
-                        university: values.suniversity,
+                        suniversity: values.suniversity,
                         smajor: values.smajor,
                         sresume: values.sresume,
                         token: localStorage.getItem(TOKEN_KEY),
@@ -177,7 +177,7 @@ class UpdateInfoForm extends React.Component {
                             {getFieldDecorator('suniversity', {
                                 initialValue: this.props.info.suniversity,
                             })(
-                                <Input placeholder="Univeristy"/>
+                                <Input placeholder="University"/>
                             )}
                         </FormItem>
                         <FormItem>
@@ -205,7 +205,7 @@ class UpdateInfoForm extends React.Component {
                             )}
                         </FormItem>
                         <FormItem>
-                            <Button type="primary" htmlType="submit">Register</Button>
+                            <Button className="update-button" type="primary" htmlType="submit">Update</Button>
                         </FormItem>
                     </Form>
                 </div>

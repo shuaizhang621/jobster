@@ -42,14 +42,11 @@ $sql_init_student_follow = "INSERT INTO StudentFollowCompany (`semail`,`cname`) 
 $init_student_follow = $conn->prepare($sql_init_student_follow);
 $init_student_follow->bind_param('ss',$semail,$cname);
 if ($init_student_follow->execute()){
-    $response['Insert status'] = True;
-    $response['Insert content'] = $semail." has followed ".$cname;
+    $response = "You have followed " . $cname . " succesfully.";
 }
 else {
-    $response['Insert status'] = False;
-    $response['Insert content'] =  "Database error:"."<br>"."$conn->error";
+    $response = "You have followed " . $cname . " before.";
 }
 
-echo json_encode($response);
+echo $response;
 $conn->close();
-?>
