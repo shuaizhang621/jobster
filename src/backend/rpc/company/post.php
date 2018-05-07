@@ -23,7 +23,7 @@ $jtitle = $_POST['jtitle'];
 $jsalary = $_POST['jsalary'];
 $jreq_diploma = $_POST['jreq_diploma'];
 $jreq_experience = $_POST['jreq_experience'];
-$jreq_skills = $_POST['jskills'];
+$jreq_skills = $_POST['jreq_skills'];
 $jdescription = $_POST['jdescription'];
 //prevent xss attack.
 $cname = htmlspecialchars($cname, ENT_QUOTES);
@@ -40,7 +40,7 @@ $token = $_POST["token"];
 //verify the token
 require("../../entity/JWT.php");
 $object_JWT = new JWT();
-if (!$object_JWT->token_verify($token, $semail)){
+if (!$object_JWT->token_verify($token, $cname)){
     header('HTTP/1.0 401 Unauthorized');
     die ("Your token is not matched with your username");
 }
@@ -56,11 +56,11 @@ else{
 }
 
 //update the JobAnnouncement and Notification table.
-$sql_update_jobannouncement = "INSERT INTO JobAnnouncement (`jid`, `jlocation`, `jtitle`,`jsalary`,
+$sql_update_jobannouncement = "INSERT INTO JobAnnouncement (`jid`, `cname`,`jlocation`, `jtitle`,`jsalary`,
  `jreq_experience`, `jreq_skills`, `jreq_diploma`, `jdescription`)
-VALUES (?, ?,?, ?,?, ?, ?, ?);";
+VALUES (?, ?,?,?, ?,?, ?, ?, ?);";
 $update_jobannouncement = $conn->prepare($sql_update_jobannouncement);
-$update_jobannouncement->bind_param('ssssssss',$jid, $jlocation, $jtitle, $jsalary, $jsalary,
+$update_jobannouncement->bind_param('sssssssss',$jid, $cname, $jlocation, $jtitle, $jsalary, $jsalary,
      $jreq_experience,  $jreq_skills, $jreq_diploma, $jdescription);
 if ($update_jobannouncement->execute()){
     $response['Update_JobAnnouncement'] = "Update job announcement successfully.".$jid;

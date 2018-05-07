@@ -61,7 +61,7 @@ class JWT
      * @uses jsonEncode
      * @uses urlsafeB64Encode
      */
-    public static function encode($payload, $key, $algo = 'HS256')
+    public static function encode($payload, $key=null, $algo = 'HS256')
     {
         $constant = new constants();
         $key = $constant->key;
