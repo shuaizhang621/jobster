@@ -162,17 +162,17 @@ class student_application{
     }
 }
 class student_info_restircted{
-    public $suniversity;
-    public $smajor;
-    public $sgpa;
-    public $sresume;
+    public $semail;
+    public $sphone;
+    public $sfirstname;
+    public $slastname;
     function Build_student_info_restricted($row)
     {
         $restrictedStudentInfo = new student_info_restircted();
-        $restrictedStudentInfo->suniversity = $row['suniversity'];
-        $restrictedStudentInfo->smajor = $row['smajor'];
-        $restrictedStudentInfo->sgpa = $row['sgpa'];
-        $restrictedStudentInfo->sresume = $row['sresume'];
+        $restrictedStudentInfo->semail = $row['semail'];
+        $restrictedStudentInfo->sphone = $row['sphone'];
+        $restrictedStudentInfo->sfirstname = $row['sfirstname'];
+        $restrictedStudentInfo->slastname = $row['slastname'];
         return $restrictedStudentInfo;
     }
 }
