@@ -22,3 +22,7 @@
 .ant-collapse-borderless > .ant-collapse-item > .ant-collapse-content {
     overflow: visible;
 }
+
+.view-info-button {
+    margin-left: -20px;
+}

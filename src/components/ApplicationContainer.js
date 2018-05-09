@@ -9,13 +9,25 @@ const Panel = Collapse.Panel;
 export class ApplicationContainer extends React.Component {
     state = {
         visiable: false,
+        item: {},
     }
 
-    showModal = () => {
-        this.setState({
-            visible: true,
-        });
-    }
+    // showModal = (e) => {
+    //     // this.setState({
+    //     //     visible: true,
+    //     // });
+    //     console.log(item);
+    //     // let item;
+    //     // for (let i = 0; i < this.props.result.length; i++) {
+    //     //     if (this.props.result[i].semail == e.target.id) {
+    //     //         item = this.props.result[i];
+    //     //     }
+    //     // }
+    //     this.setState({
+    //         visible: true,
+    //         item: this.item,
+    //     });
+    // }
     handleOk = (e) => {
         console.log(e);
         this.setState({
@@ -122,27 +134,51 @@ export class ApplicationContainer extends React.Component {
                 <Tooltip placement="top" title="More Information">
                     <Button
                         className="add-friend-button"
-                        id={item.aid}
+                        id={item}
                         type="primary"
                         shape="circle"
                         size="large"
                         icon="file"
                         style = {{marginRight: 10}}
-                        onClick={this.showModal}
+                        onClick={
+                            function() {
+                                // this.setState({
+                                //     visible: true,
+                                // });
+                                console.log(item);
+                                // let item;
+                                // for (let i = 0; i < this.props.result.length; i++) {
+                                //     if (this.props.result[i].semail == e.target.id) {
+                                //         item = this.props.result[i];
+                                //     }
+                                // }
+                                // localStorage.setItem('item')
+                                this.setState({
+                                    visible: true,
+                                    item: item,
+                                });
+                            }.bind(this, item)
+                        }
                     />
                      <Modal
-                         title={`${item.sfirstname} ${item.slastname}`}
+                         title={`${this.state.item.sfirstname} ${this.state.item.slastname}`}
                          visible={this.state.visible}
                          onOk={this.handleOk}
                          onCancel={this.handleCancel}
                      >
-                         <p>School: {item.suniversity}</p>
-                         <p>Major: {item.smajor}</p>
-                         <p>GPA: {item.sgpa}</p>
-                         <p>Phone: {item.sphone}</p>
-                         <p>Email: {item.semail}</p>
-                         <p><a href="file:///Users/shuaizhang/Desktop/student.pdf">resume</a></p>
-                    </Modal>
+                                <p>School: {this.state.item.suniversity}</p>
+                                <p>Major: {this.state.item.smajor}</p>
+                                <p>GPA: {this.state.item.sgpa}</p>
+                                <p>Phone: {this.state.item.sphone}</p>
+                                <p>Email: {this.state.item.semail}</p>
+                                <Button
+                                    onClick={() =>
+                                        window.open(`${API_ROOT}/student/${this.state.item.sresume}`, '_blank')
+                                    }
+                                >
+                                    View Resume
+                                </Button>
+                            </Modal>
                 </Tooltip>
             </span>
         );

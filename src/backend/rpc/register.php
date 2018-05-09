@@ -1,5 +1,7 @@
 <?php
 
+ini_set('display_errors', true);
+error_reporting(E_ALL);
 //This script is used to update the register information to backend database.
 
 //the parameters that used for connecting to database.
@@ -37,9 +39,9 @@ if ($user_type == 'student'){
     $slastname = $_POST['slastname'];
     $sgpa = $_POST['sgpa'];
     $sphone = $_POST['sphone'];
-    $suniversity = $_POST['university'];
+    $suniversity = $_POST['suniversity'];
     $smajor = $_POST['smajor'];
-    $sresume = $_POST['sresume'];
+//    $sresume = $_POST['sresume'];
 
     //prevent xss attack.
     $semail = htmlspecialchars($semail, ENT_QUOTES);
@@ -50,12 +52,12 @@ if ($user_type == 'student'){
     $sphone = htmlspecialchars($sphone, ENT_QUOTES);
     $suniversity = htmlspecialchars($suniversity, ENT_QUOTES);
     $smajor = htmlspecialchars($smajor, ENT_QUOTES);
-    $sresume = htmlspecialchars($sresume, ENT_QUOTES);
+//    $sresume = htmlspecialchars($sresume, ENT_QUOTES);
 
-    $sql_update = "INSERT INTO `Student` (`semail`, `skey`, `sphone`, `sfirstname`, `slastname`, `suniversity`, `smajor`, `sgpa`, `sresume`)
-					   VALUES (?, ?, ?, ?, ?, ?, ?, ?, ? )";
+    $sql_update = "INSERT INTO `Student` (`semail`, `skey`, `sphone`, `sfirstname`, `slastname`, `suniversity`, `smajor`, `sgpa`)
+					   VALUES (?, ?, ?, ?, ?, ?, ?, ?)";
     $register_update = $conn->prepare($sql_update);
-    $register_update->bind_param('sssssssss',$semail,$skey, $sphone, $sfirstname, $slastname, $suniversity, $smajor, $sgpa, $sresume);
+    $register_update->bind_param('ssssssss',$semail,$skey, $sphone, $sfirstname, $slastname, $suniversity, $smajor, $sgpa);
     // $register_update->execute();
     // $update = $register_update->get_result();
 } else if ($user_type == 'company') {

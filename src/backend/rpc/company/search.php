@@ -8,6 +8,7 @@
 // import the classes used in this file
 require("../../entity/classes.php");
 $objectStudentInfo = new personal_info();
+$objectRestrictedStudentInfo = new student_info_restircted();
 
 require ("../../entity/class.pdf2text.php.php");
 $PDF_reader = new PDF2Text();
@@ -77,9 +78,15 @@ if ($result_resume_path->num_rows > 0) {
             or (($row['sgpa']<=$sgpahigh)
                 and ($row['sgpa']>=$sgpalower)))
         {
-            $info = $objectStudentInfo->Build_personal_Info($row);
-            array_push($response, $info);
-//            $response[$row['semail']] = $info;
+            if ($row['sprivacy'] == False) {
+                $info = $objectStudentInfo->Build_personal_Info($row);
+                array_push($response, $info);
+                //            $response[$row['semail']] = $info;
+            }
+            else{
+                $info = $objectRestrictedStudentInfo->Build_student_info_restricted($row);
+                array_push($response, $info);
+            }
         }
     }
 }

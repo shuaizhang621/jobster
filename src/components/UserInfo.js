@@ -109,7 +109,7 @@ export class UserInfo extends React.Component {
     onChange = (checked) => {
         let privacy = this.judgeCheck(checked);
         $.ajax({
-            url: `${API_ROOT}/student/updateStudentProfile.php`,
+            url: `${API_ROOT}/student/updateStudentPrivacy.php`,
             method: 'POST',
             data: {
                 sprivacy: privacy,

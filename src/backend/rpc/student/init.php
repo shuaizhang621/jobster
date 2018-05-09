@@ -58,7 +58,7 @@ else{
 //query notifications of followed company and other students send from backend database.
 $temp_array3 = array();
 $sql_notification_unviewed = "select * from JobAnnouncement where jid in 
-(Select jid from notification where semailreceive = ? and status = 'unviewed');";
+(Select jid from notification where semailreceive = ? and status = 'unviewed') ORDER BY posttime DESC;";
 $notification_unviewed = $conn->prepare($sql_notification_unviewed);
 $notification_unviewed->bind_param('s',$semail);
 $notification_unviewed->execute();

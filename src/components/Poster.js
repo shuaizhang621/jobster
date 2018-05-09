@@ -130,7 +130,7 @@ export class Poster extends React.Component {
                 jsalary: this.state.fields.jsalary.value,
                 jreq_diploma: this.state.fields.jreq_diploma.value,
                 jreq_experience: this.state.fields.jreq_experience.value,
-                jskills: this.state.fields.jreq_skills.value,
+                jreq_skills: this.state.fields.jreq_skills.value,
                 token: localStorage.getItem(TOKEN_KEY),
             },
         }).then((response) => {

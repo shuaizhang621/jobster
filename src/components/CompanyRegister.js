@@ -186,7 +186,7 @@ class RegistrationForm extends React.Component {
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('cindusty')(
+                            {getFieldDecorator('cindustry')(
                                 <Input placeholder="Industry"/>
                             )}
                         </FormItem>

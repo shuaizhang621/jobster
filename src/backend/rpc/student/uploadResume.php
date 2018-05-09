@@ -1,10 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: Stand Alone Complex
- * Date: 2018/5/4
- * Time: 19:46
- */
+ini_set('display_errors', true);
+error_reporting(E_ALL);
+
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
@@ -18,15 +15,11 @@ if ($conn->connect_error) {
 }
 
 //get parameter from frontend.
-$semail = $_POST['semail'];
-$sprivacy = $_POST['sprivacy'];
-$semail = htmlspecialchars($semail, ENT_QUOTES);
-
-//initialize response to frontend.
-//$response = array();
+$semail = $_POST["semail"];
 
 //get token
 $token = $_POST["token"];
+
 //verify the token
 require("../../entity/JWT.php");
 $object_JWT = new JWT();
@@ -35,16 +28,21 @@ if (!$object_JWT->token_verify($token, $semail)){
     die ("Your token is not matched with your username");
 }
 
-//update privacy setting.
-$sql_update_privacy = "update student set sprivacy = ? where semail = ?;";
-$update_privacy = $conn->prepare($sql_update_privacy);
-$update_privacy->bind_param('ss', $sprivacy, $semail);
-if ($update_privacy->execute()){
-    $response = "Updated successfully!";
+if ( 0 < $_FILES['file']['error'] ) {
+    echo 'Error: ' . $_FILES['file']['error'] . '<br>';
+}
+else {
+    $destination = 'uploads/' . $_FILES['file']['name'];
+    move_uploaded_file($_FILES['file']['tmp_name'], $destination);
+}
+
+//save file path to backend database.
+$sql_save_path = "update student set sresume = '$destination' WHERE semail = '$semail';";
+if(mysqli_query($conn, $sql_save_path) == True){
+    $response = "Upload successfully!";
 }
 else{
-    $response = "Updated unsuccessfully!";
+    $response = "Upload unsuccessfully!";
 }
 echo $response;
 $conn->close();
-?>

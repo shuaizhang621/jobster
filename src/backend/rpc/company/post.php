@@ -1,5 +1,6 @@
 <?php
-
+ini_set('display_errors', true);
+error_reporting(E_ALL);
 $response = array();
 $response['send_notification_to_followed_student'] = array();
 //the parameters that used for connecting to database.
@@ -93,10 +94,6 @@ if ($result_student_followed->num_rows > 0) {
             array_push($response['send_notification_to_followed_student'], $semailreceive);
         }
     }
-}
-else{
-    $response['send_notification_to_followed_student'] = "Database error:"."<br>"."$conn->error";
-    header('HTTP/1.0 403 Forbidden');
 }
 
 echo json_encode($response);
