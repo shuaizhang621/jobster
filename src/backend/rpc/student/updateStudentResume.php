@@ -37,7 +37,7 @@ else {
 }
 
 //save file path to backend database.
-$sql_save_path = "update student set sresume = '$destination';";
+$sql_save_path = "update Student set sresume = '$destination';";
 if(mysqli_query($conn, $sql_save_path) == True){
     $response = "Upload successfully!";
 }
