@@ -77,9 +77,9 @@ else{
 
 //query pending student friend request
 $temp_array = array();
-$sql_pending_friend_request = "select * from student where semail in 
+$sql_pending_friend_request = "select * from Student where semail in 
 (select semailsend from studentfriends where semailreceive = ? and status = 'unviewed');";
-$sql_pending_friend_request = "select * from student where semail in 
+$sql_pending_friend_request = "select * from Student where semail in 
 (select semailsend from studentfriends where semailreceive = '$semail' and status = 'unviewed');";
 $pending_friend_request = $conn->prepare($sql_pending_friend_request);
 $pending_friend_request->bind_param('s', $semail);
@@ -98,7 +98,7 @@ else{
 
 //query friends of a student
 $temp_array4 = array();
-$sql_friend_list = "select * from student where semail in 
+$sql_friend_list = "select * from Student where semail in 
 (select semailsend from studentfriends where semailreceive = ? and status = 'Accepted') 
 or semail in (select semailreceive from StudentFriends where semailsend =? and status = 'Accepted');";
 $friend_list = $conn->prepare($sql_friend_list);

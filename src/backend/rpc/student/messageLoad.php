@@ -44,7 +44,7 @@ if (!$object_JWT->token_verify($token, $semail)){
 $response = array();
 
 //query all the messages whose sender or receiver is semail.
-$sql_get_messages = "select * from message where (semailsend = ? and semailreceive = ?) 
+$sql_get_messages = "select * from Message where (semailsend = ? and semailreceive = ?) 
 or (semailsend = ? and semailreceive = ?);";
 $get_messages = $conn->prepare($sql_get_messages);
 $get_messages->bind_param('ssss',$semail, $semailreceive, $semailreceive, $semail);

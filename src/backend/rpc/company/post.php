@@ -70,7 +70,7 @@ else{
     header('HTTP/1.0 403 Forbidden');
 }
 
-$result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from notification;");
+$result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from Notification;");
 if ($result_max_nid->num_rows > 0){
     $nid = strval(intval($result_max_nid->fetch_assoc()['mnid']) + 1);
 }
