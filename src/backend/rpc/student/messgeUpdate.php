@@ -39,7 +39,7 @@ if (!$object_JWT->token_verify($token, $semail)){
 //initialize response to frontend.
 $response = array();
 //update the notification status to 'viewed' at backend database.
-$sql_update_message = "update message set status = 'viewed' where mid = ?;";
+$sql_update_message = "update Message set status = 'viewed' where mid = ?;";
 $update_message = $conn->prepare($sql_update_message);
 $update_message->bind_param('s',$mid);
 if ($update_message->execute()){
