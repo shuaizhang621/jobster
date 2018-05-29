@@ -53,7 +53,7 @@ if (!$object_JWT->token_verify($token, $semail)){
 }
 
 //update personal information to backend database.
-$sql_update_personal_info = "update student set skey = ?, sfirstname = ?, slastname = ?, sgpa = ?, sphone = ?, 
+$sql_update_personal_info = "update Student set skey = ?, sfirstname = ?, slastname = ?, sgpa = ?, sphone = ?, 
 suniversity = ?, smajor = ?, sresume = ? where semail = ?;";
 $update_personal_info = $conn->prepare($sql_update_personal_info);
 $update_personal_info->bind_param('sssssssss',$skey, $sfirstname, $slastname, $sgpa, $sphone,
