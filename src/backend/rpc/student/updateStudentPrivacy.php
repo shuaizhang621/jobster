@@ -36,7 +36,7 @@ if (!$object_JWT->token_verify($token, $semail)){
 }
 
 //update privacy setting.
-$sql_update_privacy = "update student set sprivacy = ? where semail = ?;";
+$sql_update_privacy = "update Student set sprivacy = ? where semail = ?;";
 $update_privacy = $conn->prepare($sql_update_privacy);
 $update_privacy->bind_param('ss', $sprivacy, $semail);
 if ($update_privacy->execute()){
