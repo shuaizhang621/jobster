@@ -24,7 +24,7 @@ $jid = htmlspecialchars($jid, ENT_QUOTES);
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
-$password = "";
+$password = "root";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.
@@ -61,8 +61,7 @@ $check_application_update->execute();
 $result_check_application_update = $check_application_update->get_result();
 // echo $result_check_application_update->num_rows;
 if($result_check_application_update->num_rows > 0){
-    $response = "You have already applied the job!";
-    echo json_encode($response);
+    $response = "You have already applied this job.";
 }
 else{
     $sql_update_application = "INSERT INTO StudentApplyJob(`aid`, `semail`, `jid`, `cname`, `status`, `applytime`)
@@ -70,27 +69,13 @@ else{
     $update_application = $conn->prepare($sql_update_application);
     $update_application->bind_param('sss',$semail,$jid, $cname);
     if($update_application->execute()){
-        $response = True;
-        echo json_encode($response);
+        $response = "Applied successfully.";
     }
     else{
-        $response = False;
-        echo json_encode($response);
+        $response = "Applied unsuccessfully.";
     }
-    /*
-    //check if the application has been updated.
-        $sql_check_application_update = "select * from StudentApplyJob where semail = '$semail', jid = '$jid', cname = '$cname';";
-        $result_check_application_update = mysqli_query($conn, $sql_check_application_update);
-        if ($result_check_application_update->num_rows > 0){
-            $response = True;
-            echo json_encode($response);
-        }
-        else{
-            $response = False;
-            echo json_encode($response);
-        }
-    */
 }
+echo $response;
 
 $conn->close();
 ?>

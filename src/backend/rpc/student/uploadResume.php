@@ -1,10 +1,7 @@
 <?php
-/**
- * Created by PhpStorm.
- * User: hp
- * Date: 2018/4/23
- * Time: 21:43
- */
+ini_set('display_errors', true);
+error_reporting(E_ALL);
+
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
@@ -18,14 +15,11 @@ if ($conn->connect_error) {
 }
 
 //get parameter from frontend.
-$semail = $_POST['semail'];
-$cname = $_POST['cname'];
-//prevent xss attack
-$semail = htmlspecialchars($semail, ENT_QUOTES);
-$cname = htmlspecialchars($cname, ENT_QUOTES);
+$semail = $_POST["semail"];
 
 //get token
 $token = $_POST["token"];
+
 //verify the token
 require("../../entity/JWT.php");
 $object_JWT = new JWT();
@@ -34,19 +28,21 @@ if (!$object_JWT->token_verify($token, $semail)){
     die ("Your token is not matched with your username");
 }
 
-//initialize response to frontend.
-$reponse = array();
-
-//insert tuple into backend database.
-$sql_init_student_follow = "INSERT INTO StudentFollowCompany (`semail`,`cname`) VALUES (?, ?);";
-$init_student_follow = $conn->prepare($sql_init_student_follow);
-$init_student_follow->bind_param('ss',$semail,$cname);
-if ($init_student_follow->execute()){
-    $response = "You have followed " . $cname . " succesfully.";
+if ( 0 < $_FILES['file']['error'] ) {
+    echo 'Error: ' . $_FILES['file']['error'] . '<br>';
 }
 else {
-    $response = "You have followed " . $cname . " before.";
+    $destination = 'uploads/' . $_FILES['file']['name'];
+    move_uploaded_file($_FILES['file']['tmp_name'], $destination);
 }
 
+//save file path to backend database.
+$sql_save_path = "update student set sresume = '$destination' WHERE semail = '$semail';";
+if(mysqli_query($conn, $sql_save_path) == True){
+    $response = "Upload successfully!";
+}
+else{
+    $response = "Upload unsuccessfully!";
+}
 echo $response;
 $conn->close();

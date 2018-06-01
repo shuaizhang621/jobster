@@ -19,7 +19,6 @@ export class CompanySearch extends React.Component {
 
     handleSearch = (value) => {
         console.log(value);
-        console.log(this.state.searchFor);
         this.setState({
             searched: true,
         });

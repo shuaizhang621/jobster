@@ -34,7 +34,6 @@ export class RegistrationForm extends React.Component {
                         sphone: values.sphone,
                         suniversity: values.suniversity,
                         smajor: values.smajor,
-                        sresume: values.sresume,
                     }
                 }).then((response) => {
                     message.success(response);
@@ -227,16 +226,6 @@ export class RegistrationForm extends React.Component {
                                 <FormItem>
                                     {getFieldDecorator('sgpa')(
                                         <Input placeholder="GPA"/>
-                                    )}
-                                </FormItem>
-                                <FormItem>  /* upload url... later...*/
-                                    {getFieldDecorator('sresume')(
-                                        <Dragger {...upProps}>
-                                            <p className="ant-upload-drag-icon">
-                                                <Icon type="inbox" />
-                                            </p>
-                                            <p className="ant-upload-text">Put your resume here to upload</p>
-                                        </Dragger>
                                     )}
                                 </FormItem>
                             </div>

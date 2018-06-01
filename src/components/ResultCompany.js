@@ -122,7 +122,7 @@ export class ResultCompany extends React.Component {
             data: {
                 semail: this.props.username,
                 jid: item.jid,
-                cname: 'ZhuYuanzhang',
+                cname: item.cname,
                 token: localStorage.getItem(TOKEN_KEY),
             },
         }).then((response) => {

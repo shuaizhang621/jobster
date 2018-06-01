@@ -1,8 +1,7 @@
 import React from 'react';
-import { Input, Avatar, Button, Form, Tooltip } from 'antd';
+import { Input, Avatar, Button, Form, message } from 'antd';
 import {API_ROOT, COLOR_LIST, TOKEN_KEY} from "../constants";
 import $ from "jquery";
-import {message} from "antd/lib/index";
 
 const FormItem = Form.Item;
 const { TextArea } = Input;
@@ -131,10 +130,12 @@ export class Poster extends React.Component {
                 jsalary: this.state.fields.jsalary.value,
                 jreq_diploma: this.state.fields.jreq_diploma.value,
                 jreq_experience: this.state.fields.jreq_experience.value,
-                jskills: this.state.fields.jreq_skills.value,
+                jreq_skills: this.state.fields.jreq_skills.value,
                 token: localStorage.getItem(TOKEN_KEY),
             },
         }).then((response) => {
+            let res = JSON.parse(response);
+            message.success(res.Update_JobAnnouncement);
             console.log(response);
         }, (error) => {
             message.error(error.responseText);

@@ -1,5 +1,6 @@
 <?php
-
+ini_set('display_errors', true);
+error_reporting(E_ALL);
 $response = array();
 $response['send_notification_to_followed_student'] = array();
 //the parameters that used for connecting to database.
@@ -57,13 +58,13 @@ else{
 
 //update the JobAnnouncement and Notification table.
 $sql_update_jobannouncement = "INSERT INTO JobAnnouncement (`jid`, `cname`,`jlocation`, `jtitle`,`jsalary`,
- `jreq_experience`, `jreq_skills`, `jreq_diploma`, `jdescription`)
-VALUES (?, ?,?,?, ?,?, ?, ?, ?);";
+ `jreq_experience`, `jreq_skills`, `jreq_diploma`, `jdescription`, `posttime`)
+VALUES (?, ?,?,?, ?,?, ?, ?, ?, now());";
 $update_jobannouncement = $conn->prepare($sql_update_jobannouncement);
-$update_jobannouncement->bind_param('sssssssss',$jid, $cname, $jlocation, $jtitle, $jsalary, $jsalary,
+$update_jobannouncement->bind_param('sssssssss',$jid, $cname, $jlocation, $jtitle, $jsalary,
      $jreq_experience,  $jreq_skills, $jreq_diploma, $jdescription);
 if ($update_jobannouncement->execute()){
-    $response['Update_JobAnnouncement'] = "Update job announcement successfully.".$jid;
+    $response['Update_JobAnnouncement'] = "Job announcement ID-" . $jid . " posted successfully.";
 }
 else{
     $response['Update_JobAnnouncement'] = "Database error:"."<br>".$conn->error;
@@ -93,10 +94,6 @@ if ($result_student_followed->num_rows > 0) {
             array_push($response['send_notification_to_followed_student'], $semailreceive);
         }
     }
-}
-else{
-    $response['send_notification_to_followed_student'] = "Database error:"."<br>"."$conn->error";
-    header('HTTP/1.0 403 Forbidden');
 }
 
 echo json_encode($response);

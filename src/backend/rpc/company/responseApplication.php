@@ -38,20 +38,20 @@ if (!$object_JWT->token_verify($token, $cname)){
 
 
 //initialize the response to frontend.
-$response = array();
+//$response = array();
 
 //update the backend database.
 $sql_update_application_accepted = "update StudentApplyJob set status = ? where aid = ?;";
 $update_application_accepted = $conn->prepare($sql_update_application_accepted);
 $update_application_accepted->bind_param('ss', $status, $aid);
 if ($update_application_accepted->execute()){
-    $response['update_status'] = "Updated successfully.";
+    $response = $status . " successfully.";
 }
 else
 {
     header('HTTP/1.0 403 Forbidden');
-    $reponse['update_status'] = "Database error:"."<br>"."$conn->error";
+    $reponse = "Database error:"."<br>"."$conn->error";
 }
-echo json_encode($response);
+echo $response;
 $conn->close();
 ?>

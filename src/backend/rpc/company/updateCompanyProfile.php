@@ -5,10 +5,11 @@
  * Date: 2018/4/20
  * Time: 14:13
  */
+
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
-$password = "";
+$password = "root";
 $dbname = "jobster";
 
 //create new connection and check if it is connected successfully.
@@ -44,7 +45,7 @@ if (!$object_JWT->token_verify($token, $cname)){
 
 
 //initialize response to frontend.
-$response = array();
+//$response = array();
 
 //update company information to backend database.
 $sql_update_company_info = "update Company set clocation = ?, cemail = ?, cindustry = ?, cdescription = ? 
@@ -52,11 +53,11 @@ $sql_update_company_info = "update Company set clocation = ?, cemail = ?, cindus
 $update_company_info = $conn->prepare($sql_update_company_info);
 $update_company_info->bind_param('sssss',$clocation, $cemail, $cindustry, $cdescription,$cname);
 if ($update_company_info->execute()){
-    $response['update_company_info'] = "Company user ".$cname.": Profile updated successfully!";
+    $response = "Company user ".$cname.": Profile updated successfully!";
 }
 else{
     $response = "ERROR: ".$sql_update_company_info."<br>".$conn->error;
 }
-echo json_encode($response);
+echo $response;
 $conn->close();
 ?>

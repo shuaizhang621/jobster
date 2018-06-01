@@ -1,4 +1,4 @@
-import { List, Button, Avatar, Modal, Switch } from 'antd';
+import { List, Button, Avatar, Modal, Switch, message } from 'antd';
 import React from 'react';
 import $ from 'jquery';
 import {COLOR_LIST, API_ROOT, TOKEN_KEY} from '../constants';
@@ -27,6 +27,7 @@ export class ItemContainer extends React.Component {
                 token: localStorage.getItem(TOKEN_KEY),
             },
         }).then((response) => {
+            message.success(response);
             console.log("backend response: ", response);
         }, (error) => {
             console.log(error);
@@ -79,10 +80,11 @@ export class ItemContainer extends React.Component {
             data: {
                 semail: this.props.username,
                 jid: item.jid,
-                cname: 'ZhuYuanzhang',
+                cname: item.cname,
                 token: localStorage.getItem(TOKEN_KEY),
             },
         }).then((response) => {
+            message.success(response);
             console.log(response);
         }, (error) => {
             console.log(error);
