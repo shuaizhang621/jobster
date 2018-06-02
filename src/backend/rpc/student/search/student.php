@@ -10,7 +10,6 @@
 require("../../../entity/classes.php");
 $objectStudentInfo = new personal_info();
 $objectRestrictedStudentInfo = new student_info_restircted();
-
 //the parameters that used for connecting to database.
 $servername = "localhost";
 $dbusername = "root";
@@ -23,12 +22,10 @@ if ($conn->connect_error) {
     die(json_encode(array('message' => "Connection failed: " . $conn->connect_error)));
 }
 
-//get parameter forntend.
-$semail = $_POST['semail'];
-$keyword = $_POST['keyword'];
-
 //get token
 $token = $_POST["token"];
+$semail = $_POST["semail"];
+$keyword = $_POST["keyword"];
 //verify the token
 require("../../../entity/JWT.php");
 $object_JWT = new JWT();
@@ -48,7 +45,7 @@ smajor  like '%$keyword%';";
 $result_search_student = mysqli_query($conn, $sql_search_student);
     if  ($result_search_student->num_rows > 0){
         while ($row = $result_search_student->fetch_assoc()){
-            if ($row['sprivacy'] == True) {
+            if ($row['sprivacy'] == False) {
                 $info = $objectStudentInfo->Build_personal_Info($row);
                 array_push($response, $info);
                 //            $response[$row['semail']] = $info;

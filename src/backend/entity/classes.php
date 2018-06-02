@@ -166,6 +166,8 @@ class student_info_restircted{
     public $sphone;
     public $sfirstname;
     public $slastname;
+    public $suniversity;
+    public $smajor;
     function Build_student_info_restricted($row)
     {
         $restrictedStudentInfo = new student_info_restircted();
@@ -173,6 +175,8 @@ class student_info_restircted{
         $restrictedStudentInfo->sphone = $row['sphone'];
         $restrictedStudentInfo->sfirstname = $row['sfirstname'];
         $restrictedStudentInfo->slastname = $row['slastname'];
+        $restrictedStudentInfo->suniversity = $row['suniversity'];
+        $restrictedStudentInfo->smajor= $row['smajor'];
         return $restrictedStudentInfo;
     }
 }

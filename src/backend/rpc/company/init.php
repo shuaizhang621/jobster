@@ -5,6 +5,10 @@
  * Date: 2018/4/17
  * Time: 23:01
  */
+
+//ini_set('display_errors', true);
+//error_reporting(E_ALL);
+
 // import the classes used in this file
 require("../../entity/classes.php");
 $objectJobInfo = new job_info();

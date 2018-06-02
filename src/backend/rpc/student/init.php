@@ -58,7 +58,11 @@ else{
 //query notifications of followed company and other students send from backend database.
 $temp_array3 = array();
 $sql_notification_unviewed = "select * from JobAnnouncement where jid in 
+<<<<<<< HEAD
 (Select jid from Notification where semailreceive = ? and status = 'unviewed');";
+=======
+(Select jid from notification where semailreceive = ? and status = 'unviewed') ORDER BY posttime DESC;";
+>>>>>>> 370b169c2ee3459f3e29c71de9ce24536e63f3d4
 $notification_unviewed = $conn->prepare($sql_notification_unviewed);
 $notification_unviewed->bind_param('s',$semail);
 $notification_unviewed->execute();
@@ -78,9 +82,13 @@ else{
 //query pending student friend request
 $temp_array = array();
 $sql_pending_friend_request = "select * from Student where semail in 
+<<<<<<< HEAD
 (select semailsend from StudentFriends where semailreceive = ? and status = 'unviewed');";
 $sql_pending_friend_request = "select * from Student where semail in 
 (select semailsend from StudentFriends where semailreceive = '$semail' and status = 'unviewed');";
+=======
+(select semailsend from studentfriends where semailreceive = ? and status = 'unviewed');";
+>>>>>>> 370b169c2ee3459f3e29c71de9ce24536e63f3d4
 $pending_friend_request = $conn->prepare($sql_pending_friend_request);
 $pending_friend_request->bind_param('s', $semail);
 $pending_friend_request->execute();

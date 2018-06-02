@@ -8,7 +8,7 @@ const FormItem = Form.Item;
 const Option = Select.Option;
 const Dragger = Upload.Dragger;
 
-class UpdateInfoForm extends React.Component {
+class UpdateCompanyForm extends React.Component {
     state = {
         confirmDirty: false,
         autoCompleteResult: [],
@@ -17,38 +17,6 @@ class UpdateInfoForm extends React.Component {
         fileList: [],
         uploading: false,
     };
-
-    handleUpload = () => {
-        const { fileList } = this.state;
-        const formData = new FormData();
-        fileList.forEach((file) => {
-            formData.append('file', file);
-            console.log(file);
-        });
-        formData.set('semail', this.props.username);
-        formData.set('token', localStorage.getItem(TOKEN_KEY));
-
-        this.setState({
-            uploading: true,
-        });
-
-        // You can use any AJAX library you like
-        $.ajax({
-            url: `${API_ROOT}/student/uploadResume.php`,
-            method: 'POST',
-            processData: false,
-            data: formData,
-            dataType: 'text',  // what to expect back from the PHP script, if anything
-            cache: false,
-            contentType: false,
-            processData: false,
-
-        }).then((response) => {
-            console.log(response);
-        }, (error) => {
-            console.log(error);
-        });
-    }
 
 
     componentDidUpdate() {
@@ -61,19 +29,17 @@ class UpdateInfoForm extends React.Component {
             if (!err) {
                 console.log('Received values of form: ', values);
                 $.ajax({
-                    url: `${API_ROOT}/student/updateStudentProfile.php`,
+                    url: `${API_ROOT}/company/updateCompanyProfile.php`,
                     method: 'POST',
                     data: {
                         usertype: this.props.usertype,
-                        semail: values.semail,
-                        skey: values.skey,
-                        sfirstname: values.sfirstname,
-                        slastname: values.slastname,
-                        sgpa: values.sgpa,
-                        sphone: values.sphone,
-                        suniversity: values.suniversity,
-                        smajor: values.smajor,
-                        sresume: values.sresume,
+                        cemail: values.cemail,
+                        ckey: values.ckey,
+                        cname: values.cname,
+                        cphone: values.cphone,
+                        cindustry: values.cindustry,
+                        cdescription: values.cdescription,
+                        clocation: values.clocation,
                         token: localStorage.getItem(TOKEN_KEY),
                     },
                 }).then((response) => {
@@ -90,27 +56,6 @@ class UpdateInfoForm extends React.Component {
         });
     }
 
-    handleConfirmBlur = (e) => {
-        const value = e.target.value;
-        this.setState({ confirmDirty: this.state.confirmDirty || !!value });
-    }
-
-    compareToFirstPassword = (rule, value, callback) => {
-        const form = this.props.form;
-        if (value && value !== form.getFieldValue('skey')) {
-            callback('Two passwords that you enter is inconsistent!');
-        } else {
-            callback();
-        }
-    }
-
-    validateToNextPassword = (rule, value, callback) => {
-        const form = this.props.form;
-        if (value && this.state.confirmDirty) {
-            form.validateFields(['confirm'], { force: true });
-        }
-        callback();
-    }
 
     render() {
         console.log("render:", this.props.info);
@@ -155,7 +100,7 @@ class UpdateInfoForm extends React.Component {
                             hasFeedback
                             validateStatus={this.state.validateStatus}
                         >
-                            {getFieldDecorator('semail', {
+                            {getFieldDecorator('cname', {
                                 rules: [{
                                     required: true,
                                     message: this.state.validateMessage,
@@ -168,23 +113,7 @@ class UpdateInfoForm extends React.Component {
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('sfirstname', {
-                                rules: [{ required: true, message: 'Please input your firstname.', whitespace: true }],
-                                initialValue: this.props.info.sfirstname,
-                            })(
-                                <Input placeholder="First Name"/>
-                            )}
-                        </FormItem>
-                        <FormItem>
-                            {getFieldDecorator('slastname', {
-                                rules: [{ required: true, message: 'Please input your lastname.', whitespace: true }],
-                                initialValue: this.props.info.slastname,
-                            })(
-                                <Input placeholder="Last Name"/>
-                            )}
-                        </FormItem>
-                        <FormItem>
-                            {getFieldDecorator('skey', {
+                            {getFieldDecorator('ckey', {
                                 rules: [{
                                     required: true, message: 'Please input your password.',
                                 }, {
@@ -206,50 +135,38 @@ class UpdateInfoForm extends React.Component {
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('sphone', {
+                            {getFieldDecorator('cemail', {initialValue: this.props.info.cemail})(
+                                <Input placeholder="Email"/>
+                            )}
+                        </FormItem>
+                        <FormItem>
+                            {getFieldDecorator('cphone', {
                                 rules: [{ required: true, message: 'Please input your phone number.' }],
-                                initialValue: this.props.info.sphone,
+                                initialValue: this.props.info.cphone
                             })(
                                 <Input placeholder="Phone Number" addonBefore={prefixSelector} style={{ width: '100%' }} />
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('suniversity', {
-                                initialValue: this.props.info.suniversity,
+                            {getFieldDecorator('clocation', {
+                                rules: [{ required: true, message: 'Please input your location.', whitespace: true }],
+                                initialValue: this.props.info.clocation
                             })(
-                                <Input placeholder="University"/>
+                                <Input placeholder="Address"/>
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('smajor', {
-                                initialValue: this.props.info.smajor,
-                            })(
-                                <Input placeholder="Major" />
+                            {getFieldDecorator('cindusty', {initialValue: this.props.info.cindustry,})(
+                                <Input placeholder="Industry"/>
                             )}
                         </FormItem>
                         <FormItem>
-                            {getFieldDecorator('sgpa', {
-                                initialValue: this.props.info.sgpa,
-                            })(
-                                <Input placeholder="GPA" />
+                            {getFieldDecorator('cdescription', {initialValue: this.props.info.cdescription})(
+                                <Input placeholder="Description"/>
                             )}
                         </FormItem>
-                        <div className="upload">
-                            <Upload {...props}>
-                                <Button>
-                                    <Icon type="upload" /> Select Resume
-                                </Button>
-                            </Upload>
-                            <Button
-                                className="upload-demo-start"
-                                type="primary"
-                                onClick={this.handleUpload}
-                                disabled={this.state.fileList.length === 0}
-                                loading={uploading}
-                            >
-                                {uploading ? 'Uploading' : 'Start Upload' }
-                            </Button>
-                        </div>
+
+
                         <FormItem>
                             <Button className="update-button" type="primary" htmlType="submit">Update</Button>
                         </FormItem>
@@ -260,4 +177,4 @@ class UpdateInfoForm extends React.Component {
     }
 }
 
-export const UpdateForm = Form.create()(UpdateInfoForm);
+export const UpdateCompany = Form.create()(UpdateCompanyForm);

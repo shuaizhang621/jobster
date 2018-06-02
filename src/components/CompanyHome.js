@@ -105,7 +105,10 @@ export class CompanyHome extends React.Component {
                                          key="1"
                                 >
                                     <Poster info={this.state.companyInfo}/>
-                                    <ApplicationContainer application={this.state.studentApplicationInfo}/>
+                                    <ApplicationContainer
+                                        application={this.state.studentApplicationInfo}
+                                        username={this.props.username}
+                                    />
                                 </TabPane>
                                 <TabPane className="tabpane"
                                          tab=

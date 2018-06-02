@@ -88,15 +88,28 @@ export class UserInfo extends React.Component {
         });
     }
 
-    onChange = (checked) => {
+    judgeCheck = (checked) => {
         let privacy;
         if (checked) {
             privacy = 1;
         } else {
             privacy = 0;
         }
+        return privacy;
+    }
+
+    judgeprivacy = (sp) => {
+        if (sp == 1) {
+            return false;
+        } else {
+            return true;
+        }
+    }
+
+    onChange = (checked) => {
+        let privacy = this.judgeCheck(checked);
         $.ajax({
-            url: `${API_ROOT}/student/updateStudentProfile.php`,
+            url: `${API_ROOT}/student/updateStudentPrivacy.php`,
             method: 'POST',
             data: {
                 sprivacy: privacy,
@@ -105,6 +118,9 @@ export class UserInfo extends React.Component {
             },
         }).then((response) => {
             console.log(response);
+            this.setState({
+                publicProfile: !checked,
+            })
         }, (error) => {
             console.log(error);
         });
@@ -148,7 +164,7 @@ export class UserInfo extends React.Component {
                         <Modal
                             title="Update Profile"
                             visible={this.state.visible}
-                            onOk={this.handleOk}
+                            footer={null}
                             onCancel={this.handleCancel}
                         >
                             <UpdateForm
@@ -160,7 +176,12 @@ export class UserInfo extends React.Component {
                     </div>
                     <div className='info-tools'>
                         {"Open to public:  "}
-                        <Switch className='switch' defaultChecked onChange={this.onChange} />
+                        <Switch
+                            className='switch'
+                            defaultChecked
+                            checked={this.judgeprivacy(this.state.publicProfile)}
+                            onChange={this.onChange}
+                        />
                     </div>
                 </div>
             </div>

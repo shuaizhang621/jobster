@@ -9,6 +9,7 @@
 require("../../entity/classes.php");
 $objectStudentInfo = new personal_info();
 $objectRestrictedStudentInfo = new student_info_restircted();
+
 require ("../../entity/class.pdf2text.php.php");
 $PDF_reader = new PDF2Text();
 
@@ -47,8 +48,8 @@ $sgpalower = $conn->real_escape_string($sgpalower);
 
 $cname = htmlspecialchars($cname, ENT_QUOTES);
 $keyword = htmlspecialchars($keyword, ENT_QUOTES);
-$keyword = htmlspecialchars($sgpahigh, ENT_QUOTES);
-$keyword = htmlspecialchars($sgpalower, ENT_QUOTES);
+$sgpahigh = htmlspecialchars($sgpahigh, ENT_QUOTES);
+$sgpalower = htmlspecialchars($sgpalower, ENT_QUOTES);
 
 
 //get token
@@ -77,7 +78,7 @@ if ($result_resume_path->num_rows > 0) {
             or (($row['sgpa']<=$sgpahigh)
                 and ($row['sgpa']>=$sgpalower)))
         {
-            if ($row['sprivacy'] == True) {
+            if ($row['sprivacy'] == False) {
                 $info = $objectStudentInfo->Build_personal_Info($row);
                 array_push($response, $info);
                 //            $response[$row['semail']] = $info;
