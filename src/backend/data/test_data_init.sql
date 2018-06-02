@@ -108,7 +108,7 @@ INSERT INTO `StudentFriends` VALUES ('cz1522@nyu.edu', 'sy1567@nyu.edu', 'unview
 */
 INSERT INTO `Notification` (`nid`, `companysend` , `semailreceive`, `jid`, `pushtime`, `status`)
 VALUES('1', 'ZhuYuanzhang', 'dx1368@nyu.edu', '2', '2018-04-12', 'unviewed');
-INSERT INTO `notification` (`nid`, `companysend` , `semailreceive`, `jid`, `pushtime`, `status`)
+INSERT INTO `Notification` (`nid`, `companysend` , `semailreceive`, `jid`, `pushtime`, `status`)
 VALUES('2', 'ZhuHoucong', 'sy1567@nyu.edu', '1', '2018-04-13', 'unviewed');
 
 /*format of message
