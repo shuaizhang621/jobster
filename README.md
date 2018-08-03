@@ -1,5 +1,9 @@
 # Jobster Introduction
 
+```json
+   Our server is currently under maintenance, sorry for the inconvenience.
+```
+
 ## Front-end design
 
 ### Login/Register
