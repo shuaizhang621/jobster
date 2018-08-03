@@ -1,4 +1,6 @@
-# Introduction of this project
+# Jobster Introduction
+
+## Front-end design
 
 ### Login/Register
 
@@ -101,24 +103,24 @@ Search for company is the same.
 
 Message tab. Student can find all message including history message here. Student can choose dialog by ghost button hidden in the friend list.
 
-<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG178.jpeg" width = "600" alt="login" align=center/>
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG179.jpeg" width = "600" alt="login" align=center/>
 
 ### Company Main Page
 Company page’s layout is similarly to the student’s. On initial, all the jobs posted by this company will be loaded.
 
-<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG179.jpeg" width = "600" alt="login" align=center/>
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG180.jpeg" width = "600" alt="login" align=center/>
 
 Companies can post job.
 
-<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG180.jpeg" width = "600" alt="login" align=center/>
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG181.jpeg" width = "600" alt="login" align=center/>
 
 Companies can see applicants information and deal with students application. 
 
-<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG181.jpeg" width = "300" alt="login" align=center/>
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG182.jpeg" width = "300" alt="login" align=center/>
 
 Company can also search for students by keywords as well as GPA range. Company can explore student’s information if this student set his privacy to public.
 
-<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG182.jpeg" width = "300" alt="login" align=center/>
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG183.jpeg" width = "300" alt="login" align=center/>
 
 
 
@@ -126,6 +128,12 @@ This project was bootstrapped with [Create React App](https://github.com/faceboo
 
 Below you will find some information on how to perform common tasks.<br>
 You can find the most recent version of this guide [here](https://github.com/facebookincubator/create-react-app/blob/master/packages/react-scripts/template/README.md).
+
+## Database design
+
+### ER-diagram:
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG184.jpeg" width = "600" alt="login" align=center/>
 
 ## Table of Contents
 
