@@ -1,3 +1,127 @@
+# Introduction of this project
+
+### Login/Register
+
+Entrance of this app:
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG157.jpeg" width = "600" alt="login" align=center/>
+
+When login fails we use class message from ant design to notify user:
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG158.jpeg" width = "600" alt="login" align=center/>
+
+Click <a> tag register now will navigate user to pre-register page.
+To choose type of user. We can do at the login page as well as the pre-register page.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG159.jpeg" width = "600" alt="login" align=center/>
+
+Student register page look like this:
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG160.jpeg" width = "600" alt="login" align=center/>
+
+We restricted the input format with regex chech:
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG161.jpeg" width = "600" alt="login" align=center/>
+
+Once the email is valid, the input will be sent to backend to check if this user already exist.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG162.jpeg" width = "300" alt="login" align=center/>
+
+An example of valid email:
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG163.jpeg" width = "300" alt="login" align=center/>
+
+When nothing is input and user pressed the register button, error will show.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG164.jpeg" width = "300" alt="login" align=center/>
+
+Company register page is almost the same.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG165.jpeg" width = "300" alt="login" align=center/>
+
+The first part is register and login:both student user and company user use the same page except for some part of registry. We have achieved to check the validation of username and password in real time when someone registered.
+
+### Student Main Page
+
+After login, student’s home page will show up.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG166.jpeg" width = "600" alt="login" align=center/>
+
+On the left is the student’s information. On the middle is all the job notification sent by his followed company and pushed by his friends. On the right is a list of his friends.
+
+On the user information dashboard. Student can find new friend request notification, update profile and reset privacy settings.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG167.jpeg" width = "600" alt="login" align=center/>
+
+Once clicked on the friend request button, new friend request will show as banner on the right top of the window. Once the accept/decline button is clicked. The bubble on the right shoulder of friend request button will decrease. When there’s no notification the bubble will not be shown.
+
+Once clicked on the update profile button. A modal will be rendered. Student can change information here. The initial value will be load and pre-written so that user will not need to type it twice.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG168.jpeg" width = "600" alt="login" align=center/>
+
+At the bottom of the update form is the Resume upload area. User can upload resume from here.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG169.jpeg" width = "600" alt="login" align=center/>
+
+After a file is selected, the upload button will be enabled.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG170.jpeg" width = "300" alt="login" align=center/>
+
+Once clicked on friends avatar. A popover with user’s information will be shown.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG171.jpeg" width = "300" alt="login" align=center/>
+
+In the middle is jobs
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG172.jpeg" width = "300" alt="login" align=center/>
+
+Student can apply, follow this company and share it with friends. Once share button is clicked, a friend list will pop out. Then, user can choose friends to share.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG173.jpeg" width = "300" alt="login" align=center/>
+
+After clicked on the search tab, a search box will show up. 
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG174.jpeg" width = "400" alt="login" align=center/>
+
+Student can be searched. If nothing is typed in the input box, all student will be shown (Since the database is pretty small at this time. This must be changed if there’s a huge amount of users).
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG175.jpeg" width = "600" alt="login" align=center/>
+
+Friend can be added and user information can be shown in a modal. If the student set privacy to non-public. The GPA and resume will not be shown. If the privacy is set to public, once the view resume is clicked. A new window will be opened with the resume inside.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG176.jpeg" width = "300" alt="login" align=center/>
+
+When we search “Master” in jobs. All job minimum requirement of master will show.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG177.jpeg" width = "600" alt="login" align=center/>
+
+Search for company is the same.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG178.jpeg" width = "600" alt="login" align=center/>
+
+Message tab. Student can find all message including history message here. Student can choose dialog by ghost button hidden in the friend list.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG178.jpeg" width = "600" alt="login" align=center/>
+
+### Company Main Page
+Company page’s layout is similarly to the student’s. On initial, all the jobs posted by this company will be loaded.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG179.jpeg" width = "600" alt="login" align=center/>
+
+Companies can post job.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG180.jpeg" width = "600" alt="login" align=center/>
+
+Companies can see applicants information and deal with students application. 
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG181.jpeg" width = "300" alt="login" align=center/>
+
+Company can also search for students by keywords as well as GPA range. Company can explore student’s information if this student set his privacy to public.
+
+<img src="https://raw.githubusercontent.com/shuaizhang621/jobster/master/readmeImage/WechatIMG182.jpeg" width = "300" alt="login" align=center/>
+
+
+
 This project was bootstrapped with [Create React App](https://github.com/facebookincubator/create-react-app).
 
 Below you will find some information on how to perform common tasks.<br>
