@@ -1,4 +1,5 @@
-export const API_ROOT = 'http://localhost:8081/jobster/src/backend/rpc';
+// export const API_ROOT = 'http://localhost:8081/jobster/src/backend/rpc';
+export const API_ROOT = 'http://34.215.137.189/jobster/src/backend/rpc';
 export const TOKEN_KEY = 'TOKEN_KEY';
 export const USER_NAME = 'USER_NAME';
 export const USER_TYPE = 'USER_TYPE';

@@ -2,32 +2,8 @@
 <project version="4">
   <component name="ChangeListManager">
     <list default="true" id="9482d9f3-c543-4ec6-bf94-db61a94ce15a" name="Default" comment="">
-      <change afterPath="$PROJECT_DIR$/src/backend/rpc/student/uploadResume.php" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/src/components/UpdateCompany.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/entity/classes.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/entity/classes.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/company/post.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/company/post.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/company/search.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/company/search.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/company/updateCompanyProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/company/updateCompanyProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/register.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/register.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/forward.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/forward.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/init.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/init.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/search/student.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/search/student.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/updateStudentPrivacy.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/updateStudentPrivacy.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/backend/rpc/student/updateStudentProfile.php" beforeDir="false" afterPath="$PROJECT_DIR$/src/backend/rpc/student/updateStudentProfile.php" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ApplicationContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ApplicationContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CompanyInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompanyInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/CompanyRegister.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/CompanyRegister.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ItemContainer.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ItemContainer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Poster.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Poster.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Register.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Register.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ResultCompany.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ResultCompany.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/ResultPeople.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/ResultPeople.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UpdateInfoForm.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UpdateInfoForm.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/UserInfo.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/UserInfo.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/ApplicationContainer.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/ApplicationContainer.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/CompanyHome.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/CompanyHome.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/styles/UpdateInfoForm.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/styles/UpdateInfoForm.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/constants.js" beforeDir="false" afterPath="$PROJECT_DIR$/src/constants.js" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="TRACKING_ENABLED" value="true" />
@@ -60,10 +36,21 @@
       <file leaf-file-name="MessageContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/MessageContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="405">
-              <caret line="27" column="86" lean-forward="true" selection-start-line="27" selection-start-column="86" selection-end-line="27" selection-end-column="86" />
+            <state relative-caret-position="15">
+              <caret line="27" column="86" selection-start-line="27" selection-start-column="86" selection-end-line="27" selection-end-column="86" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
+              </folding>
+            </state>
+          </provider>
+        </entry>
+      </file>
+      <file leaf-file-name="CompanySearchResult.js" pinned="false" current-in-tab="true">
+        <entry file="file://$PROJECT_DIR$/src/components/CompanySearchResult.js">
+          <provider selected="true" editor-type-id="text-editor">
+            <state>
+              <folding>
+                <element signature="e#0#53#0" expanded="true" />
               </folding>
             </state>
           </provider>
@@ -72,7 +59,7 @@
       <file leaf-file-name="CompanySearch.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/CompanySearch.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="270">
+            <state relative-caret-position="240">
               <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -84,7 +71,7 @@
       <file leaf-file-name="CompanyRegister.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/CompanyRegister.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
+            <state relative-caret-position="2760">
               <caret line="188" column="60" selection-start-line="188" selection-start-column="60" selection-end-line="188" selection-end-column="60" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -96,7 +83,7 @@
       <file leaf-file-name="CompanyInfo.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/CompanyInfo.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="425">
+            <state relative-caret-position="675">
               <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -108,7 +95,7 @@
       <file leaf-file-name="CompanyHome.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/CompanyHome.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="15">
+            <state relative-caret-position="435">
               <caret line="37" column="27" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="27" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
@@ -120,8 +107,8 @@
       <file leaf-file-name="ApplicationContainer.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/ApplicationContainer.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="570">
-              <caret line="179" column="41" lean-forward="true" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
+            <state relative-caret-position="2625">
+              <caret line="179" column="41" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
             </state>
           </provider>
         </entry>
@@ -129,8 +116,8 @@
       <file leaf-file-name="FriendsList.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/FriendsList.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-44">
-              <caret line="36" column="71" lean-forward="true" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+            <state relative-caret-position="510">
+              <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -138,11 +125,11 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="Home.js" pinned="false" current-in-tab="true">
+      <file leaf-file-name="Home.js" pinned="false" current-in-tab="false">
         <entry file="file://$PROJECT_DIR$/src/components/Home.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="2071">
-              <caret line="151" column="38" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
+            <state relative-caret-position="1590">
+              <caret line="114" column="46" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="46" />
               <folding>
                 <element signature="e#0#26#0" expanded="true" />
               </folding>
@@ -150,16 +137,13 @@
           </provider>
         </entry>
       </file>
-      <file leaf-file-name="messageLoad.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/messageLoad.php">
+      <file leaf-file-name="constants.js" pinned="false" current-in-tab="false">
+        <entry file="file://$PROJECT_DIR$/src/constants.js">
           <provider selected="true" editor-type-id="text-editor">
-            <state relative-caret-position="-23" />
+            <state relative-caret-position="30">
+              <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+            </state>
           </provider>
-        </entry>
-      </file>
-      <file leaf-file-name="messgeUpdate.php" pinned="false" current-in-tab="false">
-        <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/messgeUpdate.php">
-          <provider selected="true" editor-type-id="text-editor" />
         </entry>
       </file>
     </leaf>
@@ -204,7 +188,6 @@
         <option value="$PROJECT_DIR$/src/components/SearchContainer.js" />
         <option value="$PROJECT_DIR$/src/components/Login.js" />
         <option value="$PROJECT_DIR$/src/components/App.js" />
-        <option value="$PROJECT_DIR$/src/constants.js" />
         <option value="$PROJECT_DIR$/src/components/Main.js" />
         <option value="$PROJECT_DIR$/src/styles/FriendsList.css" />
         <option value="$PROJECT_DIR$/src/backend/rpc/student/search/company.php" />
@@ -247,6 +230,7 @@
         <option value="$PROJECT_DIR$/src/components/ResultCompany.js" />
         <option value="$PROJECT_DIR$/src/backend/rpc/register.php" />
         <option value="$PROJECT_DIR$/src/components/MessageContainer.js" />
+        <option value="$PROJECT_DIR$/src/constants.js" />
       </list>
     </option>
   </component>
@@ -263,7 +247,7 @@
   <component name="PhpWorkspaceProjectConfiguration" interpreter_name="MAMP PHP 5.6." />
   <component name="ProjectFrameBounds">
     <option name="x" value="117" />
-    <option name="y" value="37" />
+    <option name="y" value="22" />
     <option name="width" value="1563" />
     <option name="height" value="1012" />
   </component>
@@ -305,59 +289,6 @@
               <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
               <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="data" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="db" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="entity" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="rpc" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="rpc" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="company" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="rpc" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="student" type="2a2b976b:PhpTreeStructureProvider$1" />
-            </path>
-            <path>
-              <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
-              <item name="jobster" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="src" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="backend" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="rpc" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="student" type="2a2b976b:PhpTreeStructureProvider$1" />
-              <item name="search" type="2a2b976b:PhpTreeStructureProvider$1" />
             </path>
             <path>
               <item name="jobster" type="b2602c69:ProjectViewProjectNode" />
@@ -474,26 +405,26 @@
       <workItem from="1523819885870" duration="17207000" />
       <workItem from="1524011188672" duration="2247000" />
       <workItem from="1524079512747" duration="56625000" />
-      <workItem from="1525465342951" duration="35885000" />
+      <workItem from="1525465342951" duration="36417000" />
+      <workItem from="1525899353704" duration="2711000" />
+      <workItem from="1528740137583" duration="220000" />
     </task>
     <servers />
   </component>
   <component name="TimeTrackingManager">
-    <option name="totallyTimeSpent" value="261825000" />
+    <option name="totallyTimeSpent" value="265288000" />
   </component>
   <component name="ToolWindowManager">
-    <frame x="117" y="37" width="1563" height="1012" extended-state="0" />
-    <editor active="true" />
+    <frame x="117" y="22" width="1563" height="1012" extended-state="0" />
     <layout>
       <window_info anchor="bottom" id="TODO" order="6" />
-      <window_info anchor="bottom" id="PHP-CGI Server" order="10" />
       <window_info anchor="bottom" id="Event Log" order="12" side_tool="true" />
       <window_info anchor="bottom" id="Database Changes" order="8" show_stripe_button="false" />
       <window_info anchor="bottom" id="Run" order="2" weight="0.32996634" />
       <window_info anchor="bottom" id="Version Control" order="11" />
       <window_info anchor="bottom" id="Terminal" order="9" visible="true" weight="0.3169399" />
       <window_info anchor="right" id="Remote Host" order="3" />
-      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.21893491" />
+      <window_info active="true" content_ui="combo" id="Project" order="0" visible="true" weight="0.22419462" />
       <window_info anchor="bottom" id="Docker" order="7" show_stripe_button="false" />
       <window_info anchor="right" id="Database" order="4" visible="true" weight="0.16502301" />
       <window_info id="Structure" order="1" side_tool="true" weight="0.25" />
@@ -502,6 +433,7 @@
       <window_info anchor="right" content_ui="combo" id="Hierarchy" order="2" weight="0.25" />
       <window_info id="npm" order="2" side_tool="true" />
       <window_info anchor="bottom" id="Inspection" order="5" weight="0.4" />
+      <window_info anchor="bottom" id="PHP-CGI Server" order="10" />
       <window_info anchor="right" id="Commander" internal_type="SLIDING" order="0" type="SLIDING" weight="0.4" />
       <window_info anchor="right" id="Ant Build" order="1" weight="0.25" />
       <window_info anchor="bottom" id="Message" order="0" />
@@ -521,6 +453,80 @@
     </breakpoint-manager>
   </component>
   <component name="editorHistoryManager">
+    <entry file="file://$PROJECT_DIR$/src/components/FriendsList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="1590">
+          <caret line="114" column="46" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="46" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CompanyInfo.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="675">
+          <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CompanyHome.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="435">
+          <caret line="37" column="27" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="27" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/ApplicationContainer.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2625">
+          <caret line="179" column="41" lean-forward="true" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/FriendsList.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="510">
+          <caret line="36" column="71" lean-forward="true" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/Home.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="2145">
+          <caret line="151" column="38" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
+          <folding>
+            <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/rpc/company/responseApplication.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
@@ -532,9 +538,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="90">
           <caret line="6" column="18" selection-start-line="6" selection-start-column="18" selection-end-line="6" selection-end-column="18" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -542,17 +545,8 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-697">
           <caret line="43" column="55" selection-start-line="43" selection-start-column="55" selection-end-line="43" selection-end-column="55" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/dealFriends.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/notificationUpdate.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/sendFriend.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -582,21 +576,12 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/jobOfCompany.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/studentFollow.php">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="585">
           <caret line="44" column="50" selection-start-line="44" selection-start-column="50" selection-end-line="44" selection-end-column="50" />
         </state>
       </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/studentInfo.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/entity/constants.php">
-      <provider selected="true" editor-type-id="text-editor" />
     </entry>
     <entry file="file://$PROJECT_DIR$/src/backend/entity/classes.php">
       <provider selected="true" editor-type-id="text-editor">
@@ -626,16 +611,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/styles/ResultPeople.css">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ResultPeople.js">
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="223">
           <caret line="109" column="57" selection-start-line="109" selection-start-column="57" selection-end-line="109" selection-end-column="57" />
-          <folding>
-            <element signature="e#0#61#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -650,9 +629,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-240">
           <caret line="130" column="40" selection-start-line="130" selection-start-column="40" selection-end-line="130" selection-end-column="40" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -667,9 +643,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="396">
           <caret line="88" column="5" lean-forward="true" selection-start-line="72" selection-start-column="4" selection-end-line="88" selection-end-column="5" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -698,16 +671,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="312">
           <caret line="206" column="35" lean-forward="true" selection-start-line="185" selection-start-column="24" selection-end-line="206" selection-end-column="35" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/constants.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <caret column="71" selection-start-column="26" selection-end-column="71" />
         </state>
       </provider>
     </entry>
@@ -715,9 +678,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="458">
           <caret line="35" column="46" selection-start-line="35" selection-start-column="46" selection-end-line="35" selection-end-column="46" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -760,9 +720,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="-682">
           <caret line="84" column="14" selection-start-line="84" selection-start-column="13" selection-end-line="84" selection-end-column="14" />
-          <folding>
-            <element signature="e#0#68#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -770,18 +727,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="390">
           <caret line="26" column="42" selection-start-line="26" selection-start-column="31" selection-end-line="26" selection-end-column="42" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
-        </state>
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/components/Main.js">
-      <provider selected="true" editor-type-id="text-editor">
-        <state>
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -789,9 +734,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="107">
           <caret line="31" column="36" selection-start-line="31" selection-start-column="28" selection-end-line="31" selection-end-column="36" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -799,9 +741,6 @@
       <provider selected="true" editor-type-id="text-editor">
         <state relative-caret-position="253">
           <caret line="122" column="44" selection-start-line="122" selection-start-column="44" selection-end-line="122" selection-end-column="44" />
-          <folding>
-            <element signature="e#0#26#0" expanded="true" />
-          </folding>
         </state>
       </provider>
     </entry>
@@ -819,18 +758,10 @@
         </state>
       </provider>
     </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/messageLoad.php">
-      <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-23" />
-      </provider>
-    </entry>
-    <entry file="file://$PROJECT_DIR$/src/backend/rpc/student/messgeUpdate.php">
-      <provider selected="true" editor-type-id="text-editor" />
-    </entry>
     <entry file="file://$PROJECT_DIR$/src/components/MessageContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="405">
-          <caret line="27" column="86" lean-forward="true" selection-start-line="27" selection-start-column="86" selection-end-line="27" selection-end-column="86" />
+        <state relative-caret-position="15">
+          <caret line="27" column="86" selection-start-line="27" selection-start-column="86" selection-end-line="27" selection-end-column="86" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -839,7 +770,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CompanySearch.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="270">
+        <state relative-caret-position="240">
           <caret line="20" column="27" selection-start-line="20" selection-start-column="27" selection-end-line="20" selection-end-column="27" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -849,7 +780,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CompanyInfo.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="425">
+        <state relative-caret-position="675">
           <caret line="47" column="50" selection-start-line="47" selection-start-column="50" selection-end-line="47" selection-end-column="50" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -859,7 +790,7 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CompanyHome.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="15">
+        <state relative-caret-position="435">
           <caret line="37" column="27" selection-start-line="37" selection-start-column="24" selection-end-line="37" selection-end-column="27" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -869,14 +800,14 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/ApplicationContainer.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
-          <caret line="179" column="41" lean-forward="true" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
+        <state relative-caret-position="2625">
+          <caret line="179" column="41" selection-start-line="179" selection-start-column="41" selection-end-line="179" selection-end-column="41" />
         </state>
       </provider>
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/CompanyRegister.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="570">
+        <state relative-caret-position="2760">
           <caret line="188" column="60" selection-start-line="188" selection-start-column="60" selection-end-line="188" selection-end-column="60" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
@@ -886,8 +817,8 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/FriendsList.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="-44">
-          <caret line="36" column="71" lean-forward="true" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
+        <state relative-caret-position="510">
+          <caret line="36" column="71" selection-start-line="36" selection-start-column="71" selection-end-line="36" selection-end-column="71" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
           </folding>
@@ -896,10 +827,26 @@
     </entry>
     <entry file="file://$PROJECT_DIR$/src/components/Home.js">
       <provider selected="true" editor-type-id="text-editor">
-        <state relative-caret-position="2071">
-          <caret line="151" column="38" selection-start-line="151" selection-start-column="38" selection-end-line="151" selection-end-column="38" />
+        <state relative-caret-position="1590">
+          <caret line="114" column="46" selection-start-line="114" selection-start-column="46" selection-end-line="114" selection-end-column="46" />
           <folding>
             <element signature="e#0#26#0" expanded="true" />
+          </folding>
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/constants.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state relative-caret-position="30">
+          <caret line="2" column="37" selection-start-line="2" selection-start-column="37" selection-end-line="2" selection-end-column="37" />
+        </state>
+      </provider>
+    </entry>
+    <entry file="file://$PROJECT_DIR$/src/components/CompanySearchResult.js">
+      <provider selected="true" editor-type-id="text-editor">
+        <state>
+          <folding>
+            <element signature="e#0#53#0" expanded="true" />
           </folding>
         </state>
       </provider>
