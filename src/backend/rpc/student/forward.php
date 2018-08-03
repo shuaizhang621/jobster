@@ -75,7 +75,7 @@ else{
 }
 */
 foreach ($semailreceive as $student){
-    $result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from notification;");
+    $result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from Notification;");
     if ($result_max_nid->num_rows > 0){
         $nid = strval(intval($result_max_nid->fetch_assoc()['mnid']) + 1);
     }
@@ -83,7 +83,7 @@ foreach ($semailreceive as $student){
         $nid = 1;
     }
 //    echo $nid."<br>";
-    $sql_post_selected_student = "INSERT INTO notification(`nid`, `semailsend`, `semailreceive`, `jid`, `pushtime`, `status`)
+    $sql_post_selected_student = "INSERT INTO Notification(`nid`, `semailsend`, `semailreceive`, `jid`, `pushtime`, `status`)
     VALUES ('$nid', ?, ?, ?, CURDATE(), 'unviewed');";
     $post_selected_student = $conn->prepare($sql_post_selected_student);
     $post_selected_student->bind_param('sss',$semail,$student["semail"], $jid);

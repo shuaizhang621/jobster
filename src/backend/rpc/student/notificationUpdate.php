@@ -37,7 +37,7 @@ if (!$object_JWT->token_verify($token, $semail)){
 
 
 //update the notification status to 'viewed' at backend database.
-$sql_update_notification = "update notification set status = 'viewed' where nid = ?";
+$sql_update_notification = "update Notification set status = 'viewed' where nid = ?";
 $update_notification = $conn->prepare($sql_update_notification);
 $update_notification->bind_param('s',$nid);
 if ($update_notification->execute()){

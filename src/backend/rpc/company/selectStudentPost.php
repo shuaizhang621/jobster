@@ -51,7 +51,7 @@ $response = array();
 //query all the student that followed and update notification
 
 foreach ($student_array as $student){
-    $result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from notification;");
+    $result_max_nid  = mysqli_query($conn,"select max(nid) as mnid from Notification;");
     if ($result_max_nid->num_rows > 0){
         $nid = strval(intval($result_max_nid->fetch_assoc()['mnid']) + 1);
     }

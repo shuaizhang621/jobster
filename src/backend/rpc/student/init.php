@@ -58,7 +58,7 @@ else{
 //query notifications of followed company and other students send from backend database.
 $temp_array3 = array();
 $sql_notification_unviewed = "select * from JobAnnouncement where jid in 
-(Select jid from notification where semailreceive = ? and status = 'unviewed') ORDER BY posttime DESC;";
+(Select jid from Notification where semailreceive = ? and status = 'unviewed') ORDER BY posttime DESC;";
 $notification_unviewed = $conn->prepare($sql_notification_unviewed);
 $notification_unviewed->bind_param('s',$semail);
 $notification_unviewed->execute();
@@ -77,8 +77,8 @@ else{
 
 //query pending student friend request
 $temp_array = array();
-$sql_pending_friend_request = "select * from student where semail in 
-(select semailsend from studentfriends where semailreceive = ? and status = 'unviewed');";
+$sql_pending_friend_request = "select * from Student where semail in 
+(select semailsend from StudentFriends where semailreceive = ? and status = 'unviewed');";
 $pending_friend_request = $conn->prepare($sql_pending_friend_request);
 $pending_friend_request->bind_param('s', $semail);
 $pending_friend_request->execute();
@@ -96,8 +96,8 @@ else{
 
 //query friends of a student
 $temp_array4 = array();
-$sql_friend_list = "select * from student where semail in 
-(select semailsend from studentfriends where semailreceive = ? and status = 'Accepted') 
+$sql_friend_list = "select * from Student where semail in 
+(select semailsend from StudentFriends where semailreceive = ? and status = 'Accepted') 
 or semail in (select semailreceive from StudentFriends where semailsend =? and status = 'Accepted');";
 $friend_list = $conn->prepare($sql_friend_list);
 $friend_list->bind_param('ss',$semail,$semail);
